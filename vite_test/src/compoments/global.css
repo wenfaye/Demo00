@@ -1,0 +1,112 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-wrap {
+    background-color: white;
+    width: 300px;
+    height: 600px;
+    border-radius: 10px;
+    filter: blur(2px);
+    opacity: .9;
+}
+
+.container1 {
+    height: 100%;
+}
+
+.sidebar {
+    padding: 30px 70px;
+    float: left;
+    margin-right: 24%;
+    background-color: rgba(39, 39, 39, .92);
+    height: 100%;
+}
+
+.main {
+    background-color: rgba(255, 255, 255, .8);
+    height: 100%;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/*----------*/
+.localnav-background {
+    width: 100%;
+    height: 1000px;
+    transition: background-color .5s cubic-bezier(.28, .11, .32, 1);
+}
+
+@supports ((-webkit-backdrop-filter:initial) or (backdrop-filter:initial)) {
+    .localnav-background.sticking {
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(255, 255, 255, .72);
+    }
+}
+
+/*----------*/
+.flex-content {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    /* width: min(1340px,90%); */
+    max-width: 1140px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-content li {
+    /* width: calc(33% - 18px); */
+    height: 445px;
+    min-width: calc(33% - 18px);
+    background-color: #da6d8320;
+    flex: 0 1;
+    /* box-shadow: inset 0 140px 72px 0 #da6d8320,inset 0 0 0 1px #da6d8320; */
+    box-shadow: inset 0 140px 72px 0 #da6d8320, inset 0 0 0 1px #da6d8320;
+    transition: .2s ease;
+    transition-property: background-color, box-shadow, border-radius, -webkit-box-shadow;
+}
+
+.flex-content li:hover {
+    /* box-shadow: inset 0 140px 72px 0 #da6d8344,inset 0 0 0 1px #da6d8344; */
+    box-shadow: inset 0 140px 72px 0 #da6d8344, inset 0 0 0 1px #da6d8344;
+}
+
+/*----------*/
+.frostedGlass-container {
+    width: 300px;
+    height: 260px;
+    position: relative;
+}
+
+@supports ((-webkit-backdrop-filter:initial) or (backdrop-filter:initial)) {
+    .frostedGlass-background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        background-color: rgba(255, 255, 255, .72);
+        top:0;
+        left: 0;
+    }
+}
+
+.frostedGlass-container img {
+    width: 300px;
+    height: 260px;
+}

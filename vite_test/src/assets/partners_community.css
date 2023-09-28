@@ -1,0 +1,17 @@
+.community-partners-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    width: min(90%,1340px);
+    gap: 64px 92px;
+}
+.community-partners-container a{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+.community-partners-container img{
+    height: 52px;
+    max-width: 160px;
+    object-fit: contain;
+}

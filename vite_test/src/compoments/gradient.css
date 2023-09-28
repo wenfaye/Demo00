@@ -1,0 +1,11 @@
+.wrap1 {
+    width: 500px;
+    height: 500px;
+    /* --linear:linear-gradient(130deg,#d3a237 30%,#ce93bf 70%); */
+    /* --linear:linear-gradient(45deg,#ee7959 0% 25%, #662b2f 25% 75%, #ee7959 75%); */
+    /* --linear:linear-gradient(red 10%, 30%, blue 90%); */
+    --linear:linear-gradient(to right, #369 75%,#396 75%);
+    background-image: var( --linear);
+    transform-origin: center 50px;
+    transform: rotateX(-0.60deg) rotateY(-0.25deg);;
+}
