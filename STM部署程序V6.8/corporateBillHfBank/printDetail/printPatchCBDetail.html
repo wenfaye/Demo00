@@ -1,0 +1,53 @@
+<style>
+    .grid-body {
+        font-size: 0.25rem;
+    }
+	.grid-row {
+        min-height: 0.458rem;
+    }
+    .grid-ck {
+        height: 0.458rem;
+    }
+    .pjf_stm_bottom {
+        display: flex;
+    	justify-content: center;
+    }
+    .stm-btn{
+    	 line-height: 28px;
+    }
+</style>
+<div id="content_id">
+	<div class='pjf_stm_title' id="bill_count">&nbsp;<span id="cbCount"></span></div>
+	<div class='pjf_stm_title' id="attachment_count" style="display:none">&nbsp;<span id="attachmentCount"></span></div>
+	<div id="cb_tab"></div>
+	<div id="bill_div">
+		<div class='pjf_stm_content'>
+			<div id="printPatchCB_grid"></div>
+			<span id="cb_prePage"></span>
+			<span id="desc" class="pagination-page-desc"></span>
+			<span id="cb_nextPage"></span>
+		</div>
+	</div>
+	<div id="attachment_div">
+		<div class='pjf_stm_content'>
+			<div id="printAttachment_grid"></div>
+			<span id="attachment_prePage"></span>
+			<span id="attachment_desc" class="pagination-page-desc"></span>
+			<span id="attachment_nextPage"></span>
+		</div>
+	</div>
+	
+	<div class='pjf_stm_bottom'>
+		<span id="returnBtn"></span> <span id="printBtn"></span> <span id="printAllBtn"></span> <span id="conditionBtn"></span>
+	</div>
+	<div id="printCBHtml" style="display:none"></div>
+</div>
+<div id="preview_id" style="display:none">
+	<div class='pjf_stm_content'>
+		<div id="preview_content" style="margin: 10px 1%;"></div>
+	</div>
+	
+	<div class='pjf_stm_bottom' align="right">
+		<span id="preview_returnBtn"></span>
+	</div>
+</div>

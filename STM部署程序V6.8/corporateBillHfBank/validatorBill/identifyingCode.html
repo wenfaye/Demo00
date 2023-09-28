@@ -1,0 +1,33 @@
+<style>
+    .lagClass{
+        text-align:left;
+        font-size: 0.33rem;
+        width: 3rem;
+    }
+    .fieldClass{
+        text-align:left;
+        font-size: 0.33rem
+    }
+    .pjf_stmtextfield_msg{
+	    top: .8rem !important;
+	}
+</style>
+<div class="pjf_stm_title">请输入您的打印日期以及验证码</div>
+<div class="pjf_stm_content " id="identifyingInfo">
+    <table style="width: 99%;margin-top:0.8rem;margin-left:0.7rem;">
+        <tr class='trClass'>
+            <td class='lagClass'><span style="color: red">*</span>打印日期:</td>
+            <td class='fieldClass'><span class="selectdate" id="Txn_Dt"></td>
+        </tr>
+        <tr style=" height: 0.3rem;"></tr>
+        <tr class='trClass'>
+            <td class='lagClass'><span style="color: red">*</span>回单验证码:</td>
+            <td class='fieldClass'><input id="SMS_Vld_CD" maxlength="12"/></td>
+        </tr>
+    </table>
+</div>
+<div class="pjf_stm_bottom">
+    <span id="returnBtn"></span>
+    <span id="confirmBtn"></span>
+    <span id="logoutBtn"></span>
+</div>

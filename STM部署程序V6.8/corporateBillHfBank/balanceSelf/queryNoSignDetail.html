@@ -1,0 +1,41 @@
+<style>
+    #selectTime .checkbox-container {
+        vertical-align: top;
+        
+    }
+
+    #selectTime .list-item-checkbox {
+        padding: 0rem 0.05rem;
+    }
+</style>
+
+<div class='pjf_stm_title'>请选择查询条件</div>
+
+<div class='pjf_stm_content'>
+	<br> <br>
+	<div class='pjf_stm_content_left' style="width: 100%;padding-left: .5rem" >
+		<div  style="font-size: .3rem;font-weight:bold">
+			<label>账号：</label><span id="accountNo"></span>
+		</div>
+		<br>
+		<div style="font-size: .3rem;font-weight:bold;">
+			<label>账单开始日期：</label><span class="selectdate" id="startTime"></span>
+		</div>
+		<br>
+		<div style="font-size: .3rem;font-weight:bold">
+			<label>账单结束日期：</label><span class="selectdate" id="endTime"></span>
+		</div>
+		<br>
+		<div style="font-size: .3rem;font-weight:bold">
+			<label>账户类别：</label><span id="accountType"></span>
+		</div>
+		<br>
+		<div style="font-size: .3rem;font-weight:bold">
+			<label>币别：</label><span id="moneyType"></span>
+		</div>
+	</div>
+</div>
+
+<div class='pjf_stm_bottom'>
+	<span id="returnBtn"></span> <span id="confirmBtn"></span>
+</div>

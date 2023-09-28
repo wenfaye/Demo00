@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<outbound-services>	
+<!-- 
+	查询类 
+	使用时 service id 不能为空  必须跟页面请求服务id一致
+	request-mapping-id 命名规则  为  serviceid + '-request'
+	例如：
+	<service id="A00001-HF" type="020000" request-mapping-id="A00001-HF-request" response-mapping-id="p2XmlFull2Map" 
+		endpoint-id="local_host">
+        <connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+  -->
+	<!-- 回单查询服务: A07824601 -->
+	<service id="A07824601-HF" type="020000" transaction-id="A07824601" request-mapping-id="A07824601-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单预览服务: A07824602 -->
+	<service id="A07824602-HF" type="020000" is-get-file="true" transaction-id="A07824602" request-mapping-id="A07824602-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单打印服务: A07824603 -->
+	<service id="A07824603-HF" type="020000" is-get-file="true" transaction-id="A07824603" request-mapping-id="A07824603-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="300000" request-timeout="300000" />
+	</service>
+		<!-- 回单打印登记服务: A07824604 -->
+	<service id="A07824604-HF" type="020000" is-get-file="true" transaction-id="A07824604" request-mapping-id="A07824604-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单签约服务: A07824608 -->
+	<service id="A07824608-HF" type="020000" transaction-id="A07824608" request-mapping-id="A07824608-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单解约服务: A07824609 -->
+	<service id="A07824609-HF" type="020000" transaction-id="A07824609" request-mapping-id="A07824609-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单签约信息查询服务: A07824611 -->
+	<service id="A07824611-HF" type="020000" transaction-id="A07824611" request-mapping-id="A07824611-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 查询批扣明细信息: A07824612 -->
+	<service id="A07824612-HF" type="020000" transaction-id="A07824612" request-mapping-id="A07824612-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 账页查询服务: A07824613 -->
+	<service id="A07824613-HF" type="020000" transaction-id="A07824613" request-mapping-id="A07824613-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 账页打印服务: A07824614 -->
+	<service id="A07824614-HF" type="020000" is-get-file="true" transaction-id="A07824614" request-mapping-id="A07824614-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- 账页打印登记服务: A07824615 -->
+	<service id="A07824615-HF" type="020000" transaction-id="A07824615" request-mapping-id="A07824615-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单柜登录服务: A07824616 -->
+	<service id="A07824616-HF" type="020000" transaction-id="A07824616" request-mapping-id="A07824616-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 密码修改服务: A07824617 -->
+	<service id="A07824617-HF" type="020000" transaction-id="A07824617" request-mapping-id="A07824617-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- 密码重置服务: A07824618 -->
+	<service id="A07824618-HF" type="020000" transaction-id="A07824618" request-mapping-id="A07824618-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+		<!-- 回单批处理任务查询服务: A07824619 -->
+	<service id="A07824619-HF" type="020000" transaction-id="A07824619" request-mapping-id="A07824619-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+			<!-- 数据导出: A07824620 -->
+	<service id="A07824620-HF" type="020000" transaction-id="A07824620" request-mapping-id="A07824620-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+			<!-- 回单签约明细查询服务: A07824621 -->
+	<service id="A07824621-HF" type="020000" transaction-id="A07824621" request-mapping-id="A07824621-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- 查询余额数据: A0181S403 -->
+	<service id="A0181S403-HF" type="020000" transaction-id="A0181S403" request-mapping-id="A0181S403-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="p6-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	
+	 <!-- 电子印章管理-查询电子印章已生效参数列表   A0161M538 -->
+    <service id="A0161M538-HF" transaction-id="A0161M538" type="020000" request-mapping-id="A0161M538-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote"  />
+    
+    <!--  file-deposit="/home/ap/share/file/input/bsmp"  version="01"-->
+	<service id="A0161M539-HF" transaction-id="A0161M539" type="020000"
+		request-mapping-id="A0161M539-HF-request" response-mapping-id="p2XmlFull2Map"
+		endpoint-id="esb-http" seek-type="remote" is-get-file="true" />
+	
+	<!-- A0782T023 -->
+	<service id="A0782T023-HF" type="020000" transaction-id="A0782T023" request-mapping-id="A0782T023-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0782T024 -->
+	<service id="A0782T024-HF" type="020000" transaction-id="A0782T024" request-mapping-id="A0782T024-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0782T025 -->
+	<service id="A0782T025-HF" type="020000" transaction-id="A0782T025" request-mapping-id="A0782T025-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0782T028 -->
+	<service id="A0782T028-HF" type="020000" transaction-id="A0782T028" request-mapping-id="A0782T028-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0181S401 账号户名反显-员工渠道-->
+	<service id="A0181S401-HF" type="020000" transaction-id="A0181S401" request-mapping-id="A0181S401-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="p6-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0181S405  对公活期存款交易明细查询 -->
+	<service id="A0181S405-HF" type="020000" transaction-id="A0181S405" request-mapping-id="A0181S405-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="p6-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+	<!-- A0782T011  帐页下载服务 -->
+	<service id="A0782T011-HF" is-get-file="true" type="020000" transaction-id="A0782T011" request-mapping-id="A0782T011-HF-request" response-mapping-id="p2XmlFull2Map" endpoint-id="esb-http" seek-type="remote">
+		<connect-policy connect-timeout="60000" request-timeout="60000" />
+	</service>
+</outbound-services>

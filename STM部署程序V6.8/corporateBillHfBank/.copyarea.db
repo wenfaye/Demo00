@@ -1,0 +1,19 @@
+ClearCase CopyAreaDB|4
+vobs\NIS_P2_STM\P2_STM\stm\page\stm\corporateBillNew
+2
+f
+b:accountType|2|0|0|0|ad7d6e1b32cd458ea5cf39a4ea58fd73|0
+10:selfServiceHints|2|0|0|0|8df05ac602c711eb8fa3005056b0467d|0
+8:emidCard|2|0|0|0|a782b8e97240454b84d2d81c0e39debf|0
+b:queryDetail|2|0|0|0|3bce894a5b104492a2f5d64bd326fbed|0
+b:printDetail|2|0|0|0|c682277b75084f479f3d24514cfa6b11|0
+b:balanceSelf|2|0|0|0|8ea05ad202c711eb8fa3005056b0467d|0
+c:balanceQuery|2|0|0|0|f8dfad33a36b4fc98ede5573c8134820|0
+23:menuInterceptor-corporateBillNew.js|1|175b4e3f5c6|793a|fcc2b0d5|2ffeeffece7e47dcba2203e1235c8e09|0
+10:scanVerification|2|0|0|0|8c305aae02c711eb8fa3005056b0467d|0
+8:payCheck|2|0|0|0|f248a952848c46aeb5df156fc94329bf|0
+9:pwdChange|2|0|0|0|acaec0176f274c909a69e9bd3ddcaf2f|0
+17:cfg-corporateBillNew.js|1|175b4e3f4dc|1b36|fe4f8cde|fc1923a786eb4a40bdb780d9d50f3d2e|0
+6:common|2|0|0|0|8ce05aba02c711eb8fa3005056b0467d|0
+b:queryNotice|2|0|0|0|fef62758995948b18bc41654002aaa0d|0
+10:ledgerPageDetail|2|0|0|0|11c6af045f83454780bff50908336445|0

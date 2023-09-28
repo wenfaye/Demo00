@@ -1,0 +1,50 @@
+<style>
+    .grid-body {
+        font-size: 0.25rem;
+    }
+	.grid-row {
+        min-height: 0.458rem;
+    }
+    .grid-ck {
+        height: 0.458rem;
+    }
+    .accNo-wrap{
+     	font-size: .3rem;
+    	font-weight: bold;
+    	text-align: left;
+    	padding-left: .5rem;
+    }
+    .accNo-wrap li{
+    margin-bottom: .1rem;
+    }
+    .pjf_stm_bottom{
+    display: flex;
+    justify-content: center;
+    }
+    #Cst_AccNo_Nm-wrap{
+    display:none;
+    }
+</style>
+<div class='pjf_stm_title'>余额查询</div>
+<div class='pjf_stm_content'>
+
+	<ul class="accNo-wrap">
+		<li>账        号:<span id='accNoBalance'></span></li>
+		<li id="Cst_AccNo_Nm-wrap">账号名称:<span id='Cst_AccNo_Nm'></span></li>
+	</ul>
+	
+	<div>
+		<span id="searchBtn"></span>
+	</div>
+	<br>
+	<div id="queryResultGrid" style="padding-left: 0.2rem"></div>
+	
+	<!-- <span id="desc" class="pagination-page-desc"></span> -->
+	
+</div>
+<div class='pjf_stm_bottom'>
+	<span id="cb_prePage"></span>
+	<span id="cb_nextPage"></span>
+	<span id="returnBtn"></span>
+	<span id="logoutBtn"></span>
+</div>

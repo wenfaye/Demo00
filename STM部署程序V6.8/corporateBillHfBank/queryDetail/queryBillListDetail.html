@@ -1,0 +1,53 @@
+<style>
+    #selectTime .checkbox-container {
+        vertical-align: top;
+    }
+
+    #selectTime .list-item-checkbox {
+        padding: 0rem 0.05rem;
+    }
+    #stateId .checkbox-container {
+        vertical-align: top;
+    }
+
+    #stateId .list-item-checkbox {
+        padding: 0rem 0.05rem;
+    }
+</style>
+
+<div class='pjf_stm_title'>请选择查询条件</div>
+
+<div class='pjf_stm_content'>
+	<br> <br>
+	<div class='pjf_stm_content_left' style="width: 100%;padding-left: .5rem" >
+		<div  style="font-size: .3rem;font-weight:bold">
+			<label>账号：</label><span id="accountNo"></span>
+		</div>
+		<br>
+		<br>
+		<div  style="font-size: .3rem;font-weight:bold">
+			<label>账期选择：</label><div id="selectTime" style="line-height: 0.40rem;display: inline-block;vertical-align: top;padding-top: 0.05rem"></div>
+		</div>
+		<div id="timeId" style="display: none;">
+			<br>
+			<br>
+			<div style="font-size: .3rem;font-weight:bold;">
+				<label>输入开始日期：</label><span class="selectdate" id="startTime"></span>
+			</div>
+			<br>
+			<br>
+			<div style="font-size: .3rem;font-weight:bold">
+				<label>输入结束日期：</label><span class="selectdate" id="endTime"></span>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div  style="font-size: .3rem;font-weight:bold">
+			<label>状态：</label><div id="stateId" style="line-height: 0.40rem;display: inline-block;vertical-align: top;padding-top: 0.05rem"></div>
+		</div>
+	</div>
+</div>
+
+<div class='pjf_stm_bottom'>
+	<span id="returnBtn"></span> <span id="confirmBtn"></span>
+</div>

@@ -1,0 +1,14 @@
+ClearCase CopyAreaDB|4
+vobs\NIS_P2_STM\P2_STM\stm\page\stm\corporateBillNew\queryDetail
+2
+a
+10:queryCBResult.js|1|175b4e401f2|6964|10e29798|5632ef4a024f4d62a491b02de313a5f6|0
+16:queryBillListResult.js|1|175b4e4013f|3e82|e2d662c6|9a5af6560f164a1388c112a99afca986|0
+10:printCBOption.js|1|1725430431b|e02|5e2d25c6|f72e371ffaf04ffc88f0cd0ada0c9811|0
+18:queryBillListResult.html|1|1725430443e|512|1b7e8dbf|250fa390898f4e61a23b1f95d3fc0ffc|0
+18:queryBillListDetail.html|1|172543043a6|635|e6980af1|69ca07b0dd484ff785768add71d7aa86|0
+12:printCBOption.html|1|172543042c0|3fa|d95b6c49|794a2663b3244d058c4f413c0f5afe1a|0
+16:queryBillListDetail.js|1|17254304416|1922|1c022607|2547dc0c53da4cfaa8cf9c976bc78a0f|0
+10:queryCBDetail.js|1|17254304567|40e9|57dcaf35|64f004e8a5a3437ea4284d449ca57ffe|0
+12:queryCBResult.html|1|172543045a4|3a9|fbc8213b|1a35b7e4bd7a40be85136f31273001b1|0
+12:queryCBDetail.html|1|172543044bf|7e1|277b8ba0|9f540c6b4d554c8b97ab2e4cf4d34d93|0

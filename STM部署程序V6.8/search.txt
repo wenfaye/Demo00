@@ -1,0 +1,1 @@
+{title : "凭证种类",field : "Vchr_Ctlg_Nm",align : 'center',width:180 },

@@ -1,0 +1,48 @@
+<style>
+    .grid-body {
+        font-size: 0.25rem;
+        
+    }
+	.grid-row {
+        min-height: 0.458rem;
+        
+    }
+</style>
+<div id="content_id">
+	<div class='pjf_stm_title'>明细查询打印</div>
+	
+	<div class='pjf_stm_content'>
+		<div style="font-size: .3rem; font-weight: bold">
+			<table style="width: 12rem;padding-left: 0.2rem;">
+				<tr>
+					<td align="left" style="width: 5rem;">
+						<label>账号：</label> <span id="acctNo"></span>
+					</td>
+					<td align="left" style="width: 7rem;">
+						<label>户名：</label> <span	id="acctName"></span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="queryCB_grid" style="padding-left: 0.2rem"></div>
+		<span id="cb_prePage"></span>
+		<span id="desc" class="pagination-page-desc"></span>
+		<span id="cb_nextPage"></span>
+	</div>
+	
+	<div class='pjf_stm_bottom' align="right">
+		<span id="returnBtn"></span>
+		<span id="printBtn"></span>
+		<span id="printAllBtn"></span>
+	</div>
+	<div id="printCBHtml" style="display:none"></div>
+</div>
+<div id="preview_id" style="display:none">
+	<div class='pjf_stm_content'>
+		<div id="preview_content" style="margin: 10px 1%;"></div>
+	</div>
+	
+	<div class='pjf_stm_bottom' align="right">
+		<span id="preview_returnBtn"></span>
+	</div>
+</div>

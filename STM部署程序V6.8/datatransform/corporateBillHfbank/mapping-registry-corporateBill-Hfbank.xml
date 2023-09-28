@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mappings>
+	<!-- CCMS常用域请求报文头 -->
+	<segment id="STM_CCMS_REQ_INFO_HF">
+		<template>
+			<![CDATA[
+			<ENTITY>
+				<CCMS_REQ_INFO>
+					<Version>01</Version>
+					<TxCode>${(TxCode)!}</TxCode>
+					<chanl_cust_no>${(chanl_cust_no)!}</chanl_cust_no>
+					<OPR_NO>${(OPR_NO)!}</OPR_NO>
+					<TxDate>${(SYS_REQ_TIME?substring(0, 8))!}</TxDate>
+					<TxTime>${(SYS_REQ_TIME?substring(8, 14))!}</TxTime>
+					<SYS_EVT_TRACE_ID>${(SYS_EVT_TRACE_ID)!}</SYS_EVT_TRACE_ID>
+				</CCMS_REQ_INFO>
+			]]>
+		</template>
+	</segment>
+	<!-- CCMS常用域请求报文头 -->
+	<mapping id="STM_CCMS_REQ_INFO_HF" parser="bean2TextParser"
+		transformer="bean2TextTransformer">
+		<template><![CDATA[
+			<ENTITY>
+				<CCMS_REQ_INFO>
+					<Version>01</Version>
+					<TxCode>${(TxCode)!}</TxCode>
+					<chanl_cust_no>${(chanl_cust_no)!}</chanl_cust_no>
+					<OPR_NO>${(OPR_NO)!}</OPR_NO>
+					<TxDate>${(SYS_REQ_TIME?substring(0, 8))!}</TxDate>
+					<TxTime>${(SYS_REQ_TIME?substring(8, 14))!}</TxTime>
+					<SYS_EVT_TRACE_ID>${(SYS_EVT_TRACE_ID)!}</SYS_EVT_TRACE_ID>
+				</CCMS_REQ_INFO>
+			]]>
+		</template>
+	</mapping>
+	<!-- 子账薄交易回单查询，原柜面：100030015   P2：HCMS0S029  -->
+	<!--<mapping id="HCMS0S029-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[
+				<#include "message-header">
+				<ENTITY>
+					<AccNo>${"\l![CDATA[${(AccNo)!}]]\g"}</AccNo>
+					<Cst_No>${"\l![CDATA[${(Cst_No)!}]]\g"}</Cst_No>
+					<Mnplt_Usr_ID>${"\l![CDATA[${(Mnplt_Usr_ID)!}]]\g"}</Mnplt_Usr_ID>
+					<Ccy>${"\l![CDATA[${(Ccy)!}]]\g"}</Ccy>
+					<TxnAmt>${"\l![CDATA[${(TxnAmt)!}]]\g"}</TxnAmt>
+					<Txn_Hpn_Dt>${"\l![CDATA[${(Txn_Hpn_Dt)!}]]\g"}</Txn_Hpn_Dt>
+					<Prt_Tp>${"\l![CDATA[${(Prt_Tp)!}]]\g"}</Prt_Tp>
+		       </ENTITY>
+		       <#include "message-footer">
+			]]>
+		</template>
+	</mapping>  -->
+
+<!-- 回单查询服务   P2：A07824601  -->
+	<mapping id="A07824601-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<DpBkInNo>${"\l![CDATA[${(DpBkInNo)!}]]\g"}</DpBkInNo>
+					<Cptl_Stmt_ID>${"\l![CDATA[${(Cptl_Stmt_ID)!}]]\g"}</Cptl_Stmt_ID>
+					<Cnter_Bsn_Vchr_TpCd>${"\l![CDATA[${(Cnter_Bsn_Vchr_TpCd)!}]]\g"}</Cnter_Bsn_Vchr_TpCd>
+					<Rprnt_Cnt>${"\l![CDATA[${(Rprnt_Cnt)!}]]\g"}</Rprnt_Cnt>
+					<Enqr_StDt>${"\l![CDATA[${(Enqr_StDt)!}]]\g"}</Enqr_StDt>
+					<Enqr_CODt>${"\l![CDATA[${(Enqr_CODt)!}]]\g"}</Enqr_CODt>
+					<Rng_Max_Amt>${"\l![CDATA[${(Rng_Max_Amt)!}]]\g"}</Rng_Max_Amt>
+					<Rng_Min_Amt>${"\l![CDATA[${(Rng_Min_Amt)!}]]\g"}</Rng_Min_Amt>
+					<DbtCrDrcCd>${"\l![CDATA[${(DbtCrDrcCd)!}]]\g"}</DbtCrDrcCd>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单预览服务   P2：A07824602  -->
+	<mapping id="A07824602-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<VchID>${"\l![CDATA[${(VchID)!}]]\g"}</VchID>
+					<StMd_SN>${"\l![CDATA[${(StMd_SN)!}]]\g"}</StMd_SN>
+					<Crd_ID>${"\l![CDATA[${(Crd_ID)!}]]\g"}</Crd_ID>
+		       </ENTITY>
+		    <#include "message-footer">]]>
+		</template>
+	</mapping>
+
+	<!-- 回单打印服务   P2：A07824603  -->
+	<mapping id="A07824603-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+					<Crd_ID>${"\l![CDATA[${(Crd_ID)!}]]\g"}</Crd_ID>
+					<#if Hd_Prt_Grp ?exists>
+	                    <#list Hd_Prt_Grp as data>
+	                        <Hd_Prt_Grp>
+	                            <VchID><![CDATA[${(data.VchID)!}]${"]>"}</VchID>
+	                        </Hd_Prt_Grp>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		    <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单打印登记服务   P2：A07824604  -->
+	<mapping id="A07824604-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+					<Rgs_Opr_ID>${"\l![CDATA[${(Rgs_Opr_ID)!}]]\g"}</Rgs_Opr_ID>
+					<Mnplt_Dt_Tm>${"\l![CDATA[${(Mnplt_Dt_Tm)!}]]\g"}</Mnplt_Dt_Tm>
+					<#if Hd_Reg_Grp ?exists>
+						<#list Hd_Reg_Grp as Hd_Reg_Grp>
+							<Hd_Reg_Grp type='G'>
+								<VchID>${"\l![CDATA[${(Hd_Reg_Grp.VchID)!}]]\g"}</VchID>	
+							</Hd_Reg_Grp>
+						</#list>
+					</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单签约服务   P2：A07824608  -->
+	<mapping id="A07824608-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<Cst_Crdt_TpCd>${"\l![CDATA[${(Cst_Crdt_TpCd)!}]]\g"}</Cst_Crdt_TpCd>
+					<TrdPCt_Crdt_No>${"\l![CDATA[${(TrdPCt_Crdt_No)!}]]\g"}</TrdPCt_Crdt_No>
+					<CtcPsn>${"\l![CDATA[${(CtcPsn)!}]]\g"}</CtcPsn>
+					<Unit_Ctc_Tel>${"\l![CDATA[${(Unit_Ctc_Tel)!}]]\g"}</Unit_Ctc_Tel>
+					<Rgs_Opr_ID>${"\l![CDATA[${(Rgs_Opr_ID)!}]]\g"}</Rgs_Opr_ID>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单解约服务   P2：A07824609  -->
+	<mapping id="A07824609-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<VchID>${"\l![CDATA[${(VchID)!}]]\g"}</VchID>
+					<Cst_Crdt_TpCd>${"\l![CDATA[${(Cst_Crdt_TpCd)!}]]\g"}</Cst_Crdt_TpCd>
+					<TrdPCt_Crdt_No>${"\l![CDATA[${(TrdPCt_Crdt_No)!}]]\g"}</TrdPCt_Crdt_No>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单签约信息查询服务   P2：A07824611  -->
+	<mapping id="A07824611-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<DpBkInNo>${"\l![CDATA[${(DpBkInNo)!}]]\g"}</DpBkInNo>
+					<Sign_St>${"\l![CDATA[${(Sign_St)!}]]\g"}</Sign_St>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单验证服务   P2：A07824612  -->
+	<mapping id="A07824612-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+					<ENTITY>
+						<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+						<Txn_Dt>${"\l![CDATA[${(Txn_Dt)!}]]\g"}</Txn_Dt>
+						<SMS_Vld_CD>${"\l![CDATA[${(SMS_Vld_CD)!}]]\g"}</SMS_Vld_CD>
+						<Pcs_StCd>${"\l![CDATA[${(Pcs_StCd)!}]]\g"}</Pcs_StCd>
+			       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 账页查询服务   P2：A07824613  -->
+	<mapping id="A07824613-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<Enqr_StDt>${"\l![CDATA[${(Enqr_StDt)!}]]\g"}</Enqr_StDt>
+					<Enqr_CODt>${"\l![CDATA[${(Enqr_CODt)!}]]\g"}</Enqr_CODt>
+					<Beg_Pg_CD>${"\l![CDATA[${(Beg_Pg_CD)!}]]\g"}</Beg_Pg_CD>
+					<Cur_Pg_CD>${"\l![CDATA[${(Cur_Pg_CD)!}]]\g"}</Cur_Pg_CD>
+					<CcyCd>${"\l![CDATA[${(CcyCd)!}]]\g"}</CcyCd>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 账页打印服务   P2：A07824614  -->
+	<mapping id="A07824614-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Crd_ID>${"\l![CDATA[${(Crd_ID)!}]]\g"}</Crd_ID>
+					<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+					<#if Page_Prt_Grp ?exists>
+						<#list Page_Prt_Grp as Page_Prt_Grp>
+							<Page_Prt_Grp type='G'>
+								<VchID>${"\l![CDATA[${(Page_Prt_Grp.VchID)!}]]\g"}</VchID>	
+							</Page_Prt_Grp>
+						</#list>
+					</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 账页打印登记服务   P2：A07824615  -->
+	<mapping id="A07824615-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+					<Rgs_Opr_ID>${"\l![CDATA[${(Rgs_Opr_ID)!}]]\g"}</Rgs_Opr_ID>
+					<Mnplt_Dt_Tm>${"\l![CDATA[${(Mnplt_Dt_Tm)!}]]\g"}</Mnplt_Dt_Tm>
+					<DpBkInNo>${"\l![CDATA[${(DpBkInNo)!}]]\g"}</DpBkInNo>
+					<#if Page_Reg_Grp ?exists>
+						<#list Page_Reg_Grp as Page_Reg_Grp>
+							<Page_Reg_Grp type='G'>
+								<VchID>${"\l![CDATA[${(Page_Reg_Grp.VchID)!}]]\g"}</VchID>	
+							</Page_Reg_Grp>
+						</#list>
+					</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+		<!-- 回单柜登录服务   P2：A07824616  -->
+	<mapping id="A07824616-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<DbCrd_MsgRp_Ecrp_Pswd>${"\l![CDATA[${(DbCrd_MsgRp_Ecrp_Pswd)!}]]\g"}</DbCrd_MsgRp_Ecrp_Pswd>
+		       </ENTITY>
+		   <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+			<!-- 密码修改服务   P2：A07824617  -->
+	<mapping id="A07824617-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<DbCrdMsgRpEcrpNewPswd>${"\l![CDATA[${(DbCrdMsgRpEcrpNewPswd)!}]]\g"}</DbCrdMsgRpEcrpNewPswd>
+					<DbCrd_MsgRp_Ecrp_Pswd>${"\l![CDATA[${(DbCrd_MsgRp_Ecrp_Pswd)!}]]\g"}</DbCrd_MsgRp_Ecrp_Pswd>
+					<Fdbk_Chnl_ID>${"\l![CDATA[${(Fdbk_Chnl_ID)!}]]\g"}</Fdbk_Chnl_ID>
+					<Sel_Sign_Ind>${"\l![CDATA[${(Sel_Sign_Ind)!}]]\g"}</Sel_Sign_Ind>
+		       </ENTITY>
+		    <#include "message-footer">]]>
+		</template>
+		</mapping>
+		
+					<!-- 密码修改服务   P2：A07824618  -->
+	<mapping id="A07824618-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+					<Eqmt_Land_Pswd>${"\l![CDATA[${(Eqmt_Land_Pswd)!}]]\g"}</Eqmt_Land_Pswd>
+		       </ENTITY>
+		  <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- 回单批处理任务查询服务   P2：A07824619  -->
+	<mapping id="A07824619-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Txn_Dt>${"\l![CDATA[${(Txn_Dt)!}]]\g"}</Txn_Dt>
+					<Parm_Tsk_StCd>${"\l![CDATA[${(Parm_Tsk_StCd)!}]]\g"}</Parm_Tsk_StCd>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+		<!-- 数据导出   P2：A07824620  -->
+	<mapping id="A07824620-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Txn_Dt>${"\l![CDATA[${(Txn_Dt)!}]]\g"}</Txn_Dt>
+					<Parm_Tsk_StCd>${"\l![CDATA[${(Parm_Tsk_StCd)!}]]\g"}</Parm_Tsk_StCd>
+		       </ENTITY>
+		   <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+			<!-- 回单签约明细查询服务   P2：A07824621  -->
+	<mapping id="A07824621-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[
+				<#include "message-header">
+				<ENTITY>
+					<VchID>${"\l![CDATA[${(VchID)!}]]\g"}</VchID>
+					<Btch_Vchr_Blg_AccNo>${"\l![CDATA[${(Btch_Vchr_Blg_AccNo)!}]]\g"}</Btch_Vchr_Blg_AccNo>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- A0782D520  -->
+	<mapping id="A0782D520-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[
+				<#include "message-header">
+				<ENTITY>
+					<Cst_Accno>${"\l![CDATA[${(Cst_Accno)!}]]\g"}</Cst_Accno>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!--   P2：A0782T023  -->
+	<mapping id="A0782T023-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<Enqr_StDt>${"\l![CDATA[${(Enqr_StDt)!}]]\g"}</Enqr_StDt>
+					<Enqr_CODt>${"\l![CDATA[${(Enqr_CODt)!}]]\g"}</Enqr_CODt>
+					<Cur_Pcsg_StCd>${"\l![CDATA[${(Cur_Pcsg_StCd)!}]]\g"}</Cur_Pcsg_StCd>
+					<PdAr_ID>${"\l![CDATA[${(PdAr_ID)!}]]\g"}</PdAr_ID>
+					<Pcs_StCd>${"\l![CDATA[${(Pcs_StCd)!}]]\g"}</Pcs_StCd>
+					<#if Acc_Record ?exists>
+	                    <#list Acc_Record as data>
+	                        <Acc_Record>
+	                            <Cst_AccNo><![CDATA[${(data.Cst_AccNo)!}]${"]>"}</Cst_AccNo>
+	                            <Cst_Nm><![CDATA[${(data.Cst_Nm)!}]${"]>"}</Cst_Nm>
+	                            <Acc_Tp_ID><![CDATA[${(data.Acc_Tp_ID)!}]${"]>"}</Acc_Tp_ID>
+	                            <CcyCd><![CDATA[${(data.CcyCd)!}]${"]>"}</CcyCd>
+	                        </Acc_Record>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		  <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- A0782T024  -->
+	<mapping id="A0782T024-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<#if Acc_Record ?exists>
+	                    <#list Acc_Record as data>
+	                        <Acc_Record type="G">
+		                        <Cst_AccNo><![CDATA[${(data.Cst_AccNo)!}]${"]>"}</Cst_AccNo>
+		                        <Acc_Tp_ID><![CDATA[${(data.Acc_Tp_ID)!}]${"]>"}</Acc_Tp_ID>
+		                        <PdAr_ID><![CDATA[${(data.PdAr_ID)!}]${"]>"}</PdAr_ID>
+	                            <Parm_Nm><![CDATA[${(data.Parm_Nm)!}]${"]>"}</Parm_Nm>
+	                            <Rcncl_Rslt_Cd><![CDATA[${(data.Rcncl_Rslt_Cd)!}]${"]>"}</Rcncl_Rslt_Cd>
+	                            <Eqmt_ID><![CDATA[${(data.Eqmt_ID)!}]${"]>"}</Eqmt_ID>
+	                            <MAX_NO><![CDATA[${(data.MAX_NO)!}]${"]>"}</MAX_NO>
+	                            <#if data.Detl_Record ?exists>
+									<#list data.Detl_Record as oneRowItem>
+				                    	<Detl_Record type="G">
+				                    		<TXN_NO>${"\l![CDATA[${(oneRowItem.TXN_NO)!}]]\g"}</TXN_NO>
+				                    		<TRAN_DATE>${"\l![CDATA[${(oneRowItem.TRAN_DATE)!}]]\g"}</TRAN_DATE>
+				                    		<TX_AMT>${"\l![CDATA[${(oneRowItem.TX_AMT)!}]]\g"}</TX_AMT>
+				                    		<REMARK>${"\l![CDATA[${(oneRowItem.REMARK)!}]]\g"}</REMARK>
+				                    		<DSCRP_CNTN>${"\l![CDATA[${(oneRowItem.DSCRP_CNTN)!}]]\g"}</DSCRP_CNTN>
+				                    		<DOC_NO>${"\l![CDATA[${(oneRowItem.DOC_NO)!}]]\g"}</DOC_NO>
+				                    		<DOC_TYP>${"\l![CDATA[${(oneRowItem.DOC_TYP)!}]]\g"}</DOC_TYP>
+				                    		<UNTALLY_TYPE>${"\l![CDATA[${(oneRowItem.UNTALLY_TYPE)!}]]\g"}</UNTALLY_TYPE>
+				                    		<CR_COD>${"\l![CDATA[${(oneRowItem.CR_COD)!}]]\g"}</CR_COD>
+										</Detl_Record>
+									</#list>
+			                	</#if>
+	                        </Acc_Record>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+		<!-- A0782T025  -->
+	<mapping id="A0782T025-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<#if Bill_Record ?exists>
+	                    <#list Bill_Record as data>
+	                        <Bill_Record>
+	                            <Cst_AccNo><![CDATA[${(data.Cst_AccNo)!}]${"]>"}</Cst_AccNo>
+	                            <PdAr_ID><![CDATA[${(data.PdAr_ID)!}]${"]>"}</PdAr_ID>
+	                        </Bill_Record>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<!-- A0782T028  -->
+	<mapping id="A0782T028-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<OP_TYPE_CD>${"\l![CDATA[${(OP_TYPE_CD)!}]]\g"}</OP_TYPE_CD>
+					<#if Bill_Record ?exists>
+	                    <#list Bill_Record as data>
+	                        <Bill_Record>
+	                            <Cptl_Stmt_ID><![CDATA[${(data.Cptl_Stmt_ID)!}]${"]>"}</Cptl_Stmt_ID>
+	                        </Bill_Record>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+	<!-- A0181S401  账号户名反显-员工渠道 -->
+	<mapping id="A0181S401-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[
+				<#include "message-header">
+				<ENTITY>
+					<Cst_AccNo>${"\l![CDATA[${(Cst_AccNo)!}]]\g"}</Cst_AccNo>
+					<CcyCd>${"\l![CDATA[${(CcyCd)!}]]\g"}</CcyCd>
+					<CshEx_Cd>${"\l![CDATA[${(CshEx_Cd)!}]]\g"}</CshEx_Cd>
+					<Trm_DepSeqNo>${"\l![CDATA[${(Trm_DepSeqNo)!}]]\g"}</Trm_DepSeqNo>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+		<!-- A0181S405 对公活期存款交易明细查询 -->
+	<mapping id="A0181S405-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<#include "STM_CCMS_REQ_INFO_HF">
+					<Cst_AccNo>${"\l![CDATA[${(Cst_AccNo)!}]]\g"}</Cst_AccNo>
+					<CcyCd>${"\l![CDATA[${(CcyCd)!}]]\g"}</CcyCd>
+					<CshEx_Cd>${"\l![CDATA[${(CshEx_Cd)!}]]\g"}</CshEx_Cd>
+					<Strt_Amt>${"\l![CDATA[${(Strt_Amt)!}]]\g"}</Strt_Amt>
+					<End_Amt>${"\l![CDATA[${(End_Amt)!}]]\g"}</End_Amt>
+					<StDt>${"\l![CDATA[${(StDt)!}]]\g"}</StDt>
+					<EdDt>${"\l![CDATA[${(EdDt)!}]]\g"}</EdDt>
+					<Strt_Dtl_SN>${"\l![CDATA[${(Strt_Dtl_SN)!}]]\g"}</Strt_Dtl_SN>
+					<End_Dtl_SN>${"\l![CDATA[${(End_Dtl_SN)!}]]\g"}</End_Dtl_SN>
+					<Dtl_Smy_Bsn_CgyCd>${"\l![CDATA[${(Dtl_Smy_Bsn_CgyCd)!}]]\g"}</Dtl_Smy_Bsn_CgyCd>
+					<Dtl_Smy_Bsn_Cgy_No>${"\l![CDATA[${(Dtl_Smy_Bsn_Cgy_No)!}]]\g"}</Dtl_Smy_Bsn_Cgy_No>
+					<Dtl_Smy_Enqr_Ind>${"\l![CDATA[${(Dtl_Smy_Enqr_Ind)!}]]\g"}</Dtl_Smy_Enqr_Ind>
+					<AlIn1Acc_Acc_Ind>${"\l![CDATA[${(AlIn1Acc_Acc_Ind)!}]]\g"}</AlIn1Acc_Acc_Ind>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+		<!-- A0782T011  帐页下载服务  -->
+	<mapping id="A0782T011-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template>
+			<![CDATA[<#include "message-header">
+				<ENTITY>
+					<CCBIns_ID>${"\l![CDATA[${(CCBIns_ID)!}]]\g"}</CCBIns_ID>
+					<Txn_CardNo>${"\l![CDATA[${(Txn_CardNo)!}]]\g"}</Txn_CardNo>
+					<Fee_Ind>${"\l![CDATA[${(Fee_Ind)!}]]\g"}</Fee_Ind>
+					<#if VchId_Grp ?exists>
+	                    <#list VchId_Grp as data>
+	                        <VchId_Grp>
+	                            <VchID><![CDATA[${(data.VchID)!}]${"]>"}</VchID>
+	                        </VchId_Grp>
+	                    </#list>
+                	</#if>
+		       </ENTITY>
+		       <#include "message-footer">]]>
+		</template>
+	</mapping>
+
+	<!-- STM查询活期余额服务 -->
+	<mapping id="A0181S403-HF-request" parser="bean2TextParser" transformer="bean2TextTransformer">
+		<template><![CDATA[<#include "message-header">
+				<ENTITY>
+					<Cst_AccNo>${(Cst_AccNo)!}</Cst_AccNo>
+				</ENTITY>
+			<#include "message-footer">]]>
+		</template>
+	</mapping>
+	
+	<mapping id="A0161M539-HF-request" auto="false" parser="bean2TextParser"
+		transformer="bean2TextTransformer" validate="false">
+		<include segment-id="message-header" />
+		<template>
+			<![CDATA[	
+			<ENTITY>
+			 	 <Prtfl_PD_ID>${(Prtfl_PD_ID)!}</Prtfl_PD_ID>
+			 	 <Txn_InsID>${(Txn_InsID)!}</Txn_InsID>
+			 	 <Txn_TrID>${(Txn_TrID)!}</Txn_TrID>
+			 	 <Txn_Dt_Tm>${(Txn_Dt_Tm)!}</Txn_Dt_Tm>
+			 	 <CALLOUT_TXN_CD>${(CALLOUT_TXN_CD)!}</CALLOUT_TXN_CD>
+			 	 <Vchr_RePrt_Cnt>${(Vchr_RePrt_Cnt)!}</Vchr_RePrt_Cnt>
+			 	 <Txn_Chnl_Cd>${(Txn_Chnl_Cd)!}</Txn_Chnl_Cd>
+			 	  <Txn_TpDs>${(Txn_TpDs)!}</Txn_TpDs>
+			 	 <#if Vchr_Grp ?exists>
+			 	 <#list Vchr_Grp as List>
+			 	 <Vchr_Grp type="G">
+			 	 <VchID>${(List.VchID)!}</VchID>
+			 	 <Stmp_Bsn_Ctlg_ID>${(List.Stmp_Bsn_Ctlg_ID)!}</Stmp_Bsn_Ctlg_ID>
+			 	 <Ovrlsttn_Trck_No>${(List.Ovrlsttn_Trck_No)!}</Ovrlsttn_Trck_No>
+			 	 <Clmn_Opt_Dsc>${(List.Clmn_Opt_Dsc)!}</Clmn_Opt_Dsc>
+			 	 </Vchr_Grp>
+			 	 </#list>	
+			 	 </#if>
+			</ENTITY>]]>
+		</template>
+		<include segment-id="message-footer" />
+	</mapping>
+	
+	    <!-- 电子印章管理-查询电子印章已生效参数列表   A0161M538 -->
+    <mapping id="A0161M538-HF-request" parser="bean2TextParser"
+        transformer="bean2TextTransformer">
+        <template>
+            <![CDATA[<#include "message-header">
+            <ENTITY>
+                <Stmp_Bsn_Ctlg_ID>${(Stmp_Bsn_Ctlg_ID)!}</Stmp_Bsn_Ctlg_ID>
+                <Stmp_Blng_InsID>${(Stmp_Blng_InsID)!}</Stmp_Blng_InsID>
+                <OutbndCall_Svc_Txn_CD>${(OutbndCall_Svc_Txn_CD)!}</OutbndCall_Svc_Txn_CD>
+                <VchID>${(VchID)!}</VchID>
+                <Mnplt_TpCd>${(Mnplt_TpCd)!}</Mnplt_TpCd>
+            </ENTITY>
+            <#include "message-footer">
+            ]]>
+        </template>
+    </mapping>
+	
+</mappings>

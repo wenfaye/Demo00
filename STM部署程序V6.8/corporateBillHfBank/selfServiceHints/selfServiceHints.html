@@ -1,0 +1,102 @@
+<style>
+    .lbl_val{
+        text-align:left;
+        font-size: 16px;
+        vertical-align: middle;
+        /*text-shadow: 0.2px 0.2px 0.1px;*/
+    }
+    .lbl_val_span{
+        width: 23px;
+        height: 23px;
+        background-color: green;
+        float: left;
+        border-radius: 3px;
+        text-align: center;
+        line-height: 23px;
+        color: white;
+        font-size: 15px;
+    }
+    .data_dt{
+        text-align:right;
+        color: rgb(125,125,120);
+        font-family: cursive;
+        /*text-shadow: 0.2px 0.2px 0.1px;*/
+    }
+    .cmct_rslt_dsc{
+        text-align: left;
+        vertical-align: middle;
+        color: rgb(125,125,120);
+        font-size: 14px;
+        font-family: cursive;
+        /*text-shadow: 0.2px 0.2px 0.1px;*/
+    }
+    .noTips{
+        font-size: 26px;
+        display: none;
+        margin-top: 275px;
+    }
+
+    /*.yiYue{
+        width: 50px;
+        height: 45px;
+        background: rgb(54,95,205);
+        border-radius: 10px;
+        font-size: 14px;
+        color: rgb(228,230,237);
+
+        text-shadow: 0.2px 0.2px 1px rgb(125,125,120);
+    }*/
+    .stm-list-outer-mask{
+        margin-left: .13rem;
+    }
+    .list-item{
+        border-radius: 10px;
+    }
+    .stm-btn-default{
+        width: 50px;
+        height: 45px;
+        background: rgb(54,95,205);
+        border-radius: 10px;
+    }
+    .yiYue .stm-btn-text{
+        font-size: .18rem
+    }
+</style>
+<!--页面title-->
+<div class="pjf_stm_title"><span id="tip">全部服务提示</span></div>
+<!--无边框内容区-->
+<div class="pjf_stm_content">
+    <div id="nodata" class="noTips">暂无服务提示信息</div>
+    <div id="infoDrawList"></div>
+</div>
+
+<!--按钮-->
+<div class='pjf_stm_bottom'>
+    <span id="returnBtn"></span>
+</div>
+
+
+<!--自定义模板-->
+<div type="text/tmpl"  id="infoListTpl" style="display: none">
+    <table style="height: 100px" cellspacing="0" width="100%">
+        <tbody>
+        <tr style="height: 40px">
+            <td rowspan="2" align="center" width="70px">
+                {{if Lbl_Val.substring(2,3) == 'a'}}<img src="/ecpweb/page/stm/common/icon/selfServiceHints/a-management.png"/>{{/if}}
+                {{if Lbl_Val.substring(2,3) == 'b'}}<img src="/ecpweb/page/stm/common/icon/selfServiceHints/b-hints.png"/>{{/if}}
+                {{if Lbl_Val.substring(2,3) == 'c'}}<img src="/ecpweb/page/stm/common/icon/selfServiceHints/c-service.png"/>{{/if}}
+            </td>
+            <td style="border-bottom:rgb(125,125,120) solid 1.5px"><div class="lbl_val"><span class="lbl_val_span">{{:Num_Flag}}</span>&nbsp;{{:MsgRp_Dmn_Lbl_Dsc}}</div></td>
+            <td style="border-bottom:rgb(125,125,120) solid 1.5px"><div class="data_dt">{{:Data_Dt.substring(0,4) +"-"+Data_Dt.substring(4,6)+"-"+Data_Dt.substring(6,8)}}</div></td>
+            <td rowspan="2"  align="center" width="80px">
+                <div class="yiYue">
+                    <span id="yiYue_{{:Num_Flag}}"></span>
+                </div>
+            </td>
+        </tr>
+        <tr style="height: 60px">
+            <td colspan="2"><div class="cmct_rslt_dsc">{{:Cmct_Rslt_Dsc}}</div></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,52 @@
+<style>
+    .grid-body {
+        font-size: 0.25rem;
+    }
+	.grid-row {
+        min-height: 0.458rem;
+    }
+    .grid-ck {
+        height: 0.458rem;
+    }
+    .tab_title_context{
+		text-align: center;
+		font-size: .18rem;
+		font-weight: bold;
+		color: #fff;
+	 	padding: .1rem;/*.2rem */
+	}
+	.stm-btn-main{
+		width: auto;
+		min-width: 1.6rem;
+	 	height: .5rem;/*.6rem */
+		padding-left: .2rem;
+		padding-right: .2rem;
+		border: 1px solid #bebebe;
+		background: #fff;
+	}
+	.tab_panel_selected{
+		display: block;
+		text-align: center;
+	}
+</style>
+<div class='pjf_stm_title'>您可查询下列账号余额</div>
+<div id="balAccTab" style="padding-left: 0.2rem">
+	<!-- 普通账户 -->
+	<div id="normalAcc" class='pjf_stm_content'>
+		<div id="normalAccGrid"></div>
+		<span id="cb_prePage_na"></span>
+		<span id="desc_na" class="pagination-page-desc"></span>
+		<span id="cb_nextPage_na"></span>
+	</div>
+	<!-- 财资账户 -->
+	<div id="assetAcc" class='pjf_stm_content'>
+		<div id="assetAccGrid"></div>
+		<span id="cb_prePage_aa"></span>
+		<span id="desc_aa" class="pagination-page-desc"></span>
+		<span id="cb_nextPage_aa"></span>
+	</div>
+</div>
+
+<div class='pjf_stm_bottom'>
+	<span id="returnBtn"></span>
+</div>

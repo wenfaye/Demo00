@@ -1,0 +1,19 @@
+ClearCase CopyAreaDB|4
+vobs\NIS_P2_STM\P2_STM\stm\page\stm\corporateBillNew\balanceSelf
+2
+f
+16:queryNoSignDetail.html|1|172543037c4|496|5be88f05|ae80b1174f7b42968e69a056a2e353be|0
+8:empty.js|1|17254303766|cf|ba73a9c|7bc2c903c6d549b0ab9d6b62d69b871e|0
+14:querySignedDetail.js|1|173b3ad799f|2323|268bd300|965c42ed63084ffe99b45b3a6cb6c217|0
+e:balanceSelf.js|1|173b3ad789c|8d0c|77bf548d|328533bfe5e94210912a36ea29ecd1ee|0
+f:unSignedBill.js|1|175b4e3f7fc|87bc|21300526|2207f65268b74ba2af5831873bb6fe9c|0
+14:queryNoSignDetail.js|1|173b3ad7906|20b6|22fe0d12|67d090ed524e45c6a7582f110640c9c0|0
+10:inputAuthCode.js|1|174d769da7a|878|37b9c5d0|3fea0f1f303c4ff6a744f27fd2dc15b9|0
+c:explain.html|1|17254303790|57c|b4d4db31|801c19fc3c864dab9a8f7bd75cbccb12|0
+a:empty.html|1|17254303713|6a|c3b12515|c0c1bcd550db4abfaa1c7c8103a47ec2|0
+12:inputAuthCode.html|1|174d769d760|3ee|b35c45e8|4ee2be91f8124addaa0c5e7fa96586e4|0
+16:querySignedDetail.html|1|17254303886|5f9|b9c80ac6|3afc2f41e8524f8f87fd0cdb5f1ff576|0
+10:balanceSelf.html|1|172543036be|771|eab0531b|7ba4a5e40ee041af96ef2b32b95de219|0
+11:unSignedBill.html|1|174d769dad1|7c2|dcb71594|4a44e3db797649639f077332d95a875b|0
+9:record.js|1|174d769d27f|250d|cca35598|e270f2cf7a114e7cb8049148d3a5e893|0
+b:record.html|1|17254303916|3f8|85b75b36|02da947f8102483a8e4a4422a0991bad|0

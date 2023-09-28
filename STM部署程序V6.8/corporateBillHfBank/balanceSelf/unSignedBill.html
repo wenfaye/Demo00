@@ -1,0 +1,60 @@
+<style>
+    .grid-body {
+        font-size: 0.25rem;
+
+    }
+    .grid-row {
+        min-height: 0.458rem;
+
+    }
+    .self-btn-style{
+        min-width:1.56rem;
+        width:auto;
+        height:.84rem;
+        padding-left:.2rem;
+        padding-right:.2rem;
+        border:0
+    }
+   .stm-btn-text{
+       width:100%;
+       color:#fff;
+       font-family:'SimHei','黑体';
+       font-size:.38rem;
+       text-shadow:0 0;
+       text-align:center;
+       letter-spacing:.0rem
+   }
+</style>
+<div id="content_id">
+    <div class='pjf_stm_content'>
+        <div style="font-size: .3rem; font-weight: bold">
+            <table style="width: 12rem;padding-left: 0.2rem;padding-top: 0.2rem">
+                <tr>
+                    <td align="left" style="width: 7rem;padding-bottom: 0.1rem">
+                        <label><span id="acctName"></span></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" style="width: 7rem;padding-bottom: 0.1rem">
+                        <label>请选择操作项：</label>
+                        <span id="btn1" class='self-btn-style'></span>
+                        <span id="btn2" class='self-btn-style'></span>
+                    </td>
+                    <td align="left" style="width: 5rem;padding-bottom: 0.1rem;color: rgb(59,157,245)">
+                        <label><span id="unPrintNum"></span></label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="queryCB_grid" style="padding-left: 0.2rem"></div>
+        <span id="cb_prePage"></span>
+        <span id="desc" class="pagination-page-desc"></span>
+        <span id="cb_nextPage"></span>
+    </div>
+    <div class='pjf_stm_bottom' align="right">
+        <span id="returnBtn"></span>
+        <span id="balanceBtn"></span>
+        <span id="printBtn"></span>
+        <span id="previewBtn"></span>
+    </div>
+</div>

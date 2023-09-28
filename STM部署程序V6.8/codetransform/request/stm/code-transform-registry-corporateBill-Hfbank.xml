@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transforms>
+    	
+	<transform id="A07824616-HF">
+		<rule path="['DbCrd_MsgRp_Ecrp_Pswd']"  transformer="fixedLengthDecEncTransformer"/>
+	</transform>
+	
+	<transform id="A07824617-HF">
+		<rule path="['DbCrd_MsgRp_Ecrp_Pswd']"  transformer="fixedLengthDecEncTransformer"/>
+		<rule path="['DbCrdMsgRpEcrpNewPswd']"  transformer="fixedLengthDecEncTransformer"/>
+	</transform>
+	
+</transforms>
