@@ -1,0 +1,22 @@
+.diagonal-container{
+    height: max(200px, 100%);
+    display: grid;
+    grid-template-rows: 1fr 100px 1fr;
+}
+.diagonal-container .diagonal{
+    background: linear-gradient(to right bottom,#000 50%,#100415 50%);
+}
+.diagonal-container .footer{
+    background-color: #100415;
+}
+
+.diagonal-container h4{
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin-bottom: 52px;
+    position: relative;
+    -webkit-transform: translateY(-24px);
+    transform: translateY(-24px);
+}

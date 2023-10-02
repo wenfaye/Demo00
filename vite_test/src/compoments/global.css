@@ -110,3 +110,10 @@ video {
     width: 300px;
     height: 260px;
 }
+
+/*---------*/
+.figure-google{
+    width: 148px;
+    height: 148px;
+    background:url(../assets/pic/google.jpeg);
+}

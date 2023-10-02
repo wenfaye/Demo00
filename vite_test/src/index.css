@@ -68,7 +68,7 @@ body {
 html{
     /* --background:#019fe8; */
     /* --background:#100415; */
-    --background:#000;
+    /* --background:#000; */
     background:var(--background);
 }
 .objfit{

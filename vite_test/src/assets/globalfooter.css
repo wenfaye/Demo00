@@ -1,0 +1,45 @@
+#ac-globalfooter{
+    text-align: left;
+    --footer-link-color:#424245
+}
+#ac-globalfooter .ac-gf-content {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 0 22px;
+    padding-left: max(22px,env(safe-area-inset-left));
+    padding-right: max(22px,env(safe-area-inset-right));
+}
+
+#ac-globalfooter .ac-gf-directory {
+    font-size: 12px;
+    line-height: 1.33337;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Apple Legacy Chevron","Helvetica Neue","Helvetica","Arial",sans-serif;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-top: 20px;
+}
+#ac-globalfooter .ac-gf-directory-column {
+    flex-basis: 25%;
+}
+#ac-globalfooter .ac-gf-directory-column-section {
+    pointer-events: none;
+}
+#ac-globalfooter .ac-gf-directory-column-section-list {
+    margin-right: 20px;
+    list-style: none;
+    padding: 0;
+}
+#ac-globalfooter .ac-gf-directory-column-section-item {
+    display: block;
+    pointer-events: auto;
+    margin-bottom: 0.8em;
+}
+#ac-globalfooter a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+}
+#ac-globalfooter .ac-gf-directory-column-section ~ .ac-gf-directory-column-section{
+    padding-top: 24px;
+}
