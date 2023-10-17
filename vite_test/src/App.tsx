@@ -13,9 +13,10 @@ import {MemberEntity} from './model'
 // import Example from './compoments/PartnersCommunity'
 // import Example from './compoments/css/FlexDemo'
 // import Example from './compoments//Notification'
-import Example from './compoments/html/Figure'
+// import Example from './compoments/html/Figure'
 // import Example from './compoments/css/Diagonal'
 // import Example from './compoments/Globalfooter'
+import Example from './compoments/css/WillChange'
 
 function App() {
 
