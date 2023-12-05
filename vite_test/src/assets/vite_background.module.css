@@ -19,8 +19,8 @@
     --x: 50%;
     --y: 320px;
     --size: 600px;
-    /* --mask: radial-gradient(circle var(--size) at var(--x) var(--y), #0005 40%, #000 75%, transparent); */
-    --mask: radial-gradient(#f69d3c, #3f87a6);
+    --mask: radial-gradient(circle var(--size) at var(--x) var(--y), #0005 40%, #000 75%, transparent);
+    /* --mask: radial-gradient(#f69d3c, #3f87a6); */
     -webkit-mask-image: var(--mask);
     mask-image: var(--mask);
     -webkit-mask-repeat: no-repeat;

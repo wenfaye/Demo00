@@ -9,6 +9,7 @@ import {MemberEntity} from './model'
 // import Example from './compoments/LoaclNav'
 // import Example from './compoments/ViteBackground'
 // import Example from './compoments/Gradient'
+// import Example from './compoments/Mask'
 // import Example from './compoments/LayoutsPancake'
 // import Example from './compoments/PartnersCommunity'
 // import Example from './compoments/css/FlexDemo'
@@ -16,7 +17,8 @@ import {MemberEntity} from './model'
 // import Example from './compoments/html/Figure'
 // import Example from './compoments/css/Diagonal'
 // import Example from './compoments/Globalfooter'
-import Example from './compoments/css/WillChange'
+// import Example from './compoments/css/WillChange'
+import Example from './compoments/Counter'
 
 function App() {
 

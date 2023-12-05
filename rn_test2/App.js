@@ -9,7 +9,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-// import KeyboardDemo from './components/KeyboardDemo'
+import Example from './components/KeyboardDemo'
 // import MyWeb from './components/MyWeb'
 // import {withLoading} from './components/hoc/hoc'
 // import {Fetch} from './components/Fetch'
@@ -25,7 +25,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 // import StatusBarDemo from './components/StatusBarDemo'
 // import Demo0 from './components/ComponentDemo0'
 // import Demo0 from './components/ApiDemo'
-// import ActivityIndicatorDemo from './componentDemo0/ActivityIndicatorDemo'
+// import Example from './componentDemo0/ActivityIndicatorDemo'
 // import UseMemoDemo from './componentDemo0/UseMemoDemo'
 // import SafeAreaViewDemo from './componentDemo0/SafeAreaViewDemo'
 // import RefreshControlDemo from './componentDemo0/RefreshControlDemo'
@@ -48,7 +48,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 // import Example from './apiExample/BackHandlerExample'
 // import Example from './apiExample/ActionSheetIOSExample'
 // import Example from './apiExample/ToastAndroidExample'
-import Example from './apiExample/SettingsExample'
+// import Example from './apiExample/SettingsExample'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
