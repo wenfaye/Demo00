@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap1 {}
+
+        .div1 {
+            border: 1px solid #7f7f87;
+            width: 100px;
+            height: 100px;
+            transition: transform linear .2s;
+            background-color: #369;
+            box-shadow: inset 0 140px 72px 0 #369, inset 0 0 0 1px #369;
+        }
+
+        .div1:hover {
+            transform: scale(1.2, 1.2);
+        }
+
+        .wrap2 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #7f7f87;
+            box-shadow: inset 0 140px 72px 0 #369, inset 0 0 0 1px #369;
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: #396;
+            margin: auto;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        .speaker-list {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .speaker {
+            height: 100px;
+            border: 1px solid #7f7f87;
+            min-width: calc(33% - 18px);
+            
+        }
+
+        @media screen and (max-width: 1200px) {
+            .speaker {
+                min-width: 32%;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            .speaker {
+                min-width: 48%;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            .speaker {
+                min-width: 100%;
+            }
+        }
+        .div3{
+            width: 400px;
+            height: 400px;
+            background: url('./asset/00.png');
+            background-size: cover;
+            position: relative;
+            filter: grayscale(90%);
+        }
+        .div3::before{
+            content: '';
+            width: 400px;
+            height: 400px;
+            background: url('./asset/01.png');
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-mask: linear-gradient(90deg,#000 50%,transparent 70%,transparent);
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap1">
+        <div class="div1">
+
+        </div>
+        <div class="div1">
+
+        </div>
+    </div>
+
+    <div class="wrap2">
+        <div class="div2"></div>
+    </div>
+
+    <ul class="speaker-list">
+        <li class="speaker"></li>
+        <li class="speaker"></li>
+        <li class="speaker"></li>
+        <li class="speaker"></li>
+    </ul>
+
+<div class="div3"></div>
+
+</body>
+
+<script>
+    function demo0(a,max) {
+        if(a == max){
+            console.log(a)
+        }else{
+            demo0(a+1,max)
+        }
+    }
+    demo0(0,10)
+</script>
+
+</html>

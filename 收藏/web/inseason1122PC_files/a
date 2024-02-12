@@ -1,0 +1,1 @@
+KISSY.add("moqie/pages/moqie",function(e,i,o){var n=e.all;return{init:function(e,m){n(e).html(o(m)),new i(e)}}},{requires:["./index","moqie/pages/moqie.tpl","moqie/pages/moqie.css","core"]});

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .demo1 {
+            background-color: #da6d83;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .demo2 {
+            background-color: #d3a237;
+            width: 2em;
+            height: 2em;
+            font-size: 12px;
+        }
+
+        .article a,
+        .more {
+            cursor: pointer
+        }
+
+        .home-section ul {
+            padding: 0;
+            margin: 0;
+            list-style: none
+        }
+
+        .home-content .home-content-right {
+            margin-top: 4rem
+        }
+
+        .section-list {
+            list-style: none;
+            margin-top: 1.5rem;
+            padding: 0;
+            font-size: 0
+        }
+
+        .section-list li {
+            background-color: #fff;
+            margin: 0 1.5rem 1.5rem 0;
+            display: inline-block;
+            width: calc(33.33% - 16px)
+        }
+
+        .section-list li:nth-child(3n) {
+            margin-right: 0
+        }
+
+        .social-links {
+            display: flex
+        }
+
+        .social-links li {
+            margin-right: .6rem;
+            list-style: none
+        }
+
+        .right-aside {
+            width: 280px;
+            margin-left: 1.5rem
+        }
+
+        .more {
+            margin: auto;
+            display: block;
+            text-align: center
+        }
+
+        .home-sec-title {
+            margin: 1rem auto;
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 2rem
+        }
+
+        .section {
+            background: #fff;
+            margin-bottom: 1.5rem
+        }
+
+        .section .section-head {
+            overflow: hidden;
+            padding: .5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .section .section-title {
+            font-size: 1.1rem;
+            margin: 0;
+            display: inline-block
+        }
+
+        .article-bottom {
+            display: flex;
+            font-size: .8rem;
+            color: #8d91a5;
+            justify-content: space-between
+        }
+
+        .article-list {
+            list-style: none;
+            margin-top: 24px;
+            padding: 0;
+            font-size: 0
+        }
+
+        .article-list li {
+            background-color: #fff;
+            margin: 0 24px 24px 0;
+            display: inline-block;
+            width: calc(33.33% - 16px)
+        }
+
+        .article-list li:nth-child(3n) {
+            margin-right: 0
+        }
+
+        .article {
+            display: flex;
+            flex-direction: column;
+            font-size: 0
+        }
+
+        .article-desc,
+        .article-title {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            word-break: break-word;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            -webkit-line-clamp: 2
+        }
+
+        .article-img {
+            width: 100%;
+            height: 172px
+        }
+
+        .article-content {
+            padding: 1.2rem;
+            flex: 1
+        }
+
+        .article-date {
+            margin-left: 1rem
+        }
+
+        .article-category-text {
+            font-size: .8rem;
+            float: right
+        }
+
+        .article-img-wrap {
+            position: relative;
+            overflow: hidden
+        }
+
+        .article-img-wrap:hover i {
+            left: 100%;
+            transition: .5s;
+            -o-transition: .5s;
+            -moz-transition: .5s;
+            -webkit-transition: .5s
+        }
+
+        .article-img-wrap i {
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transform: skewx(-25deg);
+            -o-transform: skewx(-25deg);
+            -moz-transform: skewx(-25deg);
+            -webkit-transform: skewx(-25deg);
+            background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .5), rgba(255, 255, 255, 0));
+            z-index: 10
+        }
+
+        .article-desc {
+            color: #8d91a5;
+            font-size: .9rem;
+            height: 2.2rem
+        }
+
+        .article-title {
+            margin: 0;
+            color: #f37327;
+            height: 2.75rem
+        }
+
+        .article-title h1 {
+            margin: 0;
+            font-size: 1.126rem
+        }
+
+        .main-article {
+            flex-direction: row;
+            background: #fff;
+            margin-bottom: 1.5rem
+        }
+
+        .main-article .article-title {
+            height: 1.6rem;
+            -webkit-line-clamp: 2
+        }
+
+        .main-article .article-title h1 {
+            font-size: 1.3rem
+        }
+
+        .main-article .article-desc {
+            height: 7.4rem;
+            -webkit-line-clamp: 5
+        }
+
+        .main-article .article-img {
+            height: 230px;
+            width: auto;
+            max-width: 480px
+        }
+
+        .main-article .article-titie {
+            height: 1.375rem
+        }
+
+        @media (max-width:719px) {
+
+            .article,
+            .section-list,
+            .section-list li {
+                display: block;
+                width: 100%
+            }
+
+            .article .article-img {
+                width: 100%;
+                height: auto
+            }
+        }
+        .demo3,.left,.right,.content{
+            height: 100px;
+        }
+        .left{float:left;width: 30%;background-color: #da6d83;}
+        .content{width: 40%;background-color: #ffee6f;}
+        .right{float:right;width: 30%;background-color: #d3a237;}
+    </style>
+
+</head>
+
+<body>
+    <div class="demo1"></div>
+    <div class="demo2"></div>
+    <div class="demo3">
+        <div class="left"></div>
+        <div class="content"></div>
+        <div class="right"></div>
+    </div>
+    
+</body>
+
+</html>

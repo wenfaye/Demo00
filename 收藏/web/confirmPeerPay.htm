@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=gbk">
+  <meta charset="GBK">
+
+            <title>代付 - 支付宝</title>
+    
+            <meta name="keywords" content="网上购物-网上支付-安全支付-安全购物-购物，安全-支付-支付宝,在线-付款,收款-网上,贸易-网上贸易">
+  
+          <meta name="description" content="中国最大的第三方电子支付服务提供商">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+  
+
+<link rel="icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon">    <link href="https://a.alipayobjects.com/" rel="dns-prefetch">
+<link href="https://app.alipay.com/" rel="dns-prefetch">
+<link href="https://my.alipay.com/" rel="dns-prefetch">
+<link href="https://lab.alipay.com/" rel="dns-prefetch">
+<link href="https://cashier.alipay.com/" rel="dns-prefetch">
+<link href="https://financeprod.alipay.com/" rel="dns-prefetch">
+<link href="https://shenghuo.alipay.com/" rel="dns-prefetch">
+
+
+<!-- uitpl:/component/trackerTime.vm -->
+    <!-- CMS:全站公共 cms/tracker/iconfont.vm开始:tracker/iconfont.vm --><style>
+@font-face {
+    font-family: "rei";
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616"); /* IE9 */
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://i.alipayobjects.com/common/fonts/rei.woff?20150616") format("woff"), /* chrome 6+、firefox 3.6+、Safari5.1+、Opera 11+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.ttf?20150616")  format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.svg?20150616#rei") format("svg"); /* iOS 4.1- */
+}
+.iconfont {
+    font-family:"rei";
+    font-style: normal;
+    font-weight: normal;
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+}
+</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit"><!-- CMS:全站公共 cms/tracker/iconfont.vm结束:tracker/iconfont.vm -->
+<script type="text/javascript">
+  window._to = { start: new Date() };
+</script>
+
+<!-- CMS:cms/监控埋点/前端监控前置脚本开始:tracker/monitor.vm --><script type="text/javascript">
+(function(e){if(!e.monitor){var a=e.monitor={};a._DATAS=[];var f=a._EVENTS=[];a.on=function(a,d){f.push([a,d])};a.off=function(){};a.log=function(c,d){if(c&&!(3<=arguments.length)){var b;"[object Object]"===Object.prototype.toString.call(c)?(b=c,b.profile=d||b.profile||"log"):b={profile:d||"log",seed:c};a._DATAS.push(b);return b}}}})(this);
+(function(h,c){function q(a){return(a=String(a).match(r))?a[0]:"global"}function f(a,m,n,g,f,d,k){if(!k&&arguments.callee.caller){for(var b=arguments.callee.caller,e=[],h=0;b.arguments&&b.arguments.callee&&b.arguments.callee.caller;){b=b.arguments.callee.caller;e.push("at "+q(b));if(b.caller===b)break;if(h++>s)break}k=e.join("\n")}b={profile:t,type:a,msg:m||"",file:n||"",line:g||0,col:f||0,num:d||"",stack:k||"",lang:navigator.language||navigator.browserLanguage||"",lost:l.join(",")};
+e=n+":"+g+":"+m;p.hasOwnProperty(e)||(b.uv=1,p[e]=!0);return c.log(b)}if(c){var t="jserror",s=20,r=/^\s*function\b[^\)]+\)/,l=[],d={};c.lost=function(a){if(!d.hasOwnProperty(a))return d[a]=!0,l.push(a),l};var p={};c.error=function(a){if(a instanceof Error)return f("catched",a.message||a.description,a.filename||a.fileName||a.sourceURL,a.lineno||a.lineNumber||a.line,a.colno||a.columnNumber,a.number,a.stack||a.stacktrace)};h.onerror=function(a,c,d,g){f("global",a,c,d,g);return!1}}})(this,this.monitor);
+</script><!-- CMS:cms/监控埋点/前端监控前置脚本结束:tracker/monitor.vm -->
+<!-- CMS:全站公共 cms/tracker/seajs.vm开始:tracker/seajs.vm -->	
+
+<!-- monitor 防错代码 -->
+<script>
+(function(win){
+  if(!win.monitor){win.monitor = {};}
+
+  var METHODS = ["lost", "log", "error", "on", "off"];
+
+  for(var i=0,method,l=METHODS.length; i<l; i++){
+    method = METHODS[i];
+    if("function" !== typeof win.monitor[method]){
+      win.monitor[method] = function(){};
+    }
+  }
+})(window);
+</script>
+
+<!-- seajs以及插件 -->
+<script charset="utf-8" crossorigin="anonymous" id="seajsnode" onerror="window.monitor &amp;&amp; monitor.lost &amp;&amp; monitor.lost(this.src)" src="confirmPeerPay_files/a_003.js"></script>
+
+<!-- seajs config 配置 -->
+<script>
+seajs.config({
+  alias: {
+    '$': 'jquery/jquery/1.7.2/jquery',
+    '$-debug': 'jquery/jquery/1.7.2/jquery',
+    'jquery': 'jquery/jquery/1.7.2/jquery',
+    'jquery-debug': 'jquery/jquery/1.7.2/jquery-debug',
+    'seajs-debug': 'seajs/seajs-debug/1.1.1/seajs-debug'
+  },
+  crossorigin: function(uri){
+  
+    function typeOf(type){
+	  return function(object){
+	    return Object.prototype.toString.call(object) === '[object ' + type + ']';
+	  }
+	}
+	var isString = typeOf("String");
+	var isRegExp = typeOf("RegExp");
+    
+	var whitelist = [];
+	
+                  whitelist.push('https://a.alipayobjects.com/');
+          	
+	for (var i=0, rule, l=whitelist.length; i<l; i++){
+	  rule = whitelist[i];
+	  if (
+	    (isString(rule) && uri.indexOf(rule) === 0) ||
+	    (isRegExp(rule) && rule.test(uri))
+		) {
+		
+	    return "anonymous";
+	  }
+	}
+  },
+  vars: {
+    locale: 'zh-cn'
+  }
+});
+</script>
+
+<!-- 兼容原有的 plugin-i18n 写法 -->
+<!-- https://github.com/seajs/seajs/blob/1.3.1/src/plugins/plugin-i18n.js -->
+<script>
+seajs.pluginSDK = seajs.pluginSDK || {
+  Module: {
+    _resolve: function() {}
+  },
+  config: {
+    locale: ''
+  }
+};
+// 干掉载入 plugin-i18n.js，避免 404
+seajs.config({
+  map: [
+	[/^.*\/seajs\/plugin-i18n\.js$/, ''],
+	[/^.*\i18n!lang\.js$/, '']
+  ] 
+});
+</script>
+
+<!-- 路由旧 ID，解决 seajs.use('select/x.x.x/select') 的历史遗留问题 -->
+<script>
+(function(){
+
+var JQ = '/jquery/1.7.2/jquery.js';
+seajs.cache['https://a.alipayobjects.com/gallery' + JQ] = seajs.cache['https://a.alipayobjects.com/jquery' + JQ];
+
+var GALLERY_MODULES = [
+  'async','backbone','coffee','cookie','es5-safe','handlebars','iscroll',
+  'jasmine','jasmine-jquery','jquery','jquery-color','json','keymaster',
+  'labjs','less','marked','moment','mustache','querystring','raphael',
+  'socketio','store','swfobject','underscore','zepto','ztree'
+];
+
+var ARALE_MODULES = [
+  'autocomplete','base','calendar','class','cookie','dialog','easing',
+  'events','iframe-uploader','iframe-shim','messenger','overlay','popup',
+  'position','select','switchable','tip','validator','widget'
+];
+
+var util = {};
+util.indexOf = Array.prototype.indexOf ?
+  function(arr, item) {
+    return arr.indexOf(item);
+  } :
+  function(arr, item) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === item) {
+        return i;
+      }
+    }
+    return -1;
+  };
+util.map = Array.prototype.map ?
+  function(arr, fn) {
+    return arr.map(fn);
+  } :
+  function(arr, fn) {
+    var ret = [];
+	for (var i = 0; i < arr.length; i++) {
+        ret.push(fn(arr[i], i, arr));
+    }
+    return ret;
+  };
+
+function contains(arr, item) {
+  return util.indexOf(arr, item) > -1
+}
+
+function map(id) {
+  id = id.replace('#', '');
+
+  var parts = id.split('/');
+  var len = parts.length;
+  var root, name;
+
+  // id = root/name/x.y.z/name
+  if (len === 4) {
+    root = parts[0];
+    name = parts[1];
+
+    // gallery 或 alipay 开头的没有问题
+    if (root === 'alipay' || root === 'gallery') {
+      return id;
+    }
+
+    // arale 开头的
+    if (root === 'arale') {
+      // 处理 arale/handlebars 的情况
+      if (contains(GALLERY_MODULES, name)) {
+        return id.replace('arale/', 'gallery/');
+      } else {
+        return id;
+      }
+    }
+  }
+  // id = name/x.y.z/name
+  else if (len === 3) {
+    name = parts[0]
+
+    // 开头在 GALLERY_MODULES 或 ARALE_MODULES
+    if (contains(GALLERY_MODULES, name)) {
+      return 'gallery/' + id;
+    } else if (contains(ARALE_MODULES, name)) {
+      return 'arale/' + id;
+    }
+  }
+
+  return id;
+}
+
+var _use = seajs.use;
+
+seajs.use = function(ids, callback) {
+  if (typeof ids === 'string') {
+    ids = [ids];
+  }
+
+  ids = util.map(ids, function(id) {
+    return map(id);
+  });
+
+  return _use(ids, callback);
+}
+
+})();
+</script><!-- CMS:全站公共 cms/tracker/seajs.vm结束:tracker/seajs.vm -->
+<!-- CMS:全站公共 cms/tracker/tracker_time.vm开始:alipay/tracker/tracker_time.vm --><meta name="ABTest" content="">
+
+<script type="text/javascript">
+if (!window._to) {
+  window._to = { start: new Date() };
+}
+</script>
+
+
+  
+
+
+
+                                                                        
+                                                              
+
+
+
+
+
+  <script charset="utf-8" crossorigin="crossorigin" src="confirmPeerPay_files/a_002.js"></script>
+
+
+
+  
+        
+  
+
+
+<script>
+  window.Tracker && Tracker.start && Tracker.start();
+  
+</script>
+<!-- CMS:全站公共 cms/tracker/tracker_time.vm结束:alipay/tracker/tracker_time.vm -->
+    <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="confirmPeerPay_files/out.css">
+
+      <link charset="utf-8" rel="stylesheet" href="confirmPeerPay_files/personalprod.css" media="all">
+
+  
+    
+
+
+
+
+
+<link media="all" rel="stylesheet" href="confirmPeerPay_files/alice.css" type="text/css">
+  <style>.header-link {width:750px;}</style>
+  
+      <style>
+#confirmForm{
+	zoom:1;
+}
+.df-apply-account-container {
+  padding-top:20px;
+	padding-bottom:40px;
+}
+.df-apply-account-container .df-apply-account-img {
+	float:left;
+	margin-left:-90px;
+	_margin-left:-45px;
+}
+.df-apply-account-container .df-apply-account-info {
+	border-bottom:none;
+	margin-top:0;
+	padding-left:20px;
+}
+.df-apply-account-container .df-apply-account-info h3 {
+	padding-left:0;
+	word-break:break-all;
+	word-wrap:break-word;
+	width:735x;
+	height:auto;
+	line-height:normal;
+	margin-top:30px;
+	margin-bottom:6px;
+} 
+.df-apply-account-container .df-apply-account-message {
+	width:780px;
+	top: 12px;
+	position: relative;
+}
+.df-apply-account-container .df-apply-account-message .ui-tiptext-arrowup-message {
+	background-image:url(https://i.alipayobjects.com/e/201206/3O4JBDmMZH.png);
+	background-position: 0 -1px ;
+	left:-5px;
+	top:44px;
+	height:14px;
+	width:12px;
+	overflow:hidden;
+}
+.df-apply-account-container .df-apply-account-message .ui-tiptext-container-message {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border:none;
+	border-radius:10px;
+}
+.df-apply-account-container .df-apply-account-message .ui-tiptext-icon{
+	display:none; 
+}
+.df-apply-account-container .df-apply-account-message .ui-tiptext-message{
+	padding-left:20px;
+	margin-bottom:15px;
+	
+}
+.df-request-warning .ui-tiptext-container-warning{
+	width:400px;
+}
+.df-request-warning .ui-tiptext-container-warning .ui-tiptext{
+	margin-bottom:9px;
+	height:auto;
+}
+.extra-agreePay{
+	position: relative;
+	padding-left: 22px;
+}
+.extra-agreePay #agreePay{
+	position: absolute;
+	top: 3px;
+	left: 0;
+}
+.df-request-cert .ui-tiptext-container-stop{
+	width:550px;
+}
+.df-request-limit .ui-tiptext-container-stop{
+	width:460px;
+
+}
+.df-request-cert .ui-tiptext{
+	overflow:visible;
+}
+.df-request-cert .ui-tiptext a{
+	text-decoration: underline;
+
+}
+.df-request-cert .ui-tiptext-container{
+	float:left;
+}
+#cert-notice{
+	width:550px;
+} 
+.ui-tiptext{
+	height:16px;
+}
+.ui-form{
+	background-color:#f8f8f8; 
+} 
+.df-apply-account-message {
+	border-radius:10px;
+	border:1px solid #dfdfdf;
+		 box-shadow:0 1px 2px #efefef;
+
+}
+.df-apply-account-message .ui-tiptext-content{
+	padding:0;
+	border-radius:10px;
+	
+}
+.ui-dlist{
+	margin-top:10px;
+	border-top: 1px dashed #DFDFDF;
+	padding-top:10px;
+	margin-right:30px;
+}
+.ui-dlist-det{
+	width:600px;
+}
+.df-list{
+	overflow:hidden;
+	background-color:#f8f8f8;
+	border-radius:0 0 10px 10px;
+	width:100%;
+
+}
+.df-list-no-radius{
+	border-radius:0;
+}
+.df-list li{
+	padding:10px 20px 10px 20px;
+	background-color:#F8F8F8;
+
+}
+.df-list .df-list-name{
+	font-size:12px;
+}
+.df-list .df-list-price{
+	right:30px;
+	_right:50px;
+}
+.df-list .df-list-switch{
+	right:0;
+	_right:20px;
+}
+#df-list-toggle-trigger{
+	float:none;
+	text-align:right;
+
+	padding-left:20px;
+	line-height:35px;
+	background-color:#fff;
+	margin-left:0;
+	border-radius:0 0 10px 10px;
+}
+#df-list-toggle-trigger a{
+	background-image:url(https://i.alipayobjects.com/e/201206/3O5X3DOM5L.png);
+	padding-right:20px;
+	background-repeat:no-repeat;
+}
+#df-list-toggle-trigger .df-list-show-text{
+	background-position:77px -5px;
+}
+#df-list-toggle-trigger .df-list-hide-text{
+	background-position:53px 5px;
+
+}
+.df-list-toggle-trigger-noLogin{
+	padding-right:43px;
+}
+.df-list-toggle-trigger-hasLogin{
+	padding-right:14px;
+}
+#ServerNum{
+    color: #ddd;
+}
+</style>
+    
+
+  <script type="text/javascript" charset="utf-8">
+    AralePreload = [];
+    var AP = AP || {};
+    AP.PageVar = {
+      app_domain: "https://shenghuo.alipay.com:443",
+      personal_domain:"https://lab.alipay.com:443",
+      apimg_domain:"https://i.alipayobjects.com"
+    }
+  </script>
+
+<script src="confirmPeerPay_files/a.js" charset="UTF-8"></script><link href="confirmPeerPay_files/a.css" type="text/css" rel="stylesheet"><link href="confirmPeerPay_files/2ACTshL8Vh.css" rel="stylesheet" crossorigin="anonymous" charset="utf-8"></head>
+
+<body class="single-task">
+  <!-- 全站公告位 -->
+  
+ 
+<!-- CMS:全站公共 cms/notice/headNotice.vm开始:alipay/notice/headNotice.vm --><!--[if lte IE 7]>
+<style>.kie-bar { display: none; height: 24px; line-height: 1.8; font-weight:normal; text-align: center; border:1px solid #fce4b5; background-color:#FFFF9B; color:#e27839; position: relative; font-size: 12px; margin: 5px 0 0 0; padding: 5px 0 2px 0; } .kie-bar a { text-decoration: none; color:#08c; background-repeat: none; } .kie-bar a#kie-setup-IE8,.kie-bar a#kie-setup-taoBrowser { padding: 0 0 2px 20px; *+padding-top: 2px; *_padding-top: 2px; background-repeat: no-repeat; background-position: 0 0; } .kie-bar a:hover { text-decoration: underline; } .kie-bar a#kie-setup-taoBrowser { background-position: 0 -20px; }</style>
+<div id="kie-bar" class="kie-bar">您现在使用的浏览器版本过低，可能会导致部分图片和信息的缺失。请立即 <a href="http://www.microsoft.com/china/windows/IE/upgrade/index.aspx" id="kie-setup-IE8" seed="kie-setup-IE8" target="_blank" title="免费升级至IE8浏览器">免费升级</a> 或下载使用 <a href="http://download.browser.taobao.com/client/browser/down.php?pid=0080_2062" id="kie-setup-taoBrowser" seed="kie-setup-taoBrowser" target="_blank" title="淘宝浏览器">淘宝浏览器</a> ，安全更放心！ <a title="查看帮助" target="_blank" seed="kie-setup-help" href="http://help.alipay.com/lab/help_detail.htm?help_id=260579">查看帮助</a></div>
+<script type="text/javascript">
+(function () {
+    function IEMode() {
+        var ua = navigator.userAgent.toLowerCase();
+        var re_trident = /\btrident\/([0-9.]+)/;
+        var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
+        var version;
+        if (!re_msie.test(ua)) {
+            return false;
+        }
+        var m = re_trident.exec(ua);
+        if (m) {
+            version = m[1].split(".");
+            version[0] = parseInt(version[0], 10) + 4;
+            version = version.join(".");
+        } else {
+            m = re_msie.exec(ua);
+            version = m[1];
+        }
+        return parseFloat(version);
+    }
+    var ie = IEMode();
+    if (ie && ie < 8 && (self.location.href.indexOf("_xbox=true") < 0)) {
+        document.getElementById('kie-bar').style.display = 'block';
+        document.getElementById('kie-setup-IE8').style.backgroundImage = 'url(https://i.alipayobjects.com/e/201307/jYwARebNl.png)';
+        document.getElementById('kie-setup-taoBrowser').style.backgroundImage = 'url(https://i.alipayobjects.com/e/201307/jYwARebNl.png)';
+    }
+})();
+</script>
+<![endif]-->
+
+<!-- CMS:全站公共 cms/notice/headNotice.vm结束:alipay/notice/headNotice.vm -->  <!-- /全站公告位 -->
+
+  <!-- 头部 -->
+  <div class="single-header">
+    <div id="header">
+      <div class="title">
+        <!-- LOGO -->
+        <h1 class="logo">
+          <a href="https://lab.alipay.com/user/i.htm" title="我的支付宝" seed="header-logo">
+            <img src="confirmPeerPay_files/2m8CambYir_src.png" alt="支付宝" height="37" width="106">
+          </a>
+        </h1>
+        <!-- /LOGO -->
+                  <h2>代付</h2>
+              </div>
+      <!-- 快速信息及链接 -->
+      <div class="header-link the-alipay-global">
+        
+
+
+
+
+
+
+
+
+<!-- CMS:全站公共 cms/nav/msgSwitch.vm开始:nav/msgSwitch.vm --><script>
+MSGSWITCH = true;
+</script>
+
+
+<style type="text/css">
+.global-logo a {
+	width: 114px;
+	height: 40px;
+	background: transparent url(https://t.alipayobjects.com/images/T1HHFgXXVeXXXXXXXX.png) left top no-repeat;
+	margin-right: 15px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+	.global-logo a {
+		background-image: url(https://t.alipayobjects.com/images/T11rdgXbFkXXXXXXXX.png);
+		background-size: 114px 40px;
+	}
+}
+</style><!-- CMS:全站公共 cms/nav/msgSwitch.vm结束:nav/msgSwitch.vm -->
+<!-- from /uiweb/uitpl -->
+<div class="global-toplink">
+                <div id="global-header-user" class="global-dropdown">
+            <div class="global-dropdown-hd">
+                <div class="global-dropdown-hd-normal">
+                    <a smartracker="on" seed="globalDropdownHdNormal-globalToplinkUser" href="#" class="global-toplink-user global-toplink-link">
+                        <span id="global-toplink-username" class="global-toplink-username" title="乐雯斐">乐雯斐</span>
+                    </a>
+                </div>
+            </div>
+            <div style="z-index: 99; display: none; position: absolute; left: -2px; top: 23px;" class="global-dropdown-bd global-dropdown-bd-pl sl-alpha global-hide">
+                <div class="global-dropdown-bd-cnt global-dropdown-user">
+                    <h3 class="global-tit" id="global-username" title="amarsims2@gmail.com">amarsims2@gmail.com</h3>
+                    <div class="global-button-box">
+                        <a smartracker="on" seed="globalButtonBox-globalButton" href="https://lab.alipay.com/user/depositDelegateController.htm" class="global-button global-button-sorange" target="_blank">
+                            <span class="global-button-text" seed="global-button-deposit">充 值</span>
+                        </a>
+                        <a smartracker="on" seed="globalButtonBox-globalButtonT1" href="https://memberprod.alipay.com/fund/withdraw/apply.htm" class="global-button global-button-swhite" target="_blank">
+                            <span class="global-button-text" seed="global-button-withdraw">提 现</span>
+                        </a>
+
+                        <a smartracker="on" seed="globalButtonBox-globalButtonT2" href="https://shenghuo.alipay.com/send/payment/fill.htm?_pdType=adbhajcacfagdjggggid" class="global-button global-button-swhite" target="_blank">
+                            <span class="global-button-text" seed="global-button-transfer">转 账</span>
+                        </a>
+                    </div>
+                    <div class=" daparser-0" data-daparser-cid="daparser-0" id="global-users" data-user="true">
+                        <h3 class="global-tit global-tit-line">切换用户</h3>
+                        <ul id="global-list-user" class="global-list global-loading"></ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- #global-dropdown-user -->
+        <em class="global-separator">|</em>
+    
+      
+            
+            <a href="https://auth.alipay.com/login/logout.htm" class="global-toplink-link" seed="global-header-logout">退出</a>
+        <em class="global-separator">|</em>
+    
+                        
+            <a href="http://i.taobao.com/my_taobao.htm?r=0.17472139610556747&amp;userid=2088302109757015" target="_blank" seed="global-header-taobao" class="global-toplink-link">返回我的淘宝</a>
+        <em class="global-separator">|</em>
+    
+                        <a href="http://help.alipay.com/lab/234447-210745/0-210745.htm" seed="global-header-help" target="_blank" class="global-toplink-link">服务大厅</a>
+        <em class="global-separator">|</em> 
+    
+                <a href="https://egg.alipay.com/" seed="global-header-egg" target="_blank" class="global-toplink-link">提建议</a>
+    <em class="global-separator">|</em>
+
+    <div id="global-header-more" class="global-dropdown">
+        <div class="global-dropdown-hd">
+            <div class="global-dropdown-hd-normal">
+                <a href="#" class="global-toplink-more global-toplink-link" seed="global-more-link">更多</a>
+            </div>
+        </div>
+        <div style="z-index: 99; display: none; position: absolute; left: -73px; top: 23px;" class="global-dropdown-bd global-dropdown-bd-pr sl-alpha global-hide">
+            <div class="global-dropdown-bd-cnt global-dropdown-more">
+                <ul id="global-list-more" class="global-list">
+                                            <!-- CMS:全站公共 cms/全站导航/more开始:alipay/nav/more.vm -->      <li><a href="http://mobile.alipay.com/" title="无线支付" seed="global-more-mobile" target="_blank">无线支付</a></li>
+      <li><a href="https://financeprod.alipay.com/account/finance/index.htm" title="理财专区" seed="global-more-finance" target="_blank">理财专区</a></li>
+      <li><a href="https://b.alipay.com/newIndex.htm?src=person_alipay_001" title="商家服务" seed="global-more-merchant" target="_blank">商家服务</a></li>
+      <li><a href="https://www.alipay.com/" title="返回支付宝首页" seed="global-more-home" target="_blank">返回支付宝首页</a></li>
+  <!-- CMS:全站公共 cms/全站导航/more结束:alipay/nav/more.vm -->                                    </ul>
+            </div>
+        </div>
+    </div><!-- #global-dropdown-more -->
+
+</div><!-- .global-toplink -->
+
+<script type="text/x-handlebars-template" id="global-template-birth" charset="utf-8">
+    <div class="global-birth">
+        <a href="#" class="global-birth-icon global-toplink-link" seed="birthdayicon_02">生日快乐</a>
+        <div class="global-birth-tip" style="display:none">
+            <div class="global-birth-tip-content">点击生日祝福</div>
+            <div class="global-birth-tip-shadow"></div>
+            <div class="global-birth-tip-angle"></div>
+        </div>
+        <div id="global-birthSwf">
+            <div id="global-swfObj"></div>
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+(function(doc) {
+    document.domain = document.domain.split(".").slice(-2).join(".");
+ 
+  
+    window.GLOBAL = {
+        system: {
+            personal: "https://lab.alipay.com:443",
+            personalportal: "https://my.alipay.com",
+            authcenter: "https://auth.alipay.com",
+            apimg: "https://i.alipayobjects.com",
+            assets: "https://a.alipayobjects.com"
+        },
+        today:'20151111',
+        birthday: ''
+    };
+
+    seajs.use('jquery');
+    seajs.use(['alipay/common-v1/0.9.5/v1', 'jquery'],function(v1, $){
+        var Birthday = v1.Birthday;
+        var Account = v1.Account;
+        var Count = v1.Count;
+        var Message = v1.Message;
+        var Robot = v1.Robot;
+        var Dropdown = v1.Dropdown;
+
+        var msgEl = $('#global-header-msg');
+        var accountEl = $('#global-header-user');
+        var moreEl = $('#global-header-more');
+        var iEl = $('#global-header-i');
+        var robotEl = $('#global-header-robot');
+
+        GLOBAL.isBirthday = Birthday.isBirthday;
+        if(Birthday.isBirthday){
+            GLOBAL.Birthday = new Birthday({
+                template: $('#global-template-birth').html(),
+                parentNode: $('#global-header-area')[0]
+            }).render();
+
+            // flash要获取的数据
+            window.J_ConstellData = function(){
+                return GLOBAL.Birthday.param;
+            };
+
+            // 关闭flash调用
+            window.foldFlash = function(){
+                GLOBAL.Birthday.hideFlash();
+            };
+        }
+
+        function afterShow() {
+            this.get('trigger').parent().addClass('global-dropdown-active');
+        };
+        function afterHide() {
+            this.get('trigger').parent().removeClass('global-dropdown-active');
+        };
+
+        if (msgEl[0]) {
+            // 是否发送消息，由cms(alipay/nav/msgSwitch.vm) 返回
+            if (window.MSGSWITCH && msgEl.attr('data-msg') !== 'N') {
+                Message.getMessageCount(function(data) {
+                    var message = new Message({
+                        trigger: msgEl.find('.global-dropdown-hd')[0],
+                        element: msgEl.find('.global-dropdown-bd')[0],
+                        align: {
+                            baseXY: [-2, msgEl.height()-1]
+                        },
+                        afterShow: function(){
+                            if (Count.getCount() > 0) {
+                                afterShow.call(this);
+                            }
+                        }, 
+                        afterHide: function(){
+                            afterHide.call(this);
+                        } 
+                    }).render();
+
+                    if (data.popMsg && data.infos.length) {
+                        message.renderMsg(data);
+                        // 消息中心的页面不直接显示浮层
+                        if (!(/\/messager\/(history|new)\.htm/i.test(location.href))) {
+                            message.show();
+                        }
+                    }
+                });
+                } else {
+                Count.hideCount();
+            }
+        }
+        if (accountEl[0]) {
+            var accountTrigger = accountEl.find('.global-dropdown-hd');
+            var account = new Account({
+                trigger: accountTrigger[0],
+                element: accountEl.find('.global-dropdown-bd')[0],
+                align: {
+                    baseXY: [-2, accountTrigger.height()-2]
+                },
+                afterShow: afterShow, 
+                afterHide: afterHide 
+            }).render();
+        }
+        if (moreEl[0]) {
+            var moreTrigger = moreEl.find('.global-dropdown-hd');
+            var more = new Dropdown({
+                trigger: moreTrigger[0],
+                element: moreEl.find('.global-dropdown-bd')[0],
+                align: {
+                    selfXY: ['100%',0],
+                    baseXY: ['100%-2px','100%-5px']
+                },
+                afterShow: afterShow, 
+                afterHide: afterHide 
+            }).render();
+        }
+        moreEl.find('#global-list-more li').hover(
+          function(e) {
+            $(e.currentTarget).addClass('global-list-hover');
+          }, function(e) {
+            $(e.currentTarget).removeClass('global-list-hover');
+          }
+        );
+        if (iEl[0]) {
+            var iTrigger = iEl.find('.global-dropdown-hd');
+            var i = new Dropdown({
+                trigger: iTrigger[0],
+                element: iEl.find('.global-dropdown-bd')[0],
+                align: {
+                    baseXY: [-2, iTrigger.height()-2]
+                },
+                afterShow: afterShow, 
+                afterHide: afterHide 
+            }).render();
+        }
+
+      if (robotEl[0]) {
+          var robotTrigger = robotEl.find('.global-dropdown-hd');
+          var i = new Robot({
+              trigger: robotTrigger[0],
+              template: $('#global-template-robot').html().replace(/@if/g,'#'+'if'),
+              model: {isLogin: robotEl.attr('data-login')==='true'},
+              parentNode: robotEl[0],
+              align: {
+                  baseXY: [-2, robotTrigger.height()-2]
+              },
+              afterShow: afterShow, 
+              afterHide: afterHide 
+          }).render();
+      }
+    });
+})(document);
+</script>
+
+
+<!-- CMS:生日关怀运营内容开始:personal/personalpublic/birthday.vm --><script>
+    GLOBAL.BIRTHURL = 'https://i.alipayobjects.com/e/201205/2bYT4D3i49.swf';
+    
+    window.getUrl = function(){
+    window.open("http://fun.alipay.com/shengri/index.htm");
+  };
+  </script><!-- CMS:生日关怀运营内容结束:personal/personalpublic/birthday.vm -->      </div>
+      <!-- /快速信息及链接 -->
+    </div>
+  </div>
+  <!-- / 头部 -->
+
+  <div id="container">
+    <a smartracker="on" seed="container-link" name="skip"></a>
+
+<script type="text/javascript">
+var form_token = "Whopt5QVy5XYSQNKWHaE0B3vI6AYxRHD";//将token赋值给rds_token
+</script>
+<script type="text/javascript" src="confirmPeerPay_files/ua_personalprod_request.js"></script>
+
+<div id="main-box">
+	<form id="confirmForm" class="ui-form" method="post" action="confirmPeerPay.htm"><input value="225YlJgThc3UTYWOBgrdkN1RXFAe0ByRmY5Zg==|YVJ8T3lPekp9S3pAdUV+TxA=|YFB+JwdDKFg/WzZMbEJiVGREakofdBh+E2YXN2g3|Z1RkSmo/VThKPAtYDHdAGkEQQw9GE1k6fU8PPkoBNXYtVwdNCyt0|ZlVuQBkoBjYMPxEiGTcXJkF7U2FRY1F1Tn1WfQRwE2NBLw9QDw==|ZV9xUXEu|ZF9xUXEu|a1hrRRw8ViBWJFVtQG0cdhF9GHIFaEQnSSJQM0hkBWgHKlg/WChaOUIjTj5ZdBV4FHAbawRWMVYmdBdsQCpcMw5lAzwMPg06CToJOgg+DjwOPgw9Dz0OPA48Cz0PPwg8GGkCZws0BmZQaltvWj0ZawxrG2kKcSdcLkl2On0odSd1Nm1NY0MpXylbKhI/En0GKkknTD5dJgprBmlENlsrXT5QfRY6UCZJaTZp|alt1LBciDD4QIxIkFTsOOw0jECEVJwk8CDIcLx4qGDYDMwlWCQ==|aVxyKwsrBTYYKB4keyQ=|aFtpR2c+DTsNPgQqdFRnUWdWZ1NnU2FaYVVmGCoGNQM5CTwLPg85Dj4EPg0+DTpkRGpZBiZ5|b1l3Lg4uADsLOxUlECULOw08BlkG|blh2Lw8vATQFNRsrHysFNAY9C1QL|bVt1LAwsAjYNPxEhGykHMwU/C1QL|bFp0LQ0tAzUDORcmFCcJPAs+CFcI|c0VrMhIyHCsYKAY3AiwWJBEjfCM=|ckRqMxMzHSwaLAI5CiQeKxAifSI=|cURqMxMzHS8BMgAyADplOg==|cEZoMRExHygZKgQ1AzIcLRogESF+IQ==|d0FzQW9dc0NtXmhbdURzRmhfZEp/SGZVZlB+TWNVZ0lyQG5Zd0FvXnBAbl1zQW9ebkBvXwA=" id="UA_InputId" name="ua" type="hidden">
+		<input name="_form_token" value="Whopt5QVy5XYSQNKWHaE0B3vI6AYxRHD" type="hidden">
+		<input name="id" value="2015111104200203001000540256" type="hidden">
+		<input name="peerpayType" value="NEW_PPAY" type="hidden">
+		<div class="ui-form-item df-apply-account-container">
+			<div class="df-apply-account-img">
+				<img smartracker="on" seed="dfApplyAccountImg-iE2012052bVa8tRCuH" alt="" src="confirmPeerPay_files/2bVa8tRCuH.png" height="85" width="81">
+			</div>
+			<div class="df-apply-account-message">
+				<div class="ui-tiptext-container ui-tiptext-container-message">
+					<div class="ui-tiptext-content ">
+						<span class="ui-tiptext-arrowup ui-tiptext-arrowup-message">↑</span>
+						<div class="title title-line df-apply-account-info">
+							<h3>*雯斐 （thesims4@yahoo.cn）发起了1笔代付,请您帮忙付款 <span class="color-orange">17.00</span> 元</h3>
+						</div>
+													<p class="ui-tiptext ui-tiptext-message"><span class="ui-tiptext-icon"></span>他说：“选填，感谢、撒娇、乞求都可以”</p>
+												<ul class="df-list ">
+														<li class="  ">
+								<div class="df-list-wrap">
+									<span class="df-list-icon"></span>
+									<span class="df-list-name">担保交易--西湖茶园85号 九曲红梅 红茶 新茶叶 250克</span><span class="df-list-price"><strong>17.00</strong> 元</span>
+																			<span seed="df-pay-order-open" class="df-list-switch df-list-switch-off" data-bizno="2015111121001001030225699270" data-biztype="BATCH_TRADE" data-sign="b34d90ea"></span>
+										<div class="df-list-detail-container">
+										</div>
+																	</div>
+							</li>
+													</ul>
+
+																	</div>
+				</div>
+			</div>
+		</div>
+
+
+		 																																																				<div class="ui-form-item df-request-warning">
+					<div class="ui-tiptext-container ui-tiptext-container-warning">
+						<div class="ui-tiptext-content">
+							<p class="ui-tiptext ui-tiptext-warning"><span class="ui-tiptext-icon"></span>为避免风险，建议您通过电话确认代付申请人是您亲友本人，不要为陌生人代付。</p>
+							<div class="extra-agreePay">
+								<input id="agreePay" autocomplete="off" seed="df-pay-tips" type="checkbox">
+								<label for="agreePay">我知道是<strong>为他人付款</strong>，商品或服务<strong>不归我所有</strong>。
+									                                        若产生退款，将退到您的支付宝账户。
+																	</label>
+							</div>
+						</div>
+					</div>
+					<p>勾选即可为他付款</p>
+				</div>
+
+										<div class="ui-form-item">
+				<div class="ui-button ui-button-ldisable">
+					<input id="confirmFormSubmit" class="ui-button-text" autocomplete="off" value="确认付款" disabled="disabled" seed="df-pay-btn" type="submit">
+				</div>
+
+			</div>
+	</form>
+</div>
+	
+<!--问答-->
+
+
+<div id="faq" class="tip-faq">
+<a class="fn-right J-scroll-to-top" href="#main" seed="faq-scroll-to-top">回到顶部</a>
+
+
+
+
+
+<h3>使用遇到问题？</h3><dl><dt>代付人的代付额度有限制吗？</dt><dd>答：单日付款额度累计不超过20000元，单笔不超过20000元。无线端操作代付额度以页面显示为准。</dd></dl><p class="tip-faq-link"><a href="http://help.alipay.com/lab/234447-210745/0-210745.htm" target="_blank" seed="faq-morehelp">更多相关帮助</a></p>
+
+<form method="get" action="http://help.alipay.com/lab/search_new_result.htm" name="faqsearch" target="_blank" id="faqsearch">
+<div class="com-search">
+  <span><input smartracker="on" seed="comSearch-word" name="word" id="word" data-explain="请输入您遇到的问题" value="请输入您遇到的问题" class="i-text i-text-s i-text-gray" type="text"></span>
+  <input name="uisrc" id="uisrc" value="pagefaq" type="hidden">
+  <input class="btn-fixed" value="搜索" seed="faq-search" type="submit">
+</div>
+</form>
+
+</div>
+<!--/问答-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<!-- 页脚 -->
+<style>
+#footer {border-top: 1px solid #f0f0f0;padding: 15px 0;margin: 0 auto;width: 990px;text-align: center;}
+.single-footer {border:none}
+.server {color: #fff;}
+</style>
+<div id="footer">
+	<div class="single-footer">
+		
+ 
+<!-- /public/component/footSimple.vm -->
+<div class="ui-copyright">
+<!-- CMS:全站公共 cms/foot/copyright.vm开始:foot/copyright.vm --><style>
+.copyright,.copyright a,.copyright a:hover{color:#808080;}
+</style>
+<div class="copyright">
+      支付宝版权所有 2004-2015 <a smartracker="on" seed="copyright-link" href="http://fun.alipay.com/certificate/jyxkz.htm" target="_blank">ICP证：沪B2-20150087</a>
+  </div>
+<div class="server" id="ServerNum">
+  personalprod-60-144 &nbsp; 0ad6383a14472545123743231_0
+</div><!-- CMS:全站公共 cms/foot/copyright.vm结束:foot/copyright.vm --></div>
+<!-- /public/component/footSimple.vm -->	</div>
+</div>
+<!-- /页脚 -->
+
+	<script type="text/javascript" charset="utf-8">
+	    araleConfig = {
+	        combo_host: 'https://a.alipayobjects.com',
+	        combo_path: '/ar/??',
+			avatar_host: 'https://tfsimg.alipay.com:443'
+	    }
+	</script>
+	<script type="text/javascript" src="confirmPeerPay_files/arale.js" charset="utf-8"></script>
+
+	<script type="text/javascript" charset="utf-8" src="confirmPeerPay_files/personalprod.js"></script>
+<script type="text/javascript" charset="utf-8" src="confirmPeerPay_files/alipay.js"></script>
+
+
+
+
+	<script type="text/javascript">
+var personalprod = personalprod || {};
+personalprod.peerpayBizDetailURL = "https://shenghuo.alipay.com:443/peerpaycore/peerpayBizDetail.htm";
+
+Loader.use(['alipay.http','aralex.xbox','alipay.faq'], function(){
+	var highligthFaq = new alipay.faq({
+        autoShow: false
+    });
+	// toggle show every list
+	personalprod.toggleShowEveryList('df-list-toggle-trigger');
+	
+	
+		if($("agreePay")){
+	$("agreePay").click(function(e){
+		$this=$(e.target);
+		if($this.attr("checked")){
+			$("confirmFormSubmit").parent().addClass("ui-button-lorange");
+			$("confirmFormSubmit").parent().removeClass("ui-button-ldisable");
+			$("confirmFormSubmit").removeAttributes('disabled');
+		}else{
+			$("confirmFormSubmit").parent().removeClass("ui-button-lorange");
+			$("confirmFormSubmit").parent().addClass("ui-button-ldisable");
+			$("confirmFormSubmit").node.setAttribute('disabled','disabled');
+
+		} 
+	})
+	}
+	/* df list toggle detail */
+    personalprod.toggleDetail(function(obj) {
+		
+        checkLoginOnReload(obj);
+    });
+		function checkLoginOnReload(obj){
+		Ajax.jsonp('https://shenghuo.alipay.com:443/peerpaycore/isLogin.json', {
+			success: function(data){
+				var isLogin = data.stat;										if(isLogin==="ok"){ 												personalprod.getPeerpayBizDetail(obj);
+				}else{																
+					sessionOutDateLoginXbox.show();
+				}
+			},
+			failure: function(){
+		   
+			}
+		});
+	}
+		$("confirmFormSubmit").click(function(e){
+		checkLoginOnSubmit();
+		e.preventDefault(); 
+
+	})
+		var gotoUrl="https://shenghuo.alipay.com:443/peerpaycore/confirmPeerPayLoginCallBack.htm?callback=reloadParent";
+	var url="https://auth.alipay.com/login/xbox.htm?redirectType=self&goto="+gotoUrl;
+	var sessionOutDateLoginXbox =  new aralex.xbox.IframeXbox({
+		width: 400, 
+		height:260,
+		autoFit: true,
+		value: url, 
+		beforeShow: function(){
+			currentBox = this;
+		},
+		isOld:true 
+	});
+	    var loginXbox =  new aralex.xbox.IframeXbox({
+		width: 850,
+		height:340,
+		autoFit: true,
+		value: 'https://shenghuo.alipay.com:443/home/loginAndQ.htm?loginGoto=https://shenghuo.alipay.com:443/transfer/callBackIframe.htm?callback=formSubmit&qGoto=https://shenghuo.alipay.com:443/transfer/callBackIframe.htm?callback=formSubmit',
+		beforeShow: function(){
+			currentBox = this;
+		},
+		isOld:true 
+	});
+			var gotoUrl="https://shenghuo.alipay.com:443/peerpaycore/confirmPeerPayLoginCallBack.htm?callback=formSubmit";
+	var url="https://auth.alipay.com/login/xbox.htm?redirectType=self&goto="+gotoUrl;
+	personalprod.isAssignerLoginXbox =  new aralex.xbox.IframeXbox({
+		width: 400, 
+		height:260, 
+		autoFit: true,
+		value: url,
+		beforeShow: function(){
+			currentBox = this;
+		},
+		isOld:true  
+	});
+		
+		function checkLoginOnSubmit(){
+		Ajax.jsonp('https://shenghuo.alipay.com:443/peerpaycore/isLogin.json', {
+			success: function(data){
+				var isLogin = data.stat;										if(isLogin==="ok"){ 												formSubmit();
+				}else{																
+					 													personalprod.isAssignerLoginXbox.show();
+									}
+			},
+			failure: function(){
+		   
+			}
+		});
+	}	
+
+}) 
+function formSubmit(){
+	$('confirmForm').node.submit();
+}
+function pageReload(){
+	location.reload();
+}
+</script>
+
+
+
+ 
+<!-- uitpl:/component/tracker.vm -->
+<!-- CMS:全站公共 cms/tracker/tracker.vm开始:alipay/tracker/tracker.vm --><script type="text/javascript">
+window.Smartracker && Smartracker.sow&&Smartracker.sow();
+</script>
+
+
+
+<script type="text/javascript">
+function _use_monitor(){
+
+  if(!window.seajs){return;}
+
+  // 命中率：[0,1]: 实际对应采样率：[0%,100%]
+  // 注意：sens_rate 跟 sens_rate 是有关联的。
+  //      实际设置的内容时，应该参考以下算法：
+  //      敏感信息监控实际采样率 = sens_rate * jserr_rate;
+  var jserr_rate = 1;
+  var sens_rate = 0.01;
+  var performance_rate = 0;
+
+  // 随机采样命中算法。
+  // @param {Nuber} rate, 采样率，[0,1] 区间的数值。
+  // @return {Boolean}
+  function hit(rate){
+    return 0 === Math.floor(Math.random() / rate);
+  }
+  
+  // 引入性能打点文件	
+  if(hit(performance_rate)){ 
+	window.PAGE_TIMING = {
+	  pageId: new String(new Date().getTime()),
+	  parentPageId: "",
+      pageType: "/peerpaycore/confirmPeerPay.htm",
+      site: "AlipayCN",
+      receiverUrl: "https://kcart.alipay.com/p.gif"
+    };
+		
+    if(window._to && _to.start){
+      window.PAGE_TIMING.startRender = _to.start.getTime();
+	};
+		
+	seajs.use("aliexpress.page-timing/0.3.2/index");
+  }
+
+
+  if(!hit(jserr_rate)){return;}
+
+  seajs.use(["$", "alipay/monitor/2.3.1/monitor",
+    "alipay/sensinfo/1.2.0/sensinfo"], function($, monitor, sensinfo){
+
+    if(!monitor){return;}
+
+    $(function(){
+      var sysName = "personalprod-60-144";
+
+      monitor.on("*", function(meta){
+        meta.sys = sysName;
+      });
+
+
+      if(!hit(sens_rate) || !sensinfo){return;}
+      try{
+        var html = (document.documentElement || document.body).innerHTML;
+        window.setTimeout(function(){
+          sensinfo.scan(html, {
+            "*": function(cardType, privacy_card, context) {
+              monitor.log(cardType+"="+privacy_card+"```"+context, "sens");
+            }
+          });
+        }, 1200);
+      }catch(ex){}
+
+    });
+  });
+
+}
+
+if(window._monitor_autoload !== false){
+  _use_monitor();
+}
+</script>
+
+
+<!-- CMS:全站公共 cms/cmsbuffer/main.vm开始:cmsbuffer/main.vm -->																													
+	
+
+<!-- CMS:全站公共 cms/foot/console_security_msg.vm开始:alipay/foot/console_security_msg.vm --><script src="confirmPeerPay_files/index.js"></script>
+<!-- CMS:全站公共 cms/foot/console_security_msg.vm结束:alipay/foot/console_security_msg.vm --><!-- CMS:全站公共 cms/cmsbuffer/main.vm结束:cmsbuffer/main.vm --><!-- CMS:全站公共 cms/tracker/tracker.vm结束:alipay/tracker/tracker.vm -->
+
+
+
+
+
+
+
+
+
+                                                                        
+                                                                        
+                                                                        
+                
+    <!-- CMS:全站公共 cms/foot/cliveService.vm开始:alipay/foot/cliveService.vm -->    <div style="display:none">onlineServer</div>
+    <script type="text/javascript">
+    try {
+        (function () {
+            var loadOnlineServer = function() {
+                seajs.config({
+                    comboExcludes: /\/u\/(js|css|cschannel|ecmng)\//,
+                    alias: {
+						'$': 'jquery/jquery/1.7.2/jquery',
+                        'onlineServerConfig': 'https://a.alipayobjects.com/u/js/201312/1hGWbQWsSr.js',
+                        'portalServerConfig': 'https://os.alipayobjects.com/rmsportal/BithyLVDlbWTGNO.js',
+						'defaultDataConfig': 'https://a.alipayobjects.com/u/js/201311/1acIoVU1Xx.js',
+                        'onlineServerJS': 'https://a.alipayobjects.com/u/ecmng/js/201502/4LspmdRrqX.js',//云客服匹配
+                        'onlineServerCSS': 'https://a.alipayobjects.com/u/css/201402/2ACTshL8Vh.css'//云客服通用样式
+                    }
+                });
+                seajs.use(['onlineServerConfig', 'portalServerConfig'], function(){
+                    jQuery(function(){
+                        window.OS = OS = {},
+                        OS.server = {
+                            cliveServer: 'https://clive.alipay.com',
+                            cschannelServer: 'https://cschannel.alipay.com',
+							cshallServer: 'https://cshall.alipay.com',
+                            initiativeServer: 'https://webpushgw.alipay.com'
+                        },
+                        OS.params = {
+                            'uid': '2088302109757015'
+                        };
+						
+						var tradeNos4Clive = '' || '';
+						OS.params.featureStr = "{'tradeNos':'" + tradeNos4Clive + "'}";
+          				OS.config = {
+                            onlineServerURL: OS.server.cliveServer + '/csrouter.htm',
+                            portalServerURL: OS.server.cschannelServer + '/csrouter.htm',
+                            webpushFlashURL: 'https://t.alipayobjects.com/tfscom/T1JsNfXoxiXXXXXXXX.swf',
+                            onlineServerIconDefault: 'https://a.alipayobjects.com/u/css/201401/1v9cu1dxaf.css' //在线客服默认图片
+                        };
+                        seajs.use('onlineServerCSS');
+                        seajs.use('onlineServerJS');
+                    });
+                });
+            }
+            var bindOnlineServer = function(func){
+                var w = window;
+                if (w.attachEvent) {
+                    w.attachEvent('onload', func);
+                } else {
+                    w.addEventListener('load', func, false);
+                }
+            };
+            window.initOnlineServer = function() {
+                var w = window, o = 'seajs', d = document;
+                if(w[o]) { return loadOnlineServer() }
+                var s = d.createElement("script")
+                s.id = o + "node"
+                s.charset = "utf-8";
+                s.type = "text/javascript";
+                s.src = "https://a.alipayobjects.com/??seajs/seajs/2.1.1/sea.js,jquery/jquery/1.7.2/jquery.js";
+                var head = d.head || d.getElementsByTagName( "head" )[0] || d.documentElement;
+                head.appendChild(s);
+                s.onload = s.onreadystatechange = function(){ if (!s.readyState || /loaded|complete/.test(s.readyState)) { loadOnlineServer() } };
+            };
+            if (!window.isLazyLoadOnlineService) {
+                bindOnlineServer(initOnlineServer);
+            };
+        })();
+    } catch (e) {
+        window.console && console.log && console.log(e);
+        window.Tracker && Tracker.click('onlineServer-error-init-' + e);
+    }
+    </script>
+<!-- CMS:全站公共 cms/foot/cliveService.vm结束:alipay/foot/cliveService.vm -->
+<!-- CMS:支付宝全站/全站底部/在线客服流量控制开始:alipay/foot/onlineServiceCtr.vm -->
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        
+                                                                        <!-- CMS:支付宝全站/全站底部/在线客服流量控制结束:alipay/foot/onlineServiceCtr.vm -->
+
+
+
+<div style="height: 0px; width: 0px; overflow: hidden;"><object style="height:0;width:0;overflow:hidden;" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="JSocket" height="0" width="0"><param name="allowScriptAccess" value="always"><param name="movie" value="https://acjs.aliyun.com/flash/JSocket.swf"> <embed src="confirmPeerPay_files/JSocket.swf" name="JSocket" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="https://www.adobe.com/go/getflashplayer_cn" height="0" width="0"></object></div><div id="onlineService" seed="online-service" data-sourceid="11"><a href="javascript:void(0)" seed="csc_portal" style="position:relative;display:inline-block;"><img style="display: block;" src="confirmPeerPay_files/1tdi7nR70h.png"><span title="关闭" class="J-close-online-service-trigger" style="position: absolute;right:5px;top:-12px;font-size:14px;background:#eee;padding:1px 2px;border-radius:3px;font-family:simsun;line-height: normal;color: #AC593F;" seed="pcportal_close_icon_trigger">×</span></a></div></body></html>

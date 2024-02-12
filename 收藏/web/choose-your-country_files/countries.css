@@ -1,0 +1,36 @@
+html, body { background-color:#efefef; }
+#main { margin:0 auto; width:984px; }
+#content { padding:43px 50px 26px; position:relative; }
+
+/* globalheader updates */
+@media only screen and (max-device-width: 767px) {
+    #globalheader { margin-bottom:1.7em; }
+    #productheader { opacity:1; -webkit-transform:translate3d(0, 0, 0); -ms-transform:translate3d(0, 0, 0); transform:translate3d(0, 0, 0); -webkit-transition:-webkit-transform 0.3s 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.3s 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99); transition:transform 0.3s 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.3s 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99); }
+    .gh-show-nav #productheader { z-index:50; opacity:0; -webkit-transform:translate3d(0, 34px, 0); -ms-transform:translate3d(0, 34px, 0); transform:translate3d(0, 34px, 0); -webkit-transition:-webkit-transform 0.4s 0s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.4s 0s cubic-bezier(0.4, 0.01, 0.165, 0.99); transition:transform 0.4s 0s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.4s 0s cubic-bezier(0.4, 0.01, 0.165, 0.99); }
+    .gh-immediate #productheader { -webkit-transition-duration:0s; transition-duration:0s; -webkit-transition-delay:0s; transition-delay:0s; }
+}
+
+
+/* sections */
+.section { clear:left; float:left; padding-bottom:18px; width:100%; }
+.section h2 { border-bottom:1px solid #e4e4e4; font-weight:normal; margin-bottom:3px; padding-bottom:15px; }
+.section ul { float:left; width:880px; margin-bottom:18px; }
+.section ul li { float:left; width:146px; margin:18px 0 24px; }
+.section ul li.clear { clear:left; }
+.section ul li img { float:left; margin:0 10px 0 0; }
+
+.section ul li a { display:table; width:126px; color:#666; *display:block; *position:relative; cursor:pointer; }
+.section ul li span { display:table-cell; width:86px; vertical-align:middle; *display:block; *position:absolute; *top:50%; }
+.section ul li span span { width:100%; *display:block; *position:relative; *top:-50%; }
+.section ul li a:hover { color:#08c; }
+
+/* specific */
+.section ul li a.la  span,
+.section ul li a.lae span { position:static; }
+.section ul li a span.text-rtl {
+	text-align: right;
+	font-family: 'Gulf', 'Myriad Set Pro', 'Helvetica', 'Arial', sans-serif;
+}
+.section ul li a span.text-rtl.rtl-padding {
+	padding-right: 14px;
+}

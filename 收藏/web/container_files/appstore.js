@@ -1,0 +1,31 @@
+(function(arale){if(!arale){return}var deps=arale.deps;deps.addDependency("arale.string",["arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("arale.base",["arale.base-1.1.js"]);deps.addDependency("arale.hash",["arale.hash-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("arale.event",["arale.event-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("aralex.switchable",["aralex.switchable-1.1.js","aralex.base-1.1.js","arale.event-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.tmpl-1.0.js","arale.class-1.0.js","arale.aspect-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("arale.array",["arale.array-1.1.js","arale.base-1.1.js"]);deps.addDependency("aralex.xbox",["aralex.xbox-1.6.js","aralex.base-1.1.js","arale.event-1.1.js","arale.tmpl-1.0.js","arale.class-1.0.js","arale.aspect-1.0.js","arale.fx-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("aralex.fadeslider",["aralex.fadeslider-1.1.js","aralex.switchable-1.1.js","aralex.base-1.1.js","arale.event-1.1.js","arale.tmpl-1.0.js","arale.class-1.0.js","arale.aspect-1.0.js","arale.fx-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("appstore.appcontainer",["appstore.appcontainer-1.0.js","aralex.xbox-1.6.js","aralex.fadeslider-1.1.js","aralex.switchable-1.1.js","aralex.base-1.1.js","arale.event-1.1.js","arale.tmpl-1.0.js","arale.class-1.0.js","arale.aspect-1.0.js","arale.fx-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js","alipay.combo-1.0.js"]);
+deps.addDependency("arale.fx",["arale.fx-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("arale.dom",["arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("arale.aspect",["arale.aspect-1.0.js","arale.base-1.1.js"]);deps.addDependency("arale.tmpl",["arale.tmpl-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("aralex.base",["aralex.base-1.1.js","arale.event-1.1.js","arale.dom-1.1.js","arale.array-1.1.js","arale.hash-1.0.js","arale.string-1.0.js","arale.tmpl-1.0.js","arale.class-1.0.js","arale.aspect-1.0.js","arale.base-1.1.js"]);
+deps.addDependency("alipay.combo",["alipay.combo-1.0.js"]);deps.addDependency("arale.class",["arale.class-1.0.js","arale.base-1.1.js"])
+}((typeof arale=="undefined")?undefined:arale));(function(){var defaults={container:null,service:[],param:{title:"",url:"",pic:"",source:"支付宝"},triggerClass:"ui-icon-sns"},mapping={sina:{apiUrl:"http://v.t.sina.com.cn/share/share.php",title:"title",url:"url",pic:"pic",source:null,encoding:"utf-8"},qq:{apiUrl:"http://v.t.qq.com/share/share.php",title:"title",url:"url",pic:"pic",source:null,encoding:"utf-8"},kaixin:{apiUrl:"http://www.kaixin001.com/repaste/bshare.php",title:"rtitle",url:"rurl",pic:null,source:null,encoding:"utf-8"},renren:{apiUrl:"http://share.renren.com/share/buttonshare.do",title:"title",url:"link",pic:null,source:null,encoding:"utf-8"},douban:{apiUrl:"http://shuo.douban.com/!service/share",title:"name",url:"href",pic:"image",source:null,encoding:"utf-8"},taojianghu:{apiUrl:"http://share.jianghu.taobao.com/share/add_share.htm",title:"title",url:"url",pic:null,source:null,encoding:"gbk"},sohu:{apiUrl:"http://t.sohu.com/third/post.jsp",title:"title",url:"url",pic:null,source:null,encoding:"gbk"},netease:{apiUrl:"http://t.163.com/article/user/checkLogin.do",title:"info",url:"link",pic:null,source:"source",encoding:"utf-8"}},util={isArray:function(o){return Object.prototype.toString.call(o)==="[object Array]"
+},isObject:function(o){return o&&typeof o==="object"&&Object.prototype.toString.call(o)==="[object Object]"
+},isString:function(o){return typeof o==="string"},getElements:function(className,root,tag){var root=root||document,tag=tag||"*",returnElements=[];
+if(root.getElementsByClassName){return root.getElementsByClassName(className)}var els=(tag==="*"&&root.all)?root.all:root.getElementsByTagName(tag),i=els.length,className=className.replace(/\-/g,"\\-"),pattern=new RegExp("(^|\\s)"+className+"(\\s|$)");
+while(--i>=0){if(pattern.test(els[i].className)){returnElements.unshift(els[i])}}return returnElements
+},each:function(array,callback){var l=array.length,i=0;for(i=0;i<l;i++){var v=array[i];
+if(callback.call(v,v,i)===false){break}}},addEvent:function(obj,type,handle){var h=function(e){if(!e.preventDefault){e.preventDefault=function(){this.returnValue=false
+}}handle.call(this,e)};if(obj.addEventListener){obj.addEventListener(type,h,false)
+}else{if(obj.attachEvent){obj.attachEvent("on"+type,h)}}}};function mix(defaultObj,mixObj){var i,c={};
+for(i in defaultObj){var v=mixObj[i];if(v){if(util.isObject(v)){c[i]=mix(defaultObj[i],v)
+}else{c[i]=v}}else{c[i]=defaultObj[i]}}return c}function makeUrl(serviceId,config){var map=mapping[serviceId],inDefaultParam=config.param,inParam=(config.special&&config.special[serviceId])?mix(inDefaultParam,config.special[serviceId]):inDefaultParam;
+if(!map){throw new Error(serviceId+" is not support.")}var i,v,a=[];for(i in inParam){if(map[i]){if(i=="url"){v=inParam[i].replace(/&/g,"%26")
+}else{v=map.encoding=="utf-8"?encodeURIComponent(inParam[i]):escape(inParam[i])}a.push(map[i]+"="+v)
+}}return map.apiUrl+"?"+a.join("&")}function init(t,c){util.each(util.getElements(c.triggerClass,t),function(o,i){var serviceId=c.service[i];
+if(serviceId){util.addEvent(o,"click",function(e){e.preventDefault();var finalUrl=makeUrl(serviceId,c);
+window.open(finalUrl,"_blank","top=100,left=200,width=1000,height=618")})}})}if(typeof shareConfig!=="undefined"&&shareConfig){var c=mix(defaults,shareConfig),ct=c.container,s=c.service;
+if(typeof shareConfig.special!=="undefined"&&shareConfig.special){c.special=shareConfig.special
+}if(util.isArray(ct)){util.each(ct,function(o,i){init(o,c)})}else{if(util.isObject(ct)){init(ct,c)
+}else{if(util.isString(ct)){var el=document.getElementById(ct);if(el){init(el,c)}}}}}})();

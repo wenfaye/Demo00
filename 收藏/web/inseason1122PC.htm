@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html class="ks-gecko50 ks-gecko ks-firefox50 ks-firefox ju-pc"><head>
+<meta http-equiv="content-type" content="text/html; charset=gbk"><script type="text/javascript" async="" src="inseason1122PC_files/index.js"></script><script src="inseason1122PC_files/collect_mark.htm" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_011" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_008" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_015" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_009" async=""></script><script type="text/javascript" async="" src="inseason1122PC_files/agp_heat.js"></script><script charset="utf-8" src="inseason1122PC_files/a_010" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_003" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_014" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_004" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_013" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_012" async=""></script><script charset="utf-8" src="inseason1122PC_files/a" async=""></script><script>/* 2016-11-17 11:45:21 */
+!function t(e,a,n){function i(r,s){if(!a[r]){if(!e[r]){var l="function"==typeof require&&require;if(!s&&l)return l(r,!0);if(o)return o(r,!0);throw new Error("Cannot find module '"+r+"'")}var c=a[r]={exports:{}};e[r][0].call(c.exports,function(t){var a=e[r][1][t];return i(a?a:t)},c,c.exports,t,e,a,n)}return a[r].exports}for(var o="function"==typeof require&&require,r=0;r<n.length;r++)i(n[r]);return i}({1:[function(t,e,a){"use strict";var n=location.search,i={VERSION:{DEFAULT:"7",MANUAL:9,MANUAL_TIMEOUT:7},TIME:{MANUAL_TIMEOUT:6e3},RATE:{AHOT_SAMPLING:.1},DEBUG:{AHOT:n.indexOf("ap-debug-ahot")>-1,ANTI_SPAM:n.indexOf("ap-debug-antispam")>-1,LS_PROXY:n.indexOf("ap-debug-lsproxy")>-1}},o={NAME_STORAGE:{REFERRER:"wm_referrer",REFERRER_PV_ID:"refer_pv_id",LOST_PV_PAGE_DIFFTIME:"lost_pv_page_difftime",LOST_PV_PAGE:"lost_pv_page"}};a.COMFIG=i,a.KEY=o},{}],2:[function(t,e,a){!function(){var e="aplus_v2";if(!document.getElementsByTagName("body").length)return void setTimeout(arguments.callee,50);var a=window,n="g_tb_aplus_loaded2";if(!a[n]){a[n]=1;var i=t("./lib/goldlog").goldlog;i._$.script_name=e,t("./lib/monitor/onload").run({ratio:1}),t("./lib/main")}}()},{"./lib/goldlog":9,"./lib/main":14,"./lib/monitor/onload":18}],3:[function(t,e,a){"use strict";function n(){return i.isContain(o.getExParams(),"atp_isdpp")}var i=t("../lib/utils/util"),o=t("./misc");a.inAntiSpamWhiteList=function(){for(var t,e=!1,a=["item.taobao.com","detail.tmall.com","list.tmall.com","s.taobao.com","list.taobao.com","tw.taobao.com","detail.tmall.hk","chaoshi.tmall.com"],i=location.hostname,o=0;o<a.length;o++)if(t=a[o],i.indexOf(t)>-1){e=!0;break}return n()&&(e=!0),e}},{"../lib/utils/util":36,"./misc":17}],4:[function(t,e,a){"use strict";var n=location,i=n.protocol,o="https:"==i,r=o?i:"http:",s=t("../lib/utils/rule"),l=t("./iframe"),c=goldlog._$,u=r+"//log.mmstat.com/",m=r+(c.is_terminal?"//wgo.mmstat.com/":"//gm.mmstat.com/"),d=u+s.getBeaconSrc(n.hostname,c.is_terminal,l.is_in)+".gif";a.base=u,a.hjlj=function(){return m},a.tblog=d},{"../lib/utils/rule":33,"./iframe":10}],5:[function(t,e,a){"use strict";function n(){var t,e;if(!l.is_in&&u){var a=location.href,n=u&&(a.indexOf("login.taobao.com")>=0||a.indexOf("login.tmall.com")>=0),i=c.getRefer();n&&i?(t=i,e=r.getItem(s.NAME_STORAGE.REFERRER_PV_ID)):(t=a,e=goldlog.pvid),r.setItem(s.NAME_STORAGE.REFERRER,t),r.setItem(s.NAME_STORAGE.REFERRER_PV_ID,e)}}function i(t){var e=window.goldlog||{},a=e._$=e._$||{},n=a.send_pv_count||0,i=a.meta_info||{},o=i["aplus-waiting"]||"";if(n<1&&"MAN"!==o){var l=location.href;r.setItem(s.NAME_STORAGE.LOST_PV_PAGE,l),r.setItem(s.NAME_STORAGE.LOST_PV_PAGE_DIFFTIME,t)}}var o=t("../lib/utils/util"),r=t("./nameStorage").nameStorage,s=t("../config").KEY,l=t("./iframe"),c=t("./referrer"),u="https:"==location.protocol;a.run=function(){var t=new Date;o.on(window,"beforeunload",function(){if(n(),goldlog&&goldlog._$){var e=new Date,a=e.getTime()-t.getTime();i(a)}})}},{"../config":1,"../lib/utils/util":36,"./iframe":10,"./nameStorage":20,"./referrer":28}],6:[function(t,e,a){"use strict";!function(t,e){var n=2,i="ali_analytics";if(t[i]&&t[i].ua&&n<=t[i].ua.version)return void(a.info=t[i].ua);var o,r,s,l,c,u,m,d,p,f,g,h,b,v,_,y,k,w=t.navigator,A=w.appVersion,E=w&&w.userAgent||"",S=function(t){var e=0;return parseFloat(t.replace(/\./g,function(){return 0===e++?".":""}))},P=function(t,e){var a,n;e[a="trident"]=.1,(n=t.match(/Trident\/([\d.]*)/))&&n[1]&&(e[a]=S(n[1])),e.core=a},x=function(t){var e,a;return(e=t.match(/MSIE ([^;]*)|Trident.*; rv(?:\s|:)?([0-9.]+)/))&&(a=e[1]||e[2])?S(a):0},T=function(t){return t||"other"},O=function(a){function n(){for(var t=[["Windows NT 5.1","winXP"],["Windows NT 6.1","win7"],["Windows NT 6.0","winVista"],["Windows NT 6.2","win8"],["Windows NT 10.0","win10"],["iPad","ios"],["iPhone;","ios"],["iPod","ios"],["Macintosh","mac"],["Android","android"],["Ubuntu","ubuntu"],["Linux","linux"],["Windows NT 5.2","win2003"],["Windows NT 5.0","win2000"],["Windows","winOther"],["rhino","rhino"]],e=0,n=t.length;e<n;++e)if(a.indexOf(t[e][0])!==-1)return t[e][1];return"other"}function i(e,a,n,i){var o,r=t.navigator.mimeTypes;try{for(o in r)if(r.hasOwnProperty(o)&&r[o][e]==a){if(void 0!==n&&i.test(r[o][n]))return!0;if(void 0===n)return!0}return!1}catch(s){return!1}}var o,r,s,l,c,u,m,d="",p=d,f=d,g=[6,9],h="{{version}}",b="<!--[if IE "+h+"]><s></s><![endif]-->",v=e&&e.createElement("div"),_=[],y={webkit:void 0,edge:void 0,trident:void 0,gecko:void 0,presto:void 0,chrome:void 0,safari:void 0,firefox:void 0,ie:void 0,ieMode:void 0,opera:void 0,mobile:void 0,core:void 0,shell:void 0,phantomjs:void 0,os:void 0,ipad:void 0,iphone:void 0,ipod:void 0,ios:void 0,android:void 0,nodejs:void 0,extraName:void 0,extraVersion:void 0};if(v&&v.getElementsByTagName&&(v.innerHTML=b.replace(h,""),_=v.getElementsByTagName("s")),_.length>0){for(P(a,y),l=g[0],c=g[1];l<=c;l++)if(v.innerHTML=b.replace(h,l),_.length>0){y[f="ie"]=l;break}!y.ie&&(s=x(a))&&(y[f="ie"]=s)}else((r=a.match(/AppleWebKit\/*\s*([\d.]*)/i))||(r=a.match(/Safari\/([\d.]*)/)))&&r[1]?(y[p="webkit"]=S(r[1]),(r=a.match(/OPR\/(\d+\.\d+)/))&&r[1]?y[f="opera"]=S(r[1]):(r=a.match(/Chrome\/([\d.]*)/))&&r[1]?y[f="chrome"]=S(r[1]):(r=a.match(/\/([\d.]*) Safari/))&&r[1]?y[f="safari"]=S(r[1]):y.safari=y.webkit,(r=a.match(/Edge\/([\d.]*)/))&&r[1]&&(p=f="edge",y[p]=S(r[1])),/ Mobile\//.test(a)&&a.match(/iPad|iPod|iPhone/)?(y.mobile="apple",r=a.match(/OS ([^\s]*)/),r&&r[1]&&(y.ios=S(r[1].replace("_","."))),o="ios",r=a.match(/iPad|iPod|iPhone/),r&&r[0]&&(y[r[0].toLowerCase()]=y.ios)):/ Android/i.test(a)?(/Mobile/.test(a)&&(o=y.mobile="android"),r=a.match(/Android ([^\s]*);/),r&&r[1]&&(y.android=S(r[1]))):(r=a.match(/NokiaN[^\/]*|Android \d\.\d|webOS\/\d\.\d/))&&(y.mobile=r[0].toLowerCase()),(r=a.match(/PhantomJS\/([^\s]*)/))&&r[1]&&(y.phantomjs=S(r[1]))):(r=a.match(/Presto\/([\d.]*)/))&&r[1]?(y[p="presto"]=S(r[1]),(r=a.match(/Opera\/([\d.]*)/))&&r[1]&&(y[f="opera"]=S(r[1]),(r=a.match(/Opera\/.* Version\/([\d.]*)/))&&r[1]&&(y[f]=S(r[1])),(r=a.match(/Opera Mini[^;]*/))&&r?y.mobile=r[0].toLowerCase():(r=a.match(/Opera Mobi[^;]*/))&&r&&(y.mobile=r[0]))):(s=x(a))?(y[f="ie"]=s,P(a,y)):(r=a.match(/Gecko/))&&(y[p="gecko"]=.1,(r=a.match(/rv:([\d.]*)/))&&r[1]&&(y[p]=S(r[1]),/Mobile|Tablet/.test(a)&&(y.mobile="firefox")),(r=a.match(/Firefox\/([\d.]*)/))&&r[1]&&(y[f="firefox"]=S(r[1])));o||(o=n());var k,w,E;if(!i("type","application/vnd.chromium.remoting-viewer")){k="scoped"in e.createElement("style"),E="v8Locale"in t;try{w=t.external||void 0}catch(T){}if(r=a.match(/360SE/))u="360";else if((r=a.match(/SE\s([\d.]*)/))||w&&"SEVersion"in w)u="sougou",m=S(r[1])||.1;else if((r=a.match(/Maxthon(?:\/)+([\d.]*)/))&&w){u="maxthon";try{m=S(w.max_version||r[1])}catch(O){m=.1}}else k&&E?u="360se":k||E||!/Gecko\)\s+Chrome/.test(A)||y.opera||y.edge||(u="360ee")}return(r=a.match(/TencentTraveler\s([\d.]*)|QQBrowser\/([\d.]*)/))?(u="tt",m=S(r[2])||.1):(r=a.match(/LBBROWSER/))||w&&"LiebaoGetVersion"in w?u="liebao":(r=a.match(/TheWorld/))?(u="theworld",m=3):(r=a.match(/TaoBrowser\/([\d.]*)/))?(u="taobao",m=S(r[1])||.1):(r=a.match(/UCBrowser\/([\d.]*)/))&&(u="uc",m=S(r[1])||.1),y.os=o,y.core=y.core||p,y.shell=f,y.ieMode=y.ie&&e.documentMode||y.ie,y.extraName=u,y.extraVersion=m,y.resolution=t.screen.width+"x"+t.screen.height,y},M=function(t){function e(t){return Object.prototype.toString.call(t)}function a(t,a,n){if("[object Function]"==e(a)&&(a=a(n)),!a)return null;var i={name:t,version:""},o=e(a);if(a===!0)return i;if("[object String]"===o){if(n.indexOf(a)!==-1)return i}else if(a.exec){var r=a.exec(n);if(r)return r.length>=2&&r[1]?i.version=r[1].replace(/_/g,"."):i.version="",i}}var n={name:"other",version:""};t=(t||"").toLowerCase();for(var i=[["nokia",function(t){return t.indexOf("nokia ")!==-1?/\bnokia ([0-9]+)?/:/\bnokia([a-z0-9]+)?/}],["samsung",function(t){return t.indexOf("samsung")!==-1?/\bsamsung(?:[ \-](?:sgh|gt|sm))?-([a-z0-9]+)/:/\b(?:sgh|sch|gt|sm)-([a-z0-9]+)/}],["wp",function(t){return t.indexOf("windows phone ")!==-1||t.indexOf("xblwp")!==-1||t.indexOf("zunewp")!==-1||t.indexOf("windows ce")!==-1}],["pc","windows"],["ipad","ipad"],["ipod","ipod"],["iphone",/\biphone\b|\biph(\d)/],["mac","macintosh"],["mi",/\bmi[ \-]?([a-z0-9 ]+(?= build|\)))/],["hongmi",/\bhm[ \-]?([a-z0-9]+)/],["aliyun",/\baliyunos\b(?:[\-](\d+))?/],["meizu",function(t){return t.indexOf("meizu")>=0?/\bmeizu[\/ ]([a-z0-9]+)\b/:/\bm([0-9x]{1,3})\b/}],["nexus",/\bnexus ([0-9s.]+)/],["huawei",function(t){var e=/\bmediapad (.+?)(?= build\/huaweimediapad\b)/;return t.indexOf("huawei-huawei")!==-1?/\bhuawei\-huawei\-([a-z0-9\-]+)/:e.test(t)?e:/\bhuawei[ _\-]?([a-z0-9]+)/}],["lenovo",function(t){return t.indexOf("lenovo-lenovo")!==-1?/\blenovo\-lenovo[ \-]([a-z0-9]+)/:/\blenovo[ \-]?([a-z0-9]+)/}],["zte",function(t){return/\bzte\-[tu]/.test(t)?/\bzte-[tu][ _\-]?([a-su-z0-9\+]+)/:/\bzte[ _\-]?([a-su-z0-9\+]+)/}],["vivo",/\bvivo(?: ([a-z0-9]+))?/],["htc",function(t){return/\bhtc[a-z0-9 _\-]+(?= build\b)/.test(t)?/\bhtc[ _\-]?([a-z0-9 ]+(?= build))/:/\bhtc[ _\-]?([a-z0-9 ]+)/}],["oppo",/\boppo[_]([a-z0-9]+)/],["konka",/\bkonka[_\-]([a-z0-9]+)/],["sonyericsson",/\bmt([a-z0-9]+)/],["coolpad",/\bcoolpad[_ ]?([a-z0-9]+)/],["lg",/\blg[\-]([a-z0-9]+)/],["android",/\bandroid\b|\badr\b/],["blackberry",function(t){return t.indexOf("blackberry")>=0?/\bblackberry\s?(\d+)/:"bb10"}]],o=0;o<i.length;o++){var r=i[o][0],s=i[o][1],l=a(r,s,t);if(l){n=l;break}}return n},I=1;try{o=O(E),r=M(E),s=o.os,l=o.shell,c=o.core,u=o.resolution,m=o.extraName,d=o.extraVersion,p=r.name,f=r.version,h=s?s+(o[s]?o[s]:""):"",b=l?l+parseInt(o[l]):"",v=c,_=u,y=m?m+(d?parseInt(d):""):"",k=p+f}catch(j){}g={p:I,o:T(h),b:T(b),w:T(v),s:_,mx:y,ism:k},t[i]||(t[i]={}),t[i].ua||(t[i].ua={}),a.info=t[i].ua={version:n,ua_info:g}}(window,document)},{}],7:[function(t,e,a){"use strict";function n(t,e){var a=new Date;a.setTime(a.getTime()+63072e7),e+="; expires="+a.toUTCString(),e+="; domain="+l.getDomain(location.hostname),e+="; path=/",r.cookie=t+"="+e}function i(t){var e=r.cookie.match(new RegExp("(?:^|;)\\s*"+t+"=([^;]+)"));return e?e[1]:""}function o(){var t={};return s.each(u,function(e){t[e]=i(e)}),t.cnaui=/\btanx\.com$/.test(c)?i("cnaui"):"",t}var r=document,s=t("../lib/utils/util"),l=t("../lib/utils/tld"),c=location.hostname;a.setCookie=n,a.getCookie=i;var u=["tracknick","thw","cna"];a.getData=o},{"../lib/utils/tld":35,"../lib/utils/util":36}],8:[function(t,e,a){function n(t,e){var a=new Date;a.setTime(a.getTime()+31536e7),e+="; expires="+a.toUTCString(),e+="; domain="+o.getDomain(location.hostname),e+="; path=/",r.cookie=t+"="+e}function i(t,e){function a(t){n.onreadystatechange=n.onload=n.onerror=null,n=null,e(t)}var n=r.createElement("script");if(n.async=!0,"onload"in n)n.onload=a;else{var i=function(){/loaded|complete/.test(n.readyState)&&a()};n.onreadystatechange=i,i()}n.onerror=function(){a(1)},n.src=t,s.appendChild(n)}var o=t("../lib/utils/tld"),r=document,s=r.head||r.getElementsByTagName("head")[0],l=0,c=-1,u="",m=!1;e.exports={init:function(t){if(t)return void(l=1);var e=null;m=!0,i("https://log.mmstat.com/eg.js",function(t){t&&(c=-3),m&&(m=!1,goldlog.Etag&&(u=goldlog.Etag,n("cna",u)),"undefined"!=typeof goldlog.stag&&(c=goldlog.stag),clearTimeout(e))}),e=setTimeout(function(){m=!1,c=-2},1e3)},inject:function(t,e){var a=function(n,i,o){return i?!l&&m?(setTimeout(function(){a(n,i,o)},50),n):(i.push(["tag",l]),i.push(["stag",c]),!l&&u&&i.unshift([e(),"cna="+u]),t(n,i,o)):n};return a}}},{"../lib/utils/tld":35}],9:[function(t,e,a){"use strict";function n(t){f.is_waiting?setTimeout(function(){d.launch({isWait:!0,isAplusInternal:"Y"})},6e3):d.launch({isAplusInternal:"Y"},t)}function i(t,e,a,n){n=(arguments[3]||"")+"";var i,o,r="?",s=!1,l=k.getCookie("cna"),c=location.href,u="",m=d.spm_ab?d.spm_ab.join("."):"0.0",h=m+".0.0."+d.pvid,v="//ac.mmstat.com/";if("ac"==t)i=v+"1.gif",s=g.isStartWith(n,"A")&&n.substr(1)==g.makeChkSum(t);else if(g.isStartWith(t,"ac-"))i=v+t.substr(3),s=g.isStartWith(n,"A")&&n.substr(1)==g.makeChkSum(t);else if(g.isStartWith(t,"/"))s=g.isStartWith(n,"H")&&n.substr(1)==g.makeChkSum(t),i=S.hjlj({spmab:m,logkey:t})+t.substr(1),o=!0,u+="&spm-cnt="+h;else{if(!g.isEndWith(t,".gif"))return!1;i=S.tblog+t}if(!s&&"%"!=n&&g.makeChkSum(c)!=n)return!1;p=p||w(),p&&(a+=(a?"&":"")+"st_page_id="+p);try{var _=b.getExParams(),y=g.param2obj(_).userid;y&&(a+=(a?"&":"")+"_gr_uid_="+y)}catch(A){}i+=r+"cache="+b.makeCacheNum()+"&gmkey="+encodeURIComponent(e)+"&gokey="+encodeURIComponent(a)+"&cna="+l+"&isbeta="+P.v+u,o&&(i+="&logtype=2");var E=C({logkey:t,gmkey:e,spm_ab:d.spm_ab}),x={gmkey:e,gokey:a,isbeta:P},T={},O=function(a){var n=x;E&&(n._is_g2u_=1),n.version=P.toUtVersion;try{n=JSON.stringify(x),"{}"==n&&(n="")}catch(i){n=""}var o=f.meta_info.isonepage_data.isonepage,r=f.meta_info.isonepage_data.urlpagename;T.functype=I.getFunctypeValue({logkey:t,gmkey:e,spm_ab:d.spm_ab}),T.spmcnt=h;var s;try{s=f.spm?f.spm.spm_pre:""}catch(i){}T.spmpre=s,T.logkey=t,T.logkeyargs=n,T.urlpagename=r,T.url=c,T.cna=l||"",T.extendargs="",T.isonepage=o,d.WindVane.call("WVTBUserTrack","toUT",T,function(){a({isSuccess:!0})},function(t){a({isSuccess:!1,msg:t})},5e3)};return f.is_WindVane&&f.is_terminal&&"function"==typeof d.WindVane.call&&!/^\/aplus\.99\.(\d)+$/.test(t)&&O(function(t){t&&!t.isSuccess&&R.run({isSingleSend:E,userAgent:navigator.userAgent,url:location.href,windVaneData:T})}),E?d.useDebug?T:g.makeUrl(i,x):d.send(i)}function o(){var t,e,a,n,i=u.getElementsByTagName("meta");for(t=0,e=i.length;t<e;t++)if(a=i[t],n=a.getAttribute("name"),"data-spm"===n||"spm-id"===n)return a}function r(){var t=u.createElement("meta");t.setAttribute("name","data-spm");var e=u.getElementsByTagName("head")[0];return e&&e.insertBefore(t,e.firstChild),t}function s(){var t=o();t||(t=r()),t.setAttribute("content",d.spm_ab[0]||"");var e=u.getElementsByTagName("body")[0];e&&e.setAttribute("data-spm",d.spm_ab[1]||"")}function l(){var t,e,a,n=u.getElementsByTagName("*");for(t=0,e=n.length;t<e;t++)a=n[t],a.getAttribute("data-spm-max-idx")&&a.setAttribute("data-spm-max-idx",""),a.getAttribute("data-spm-anchor-id")&&a.setAttribute("data-spm-anchor-id","")}var c=window,u=document,m="goldlog",d=c[m]||{};c[m]=d;var p,f=d._$=d._$||{},g=t("../lib/utils/util"),h=t("./log"),b=t("./misc"),v=t("./spm"),_=(t("./iframe"),t("./antiSpam")),y=t("./logSend"),k=t("./cookie"),w=t("./makeid").makePageId,A=t("./metaInfo").getInfo();f.meta_info=A;var E=/TB\-PD/i.test(navigator.userAgent);f.is_terminal=E||"1"==A["aplus-terminal"],f.is_touch_enabled="1"==A["aplus-touch"];var S=t("./beaconBase"),P=t("../lib/utils/v"),x=t("./nameStorage").nameStorage;d.nameStorage=x,d.getCookie=k.getCookie;var T=[],O=[],M=t("../lib/personality/index.js"),I=M.windvaneParams,j=t("../lib/monitor/tracker.js"),R=new j({ratio:5,logkey:"/aplus.99.4",chksum:"H46747616"});d.beforeSendPV=function(t){T.push(t)},d.afterSendPV=function(t){O.push(t)},d.send=function(t,e){var a=new Image,n="_img_"+Math.random(),i=g.makeUrl(t,e);return c[n]=a,a.onload=a.onerror=function(){c[n]=null},a.src=i,a=null,i};var N=0;d.launch=function(e,a){if(!(N>0)||a){N++;var n,i,o=d.pv_data.basic,r=P.v,s=b.getExParams(),l=o.slice(0);if(f.is_waiting&&(r=P.MANUAL,e&&e.isWait&&(r=P.MANUAL_TIMEOUT)),f.is_waiting=!1,e){e.hasOwnProperty("isAplusInternal")||(e.isAplusInternal="N");for(n in e)e.hasOwnProperty(n)&&(i=e[n])&&l.push([n,i])}l.push([g.mkPlainKey(),s]);var u=k.getCookie("workno")||k.getCookie("emplId");u&&l.push(["workno",u]),l.push(["isbeta",r]),l=l.concat(d.pv_data.extra);var m=b.makeCacheNum();h.updateKey(l,"cache",m);var p,w,A;if(a&&!a.is_auto){A=d.pvid,w=t("./pvid").makePVId(),p=a.page_id,l.push([g.mkPlainKey(),a.gokey]),h.updateSPMCnt(l,p,w),h.updateSPMUrl(l,A);var E=v.data.b;E&&(E=p?E.split("/")[0]+"/"+p:E.split("/")[0],v.setB(E))}f.page_url!=location.href&&(f.page_referrer=f.page_url,f.page_url=location.href),a&&a.referrer&&(f.page_referrer=a.referrer),f.page_referrer&&h.updateKey(l,"pre",f.page_referrer);var x=_.inAntiSpamWhiteList();if(x&&l.push([g.mkPlainKey(),"isAntiSpam=true"]),y.tblogSend(S.tblog,l,function(t){d.req=c.g_aplus_pv_req=t}),x){var T=g.param2obj(s).asid,O=g.obj2param({asid:T,pre:f.page_referrer});d.record("/ahot.1.9","",O,"H1733420")}}},f.send_pv_count=0,d.sendPV=function(t){return t=t||{},!(f.send_pv_count>0&&!h.checkIfSendPV(t.checksum))&&(!g.any(T,function(e){return e(d,t)===!1})&&(n(t),f.send_pv_count++,g.each(O,function(e){e(d,t)}),!0))};var C=function(t){return!!(f.is_WindVane&&f.is_terminal&&"function"==typeof d.WindVane.call&&I.isSingleSendLog(t))},V=[],$=[];d.beforeRecord=function(t){V.push(t)},d.afterRecord=function(t){$.push(t)},d.record=function(){if(!g.any(V,function(t){return t(d)===!1})){var t=i.apply(null,arguments);return g.each($,function(t){t(d)}),t}},d.setPageSPM=function(e,a,n){d.spm_ab=d.spm_ab||[],e&&(d.spm_ab[0]=""+e,f.spm.data.a=e),a&&(d.spm_ab[1]=""+a,f.spm.data.b=a);var i=t("./client").info;v.init(d,A),d.pv_data=t("./pvData").make(d,v,i,A),s(),l(),"function"==typeof n&&n()},a.goldlog=d},{"../lib/monitor/tracker.js":19,"../lib/personality/index.js":25,"../lib/utils/util":36,"../lib/utils/v":37,"./antiSpam":3,"./beaconBase":4,"./client":6,"./cookie":7,"./iframe":10,"./log":12,"./logSend":13,"./makeid":15,"./metaInfo":16,"./misc":17,"./nameStorage":20,"./pvData":26,"./pvid":27,"./spm":29}],10:[function(t,e,a){"use strict";var n=document,i=t("../lib/utils/rule"),o=t("./referrer").getRefer(),r={is_in:parent!==self};r.is_exception=r.is_in&&i.is_iframeExcption(o),r.create=function(t,e){var a=n.createElement("iframe");a.style.width="1px",a.style.height="1px",a.style.position="absolute",a.style.display="none",a.src=t,e&&(a.name=e);var i=n.getElementsByTagName("body")[0];return i.appendChild(a),a},e.exports=r},{"../lib/utils/rule":33,"./referrer":28}],11:[function(t,e,a){"use strict";function n(){var t,e="_ap",a=s[e]=s[e]||[];a.push=t=function(){for(var t,e,n=0,i=arguments.length;n<i;n++)t=arguments[n],c.isString(t)?goldlog.send(u.hjlj()+t):c.isArray(t)&&"push"!=(e=t[0])&&(a[e]=a[e]||[]).push(t.slice(1))};for(var n;n=a.shift();)t(n)}function i(){function t(){var t,a,n,i=s[e];if(i&&c.isArray(i)&&i.length)for(s[e]&&c.isArray(s[e])||(s[e]=[]);t=i.shift();)if(t&&t.action&&c.isString(t.action)&&t.arguments&&c.isArray(t.arguments)){for(n=t.action.split("."),a=s;n.length;)if(a=a[n.shift()],!a)return;if("function"==typeof a)try{a.apply(a,t.arguments)}catch(o){}}}var e="goldlog_queue";try{t()}catch(a){}}function o(){var t=function(){try{i(),setTimeout(t,200)}catch(e){}};t(),c.on(s,"beforeunload",i)}function r(){var e="//g.alicdn.com",a=(new Date).getTime(),n=Math.floor(a/72e5);Math.random()<.01&&c.addScript(e+"/alilog/stat/a.js?t="+n);var i="laiwang",o="/ilw/a/lwlog.js?v=140709";c.isContain(location.href.split("?")[0],i)&&c.addScript(e+o);var r=goldlog._$.meta_info;r.ms_data_instance_id&&r.ms_prototype_id&&r.ms_prototype_id.match(/^[124]$/)&&r.ms_data_shop_id&&t("./personality/index").wp_beacon.init(),c.DOMReady(function(){setTimeout(function(){var t=l.getElementById("aplus-sufei");t&&"script"==t.tagName.toLowerCase()||c.addScript("//g.alicdn.com/secdev/entry/index.js?t="+n)},1e3)});var s="/alilog/mlog/xwj_heat.js?v=151116b",u=r["aplus-rate-ahot"];(Math.random()<u||r["ahot-aplus"])&&c.addScript(e+s),c.onload(function(){var t=e+"/pecdn/mlog/agp_heat.min.js?t="+n;c.addScript(t)}),/^https?:\/\/www\.taobao\.com(\/|\/\?.*)?$/i.test(location.href)&&c.onload(function(){var t=e+"/alilog/oneid/loader.js?t="+n;c.addScript(t)})}var s=window,l=document,c=t("../lib/utils/util"),u=t("./beaconBase");a.run=function(){n(),o(),r()}},{"../lib/utils/util":36,"./beaconBase":4,"./personality/index":25}],12:[function(t,e,a){"use strict";function n(t){t=t||c.getMetaCnt("aplus-ajax");var e=goldlog.spm_ab;return!(!e||c.makeChkSum([e[0],(e[1]||"").split("/")[0]].join("."))!=t)||c.makeChkSum(location.href.split("#")[0].split("?")[0])==t}function i(t,e,a){s(t,"spm-cnt",function(t){var n=t.split(".");return n[0]=goldlog.spm_ab[0],n[1]=goldlog.spm_ab[1],e?n[1]=n[1].split("/")[0]+"/"+e:n[1]=n[1].split("/")[0],a&&(n[4]=a),n.join(".")})}function o(t,e){var a=window.g_SPM&&g_SPM._current_spm;return a?void s(t,"spm-url",function(){return[a.a,a.b,a.c,a.d].join(".")+(e?"."+e:"")},"spm-cnt"):void r(t,"spm-url")}function r(t,e){var a,n,i,o=-1;for(a=0,n=t.length;a<n;a++)if(i=t[a],i[0]===e){o=a;break}o>=0&&t.splice(o,1)}function s(t,e,a,n){var i,o,r=t.length,s=-1,l="function"==typeof a;for(i=0;i<r;i++){if(o=t[i],o[0]===e)return void(l?o[1]=a(o[1]):o[1]=a);n&&o[0]===n&&(s=i)}n&&(l&&(a=a()),s>-1?t.splice(s,0,[e,a]):t.push([e,a]))}function l(t){return!!n(t.checksum)&&void goldlog.launch({isAplusInternal:"Y"},t||{})}var c=t("../lib/utils/util");e.exports={sendPV:l,checkIfSendPV:n,updateSPMCnt:i,updateSPMUrl:o,updateKey:s,removeKey:r}},{"../lib/utils/util":36}],13:[function(t,e,a){"use strict";function n(t){var e,a,n,i,o=[],r={};for(e=t.length-1;e>=0;e--)a=t[e],n=a[0],n&&n.indexOf(u.s_plain_obj)==-1&&r.hasOwnProperty(n)||(i=a[1],("aplus"==n||i)&&(o.unshift([n,i]),r[n]=1));return o}function i(t){var e,a,n,i,o=[],r={logtype:!0,cache:!0,scr:!0,"spm-cnt":!0};for(e=t.length-1;e>=0;e--)a=t[e],n=a[0],i=a[1],u.isStartWith(n,u.s_plain_obj)||r[n]||o.unshift([n,i]);return o}function o(t,e,a){var o;if(!e)return void a();var r=goldlog._$;if(r.is_WindVane&&r.is_terminal){o=i(n(e));var s,c={};try{s=u.arr2obj(o)}catch(f){s=""}var g=p.qGet().isonepage_data;if(c.functype="2001",c.urlpagename=g.urlpagename,c.url=location.href,c.spmcnt=m.spm_cnt,c.spmpre=m.spm_pre||"",c.lzsid="",c.cna=d.getCookie("cna"),c.extendargs=s,c.isonepage=g.isonepage,goldlog.WindVane.call("WVTBUserTrack","toUT",c),goldlog.windVaneData=c,location.hostname.indexOf("tmall.com")!=-1)return a(u.makeUrl(t,e));if(l&&(location.hostname.indexOf("market.m.taobao.com")!=-1||location.hostname.indexOf("huodong.taobao.com")!=-1))return a(u.makeUrl(t,e))}return a(goldlog.send(t,e))}function r(){if("aplus_int"!=goldlog._$.script_name){var e=t("./etag");e.init(d.getCookie("cna")),o=e.inject(o,u.mkPlainKey,arguments[2])}}var s,l,c,u=t("../lib/utils/util"),m=t("./spm"),d=t("./cookie"),p=t("./metaInfo");(c=navigator.userAgent.match(/AliApp\(([A-Z\-]+)\/([\d\.]+)\)/i))&&(s=!0,l="TB"==c[1]),r(),a.tblogSend=o},{"../lib/utils/util":36,"./cookie":7,"./etag":8,"./metaInfo":16,"./spm":29}],14:[function(t,e,a){"use strict";var n=goldlog._$,i=navigator.userAgent;i.match(/AliApp\(([A-Z\-]+)\/([\d\.]+)\)/i)&&(n.is_ali_app=!0),t("./pvid").makePVId();var o=t("./client").info,r=t("./iframe"),s=t("../lib/utils/util"),l=t("./spm");n.spm=l;var c=t("./windvane");c.init(),goldlog.WindVane=c.WindVane;var u=n.meta_info;n.is_WindVane=/WindVane/i.test(i),n.is_waiting="1"==u["aplus-waiting"],n.page_url=location.href,n.page_referrer=t("./referrer").getRefer(),l.init(goldlog,u),goldlog.beforeSendPV(function(e,a){return(!a.is_auto||"1"!==u["aplus-manual-pv"])&&(!(a.is_auto&&r.is_in&&!r.is_exception)&&(e.pv_data=t("./pvData").make(e,l,o,u),void(a.is_auto||s.ifAdd(e.pv_data.extra,[["mansndlog",1]]))))}),goldlog.afterSendPV(function(){window.g_SPM&&(g_SPM._current_spm="")}),goldlog.afterSendPV(function(t){if(1===t._$.send_pv_count){var e=l.data.a,a=e+"."+l.data.b;r.is_in||t._$.is_terminal||"a21bo.7724922"!=a&&"2013"!=e&&"a220o"!=e||r.create("//cookiemapping.wrating.com/link.html")}}),t("./initLoad").run(),t("./beforeUnload").run(),goldlog.sendPV({is_auto:!0})},{"../lib/utils/util":36,"./beforeUnload":5,"./client":6,"./iframe":10,"./initLoad":11,"./pvData":26,"./pvid":27,"./referrer":28,"./spm":29,"./windvane":38}],15:[function(t,e,a){"use strict";function n(){if(!r.is_aliloan())return null;if(i)return i;var t;for(t=(goldlog.page_id||"")+l,t=t.substr(0,20);t.length<42;)t+=o.rndInt32();return t=t.substr(0,42),s.alilog_1688_pvid=s.dmtrack_pageid=s.unique_pageid=t,i=t,t}var i,o=t("../lib/utils/util"),r=t("../lib/utils/rule"),s=window,l=(new Date).getTime();a.makePageId=n},{"../lib/utils/rule":33,"../lib/utils/util":36}],16:[function(t,e,a){"use strict";function n(){var t,e,a,n=p.getMetaTags(),i=n.length,o={};for(d._microscope_data=o,t=0;t<i;t++)e=n[t],"microscope-data"==p.tryToGetAttribute(e,"name")&&(a=p.tryToGetAttribute(e,"content"),p.parseSemicolonContent(a,o),d.is_head_has_meta_microscope_data=!0);d._microscope_data_params=p.obj2param(o),d.ms_data_page_id=o.pageId,d.ms_data_shop_id=o.shopId,d.ms_data_instance_id=o.siteInstanceId,d.ms_data_siteCategoryId=o.siteCategory,d.ms_prototype_id=o.prototypeId,d.site_instance_id_or_shop_id=d.ms_data_instance_id||d.ms_data_shop_id}function i(){var t,e,a,n=p.getMetaTags(),i=n.length;for(d._atp_beacon_data={},t=0;t<i;t++)e=n[t],"atp-beacon"==p.tryToGetAttribute(e,"name")&&(a=p.tryToGetAttribute(e,"content"),p.parseSemicolonContent(a,d._atp_beacon_data));d._atp_beacon_data_params=p.obj2param(d._atp_beacon_data)}function o(){var t,e,a,n,i=p.getMetaTags();for(t=0,e=i.length;t<e;t++)a=i[t],n=p.tryToGetAttribute(a,"name"),"data-spm"==n&&(c=p.tryToGetAttribute(a,"data-spm-protocol"));return c}function r(t){var e=t.isonepage||"-1",a=e.split("|"),n=a[0],i=a[1]?a[1]:"";t.isonepage_data={isonepage:n,urlpagename:i}}function s(){i(),n(),p.each(m,function(t){d[t]=p.getMetaCnt(t)}),d.spm_protocol=o();var t,e,a=["aplus-rate-ahot"],s=a.length;for(t=0;t<s;t++)e=a[t],d[e]=parseFloat(d[e]);return r(d),u=d,d}function l(){return u||s()}var c,u,m=["aplus-terminal","aplus-touch","ahot-aplus","aplus-rate-ahot","isonepage","spm-id","data-spm","microscope-data","atp-beacon","aplus-waiting"],d={},p=t("../lib/utils/util");a.getInfo=s,a.qGet=l},{"../lib/utils/util":36}],17:[function(t,e,a){"use strict";function n(){var t=i.getElementById("tb-beacon-aplus")||i.getElementById("beacon-aplus"),e=r.tryToGetAttribute(t,"exparams");if(!e)return e;var a,n,o=["taobao.com","tmall.com","etao.com","hitao.com","taohua.com","juhuasuan.com","alimama.com"];if(s){for(n=o.length,a=0;a<n;a++)if(r.isContain(location.hostname,o[a]))return e;e=e.replace(/\buserid=\w*&?/,"")}return e=e.replace(/\buserid=/,"uidaplus=")}var i=document,o=window,r=t("../lib/utils/util"),s=parent!==o.self;a.getExParams=n,a.makeCacheNum=function(){return Math.floor(268435456*Math.random()).toString(16)}},{"../lib/utils/util":36}],18:[function(t,e,a){"use strict";var n=t("../nameStorage").nameStorage,i=t("../../config").KEY,o=t("../utils/util"),r=t("./tracker.js"),s=function(t){t=t||{};var e=t.hasOwnProperty("ratio")?t.ratio:1,a={ratio:e,logkey:t.logkey||"/aplus.99.1",chksum:t.chksum||"H46747592"};return new r(a)};a.run=function(t){var e=s(t);o.on(window,"load",function(){try{var t=n.getItem(i.NAME_STORAGE.LOST_PV_PAGE),a=n.getItem(i.NAME_STORAGE.LOST_PV_PAGE_DIFFTIME);if(t){var o="the user leave of page "+t+" after "+a+"ms. but do not send pv!";e.run({message:o,userAgent:navigator.userAgent,url:location.href}),n.setItem(i.NAME_STORAGE.LOST_PV_PAGE,""),n.setItem(i.NAME_STORAGE.LOST_PV_PAGE_DIFFTIME,"")}}catch(r){window.console}})}},{"../../config":1,"../nameStorage":20,"../utils/util":36,"./tracker.js":19}],19:[function(t,e,a){var n={ratio:10,logkey:"/aplus.99.3",gmkey:"",chksum:"H46747615"},i=function(t){t&&"object"==typeof t||(t=n),this.opts=t,this.opts.ratio=t.ratio||n.ratio,this.opts.logkey=t.logkey||n.logkey,this.opts.gmkey=t.gmkey||n.gmkey,this.opts.chksum=t.chksum||n.chksum},o=i.prototype;o.getRandom=function(){return Math.floor(100*Math.random())+1},o.run=function(t){var e,a,n;try{e=this.opts,n=this.getRandom(),"object"==typeof t?(t.lver=goldlog.lver,a=JSON.stringify(t)):(t+="&lver="+goldlog.lver,a=t)}catch(i){a+="&trackerJsError="+i.message}finally{try{goldlog&&"function"==typeof goldlog.record&&n<=e.ratio&&goldlog.record(e.logkey,e.gmkey,a,e.chksum,!0)}catch(o){}}},e.exports=i},{}],20:[function(t,e,a){var n=function(){function t(){var t,e=[],o=!0;for(var u in m)m.hasOwnProperty(u)&&(o=!1,t=m[u]||"",e.push(c(u)+s+c(t)));a.name=o?n:i+c(n)+r+e.join(l)}function e(t,e,a){t&&(t.addEventListener?t.addEventListener(e,a,!1):t.attachEvent&&t.attachEvent("on"+e,function(e){a.call(t,e)}))}var a=window;if(a.nameStorage)return a.nameStorage;var n,i="nameStorage:",o=/^([^=]+)(?:=(.*))?$/,r="?",s="=",l="&",c=encodeURIComponent,u=decodeURIComponent,m={},d={};return function(t){if(t&&0===t.indexOf(i)){var e=t.split(/[:?]/);e.shift(),n=u(e.shift())||"";for(var a,r,s,c=e.join(""),d=c.split(l),p=0,f=d.length;p<f;p++)a=d[p].match(o),a&&a[1]&&(r=u(a[1]),s=u(a[2])||"",m[r]=s)}else n=t||""}(a.name),d.setItem=function(e,a){e&&"undefined"!=typeof a&&(m[e]=String(a),t())},d.getItem=function(t){return m.hasOwnProperty(t)?m[t]:null},d.removeItem=function(e){m.hasOwnProperty(e)&&(m[e]=null,delete m[e],t())},d.clear=function(){m={},t()},d.valueOf=function(){return m},d.toString=function(){var t=a.name;return 0===t.indexOf(i)?t:i+t},e(a,"beforeunload",function(){t()}),d}();a.nameStorage=n},{}],21:[function(t,e,a){"use strict";var n=function(t){var e=t.logkey.toLowerCase();0===e.indexOf("/")&&(e=e.substr(1));var a=t.gmkey.toUpperCase();switch(a){case"EXP":return"2201";case"CLK":return"2101";case"SLD":return"19999";case"OTHER":default:return"19999"}},i=function(){for(var t=navigator.userAgent,e=[{matchValue:"5.11.7",matchRule:t.match(/AliApp\(TB\/(\d+[._]\d+[._]\d+)/i)},{matchValue:"5.24.1",matchRule:t.match(/AliApp\(TM\/(\d+[._]\d+[._]\d+)/i)}],a=0;a<e.length;a++){var n=e[a].matchRule,i=e[a].matchValue;if(n&&2===n.length&&n[1]>=i)return!0}return!1};a.isSingleSendLog=function(t){return(!t||!/^\/aplus\.99\.(\d)+$/.test(t.logkey))&&!!(t&&t.logkey&&t.gmkey&&i()===!0)},a.getFunctypeValue=function(t){return a.isSingleSendLog(t)?n(t):"2101"}},{}],22:[function(t,e,a){"use strict";function n(t,e){var a,n=2146271213;for(a=0;a<t.length;a++)n=(n<<5)+n+t.charCodeAt(a);return(65535&n)%e}function i(t){var e,a=o.getCookie("t");return"3"!=t.ms_prototype_id&&"5"!=t.ms_prototype_id||(e=a?n(a,20):""),e}var o=t("../../cookie");a.getBucketId=i},{"../../cookie":7}],23:[function(t,e,a){"use strict";var n=t("../../utils/util"),i=window,o=document;a.init=function(){function t(t){for(var e;t&&"BODY"!=t.tagName&&!(e=n.tryToGetAttribute(t,"microscope-data"));)t=t.parentNode;return e||""}function e(t){var e,a,n,i,r,s,l=o.getElementsByTagName("*");for(e=[];t&&1==t.nodeType;t=t.parentNode)if(s=t.getAttribute("id")){for(i=0,a=0;a<l.length;a++)if(r=l[a],r.id==s){i++;break}if(e.unshift(t.tagName.toLowerCase()+'[@id="'+s+'"]'),1==i)return e.unshift("/"),e.join("/")}else{for(a=1,n=t.previousSibling;n;n=n.previousSibling)n.tagName==t.tagName&&a++;e.unshift(t.tagName.toLowerCase()+"["+a+"]")}return e.length?"/"+e.join("/"):null}function a(){var t="BackCompat"==o.compatMode?o.body:o.documentElement,e=Math.max(t.scrollWidth,t.clientWidth),a=Math.max(t.scrollHeight,t.clientHeight);return[e,a,t.scrollTop,t.scrollLeft]}function r(t,e){var i=a(),o=i[0],r=i[1],s=i[2],l=i[3],c=e.pageX,u=e.pageY;n.isNumber(c)||(c=e.clientX+l,u=e.clientY+s);var m,d,p=-1;t&&t.getBoundingClientRect&&(d=t.getBoundingClientRect(),p=d.left+l,m=d.top+s);var f,g=o>>1;return c-=g,p-=g,f=n.isNumber(m)?[["elx",p],["ely",m],["elw",t.offsetWidth],["elh",t.offsetHeight]]:[],f.concat([["docw",o],["doch",r],["x",c],["y",u]]),f}function s(t){for(;t&&t.tagName&&"BODY"!=t.tagName;){if("4111"==n.tryToGetAttribute(t,"data-componentid"))return A;t=t.parentNode}return E}function l(a,i){var l,m,d,p,f,g,h,b,v=0,k=s(a),A=t(a),E=0,T=[];if(A&&(k||"1"==w||"4"==w)){for(T.push(["xpath",e(a)]);a&&a!=o&&(g=a.tagName,g&&"HTML"!=g&&(v=1),p||"A"!=g&&"AREA"!=g&&"IMG"!=g&&"BUTTON"!=g&&"INPUT"!=g&&"TEXTAREA"!=g||(p=a,E=1),"A"!=g&&"AREA"!=g||(f=a,l=n.tryToGetHref(a)),(b=n.tryToGetAttribute(a,"data-widgetid"))&&T.push(["widgetid",b]),(b=n.tryToGetAttribute(a,"data-componentid"))&&T.push(["componentid",b]),m=a.parentNode);)a=m;v&&E&&(l&&T.push(["href",l]),E&&(T.push(["udp_wm_valid_hit",1]),h=r(p,i),T.concat(h),S++,T.push(["cc",S]),d=(new Date).getTime(),T.push(["t",d-P]),T.push(["t2",d-x]),x=d,T.push(["udp_wm_type",1]),T.push(["page_id",u.pageId||""]),T.push(["shop_id",u.shopId||""]),T.push(["site_instance_id",u.siteInstanceId||""]),T.push(["page_prototypeId",w]),T.push(["siteCategory",u.siteCategory||""]),T.push(["moduleId",A]),
+"2"!=w&&c(_,T),k&&c(y,T)))}}function c(t,e){var a=e.concat(d);m.send(t,a)}var u,m=i.goldlog,d=[["sw",i.screen.width],["sh",i.screen.height]],p=location,f=p.protocol,g="https:"==f,h=g?f:"http:",b=h+(g?"//log":"//ga")+".mmstat.com/",v=h+(g?"//log":"//go")+".mmstat.com/",_=b+"ued.1.1.1?logtype=6",y=v+"ued.1.1.5?logtype=5";try{u=m._$.meta_info._microscope_data||{}}catch(k){u={}}var w=u.prototypeId||"",A=!0,E=!1,S=0,P=(new Date).getTime(),x=P;"1"!=w&&"2"!=w&&"4"!=w||n.on(o,"mousedown",function(t,e){e&&l(e,t)})}},{"../../utils/util":36}],24:[function(t,e,a){"use strict";var n=[{spmab:/^875\.7931836$/,logkey:/^\/?tmallfp\.5001\.[1-6]$/},{spmab:"875.7931836",logkey:"/tmallfp1111.hangyehc.hangye"},{spmab:"875.7403452",logkey:"/tmallfp1111.bannerm.bannerm"},{spmab:"875.7403452",logkey:"/tmallfp1111.huichangm.hangyem"},{spmab:"875.7403452",logkey:"/tmallfp1111.huichangm.renqunm"},{spmab:/^a21sv\.8196(697|700|704)$/,logkey:/^\/?tmwlact\.(20160[1-6]|201609|20161[0-2])$/},{spmab:/^a224f\.820764[4-9]$/,logkey:/^\/?tmallkolguanzhu\.guanzhu\.(guanzhu|hjftab|feedsuv|feedclick|rankuv|rankclick)$/},{spmab:"a3211.919288-5282988",logkey:"/tmallkolguanzhu.guanzhu.contentguanzhu"},{spmab:"a3211.0-3642924",logkey:"/tmallkolguanzhu.guanzhu.myspaceguanzhu"},{spmab:"a21bo.50862",logkey:"/tbindex.20160927.industriy"},{spmab:"a21bo.50862",logkey:"/tbindex.2016092701.category"},{spmab:"a21bo.50862",logkey:"/tbindex.promo.promo"},{spmab:"a21bo.50862",logkey:"/tbindex.2016201863.1"},{spmab:"a21bo.50862",logkey:"/tbindex.2016092702.notice"},{spmab:/^a21bo\.50862$/,logkey:/^\/?tbindex\.881\.1[0-3]$/},{spmab:/^a2265\.biaoqian_\w+$/,logkey:/^\/?taotag\.1111\.2016111[1-4]$/},{spmab:/^a21fj\.8178323/,logkey:/^\/?tbl\.(2|3|10|1111)$/},{spmab:"a1z3i.mxbdtab81",logkey:/^\/?tmwlact\.1818\.[1-3]$/},{spmab:/^a1z3i\.m142etaf7[7-8]$/,logkey:/^\/?tmwlact\.16\.([3-5]|16110[1-2])$/},{spmab:"a223w.8184425",logkey:"/o2osaomahudong.o2osaomahudong.o2osaomahudong"},{spmab:/^a222r\.(8197906|819791[0-1])$/,logkey:/^\/?dacu\.(1|507)\.1\.1$/},{spmab:/^a222r\.(8206578|8197912|8197910)$/,logkey:/^\/?dacu\.1\.1\.[1-5]$/},{spmab:"1111",logkey:/^\/?tabbar.click.tab[1-5]$/},{spmab:"1111",logkey:/^\/?1111active\.list\.(list|algo)$/},{spmab:"1111",logkey:"/tmalllive.1111show.downloadbutton"},{spmab:/^a1zax\.8224871$/,logkey:/^\/?tmwlact.520\.1\.1\.[1-7]$/},{spmab:/^a1zax\.8224847$/,logkey:/^\/?tmwlact.520\.1\.1\.[8-9]$/},{spmab:/^a1zax\.8224847$/,logkey:/^\/?tmwlact.520\.1\.1\.(10|11|12|13|14|16|30)$/},{spmab:/^a1zax\.(8224868|8224854|8224861)$/,logkey:/^\/?tmwlact.520\.1\.1\.(17|18|19|20|21|23|24|25|29)$/},{spmab:"a222r.8215186",logkey:"/dacu.1.1.2"},{spmab:"a222r.8215188",logkey:"/dacu.1.1.2"},{spmab:"a3145.8194095",logkey:"/qingdan.2.3"},{spmab:/^a21sv\.\d{7}$/,logkey:/^\/?1{4}bq\.1{4}01\.1{4}bq\d{2}$/},{spmab:"1111",logkey:/^\/?tmwap\.2016party\.2016([0-1][0-9]|2[0-8])$/},{spmab:/^a224u\.cid$/,logkey:/^\/?tmalllive\.1\.[2-3]$/},{spmab:/^(a2268\.8225801|a2268\.8217919)$/,logkey:/^\/?tmalllive\.2\.[1-3]$/},{spmab:/^a21pv\.8206961$/,logkey:/^\/?ybh\.100\.1\.(cpcb|rcexpos|cpexp)$/},{spmab:"a230r.1",logkey:"/search"},{spmab:"a220m.1000858",logkey:"/mallsearch"},{spmab:/^a223j\.8193990$/,logkey:/^\/?tmalllive\.1111liveroom\.followbutton$/},{spmab:/^a223j\.8193918$/,logkey:/^\/?tmalllive\.1111liveroom\.followgift$/},{spmab:/^a223j\.8205670$/,logkey:/^\/?tmalllive\.1111liveroom\.tlivegiftegg$/}];a.getRecordDomian=function(t){for(var e,a=function(a){var n;return n="object"==typeof e[a]?e[a].test(t[a]):t[a]===e[a]},i=0;i<n.length;i++)if(e=n[i],a("logkey")&&(a("spmab")||"1111"===e.spmab))return"//hd.mmstat.com/";return t.defaultDomain}},{}],25:[function(t,e,a){"use strict";a.wp_beacon=t("./extenal/wp_beacon.js"),a.windvaneParams=t("./common/windvaneParams.js"),a.hd_domain=t("./hd_domain.js")},{"./common/windvaneParams.js":21,"./extenal/wp_beacon.js":23,"./hd_domain.js":24}],26:[function(t,e,a){"use strict";var n,i=document,o=t("../lib/utils/util"),r=t("./iframe"),s=t("./cookie"),l=t("./cookie").getData(),c=t("../lib/personality/extenal/wp"),u=t("./makeid").makePageId,m=t("./misc"),d=o.ifAdd,p=location.hash;p&&0===p.indexOf("#")&&(p=p.substr(1)),a.make=function(t,e,a,f){var g=[["logtype",r.is_in?0:1],[o.mkPlainKey(),"title="+escape(i.title)],["pre",t._$.page_referrer],["cache",m.makeCacheNum()],["scr",screen.width+"x"+screen.height]],h=l.cna||s.getCookie("cna");h&&g.push([o.mkPlainKey(),"cna="+h]),l.tracknick&&g.push([o.mkPlainKey(),"nick="+l.tracknick]),d(g,[["wm_pageid",f.ms_data_page_id],["wm_prototypeid",f.ms_prototype_id],["wm_sid",f.ms_data_shop_id],["spm-url",e.spm_url],["spm-pre",e.spm_pre],["spm-cnt",e.spm_cnt],["cnaui",l.cnaui]]);var b=[],v=a.ua_info||{};return d(b,[["thw",l.thw],["bucket_id",c.getBucketId(f)],["urlokey",p],["wm_instanceid",f.ms_data_instance_id],["p",v.p],["o",v.o],["b",v.b],["s",v.s],["w",v.w],["mx",v.mx],["ism",v.ism],["st_page_id",n||u()],["lver",t._tb_idx_doub?t._t_lver:t.lver],["jsver",t._$.script_name]]),{basic:g,extra:b}}},{"../lib/personality/extenal/wp":22,"../lib/utils/util":36,"./cookie":7,"./iframe":10,"./makeid":15,"./misc":17}],27:[function(t,e,a){"use strict";function n(){function t(t){var e="0123456789abcdefhijklmnopqrstuvwxyzABCDEFHIJKLMNOPQRSTUVWXYZ",a="0123456789abcdefghijkmnopqrstuvwxyzABCDEFGHIJKMNOPQRSTUVWXYZ";return 1==t?e.substr(Math.floor(60*Math.random()),1):2==t?a.substr(Math.floor(60*Math.random()),1):"0"}for(var e,a="",n="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",o=!1;a.length<6;)e=n.substr(Math.floor(62*Math.random()),1),!o&&a.length<=2&&("g"==e.toLowerCase()||"l"==e.toLowerCase())&&(0===a.length&&"g"==e.toLowerCase()?Math.random()<.5&&(e=t(1),o=!0):1==a.length&&"l"==e.toLowerCase()&&"g"==a.charAt(0).toLowerCase()&&(e=t(2),o=!0)),a+=e;return goldlog._tb_idx_doub&&goldlog.pvid&&!i&&(i=a=goldlog.pvid),window.g_aplus_pv_id=a,goldlog.pvid=a,a}var i;a.makePVId=n},{}],28:[function(t,e,a){"use strict";var n=null,i=t("./nameStorage").nameStorage,o=t("../config").KEY;a.getRefer=function(){return null!==n?n:n=document.referrer||i.getItem(o.NAME_STORAGE.REFERRER)||""}},{"../config":1,"./nameStorage":20}],29:[function(t,e,a){"use strict";function n(){if(!s.data.a||!s.data.b){var t=o._SPM_a,e=o._SPM_b;if(t&&e)return t=t.replace(/^{(\w+\/)}$/g,"$1"),e=e.replace(/^{(\w+\/)}$/g,"$1"),s.is_wh_in_page=!0,void s.setAB(t,e);var a=goldlog._$.meta_info;t=a["data-spm"]||a["spm-id"]||"0";var n=t.split(".");n.length>1&&(t=n[0],e=n[1]),s.setA(t),e&&s.setB(e);var i=r.getElementsByTagName("body");i=i&&i.length?i[0]:null,i&&(e=c.tryToGetAttribute(i,"data-spm"),e?s.setB(e):1===n.length&&s.setAB("0","0"))}}function i(){var t=s.data.a,e=s.data.b;t&&e&&(goldlog.spm_ab=[t,e])}var o=window,r=document,s={},l={};s.data=l;var c=t("../lib/utils/util"),u=t("../lib/utils/spmUtil"),m=location.href,d=t("./referrer").getRefer();s.setA=function(t){s.data.a=t,i()},s.setB=function(t){s.data.b=t,i()},s.setAB=function(t,e){s.data.a=t,s.data.b=e,i()};var p=u.getSPMFromUrl;s.init=function(e){s.spm_url=p(m),s.spm_pre=p(d),s.meta_protocol=e.spm_protocol,n();var a;s.data.a&&s.data.b&&(a=[s.data.a,s.data.b].join(".")),s.spm_cnt=(a||"0.0")+".0.0."+goldlog.pvid,goldlog._$.spm=s;var i=t("./spmException").is_exception;i||t("./spmMonitor"),t("./spmact")},e.exports=s},{"../lib/utils/spmUtil":34,"../lib/utils/util":36,"./referrer":28,"./spmException":30,"./spmMonitor":31,"./spmact":32}],30:[function(t,e,a){"use strict";function n(t,e){for(var a=0,n=t.length;a<n;a++)if(i.isContain(e,t[a]))return!0;return!1}var i=t("../lib/utils/util"),o=location.host,r=["xiaobai.com","admin.taobao.org","aliloan.com","mybank.cn"],s=["tmc.admin.taobao.org"];a.is_exception=n(r,o)&&!n(s,o)},{"../lib/utils/util":36}],31:[function(t,e,a){!function(){function e(){var t=X.spm.data;return[t.a,t.b].join(".")}function a(t){for(var e=["javascript:","tel:","sms:","mailto:","tmall://"],a=0,n=e.length;a<n;a++)if(It(t,e[a]))return!0}function n(){return Math.floor(268435456*Math.random()).toString(16)}function i(t){var e;try{e=Wt(t.getAttribute("href",2))}catch(a){}return e||""}function o(t,e,a){return"tap"==e?void r(t,a):void t[ut]((st?"on":"")+e,function(t){t=t||W.event;var e=t.target||t.srcElement;a(e)},F)}function r(t,e){var a="ontouchend"in document.createElement("div"),n=a?"touchstart":"mousedown";o(t,n,function(t){e&&e(t)})}function s(t,e){var a,n,i,o,r,s,l,c,u,m=[];for(a=Pt(t.getElementsByTagName("a")),n=Pt(t.getElementsByTagName("area")),o=a.concat(n),l=0,c=o.length;l<c;l++){for(s=!1,r=i=o[l];(r=r.parentNode)&&r!=t;)if(xt(r,gt)){s=!0;break}s||(u=xt(i,_t),e||"t"==u?e&&"t"==u&&m.push(i):m.push(i))}return m}function l(t,a,n,o){var r,l,c,u,m,d,p,f,h,v,y,k,A,E,S,P,x,T;if(a=a||t.getAttribute(gt)||"",a&&(r=s(t,o),0!==r.length)){if(c=a.split("."),P=It(a,"110")&&3==c.length,P&&(x=c[2],c[2]="w"+(x||"0"),a=c.join(".")),Nt(k=e())&&k.match(/^[\w\-\*]+(\.[\w\-\*\/]+)?$/))if($t(a,".")){if(!It(a,k)){for(u=k.split("."),c=a.split("."),E=0,A=u.length;E<A;E++)c[E]=u[E];a=c.join(".")}}else $t(k,".")||(k+=".0"),a=k+"."+a;if(a.match&&a.match(/^[\w\-\*]+\.[\w\-\*\/]+\.[\w\-\*\/]+$/)){var O=o?kt:yt;for(T=parseInt(xt(t,O))||0,S=0,m=T,A=r.length;S<A;S++)l=r[S],d=i(l),(o||d)&&(P&&l.setAttribute(At,x),p=l.getAttribute(Et),p&&w(p)?g(l,p,n):(h=_(l.parentNode),h.a_spm_ab?(y=h.a_spm_ab,v=h.ab_idx):(y=void 0,m++,v=m),f=b(l)||v,o&&(f="at"+((Vt(f)?1e3:"")+f)),p=y?a+"-"+y+"."+f:a+"."+f,g(l,p,n)));t.setAttribute(O,m)}}}function c(t){var e,a=["mclick.simba.taobao.com","click.simba.taobao.com","click.tanx.com","click.mz.simba.taobao.com","click.tz.simba.taobao.com","redirect.simba.taobao.com","rdstat.tanx.com","stat.simba.taobao.com","s.click.taobao.com"],n=a.length;for(e=0;e<n;e++)if(t.indexOf(a[e])!=-1)return!0;return!1}function u(t){return t?!!t.match(/^[^\?]*\balipay\.(?:com|net)\b/i):F}function m(t){return t?!!t.match(/^[^\?]*\balipay\.(?:com|net)\/.*\?.*\bsign=.*/i):F}function d(t){for(var e;(t=t.parentNode)&&t.tagName!=rt;)if(e=xt(t,ht))return e;return""}function p(t,e){if(t&&/&?\bspm=[^&#]*/.test(t)&&(t=t.replace(/&?\bspm=[^&#]*/g,"").replace(/&{2,}/g,"&").replace(/\?&/,"?").replace(/\?$/,"")),!e)return t;var a,n,i,o,r,s,l,c="&";if(t.indexOf("#")!=-1&&(i=t.split("#"),t=i.shift(),n=i.join("#")),o=t.split("?"),r=o.length-1,i=o[0].split("//"),i=i[i.length-1].split("/"),s=i.length>1?i.pop():"",r>0&&(a=o.pop(),t=o.join("?")),a&&r>1&&a.indexOf("&")==-1&&a.indexOf("%")!=-1&&(c="%26"),t=t+"?spm="+wt+e+(a?c+a:"")+(n?"#"+n:""),l=$t(s,".")?s.split(".").pop().toLowerCase():""){if({png:1,jpg:1,jpeg:1,gif:1,bmp:1,swf:1}.hasOwnProperty(l))return 0;!a&&r<=1&&(n||{htm:1,html:1,php:1,aspx:1}.hasOwnProperty(l)||(t+="&file="+s))}return t}function f(t){return t&&H.split("#")[0]==t.split("#")[0]}function g(t,o,r){var s=e();if(t.setAttribute(Et,o),V=W.g_aplus_pv_id,V&&(o+="."+V),V||s&&s!=nt){var l=i(t),g="i"==(xt(t,ht)||d(t)||ft),b=tt+"tbspm.1.1?logtype=2&spm=";l&&!c(l)&&(!g&&(It(l,"#")||f(l)||a(l.toLowerCase())||u(l)||m(l))||(g?(b+=o+"&url="+encodeURIComponent(l)+"&cache="+n(),$==t&&Ut(b)):r||(l=p(l,o))&&h(t,l)))}}function h(t,e){var a,n=t.innerHTML;n&&n.indexOf("<")==-1&&(a=L.createElement("b"),a.style.display="none",t.appendChild(a)),t.href=e,a&&t.removeChild(a)}function b(t){var e,a=X.spm.data;return"0"==a.a&&"0"==a.b?e="0":(e=xt(t,gt),e&&e.match(/^d\w+$/)||(e="")),e}function v(t){for(var e,a,n=t;t&&t.tagName!=ot&&t.tagName!=rt&&t.getAttribute;){if(a=t.getAttribute(gt)){e=a,n=t;break}if(!(t=t.parentNode))break}return e&&!/^[\w\-\.\/]+$/.test(e)&&(e="0"),{spm_c:e,el:n}}function _(t){for(var e,a={},n="";t&&t.tagName!=ot&&t.tagName!=rt;){if(!n&&(n=xt(t,St))){e=parseInt(xt(t,"data-spm-ab-max-idx"))||0,a.a_spm_ab=n,a.ab_idx=++e,t.setAttribute("data-spm-ab-max-idx",e);break}if(xt(t,gt))break;t=t.parentNode}return a}function y(t){var e;return t&&(e=t.match(/&?\bspm=([^&#]*)/))?e[1]:""}function k(t,a){var n=e(),o=i(t),r=y(o),s=null,l=n&&2==n.split(".").length;return l?(s=[n,0,b(t)||0],void g(t,s.join("."),a)):void(o&&r&&(o=o.replace(/&?\bspm=[^&#]*/g,"").replace(/&{2,}/g,"&").replace(/\?&/,"?").replace(/\?$/,"").replace(/\?#/,"#"),h(t,o)))}function w(t){var a=e(),n=t.split(".");return n[0]+"."+n[1]==a}function A(t,e){$=t,mt&&T();var a,n,i=xt(t,Et);if(i&&w(i))g(t,i,e);else{if(a=v(t.parentNode),n=a.spm_c,!n)return void k(t,e);it&&(n="0"),l(a.el,n,e),l(a.el,n,e,!0)}}function E(t){if(t&&1==t.nodeType){Ot(t,yt),Ot(t,kt);var e,a=Pt(t.getElementsByTagName("a")),n=Pt(t.getElementsByTagName("area")),i=a.concat(n),o=i.length;for(e=0;e<o;e++)Ot(i[e],Et)}}function S(t){var a=e(),n=t.parentNode;if(!n)return"";var i=t.getAttribute(gt),o=v(n),r=o.spm_c||0;r&&r.indexOf(".")!=-1&&(r=r.split("."),r=r[r.length-1]);var s=a+"."+r,l=at[s]||0;return l++,at[s]=l,i=i||l,s+".i"+i}function P(t){var e,a=t.tagName;return V=W.g_aplus_pv_id,"A"!=a&&"AREA"!=a?e=S(t):(A(t,U),e=xt(t,Et)),e=(e||"0.0.0.0").split("."),{a:e[0],b:e[1],c:e[2],d:e[3],e:V}}function x(t,e){if(e||(e=L),L.evaluate)return e.evaluate(t,L,null,9,null).singleNodeValue;for(var a,n=t.split("/");!a&&n.length>0;)a=n.shift();var i,o=/^.+?\[@id="(.+?)"]$/i,r=/^(.+?)\[(\d+)]$/i;return(i=a.match(o))?e=e.getElementById(i[1]):(i=a.match(r))&&(e=e.getElementsByTagName(i[1])[parseInt(i[2])-1]),e?0===n.length?e:x(n.join("/"),e):null}function T(){var t,e,a,n={};for(t in dt)dt.hasOwnProperty(t)&&(e=x(t),e&&(n[t]=1,a=dt[t],Tt(e,gt,("A"==e.tagName?a.spmd:a.spmc)||"")));for(t in n)n.hasOwnProperty(t)&&delete dt[t]}function O(){if(!pt){if(!W.spmData)return void(et||setTimeout(arguments.callee,100));pt=U;var t,e,a,n,i=W.spmData.data;if(i&&Ct(i)){for(t=0,e=i.length;t<e;t++)a=i[t],n=a.xpath,n=n.replace(/^id\("(.+?)"\)(.*)/g,'//*[@id="$1"]$2'),dt[n]={spmc:a.spmc,spmd:a.spmd};T()}}}function M(){var t,e,a,n,i=L.getElementsByTagName("iframe"),o=i.length;for(e=0;e<o;e++)t=i[e],!t.src&&(a=xt(t,bt))&&(n=P(t),n?(n=[n.a,n.b,n.c,n.d,n.e].join("."),t.src=p(a,n)):t.src=a)}function I(){function t(){e++,e>10&&(a=3e3),M(),setTimeout(t,a)}var e=0,a=500;t()}function j(t,e){var a,n,i,o="gostr",r="locaid",s="gmkey",l={};if(Lt(e,l),a=l[o],i=l[r],n=l[s],a&&i){It(a,"/")&&(a=a.substr(1));var c=P(t),u=[c.a,c.b,c.c,i].join("."),m=a+"."+u,d=["logtype=2","cache="+Math.random(),"autosend=1","spm-cnt="+[c.a,c.b].join(".")+".0.0"],p=Mt(H);p&&d.push("spm-pre="+p);var f;for(f in l)l.hasOwnProperty(f)&&f!=o&&f!=r&&d.push(f+"="+l[f]);d.length>0&&(m+="?"+d.join("&"));var g=W.goldlog.windVaneData||{},h={gmkey:n,gokey:d.length>0?d.join("&"):""},b="/"+a+"."+u,v=Ft({logkey:a,gmkey:n,spm_ab:goldlog.spm_ab});v&&(h._is_g2u_=1),h.version=z.toUtVersion;try{h=JSON.stringify(h),"{}"==h&&(h="")}catch(_){h=""}var y=function(t){g.functype=Y.getFunctypeValue({logkey:a,gmkey:n,spm_ab:goldlog.spm_ab}),g.logkey=b,g.logkeyargs=h,g.extendargs="",delete g.spmcnt,delete g.spmpre,delete g.lzsid,W.goldlog.call("WVTBUserTrack","toUT",g,function(){t({isSuccess:!0})},function(e){t({isSuccess:!1,msg:e})},5e3)},k=function(){Ut(tt+m),t.setAttribute(Et,u)};J&&W.goldlog&&W.goldlog.call&&!/^\/aplus\.99\.(\d)+$/.test(b)&&y(function(t){t&&!t.isSuccess&&Rt.run({isSingleSend:v,userAgent:navigator.userAgent,url:location.href,windVaneData:g})}),v||k()}}function R(t){W.g_SPM&&(g_SPM._current_spm=P(t));for(var e;t&&t.tagName!=ot;){e=xt(t,vt);{if(e){j(t,e);break}t=t.parentNode}}}function N(){J&&Q?o(L,"tap",R):o(L,"mousedown",R)}function C(t){for(var e;t&&(e=t.tagName);){if("A"==e||"AREA"==e){A(t,F),W.g_SPM&&(g_SPM._current_spm=P(t));break}if(e==rt||e==ot)break;t=t.parentNode}}var V,$,W=window,L=document,B=location,U=!0,F=!1,D=t("../lib/utils/util"),z=t("../lib/utils/v"),G=t("../lib/utils/spmUtil"),X=goldlog._$,q=X.meta_info,H=B.href,K=t("../lib/personality/index.js"),Y=K.windvaneParams,J=X.is_terminal,Q=X.is_touch_enabled,Z=t("./beaconBase"),tt=Z.hjlj(),et=F,at={},nt="0.0",it=!1,ot="HTML",rt="BODY",st=!!L.attachEvent,lt="attachEvent",ct="addEventListener",ut=st?lt:ct,mt=F,dt={},pt=F,ft=q.spm_protocol,gt="data-spm",ht="data-spm-protocol",bt="data-spm-src",vt="data-spm-click",_t="data-auto-spmd",yt="data-spm-max-idx",kt="data-auto-spmd-max-idx",wt="",At="data-spm-wangpu-module-id",Et="data-spm-anchor-id",St="data-spm-ab",Pt=D.nodeListToArray,xt=D.tryToGetAttribute,Tt=D.tryToSetAttribute,Ot=D.tryToRemoveAttribute,Mt=G.getSPMFromUrl,It=D.isStartWith,jt=t("../lib/monitor/tracker.js"),Rt=new jt({ratio:5,logkey:"/aplus.99.4",chksum:"H46747616"}),Nt=D.isString,Ct=D.isArray,Vt=D.isNumber,$t=D.isContain,Wt=D.trim,Lt=D.parseSemicolonContent,Bt=D.DOMReady,Ut=goldlog.send,Ft=function(t){return!!(J&&W.goldlog&&W.goldlog.call&&Y.isSingleSendLog(t))};Bt(function(){et=U}),O(),J||I(),N(),J&&Q?o(L,"tap",C):(o(L,"mousedown",C),o(L,"keydown",C)),W.g_SPM={resetModule:E,anchorBeacon:A,getParam:P}}()},{"../lib/monitor/tracker.js":19,"../lib/personality/index.js":25,"../lib/utils/spmUtil":34,"../lib/utils/util":36,"../lib/utils/v":37,"./beaconBase":4}],32:[function(t,e,a){!function(){function t(t,e,a){t[k]((v?"on":"")+e,function(t){t=t||c.event;var e=t.target||t.srcElement;a(t,e)},!1)}function e(){return/&?\bspm=[^&#]*/.test(location.href)?location.href.match(/&?\bspm=[^&#]*/gi)[0].split("=")[1]:""}function a(t,e){if(t&&/&?\bspm=[^&#]*/.test(t)&&(t=t.replace(/&?\bspm=[^&#]*/g,"").replace(/&{2,}/g,"&").replace(/\?&/,"?").replace(/\?$/,"")),!e)return t;var a,n,i,o,r,s,l,c="&";if(t.indexOf("#")!=-1&&(i=t.split("#"),t=i.shift(),n=i.join("#")),o=t.split("?"),r=o.length-1,i=o[0].split("//"),i=i[i.length-1].split("/"),s=i.length>1?i.pop():"",r>0&&(a=o.pop(),t=o.join("?")),a&&r>1&&a.indexOf("&")==-1&&a.indexOf("%")!=-1&&(c="%26"),t=t+"?spm="+e+(a?c+a:"")+(n?"#"+n:""),l=s.indexOf(".")>-1?s.split(".").pop().toLowerCase():""){if({png:1,jpg:1,jpeg:1,gif:1,bmp:1,swf:1}.hasOwnProperty(l))return 0;!a&&r<=1&&(n||{htm:1,html:1,php:1}.hasOwnProperty(l)||(t+="&file="+s))}return t}function n(t){function e(t){return t=t.replace(/refpos[=(%3D)]\w*/gi,s).replace(o,"%3D"+n+"%26"+i.replace("=","%3D")).replace(r,n),i.length>0&&(t+="&"+i),t}var a=window.location.href,n=a.match(/mm_\d{0,24}_\d{0,24}_\d{0,24}/i),i=a.match(/[&\?](pvid=[^&]*)/i),o=new RegExp("%3Dmm_\\d+_\\d+_\\d+","ig"),r=new RegExp("mm_\\d+_\\d+_\\d+","ig");i=i&&i[1]?i[1]:"";var s=a.match(/(refpos=(\d{0,24}_\d{0,24}_\d{0,24})?(,[a-z]+)?)(,[a-z]+)?/i);return s=s&&s[0]?s[0]:"",n?(n=n[0],e(t)):t}function i(e){var a=c.KISSY;a?a.ready(e):c.jQuery?jQuery(u).ready(e):"complete"===u.readyState?e():t(c,"load",e)}function o(t,e){return t&&t.getAttribute?t.getAttribute(e)||"":""}function r(t){if(t){var e,a=b.length;for(e=0;e<a;e++)if(t.indexOf(b[e])>-1)return!0;return!1}}function s(t,e){if(t&&/&?\bspm=[^&#]*/.test(t)&&(t=t.replace(/&?\bspm=[^&#]*/g,"").replace(/&{2,}/g,"&").replace(/\?&/,"?").replace(/\?$/,"")),!e)return t;var a,n,i,o,r,s,l,c="&";if(t.indexOf("#")!=-1&&(i=t.split("#"),t=i.shift(),n=i.join("#")),o=t.split("?"),r=o.length-1,i=o[0].split("//"),i=i[i.length-1].split("/"),s=i.length>1?i.pop():"",r>0&&(a=o.pop(),t=o.join("?")),a&&r>1&&a.indexOf("&")==-1&&a.indexOf("%")!=-1&&(c="%26"),t=t+"?spm="+e+(a?c+a:"")+(n?"#"+n:""),l=s.indexOf(".")>-1?s.split(".").pop().toLowerCase():""){if({png:1,jpg:1,jpeg:1,gif:1,bmp:1,swf:1}.hasOwnProperty(l))return 0;!a&&r<=1&&(n||{htm:1,html:1,php:1}.hasOwnProperty(l)||(t+="&__file="+s))}return t}function l(t){if(r(t.href)){var a=o(t,h);if(!a){if(!p)return;var n=p(t),i=[n.a,n.b,n.c,n.d,n.e].join(".");f&&(i=[n.a||"0",n.b||"0",n.c||"0",n.d||"0"].join("."),i=(e()||"0.0.0.0.0")+"_"+i),t.href=s(t.href,i),t.setAttribute(h,i)}}}var c=window,u=document,m=c._alimm_spmact_on_;if("undefined"==typeof m&&(m=1),1==m&&(m=1),0==m&&(m=0),m){var d=function(){return{a:0,b:0,c:0,d:0,e:0}},p=c.g_SPM&&c.g_SPM.getParam?c.g_SPM.getParam:d,f=!0;try{f=self.location!=top.location}catch(g){}var h="data-spm-act-id",b=["mclick.simba.taobao.com","click.simba.taobao.com","click.tanx.com","click.mz.simba.taobao.com","click.tz.simba.taobao.com","redirect.simba.taobao.com","rdstat.tanx.com","stat.simba.taobao.com","s.click.taobao.com"],v=!!u.attachEvent,_="attachEvent",y="addEventListener",k=v?_:y;t(u,"mousedown",function(t,e){for(var a,n=0;e&&(a=e.tagName)&&n<5;){if("A"==a||"AREA"==a){l(e);break}if("BODY"==a||"HTML"==a)break;e=e.parentNode,n++}}),i(function(){for(var t,i,r=document.getElementsByTagName("iframe"),s=0;s<r.length;s++){t=o(r[s],"mmsrc"),i=o(r[s],"mmworked");var l=p(r[s]),c=[l.a||"0",l.b||"0",l.c||"0",l.d||"0",l.e||"0"].join(".");t&&!i?(f&&(c=[l.a||"0",l.b||"0",l.c||"0",l.d||"0"].join("."),c=e()+"_"+c),r[s].src=a(n(t),c),r[s].setAttribute("mmworked","mmworked")):r[s].setAttribute(h,c)}})}}()},{}],33:[function(t,e,a){"use strict";function n(t,e,a){if(e)return"m";if(a)return r.isContain(t,"wrating.com")?"k":"y";var n,i,o="o",s=[["youku.com","yt"],["soku.com","yt"],["tudou.com","yt"],["laifeng.com","yt"],["ju.taobao.com","4"],["juhuasuan.com","4"],["alipay.com","f"],["china.alibaba.com","6"],["qd.alibaba.com","o"],["jaq.alibaba.com","o"],["110.alibaba.com","o"],["security.alibaba.com","o"],["expo.alibaba.com","z"],["eco.alibaba.com","q"],["dt.alibaba.com","q"],["1688.com","6"],["alibaba.com","7"],["aliloan.com","8"],["cnzz.com","9"],["net.cn","a"],["hichina.com","a"],["phpwind.com","b"],["aliyun.com","c"],["tao123.com","d"],["alimama.com","e"],["taobao.com","1"],["tmall.com","2"],["tmall.hk","2"],["etao.com","3"],["sm.cn","s"],["mei.com","me"],["alibaba-inc.com","q"],["*",o]],l=s.length;for(n=0;n<l;n++)if(i=s[n],r.isContain(t,i[0]))return i[1];return o}function i(t){return!0}function o(){return"boolean"==typeof m?m:m=r.isEndWith(l,c)||r.isEndWith(l,u)}var r=t("./util"),s=(document,location),l=(s.pathname,s.hostname),c="aliloan.com",u="mybank.cn";a.getBeaconSrc=n,a.is_iframeExcption=i;var m;a.is_aliloan=o},{"./util":36}],34:[function(t,e,a){"use strict";function n(t){var e,a=t.match(/spm=([^&|#|?|\/]+)/);try{e=a&&2===a.length?a[1]:""}catch(n){o.run({message:'getSPMFromUrl("'+t+'") error message:'+n.message})}finally{return!e&&t&&a&&o.run({message:'getSPMFromUrl("'+t+'") match null from spm=xxxx spm invalid'}),e}}var i=t("../monitor/tracker.js"),o=new i({ratio:10,logkey:"/aplus.99.1",gmkey:"",chksum:"H46747592"});a.getSPMFromUrl=n},{"../monitor/tracker.js":19}],35:[function(t,e,a){"use strict";function n(t){var e,a=t.split("."),n=a.length;return e=i.any(o,function(e){return i.isEndWith(t,e)})?a.slice(n-3):a.slice(n-2),e.join(".")}var i=t("./util"),o=[".com.cn",".net.cn"];a.getDomain=n},{"./util":36}],36:[function(t,e,a){"use strict";function n(t,e){return t&&t.getAttribute?t.getAttribute(e)||"":""}function i(t,e,a){if(t&&t.setAttribute)try{t.setAttribute(e,a)}catch(n){}}function o(t,e){if(t&&t.removeAttribute)try{t.removeAttribute(e)}catch(a){i(t,e,"")}}function r(t){var e,a;try{return e=[].slice.call(t)}catch(n){e=[],a=t.length;for(var i=0;i<a;i++)e.push(t[i]);return e}}function s(t){return O=O||I.getElementsByTagName("head")[0],M&&!t?M:O?M=O.getElementsByTagName("meta"):[]}function l(t){var e,a,i,o=s(),r=o.length;for(e=0;e<r;e++)a=o[e],n(a,"name")===t&&(i=n(a,"content"));return i||""}function c(t){t=(t||"").split("#")[0].split("?")[0];var e=t.length,a=function(t){var e,a=t.length,n=0;for(e=0;e<a;e++)n=31*n+t.charCodeAt(e);return n};return e?a(e+"#"+t.charCodeAt(e-1)):-1}function u(t,e){return t.indexOf(e)>-1}function m(t,e){return 0===t.indexOf(e)}function d(t,e){var a=t.length,n=e.length;return a>=n&&t.indexOf(e)==a-n}function p(t){return"function"==typeof t}function f(t){return"[object Array]"===Object.prototype.toString.call(t)}function g(t){return"string"==typeof t}function h(t){return"undefined"==typeof t}function b(t){return"string"==typeof t?t.replace(/^\s+|\s+$/g,""):""}function v(t,e){var a=t.indexOf("?")==-1?"?":"&",n=e?f(e)?_(e):k(e):"";return n?t+a+n:t}function _(t){var e,a,n,i=[],o=t.length;for(n=0;n<o;n++)e=t[n][0],a=t[n][1],i.push(m(e,R)?a:e+"="+encodeURIComponent(a));return i.join("&")}function y(t){var e,a,n,i={},o=t.length;for(n=0;n<o;n++)e=t[n][0],a=t[n][1],i[e]=a;return i}function k(t){var e,a,n=[];for(e in t)t.hasOwnProperty(e)&&(a=""+t[e],n.push(m(e,R)?a:e+"="+encodeURIComponent(a)));return n.join("&")}function w(t){for(var e=t.split("&"),a=0,n=e.length,i={};a<n;a++){var o=e[a],r=o.indexOf("="),s=o.substring(0,r),l=o.substring(r+1);i[s]=A(l)}return i}function A(t,e){var a=e||"";if(t)try{a=decodeURIComponent(t)}catch(n){}return a}function E(t,e){e=e||{};var a,n,i=t.split(";"),o=i.length;for(a=0;a<o;a++)n=i[a].split("="),e[b(n[0])||""]=A(b(n.slice(1).join("=")));return e}function S(t,e,a){t[$]((N?"on":"")+e,function(t){t=t||j.event;var e=t.target||t.srcElement;a(t,e)},!1)}function P(t,e){var a="script",n=I.createElement(a);n.type="text/javascript",n.async=!0;var i="https:"==location.protocol?e||t:t;0===i.indexOf("//")&&(i=W+i),n.src=i;var o=I.getElementsByTagName(a)[0];o.parentNode.insertBefore(n,o)}function x(t,e){var a,n=t.length;for(a=0;a<n;a++)e(t[a])}function T(t,e){var a,n=t.length;for(a=0;a<n;a++)if(e(t[a]))return!0;return!1}var O,M,I=document,j=window;a.tryToGetAttribute=n,a.tryToSetAttribute=i,a.tryToRemoveAttribute=o,a.nodeListToArray=r,a.getMetaTags=s,a.getMetaCnt=l,a.makeChkSum=c,a.isContain=u,a.isStartWith=m,a.isEndWith=d,a.isFunction=p,a.isArray=f,a.isString=g,a.isUnDefined=h,a.trim=b,a.rndInt32=function(){return Math.round(2147483647*Math.random())};var R="::-plain-::";a.mkPlainKey=function(){return R+Math.random()},a.s_plain_obj=R,a.makeUrl=v,a.arr2obj=y,a.obj2param=k,a.param2obj=w,a.parseSemicolonContent=E;var N=!!I.attachEvent,C="attachEvent",V="addEventListener",$=N?C:V;a.on=S,a.DOMReady=function(t){var e=j.KISSY;e&&p(e.ready)?e.ready(t):j.jQuery?jQuery(I).ready(t):"complete"===I.readyState?t():S(j,"load",t)},a.onload=function(t){S(j,"load",t)};var W=function(){var t="";return"file:"===location.protocol&&(t="http:"),t}();a.ifAdd=function(t,e){var a,n,i,o,r=e.length;for(a=0;a<r;a++)n=e[a],i=n[0],o=n[1],o&&t.push([i,o])},a.addScript=P,a.each=x,a.any=T,a.tryToGetHref=function(t){var e;try{e=b(t.getAttribute("href",2))}catch(a){}return e||""},a.isNumber=function(t){return"number"==typeof t},a.param2arr=function(t){for(var e,a=t.split("&"),n=0,i=a.length,o=[];n<i;n++)e=a[n].split("="),o.push([e.shift(),e.join("=")]);return o},a.mkPlainKeyForExparams=function(t){return t+"exparams"},a.isStartWithProtocol=function(t){for(var e=["javascript:","tel:","sms:","mailto:","tmall://","#"],a=0,n=e.length;a<n;a++)if(m(t,e[a]))return!0;return!1},a.isDisablePvid=function(){var t=!1;try{t=goldlog.config.get("aplus-disable-pvid")}catch(e){}finally{return"true"===t}},a.isTouch=function(){return"ontouchend"in document.createElement("div")}},{}],37:[function(t,e,a){a.v="7",a.MANUAL=9,a.MANUAL_TIMEOUT=7,a.lver="6.9.7",a.toUtVersion="v20161117"},{}],38:[function(require,module,exports){function compareVersion(t,e){t=t.toString().split("."),e=e.toString().split(".");for(var a=0;a<t.length||a<e.length;a++){var n=parseInt(t[a],10),i=parseInt(e[a],10);if(window.isNaN(n)&&(n=0),window.isNaN(i)&&(i=0),n<i)return-1;if(n>i)return 1}return 0}function callback(t,e){isAndroid&&compareVersion(osVersion,"2.4.0")<0?setTimeout(function(){t&&t(e)},1):t&&t(e)}function init(){var WV_Core={call:function(t,e,a,n,i,o){var r,s;if(lib.promise&&("function"==typeof lib.promise.deferred?s=lib.promise.deferred():"function"==typeof lib.promise.defer&&(s=lib.promise.defer())),r=o>0?setTimeout(function(){WV_Core.onFailure(r,{ret:"TIMEOUT"})},o):WV_Private.getSid(),a.sid=r,WV_Private.registerCall(r,n,i,s),isAndroid?compareVersion(wvVersion,"2.7.0")>=0?WV_Private.callMethodByPrompt(t,e,WV_Private.buildParam(a),r+""):WindVane_Native&&WindVane_Native.callMethod&&WindVane_Native.callMethod(t,e,WV_Private.buildParam(a),r+""):isIOS&&WV_Private.callMethodByIframe(t,e,WV_Private.buildParam(a),r+""),s)return s.promise()},fireEvent:function(t,e){var a=doc.createEvent("HTMLEvents");a.initEvent(t,!1,!0),a.param=WV_Private.parseParam(e),doc.dispatchEvent(a)},getParam:function(t){return WV_Private.params[PARAM_PREFIX+t]||""},onSuccess:function(t,e){clearTimeout(t);var a=WV_Private.unregisterCall(t),n=a.success,i=a.deferred,o=WV_Private.parseParam(e);callback(function(t){n&&n(t),i&&i.resolve(t)},o.value||o),WV_Private.onComplete(t)},onFailure:function(t,e){clearTimeout(t);var a=WV_Private.unregisterCall(t),n=a.failure,i=a.deferred,o=WV_Private.parseParam(e);callback(function(t){n&&n(t),i&&i.reject(t)},o),WV_Private.onComplete(t)}},WV_Private={params:{},buildParam:function(t){return t&&"object"==typeof t?JSON.stringify(t):t||""},parseParam:function(str){var obj;if(str&&"string"==typeof str)try{obj=JSON.parse(str)}catch(e){obj=eval("("+str+")")}else obj=str||{};return obj},getSid:function(){return Math.floor(Math.random()*(1<<50))+""+inc++},registerCall:function(t,e,a,n){e&&(callbackMap[SUCCESS_PREFIX+t]=e),a&&(callbackMap[FAILURE_PREFIX+t]=a),n&&(callbackMap[DEFERRED_PREFIX+t]=n)},unregisterCall:function(t){var e=SUCCESS_PREFIX+t,a=FAILURE_PREFIX+t,n=DEFERRED_PREFIX+t,i={success:callbackMap[e],failure:callbackMap[a],deferred:callbackMap[n]};return delete callbackMap[e],delete callbackMap[a],i.deferred&&delete callbackMap[n],i},useIframe:function(t,e){var a=IFRAME_PREFIX+t,n=iframePool.pop();n||(n=doc.createElement("iframe"),n.setAttribute("frameborder","0"),n.style.cssText="width:0;height:0;border:0;display:none;"),n.setAttribute("id",a),n.setAttribute("src",e),n.parentNode||setTimeout(function(){doc.body.appendChild(n)},5)},retrieveIframe:function(t){var e=IFRAME_PREFIX+t,a=doc.querySelector("#"+e);iframePool.length>=iframeLimit?doc.body.removeChild(a):iframePool.push(a)},callMethodByIframe:function(t,e,a,n){var i={"selfParam=1":1,sid:this.parseParam(a).sid};i=this.buildParam(i);var o=LOCAL_PROTOCOL+"://"+t+":"+n+"/"+e+"?"+i;this.params[PARAM_PREFIX+n]=a,this.useIframe(n,o)},callMethodByPrompt:function(t,e,a,n){var i=LOCAL_PROTOCOL+"://"+t+":"+n+"/"+e+"?"+a,o=WV_PROTOCOL+":";this.params[PARAM_PREFIX+n]=a,window.prompt(i,o)},onComplete:function(t){isIOS&&this.retrieveIframe(t),delete this.params[PARAM_PREFIX+t]}};for(var key in WV_Core)WV_Core.hasOwnProperty(key)&&(goldlog[key]=WindVane[key]=WV_Core[key])}var win=window,ua=navigator.userAgent,lib=win.lib||(win.lib={}),isIOS=/iPhone|iPad|iPod/i.test(ua),isAndroid=/Android/i.test(ua),doc=document,osVersion=ua.match(/(?:OS|Android)[\/\s](\d+[._]\d+(?:[._]\d+)?)/i),wvVersion=ua.match(/WindVane[\/\s](\d+[._]\d+[._]\d+)/),WindVane={},WindVane_Native=win.WindVane_Native,callbackMap={},inc=1,iframePool=[],iframeLimit=3,LOCAL_PROTOCOL="hybrid",WV_PROTOCOL="wv_hybrid",IFRAME_PREFIX="iframe_",SUCCESS_PREFIX="suc_",FAILURE_PREFIX="err_",DEFERRED_PREFIX="defer_",PARAM_PREFIX="param_";osVersion=osVersion?(osVersion[1]||"0.0.0").replace(/_/g,"."):"0.0.0",wvVersion=wvVersion?(wvVersion[1]||"0.0.0").replace(/_/g,"."):"0.0.0",exports.init=init,exports.is_WindVane=/WindVane/i.test(ua),exports.WindVane=WindVane},{}]},{},[2]);</script><script charset="utf-8" src="inseason1122PC_files/a_006" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_002" async=""></script><script charset="utf-8" src="inseason1122PC_files/a_005" async=""></script><script charset="gbk" src="inseason1122PC_files/juSkip.json" async=""></script>
+                        <meta charset="gbk">
+        <link rel="dns-prefetch" href="https://g.alicdn.com/">
+        <link rel="dns-prefetch" href="https://assets.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gju1.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gju2.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gju3.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gju4.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gtms01.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gtms02.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gtms03.alicdn.com/">
+        <link rel="dns-prefetch" href="https://gtms04.alicdn.com/">
+        <link rel="dns-prefetch" href="https://log.mmstat.com/">
+        <link rel="dns-prefetch" href="https://skip.ju.taobao.com/">
+        <link rel="dns-prefetch" href="https://dskip.ju.taobao.com/">
+        <meta name="spm-id" content="608.8257529">
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>【聚划算】食令-小雪</title>
+        <script>
+            window.g_config = {appId:20,startTime: +new Date()};
+                            window._ju_config = {webww:false,domain:'//ju.taobao.com/',menuType:'index'};
+                </script>
+        <link rel="shortcut icon" href="https://g.alicdn.com/ju/common/1.3.6/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="inseason1122PC_files/global-min.css">
+		
+		<!--模板头部css-->
+				    <link rel="stylesheet" href="inseason1122PC_files/main.css">
+		
+		<!--皮肤样式-->
+		<style>
+			div#page,
+div#tms-page {
+  background: #F3F3F3;
+}
+.fixed-nav li a,
+.ju-floors .jusp-floor .jusp-floor-title {
+  color: #ffffff;
+  background-color: #FA2960;
+}
+.fixed-nav li a:hover {
+  background: #eb0542;
+}
+.fixed-nav li.selected a {
+  background-color: #ffffff;
+  color: #FA2960;
+}
+.ju-floors .jusp-sub-floor span:after,
+.ju-floors .jusp-sub-floor span:before {
+  border-top-color: #eb0542;
+}
+.ju-floors .jusp-sub-floor span {
+  color: #eb0542;
+}
+.ju-floors .jusp-floor .jusp-floor-title {
+  background: url(//gtms03.alicdn.com/tps/i3/TB1WVuQIXXXXXavaXXXFTjX6pXX-1190-60.png) no-repeat center 0 #FA2960;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+}
+
+        </style>
+        <script src="inseason1122PC_files/a_007" charset="utf-8"></script>
+
+        <!-- 模块的css -->
+        
+		<!--模板头部js-->
+		            
+            <link charset="utf-8" href="inseason1122PC_files/a_002.css" rel="stylesheet"><link charset="utf-8" href="inseason1122PC_files/a.css" rel="stylesheet"><link charset="utf-8" href="inseason1122PC_files/a_003.css" rel="stylesheet"><script src="inseason1122PC_files/index_003.js"></script><script src="inseason1122PC_files/index_002.js"></script></head>
+<body class=""><script id="tb-beacon-aplus" src="inseason1122PC_files/aplus_v2.js" exparams="category=&amp;userid=&amp;at_bucketid=jhs%5fju%5f6&amp;aplus&amp;yunid=&amp;77a6ee76ea658&amp;trid=0bb4529c14798909501521016e&amp;asid=AQAAAAAGWDVYL1hTaAAAAADCn4vvHq467A=="></script><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&at_bucketid=jhs%5fju%5f6&aplus&yunid=&77a6ee76ea658&trid=0bb4529c14798909501521016e&asid=AQAAAAAGWDVYL1hTaAAAAADCn4vvHq467A==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+        <!-- 注释 --> 
+
+    <div id="page">
+        <input id="J_NavId" value="none" type="hidden">
+        <input id="catMenuSync" value="false" type="hidden">
+				                                    <style>
+  .mbclientli{display:none !important;}
+</style>
+<div id="site-nav" class="site-nav" data-spm="102201">
+    <div class="ju-wrapper">
+      	<input id="downQrcoder" value="//img.alicdn.com/tfs/TB1Ne_bNpXXXXb2XpXXXXXXXXXX-402-362.png" type="hidden">
+        <p class="menu-left">
+            <span class="mobile">
+                <a class="mobileLink" href="https://ju.taobao.com/tool/downApp.htm" target="_blank">
+                  手机聚划算
+                  <img class="qr" data-src="//img.alicdn.com/tfs/TB1wM1GNpXXXXa8apXXXXXXXXXX-302-376.png">
+                </a>
+            </span>
+            <span class="login-info"><a class="user-nick" href="https://i.taobao.com/my_taobao.htm" target="_top">魅力橙色</a>  <a target="_top" href="https://login.taobao.com/member/logout.jhtml?f=top&amp;out=true&amp;redirectURL=https%3A%2F%2Fju.taobao.com%2Fjusp%2Fsp%2Finseason1122PC%2Ftp.htm%3Fspm%3Da2107.1.0.0.t3oR7b%26from%3Dlogin" id="J_Logout">退出</a></span>
+        </p>
+        <ul class="quick-menu">
+            <li>
+                <a href="https://trade.ju.taobao.com/trade/my_ju.htm" target="_blank">我的聚划算</a>
+            </li>
+            <li class="cart">
+                <a href="https://cart.taobao.com/my_cart.htm" target="_blank">购物车</a>
+            </li>
+            <li class="cascade mouseleave">
+                <a class="select" href="https://i.taobao.com/my_taobao.htm" target="_blank">                    
+                    <i></i>
+                  	我的淘宝
+                </a>
+                <ul class="options" aria-hidden="true">
+                    <li>
+                        <a href="https://trade.taobao.com/trade/itemlist/list_bought_items.htm" target="_blank">已买到的宝贝</a>
+                    </li>
+                    <li>
+                        <a href="https://shoucang.taobao.com/shop_collect_list.htm" target="_blank">收藏夹</a>
+                    </li>
+                    <li>
+                        <a href="https://www.taobao.com/" target="_blank">淘宝网</a>
+                    </li>
+                    <li>
+                        <a href="https://www.tmall.com/" target="_blank">天猫</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="https://freeway.ju.taobao.com/front/sellerHome.htm" target="_blank">商户中心</a>
+            </li>
+            <li>
+                <a href="https://o.ju.taobao.com/tg/hpcenter/index.htm?reqType=index" target="_blank">帮助</a>
+            </li>
+        </ul>
+    </div>
+</div>
+                                <!--#def{           
+  "promo" : {           
+      "type":"object",           
+      "title":"导航推广位",           
+      "properties": {           
+          "isHide":{           
+              "title":"是否隐藏",           
+              "type":"boolean",           
+              "description":""           
+          },           
+          "img":{           
+              "title":"图片",           
+              "type":"string",           
+              "format":"PIC_URL",           
+              "description":"200x80"           
+          },           
+          "href":{           
+              "title":"链接",           
+              "type":"string",           
+              "format":"URL"           
+          }           
+      }           
+  }           
+}-->           
+           
+<div id="J_JuNav" class="ju-naver" data-spm="102202">           
+    <div class="ju-wrapper">           
+        <h1 class="logo mouseleave" id="J_logobox"><a target="_top" class="ju-logo ju-logo-menu none J_menulogo" href="javascript:;"></a>           
+          <a target="_top" id="J_julogo" class="ju-logo" href="https://ju.taobao.com/" title="聚划算"></a>           
+          <script type="text/javascript">           
+              (function (S) {           
+                  S.use("node", function (S, Node) {           
+                      var $ = Node.all;           
+                      var navId = $("#J_NavId").val();           
+                      if (navId && navId != 'menu-home') {           
+                          $('#J_logobox').prepend('<a target="_top" class="ju-logo ju-logo-menu ' + navId + ' J_menulogo" href="javascript:;"></a>');           
+                      }else{           
+                          $('#J_julogo').addClass('ju-logo-show');           
+                      }           
+                  });           
+              })(KISSY);           
+          </script>           
+                     
+      <div class="cat-menu-v" data-spm="764795">     <div class="catbg"></div>     <table>                           <tbody><tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/nvzhuangpindao/tp.htm" class="J_cat-1000">                     女装                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/nanzhuangpindao/tp.htm" class="J_cat-7000">                     男装                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/xiebaopindao/tp.htm" class="J_cat-3000">                     鞋包                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/neiyipindao/tp.htm" class="J_cat-4000">                     内衣                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/zhubaoshipin/tp.htm" class="J_cat-42000">                     饰品                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/yundongpindao/tp.htm" class="J_cat-38000">                     运动                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/meizhuangpindao/tp.htm" class="J_cat-2000">                     美妆                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/tongzhuangpindao/tp.htm" class="J_cat-230000">                     童装                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/shipinpindao/tp.htm" class="J_cat-5000">                     食品                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/muyingpindao/tp.htm" class="J_cat-6000">                     母婴                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/baihuopindao/tp.htm" class="J_cat-37000">                     百货                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/chepinpindao/tp.htm" class="J_cat-36000">                     汽车                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/jiadianpindao/tp.htm" class="J_cat-34000">                     家电                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/shumapindao/tp.htm" class="J_cat-43000">                     数码                                      </a>             </td>             </tr>                      <tr class="category">             <td>                 <a href="https://ju.taobao.com/jusp/jiajunewpindao/tp.htm" class="J_cat-225000">                     家装                                      </a>             </td>                                                <td>                 <a href="https://ju.taobao.com/jusp/jiajupindao/tp.htm" class="J_cat-35000">                     家纺                                      </a>             </td>             </tr>                                   <tr class="split">             <td colspan="2">                 <div class="line"></div>             </td>         </tr>         <tr class="h2 h2-forecast">             <td colspan="2">                 <a href="https://ju.taobao.com/tg/forecast.htm" class="forecast">明日预告</a>             </td>         </tr>               <tr class="split">             <td colspan="2">                 <div class="line"></div>             </td>         </tr>         <tr class="ensurance">             <td colspan="2">                 <div><a target="_top" href="https://ju.taobao.com/jusp/alone/service/tp.htm?#f2"><i></i>全场包邮</a></div>                 <div><a target="_top" href="https://ju.taobao.com/jusp/alone/service/tp.htm?#f1"><i></i>七天无理由退换货</a></div>                 <div><a target="_top" href="https://ju.taobao.com/jusp/alone/service/tp.htm?#f3"><i></i>30天低价</a></div>             </td>         </tr>     </tbody></table> </div></h1>           
+            <ul id="J_NavMenu" class="nav-menu">           
+        <li class="menu-home">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/tg/today_items.htm">首页</a>           
+        </li>           
+        <li class="menu-brands">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/tg/brand.htm">品牌团</a>           
+        </li>           
+        <li class="menu-fcdp">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/jusp/nv/fcdppc/tp.htm">非常大牌</a>           
+        </li>           
+        <li class="menu-jump">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/jusp/other/mingpin/tp.htm">聚名品</a>           
+        </li>           
+        <li class="menu-qqjx">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/jusp/sp/global/tp.htm">全球精选</a>           
+        </li>           
+        <li class="menu-liangfan">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/jusp/other/juliangfan/tp.htm">量贩团</a>           
+        </li>           
+        <li class="menu-travel">           
+            <a target="_top" class="menu-link" href="https://ju.taobao.com/jusp/shh/trip/tp.htm=">旅游团</a>           
+        </li>           
+        <li class="menu-ladygo">           
+            <a target="_top" class="menu-link" href="https://ladygo.tmall.com/">俪人购</a>           
+        </li>           
+    </ul>           
+    </div>           
+</div>           
+<style>         
+.ju-naver .promoimg{         
+    height: 80px;         
+    line-height: 80px;        
+    overflow:hidden;     
+}     
+.ju-naver .promoimg img{     
+    width:200px;     
+    height:80px;     
+    vertical-align: top;     
+}      
+.ju-ipad .site-nav,           
+.ju-ipad .footer,             
+.ju-ipad .ju-naver,             
+.ju-ipad .mod-dachu-subnav,       
+.ju-ipad .top-banner-wrapper{       
+    display:none!important;       
+}   
+.main-box .status-banner.status-presale .oprice.oprice-zgj .zgjicon{display:none;}   
+.footer .ali-link .logo i{font-size: 164px;} 
+</style>
+            		        
+
+
+        
+
+
+        
+
+
+
+<!--大促标记-->
+
+<!--页头推广位-->
+
+
+
+    <!--页面内容开始-->
+	<style>     
+    #J_FixedNav.preSoldMain{ width: 140px;}     
+    #J_FixedNav.preSoldMain li{ width: 70px; float: left;}     
+    #J_FixedNav.preSoldMain li span{ width: 100%;}     
+    #J_FixedNav.preSoldMain li.firstfloor{ width: 140px; }   
+</style>
+<div id="main"><div class="ju-floors">                           <div class="J_Mod jusp-floor" id="J_4179bsq3rz6" data-id="floor0" data-spm="J_4179bsq3rz6" data-type="mtp-moqie">                                  <div class="">                     <div class="mod-content clearfix " style="height: 6116px;"><!--  -->  <div class="clip-content" data-spm="318">     <div class="clip-imgs" style="margin-left: -960px;width: 1920px;height: 6116px;">                  <img src="inseason1122PC_files/img1479812503613-897512601.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_002.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_004.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_007.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_005.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_003.jpg" width="1920" height="1000">                  <img src="inseason1122PC_files/img1479812503613-897512601_006.jpg" width="1920" height="116">              </div>     <div class="clip-areas" style="margin-left: -960px;width: 1920px;height: 6116px;">                           <div id="area-unit-547" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541751936795&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 31px; top: 1106px; left: 1100px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541751936795" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>556</b> 件已售</div>                                    <div id="area-unit-799" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541751936795&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 873px; height: 1000px; top: 776px; left: 519px; z-index: 3;" data-itemid="541751936795" data-type="2" data-color="#A20000" data-size="14" data-init="1"><a style="width: 873px; height: 1000px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036490799&amp;item_id=541751936795" target="_blank"></a></div>                                    <div id="area-unit-1056" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541751936795&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 263px; top: 1793px; left: 519px; z-index: 3;" data-itemid="541751936795" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 263px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036490799&amp;item_id=541751936795" target="_blank"></a></div>                                    <div id="area-unit-1309" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;526924375360&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 414px; top: 2079px; left: 505px; z-index: 3;" data-itemid="526924375360" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 414px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036280364&amp;item_id=526924375360" target="_blank"></a></div>                                    <div id="area-unit-1562" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;526924375360&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 2419px; left: 1132px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="526924375360" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>68</b> 件已售</div>                                    <div id="area-unit-1815" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541620411210&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 414px; top: 2497px; left: 508px; z-index: 3;" data-itemid="541620411210" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 414px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036345953&amp;item_id=541620411210" target="_blank"></a></div>                                    <div id="area-unit-2067" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541620411210&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 2832px; left: 1137px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541620411210" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>6362</b> 件已售</div>                                    <div id="area-unit-2321" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541017976686&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 364px; top: 3062px; left: 527px; z-index: 3;" data-itemid="541017976686" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 364px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036287930&amp;item_id=541017976686" target="_blank"></a></div>                                    <div id="area-unit-2574" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541017976686&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 3392px; left: 1131px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541017976686" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>4969</b> 件已售</div>                                    <div id="area-unit-2827" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;35061540345&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 364px; top: 3433px; left: 528px; z-index: 3;" data-itemid="35061540345" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 364px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036308371&amp;item_id=35061540345" target="_blank"></a></div>                                    <div id="area-unit-3079" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;35061540345&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 3740px; left: 616px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="35061540345" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>10692</b> 件已售</div>                                    <div id="area-unit-3333" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;531932566897&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 349px; top: 3799px; left: 530px; z-index: 3;" data-itemid="531932566897" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 349px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036273700&amp;item_id=531932566897" target="_blank"></a></div>                                    <div id="area-unit-3585" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;531932566897&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 4109px; left: 1144px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="531932566897" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>2188</b> 件已售</div>                                    <div id="area-unit-3839" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541533103048&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 349px; top: 4153px; left: 530px; z-index: 3;" data-itemid="541533103048" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 349px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036284761&amp;item_id=541533103048" target="_blank"></a></div>                                    <div id="area-unit-4091" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541533103048&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 4444px; left: 568px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541533103048" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>3350</b> 件已售</div>                                    <div id="area-unit-4345" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541595243539&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 349px; top: 4506px; left: 531px; z-index: 3;" data-itemid="541595243539" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 349px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036416076&amp;item_id=541595243539" target="_blank"></a></div>                                    <div id="area-unit-4597" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541595243539&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 4820px; left: 1124px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541595243539" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>68884</b> 件已售</div>                                    <div id="area-unit-4851" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;541578361915&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 349px; top: 4861px; left: 531px; z-index: 3;" data-itemid="541578361915" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 349px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036352701&amp;item_id=541578361915" target="_blank"></a></div>                                    <div id="area-unit-5103" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;541578361915&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 5162px; left: 587px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="541578361915" data-type="0" data-color="#A20000" data-size="14" data-init="1"><b>3722</b> 件已售</div>                                    <div id="area-unit-5358" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;2&quot;,&quot;itemId&quot;:&quot;523998061919&quot;,&quot;textColor&quot;:&quot;#FA2960&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 868px; height: 472px; top: 5388px; left: 535px; z-index: 3;" data-itemid="523998061919" data-type="2" data-color="#FA2960" data-size="14" data-init="1"><a style="width: 868px; height: 472px; display: block; background: transparent url(&quot;//g.alicdn.com/s.gif&quot;) repeat scroll 0% 0%;" href="https://detail.ju.taobao.com/home.htm?id=10000036392466&amp;item_id=523998061919" target="_blank"></a></div>                                    <div id="area-unit-5611" class="clip-area juitem" data-json="{&quot;type&quot;:&quot;0&quot;,&quot;itemId&quot;:&quot;523998061919&quot;,&quot;textColor&quot;:&quot;#A20000&quot;,&quot;fontSize&quot;:&quot;14&quot;,&quot;salesSite&quot;:&quot;1&quot;}" style="width: 200px; height: 30px; top: 5772px; left: 1167px; font-size: 14px; text-align: left; color: rgb(162, 0, 0);" data-itemid="523998061919" data-type="0" data-color="#A20000" data-size="14" data-init="1">赶快下单</div>                                             <div id="mq::juGroupProgress(523998061919)" class="clip-area anchor juGroupProgress" style="width: 814px; height: 30px; top: 5808px; left: 553px;"><div class="progress_content" style="width: 560%;"></div><div class="progress_text" style="line-height: 30px;">560%</div></div>                                </div> </div>  </div>                 </div>             </div>               </div> <div id="J_FixedNav" class="fixed-nav" data-spm="140409">     <ul>                                </ul> </div></div>
+	<!--页面内容结束-->
+
+
+    <script>
+         window.JUSPDATA = [ {"site":"jhs","pageName":"食令-小雪","theme":"{\"textColor\":\"#ffffff\",\"floorColor\":\"#FA2960\",\"pageColor\":\"#F3F3F3\"}","qrCode":"http://gju1.alicdn.com/bao/uploadedi2/100000326172870432/TB2hwhiesCO.eBjSZFzXXaRiVXa_!!0-0-jupush.jpg","currentTime":1479890950156,"topBanner":{},"floorsPSort":false,"botBanner":{"tms":"http://ju.taobao.com/jusp/alone/jutudipc/tp.htm?spm=0.0.0.0.sjdFqB"},"floors":[{"id":"J_4179bsq3rz6","floorTitle":{"name":"小雪","img":"","show":false,"navShow":false},"search":false,"data":{"moqie_data":"{\"id\":\"ju-moqie-bucket-cn_1479812515530\",\"data\":{\"content\":{\"imgQuality\":\"50\",\"imgUnitHeight\":1000,\"imgWidth\":1920,\"imgHeight\":6116,\"imgSrc\":\"//gjusp.alicdn.com/img/img1479812503613-897512601.jpg\",\"imgSplits\":[1000,1000,1000,1000,1000,1000,116],\"pageColor\":\"rgb(232,232,229)\",\"areas\":{\"area-unit-547\":{\"top\":1106,\"left\":1100,\"width\":195,\"height\":31,\"gid\":\"area-unit-547\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541751936795\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-799\":{\"top\":776,\"left\":519,\"width\":873,\"height\":1000,\"gid\":\"area-unit-799\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541751936795\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-1056\":{\"top\":1793,\"left\":519,\"width\":868,\"height\":263,\"gid\":\"area-unit-1056\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541751936795\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-1309\":{\"top\":2079,\"left\":505,\"width\":868,\"height\":414,\"gid\":\"area-unit-1309\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"526924375360\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-1562\":{\"top\":2419,\"left\":1132,\"width\":154,\"height\":30,\"gid\":\"area-unit-1562\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"526924375360\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-1815\":{\"top\":2497,\"left\":508,\"width\":868,\"height\":414,\"gid\":\"area-unit-1815\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541620411210\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-2067\":{\"top\":2832,\"left\":1137,\"width\":154,\"height\":30,\"gid\":\"area-unit-2067\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541620411210\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-2321\":{\"top\":3062,\"left\":527,\"width\":868,\"height\":364,\"gid\":\"area-unit-2321\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541017976686\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-2574\":{\"top\":3392,\"left\":1131,\"width\":154,\"height\":30,\"gid\":\"area-unit-2574\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541017976686\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-2827\":{\"top\":3433,\"left\":528,\"width\":868,\"height\":364,\"gid\":\"area-unit-2827\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"35061540345\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-3079\":{\"top\":3740,\"left\":616,\"width\":154,\"height\":30,\"gid\":\"area-unit-3079\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"35061540345\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-3333\":{\"top\":3799,\"left\":530,\"width\":868,\"height\":349,\"gid\":\"area-unit-3333\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"531932566897\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-3585\":{\"top\":4109,\"left\":1144,\"width\":154,\"height\":30,\"gid\":\"area-unit-3585\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"531932566897\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-3839\":{\"top\":4153,\"left\":530,\"width\":868,\"height\":349,\"gid\":\"area-unit-3839\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541533103048\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-4091\":{\"top\":4444,\"left\":568,\"width\":154,\"height\":30,\"gid\":\"area-unit-4091\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541533103048\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-4345\":{\"top\":4506,\"left\":531,\"width\":868,\"height\":349,\"gid\":\"area-unit-4345\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541595243539\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-4597\":{\"top\":4820,\"left\":1124,\"width\":154,\"height\":30,\"gid\":\"area-unit-4597\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541595243539\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-4851\":{\"top\":4861,\"left\":531,\"width\":868,\"height\":349,\"gid\":\"area-unit-4851\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"541578361915\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-5103\":{\"top\":5162,\"left\":587,\"width\":154,\"height\":30,\"gid\":\"area-unit-5103\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"541578361915\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-5358\":{\"top\":5388,\"left\":535,\"width\":868,\"height\":472,\"gid\":\"area-unit-5358\",\"type\":\"juitem\",\"data\":{\"type\":\"2\",\"itemId\":\"523998061919\",\"textColor\":\"#FA2960\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-5611\":{\"top\":5772,\"left\":1167,\"width\":154,\"height\":30,\"gid\":\"area-unit-5611\",\"type\":\"juitem\",\"data\":{\"type\":\"0\",\"itemId\":\"523998061919\",\"textColor\":\"#A20000\",\"fontSize\":\"14\",\"salesSite\":\"1\"}},\"area-unit-5499\":{\"top\":5808,\"left\":553,\"width\":814,\"height\":30,\"gid\":\"area-unit-5499\",\"type\":\"anchor\",\"data\":{\"href\":\"mq::juGroupProgress(523998061919)\"}}},\"type\":1},\"elevator\":{\"imgQuality\":90,\"imgUnitHeight\":1000,\"imgWidth\":0,\"imgHeight\":0,\"imgSrc\":\"\",\"areas\":{}},\"gid\":1479812515486},\"type\":0}","trackParams":{"_expose":"is_jusp,floorIndex,bucket","floorIndex":"1","bucket":"6","_click":"from,floorIndex,bucket","is_jusp":"1","_detailExpose":"is_jusp,floorIndex,bucket","from":"juhuasuan"}},"dataOrigin":{"url":"//ju.taobao.com/json/jusp2/ajaxGetTpFloor.json?urlKey=sp/inseason1122PC&floorIndex=1&pc=true"},"type":"mtp-moqie"}],"spmId":"608.8257529","wapurl":"http://ju.taobao.com/m/jusp/sp/inseason1122PC/mtp.htm"} ][0];
+    </script>
+
+<!--页尾推广位-->
+<style>
+    .bottom-tms-container1 {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
+    .bottom-tms-container1 .img-wrap {
+        position: relative;
+        left: 50%;
+        margin-left: -1000px;
+        width: 2000px;
+        text-align: center;
+    }
+</style>
+<div class="bottom-tms-container1">
+		    	                        <style> .juGroupProgress {     border-radius: 10px;     overflow: hidden; }  .juGroupProgress .progress_content {     background: #e98503;     -webkit-transition: width 2s ease;     width: 0;     height: 100%;     position: absolute;     top: 0;     left: 0; }  .juGroupProgress .progress_text {     text-align: center;     color: #333;     font-size: 16px;     z-index: 1;     position: absolute;     width: 100%; } </style> <script> KISSY.use("core", function (S) {     var $ = S.all;      var renderProgress = function(){         $(".clip-content .anchor").each(function(container, i){             var match = container.attr("id").match(/mq::juGroupProgress\((\d+)\)/);             if(match && match.length == 2){                 var itemId = match[1];                 container.addClass("juGroupProgress").append('<div class="progress_content"></div><div class="progress_text" style="line-height: ' + $(container).height() + 'px;"></div>');                  S.IO({                     url: "//ju.taobao.com/json/tg/ajaxGetItemsV2.json?type=0&includeForecast=true&itemIds=" + itemId,                     dataType: "jsonp",                     jsonpCallback : "juGroupProgress_" + i,                     success: function (d) {                         if (d.itemList && d.itemList.length) {                             var item = d.itemList[0];                             var zrtCurGroupNum = item.extend.zrtCurGroupNum || 0;                             var zrtGroupNum = item.extend.zrtGroupNum;                             if(zrtGroupNum){                                 var text = Math.floor((zrtCurGroupNum / zrtGroupNum) * 100) + "%";                                 $(".progress_content", container).width(text);                                 $(".progress_text", container).text(text);                             }                         }                     }                 });             }         });     };      var loop = function(){         setTimeout(function(){             if(S.one(".clip-content")){                 renderProgress();             }else{                 loop();             }         },200);     };      loop(); }); </script>
+                    	</div>
+
+            		                        <div id="ju-footer" class="footer" data-spm="516893"> 
+    <div> 
+        <div class="issue ju-wrapper"> 
+          <div class="logo"><i></i></div> 
+          <dl class="device"> 
+              <dt>手机登录：</dt> 
+              <dd> 
+                  <a target="_blank" href="https://ju.taobao.com/tool/downApp.htm" title="苹果APP"> 
+                      <i class="ju-icon-ios"></i> 
+                      <span class="txt">iPhone</span> 
+                  </a> 
+              </dd> 
+              <dd> 
+                  <a target="_blank" href="https://ju.taobao.com/tool/downApp.htm" title="安卓APP"> 
+                      <i class="ju-icon-ios"></i> 
+                      <span class="txt">Android</span> 
+                  </a> 
+              </dd> 
+          </dl> 
+          <div class="links"> 
+             <dl> 
+                  <dt>关于聚划算</dt> 
+                  <dd> 
+                      <a href="https://o.ju.taobao.com/tg/hpcenter/index.htm?reqType=index" target="_blank">帮助中心</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="http://job.alibaba.com/zhaopin/positionList.htm?keyWord=JXU4MDVBJXU1MjEyJXU3Qjk3" target="_blank">诚聘英才</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://www.taobao.com/go/chn/tb-fp/2014/law.php" target="_blank">法律声明</a> 
+                  </dd> 
+              </dl> 
+              <dl> 
+                  <dt>买家中心</dt> 
+                  <dd> 
+                      <a href="https://service.taobao.com/support/main/service_route.htm#cn-online" target="_blank">在线答疑</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://ju.taobao.com/jusp/alone/service/tp.htm" target="_blank">服务保障</a> 
+                  </dd> 
+              </dl> 
+              <dl> 
+                  <dt>卖家中心</dt> 
+                  <dd> 
+                      <a href="https://freeway.ju.taobao.com/tg/hpcenter/index.htm?reqType=index" target="_blank">在线咨询</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://seller.ju.taobao.com/seller/seller_home.htm" target="_blank">商品报名</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://seller.ju.taobao.com/seller/rule.htm" target="_blank">商家规则</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://rule.taobao.com/jsearch.htm?spm=608.6885245.announce.1.lJH3Va&amp;cId=26&amp;st=1" target="_blank">规则通知</a> 
+                  </dd> 
+              </dl> 
+              <dl> 
+                  <dt>有话要说</dt> 
+                  <dd> 
+                      <a href="https://www.taobao.com/about/contact.php" target="_blank">客服热线</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://jubao.alibaba.com/index.html?site=JU" target="_blank">廉正举报</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://form.taobao.com/script/fullview.htm?spm=608.7065813.0.0.QQIXPB&amp;id=564" target="_blank">我要投诉</a> 
+                  </dd> 
+              </dl> 
+              <dl> 
+                  <dt>服务保障</dt> 
+                  <dd> 
+                      <a href="https://ju.taobao.com/jusp/alone/service/tp.htm#f2" target="_blank">全场包邮</a> 
+                  </dd> 
+                  <dd class="mid-es"> 
+                      <a href="https://ju.taobao.com/jusp/alone/service/tp.htm#f1" target="_blank">七天无理由退换货</a> 
+                  </dd> 
+                  <dd> 
+                      <a href="https://ju.taobao.com/jusp/alone/service/tp.htm#f3" target="_blank">30天低价</a> 
+                  </dd> 
+              </dl>  
+          </div> 
+      </div> 
+      <div class="ali-link ju-wrapper"> 
+          <div class="logo"><i></i></div> 
+          <div class="links"> 
+              <div class="box"> 
+                  <a target="_blank" href="https://www.taobao.com/">淘宝网</a> 
+                  <a target="_blank" href="https://www.tmall.com/">天猫</a> 
+                  <a target="_blank" href="https://ju.taobao.com/">聚划算</a> 
+                  <a target="_blank" href="https://www.aliexpress.com/">全球速卖通</a> 
+                  <a target="_blank" href="https://www.alibaba.com/">阿里巴巴国际交易市场</a> 
+                  <a target="_blank" href="https://www.1688.com/">1688</a> 
+                  <a target="_blank" href="https://www.alimama.com/">阿里妈妈</a> 
+                  <a target="_blank" href="https://www.aliyun.com/">阿里云计算</a> 
+                  <a target="_blank" href="https://www.yunos.com/">YunOS</a> 
+                  <a target="_blank" href="https://www.fliggy.com/">飞猪</a> 
+                  <a target="_blank" href="http://www.uc.cn/">UC</a> 
+                  <a target="_blank" href="http://www.amap.com/">高德地图</a> 
+                  <a target="_blank" href="http://aliqin.cn/">阿里通信</a> 
+                  <a target="_blank" href="http://www.dingtalk.com/?lwfrom=20150210100526606">钉钉</a> 
+                  <a target="_blank" href="https://www.umeng.com/">友盟</a> 
+                  <a target="_blank" href="http://www.xiami.com/">虾米</a> 
+                  <a target="_blank" href="http://www.ttpod.com/">阿里星球</a> 
+                  <a target="_blank" href="http://www.etao.com/">一淘</a> 
+                  <a target="_blank" href="http://www.ddchong.com/">点点虫</a> 
+                  <a target="_blank" href="https://onetouch.alibaba.com/">一达通</a> 
+                  <a target="_blank" href="http://www.antgroup.com/">蚂蚁金服</a> 
+                  <a target="_blank" href="http://www.alipay.com/">支付宝</a> 
+                  <a target="_blank" href="https://www.mybank.cn/">网商银行</a> 
+                  <a target="_blank" href="http://http//www.koubei.com//">口碑</a> 
+                  <a target="_blank" href="http://www.alijk.com/">阿里健康</a> 
+                  <a target="_blank" href="http://www.iwshang.com/">天下网商</a> 
+              </div> 
+              <div class="box">增值电信业务经营许可证：B2-20110446</div> 
+              <div class="box"><img src="inseason1122PC_files/TB1mMiCMVXXXXa5XXXXXXXXXXXX-32-32.png" width="12"> 2010-2016 JU.TAOBAO.COM 版权所有  互联网违法和不良信息举报中心：0517-81683775 blxx@list.alibaba-inc.com</div> 
+          </div> 
+      </div> 
+    </div><textarea class="" style="visibility: hidden; height: 394px; display: none;">
+ 
+        &lt;div class="issue ju-wrapper"&gt; 
+          &lt;div class="logo"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt; 
+          &lt;dl class="device"&gt; 
+              &lt;dt&gt;手机登录：&lt;/dt&gt; 
+              &lt;dd&gt; 
+                  &lt;a target="_blank" 
+href="//ju.taobao.com/tool/downApp.htm" title="苹果APP"&gt; 
+                      &lt;i class="ju-icon-ios"&gt;&lt;/i&gt; 
+                      &lt;span class="txt"&gt;iPhone&lt;/span&gt; 
+                  &lt;/a&gt; 
+              &lt;/dd&gt; 
+              &lt;dd&gt; 
+                  &lt;a target="_blank" 
+href="//ju.taobao.com/tool/downApp.htm" title="安卓APP"&gt; 
+                      &lt;i class="ju-icon-ios"&gt;&lt;/i&gt; 
+                      &lt;span class="txt"&gt;Android&lt;/span&gt; 
+                  &lt;/a&gt; 
+              &lt;/dd&gt; 
+          &lt;/dl&gt; 
+          &lt;div class="links"&gt; 
+             &lt;dl&gt; 
+                  &lt;dt&gt;关于聚划算&lt;/dt&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//o.ju.taobao.com/tg/hpcenter/index.htm?reqType=index" 
+target="_blank"&gt;帮助中心&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="http://job.alibaba.com/zhaopin/positionList.htm?keyWord=JXU4MDVBJXU1MjEyJXU3Qjk3"
+ target="_blank"&gt;诚聘英才&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//www.taobao.com/go/chn/tb-fp/2014/law.php" 
+target="_blank"&gt;法律声明&lt;/a&gt; 
+                  &lt;/dd&gt; 
+              &lt;/dl&gt; 
+              &lt;dl&gt; 
+                  &lt;dt&gt;买家中心&lt;/dt&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//service.taobao.com/support/main/service_route.htm#cn-online" 
+target="_blank"&gt;在线答疑&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//ju.taobao.com/jusp/alone/service/tp.htm" 
+target="_blank"&gt;服务保障&lt;/a&gt; 
+                  &lt;/dd&gt; 
+              &lt;/dl&gt; 
+              &lt;dl&gt; 
+                  &lt;dt&gt;卖家中心&lt;/dt&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//freeway.ju.taobao.com/tg/hpcenter/index.htm?reqType=index" 
+target="_blank"&gt;在线咨询&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//seller.ju.taobao.com/seller/seller_home.htm" 
+target="_blank"&gt;商品报名&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//seller.ju.taobao.com/seller/rule.htm" 
+target="_blank"&gt;商家规则&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//rule.taobao.com/jsearch.htm?spm=608.6885245.announce.1.lJH3Va&amp;cId=26&amp;st=1"
+ target="_blank"&gt;规则通知&lt;/a&gt; 
+                  &lt;/dd&gt; 
+              &lt;/dl&gt; 
+              &lt;dl&gt; 
+                  &lt;dt&gt;有话要说&lt;/dt&gt; 
+                  &lt;dd&gt; 
+                      &lt;a href="//www.taobao.com/about/contact.php" 
+target="_blank"&gt;客服热线&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//jubao.alibaba.com/index.html?site=JU" 
+target="_blank"&gt;廉正举报&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//form.taobao.com/script/fullview.htm?spm=608.7065813.0.0.QQIXPB&amp;id=564"
+ target="_blank"&gt;我要投诉&lt;/a&gt; 
+                  &lt;/dd&gt; 
+              &lt;/dl&gt; 
+              &lt;dl&gt; 
+                  &lt;dt&gt;服务保障&lt;/dt&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//ju.taobao.com/jusp/alone/service/tp.htm#f2" 
+target="_blank"&gt;全场包邮&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd class="mid-es"&gt; 
+                      &lt;a 
+href="//ju.taobao.com/jusp/alone/service/tp.htm#f1" 
+target="_blank"&gt;七天无理由退换货&lt;/a&gt; 
+                  &lt;/dd&gt; 
+                  &lt;dd&gt; 
+                      &lt;a 
+href="//ju.taobao.com/jusp/alone/service/tp.htm#f3" 
+target="_blank"&gt;30天低价&lt;/a&gt; 
+                  &lt;/dd&gt; 
+              &lt;/dl&gt;  
+          &lt;/div&gt; 
+      &lt;/div&gt; 
+      &lt;div class="ali-link ju-wrapper"&gt; 
+          &lt;div class="logo"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt; 
+          &lt;div class="links"&gt; 
+              &lt;div class="box"&gt; 
+                  &lt;a target="_blank" 
+href="//www.taobao.com/"&gt;淘宝网&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.tmall.com/"&gt;天猫&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//ju.taobao.com/"&gt;聚划算&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.aliexpress.com/"&gt;全球速卖通&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.alibaba.com/"&gt;阿里巴巴国际交易市场&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.1688.com/"&gt;1688&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.alimama.com/"&gt;阿里妈妈&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.aliyun.com/"&gt;阿里云计算&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.yunos.com/"&gt;YunOS&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.fliggy.com/"&gt;飞猪&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.uc.cn/"&gt;UC&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.amap.com/"&gt;高德地图&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://aliqin.cn/"&gt;阿里通信&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.dingtalk.com/?lwfrom=20150210100526606"&gt;钉钉&lt;/a&gt;
+ 
+                  &lt;a target="_blank" 
+href="//www.umeng.com/"&gt;友盟&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.xiami.com/"&gt;虾米&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.ttpod.com/"&gt;阿里星球&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.etao.com/"&gt;一淘&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.ddchong.com/"&gt;点点虫&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//onetouch.alibaba.com/"&gt;一达通&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.antgroup.com/"&gt;蚂蚁金服&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.alipay.com/"&gt;支付宝&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="//www.mybank.cn/"&gt;网商银行&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://http://www.koubei.com//"&gt;口碑&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.alijk.com/"&gt;阿里健康&lt;/a&gt; 
+                  &lt;a target="_blank" 
+href="http://www.iwshang.com/"&gt;天下网商&lt;/a&gt; 
+              &lt;/div&gt; 
+              &lt;div class="box"&gt;增值电信业务经营许可证：B2-20110446&lt;/div&gt;
+ 
+              &lt;div class="box"&gt;&lt;img 
+src="//img.alicdn.com/tps/TB1mMiCMVXXXXa5XXXXXXXXXXXX-32-32.png" 
+width="12"&gt; 2010-2016 JU.TAOBAO.COM 版权所有  
+互联网违法和不良信息举报中心：0517-81683775 blxx@list.alibaba-inc.com&lt;/div&gt; 
+          &lt;/div&gt; 
+      &lt;/div&gt; 
+    </textarea> 
+</div> 
+<style> 
+  .ju-pad-app .ju-ipad .ju-padju-enter{ 
+    display:none 
+  } 
+</style> 
+<script> 
+KISSY.ready(function(S){ 
+    S.use("core, jbc/lazyload", function(S, _, Lazy){ 
+        var footer = S.one("#ju-footer"); 
+        var lazy = new Lazy({container:footer, autoDestroy:false, diff:200}); 
+        lazy.addCallback(footer, function(){ 
+            lazy.destroy(); 
+            Lazy.loadCustomLazyData(footer, "textarea"); 
+          if(navigator.userAgent.match(/aliapp|windvane/i)) { 
+      S.one('html').addClass('ju-pad-app') 
+            if(S.one('#J_padju')){ 
+              setTimeout(function(){ 
+                S.one('#J_padju').remove(); 
+              }); 
+            } 
+          } 
+        }); 
+    }); 
+}); 
+</script>
+		                            <!--#def{
+  "padjuEnter" : {
+      "type":"object",
+      "title":"底部ipad聚客引流入口配置",
+      "properties": {
+          "isHide":{
+              "title":"是否隐藏",
+              "type":"boolean",
+              "description":""
+          }
+      }
+  }
+}-->
+
+
+            </div>
+    <div style="display:none" id="server-num">ju011131000114.unsz.su18 - 11.131.0.114</div>
+    
+    <!-- 模块尾部js -->
+      
+    <!--模板尾部css-->
+            
+    
+
+	<!--模板尾部js-->
+	        <script>          
+       
+    KISSY.config({          
+        packages : [{          
+            name: "moqie",          
+            path: "//g.alicdn.com/ju/moqie/1.0.73/",          
+            ignorePackageNameInUri: true,          
+            charset: "utf-8"          
+        },{          
+            name: "normal",          
+            path: '//g.alicdn.com/jusp/normal/1.2.18',          
+            ignorePackageNameInUri: true,          
+            debug:true          
+        }]          
+    });          
+    KISSY.use("normal/3.0/index", function(S, Page){          
+        Page.init();          
+        if(location.href.indexOf('//ju.taobao.com/jusp/o/pcpresellmain/tp.htm')!=-1){    
+           S.one('#J_FixedNav').one('li').addClass('firstfloor');   
+           S.one('#J_FixedNav').addClass('preSoldMain');    
+        }    
+    })          
+</script>
+    
+<div class="ju-rbar"><ul class="ju-groupbar" data-spm="800700"><li class="backtop J_BackToTop" style="opacity: 0;"><a></a></li><li class="feedback downapp J_downAppEnter"><a href="javascript:;"><span></span>App<img src="inseason1122PC_files/TB1Ne_bNpXXXXb2XpXXXXXXXXXX-402-362.png" class="img J_downAppQrcode"></a></li><li class="feedback"><a class="J_feedback" href="https://feedback.taobao.com/pc/feedbacks?productId=155&amp;source=pc-satisfaction" title="给聚划算提意见" target="_blank"><span></span>反馈</a></li></ul><div class="jufav" id="J_jufav"><a class="ju-rbara" id="J_justar" href="#"><span class="cnt" id="J_jufavcnt"><span>我的聚收藏 <em><b>0</b> 件</em></span><sub></sub><sup></sup></span><i class="tip-ur"></i></a><div class="favboxparent" id="J_favboxparent"></div><img class="heart" id="heart" src="inseason1122PC_files/T1A30CFvXbXXbhgrfd-29-26.png"></div></div></body></html>

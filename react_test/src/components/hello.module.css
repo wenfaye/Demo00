@@ -1,0 +1,139 @@
+.contentDemoWrap{
+    --percent:30
+}
+.contentDemo::before {
+    /* content: var(--percent); */
+    counter-reset: progress var(--percent);
+    content: counter(progress);
+}
+.filterTest{
+    width: 300px;
+    height: 600px;
+    object-fit: cover;
+    object-position: bottom right;
+    filter: drop-shadow(4px 4px 8px #f3a694);
+    transition: object-position .5s linear;
+    /* filter: blur(20px);
+    mask-image: radial-gradient(transparent, transparent 10%, black 60%);
+    transform: scale(1.2); */
+}
+.filterTest:hover{
+    object-position: top left;
+}
+.demo2Wrap{
+    --color1: #f3a694
+}
+.demo2{
+    background-color: var(--color1);
+    width: 200px;
+    height: 200px;
+}
+.demo1Wrap{
+    perspective: 800px;
+}
+.demo1{
+    margin: 0 auto;
+    width: 500px;
+    height: 500px;
+    background-color: #344b5c;
+    transform-origin: top; 
+     transform: rotateX(30deg);
+     transform-style: preserve-3d;
+    /* transform: rotateY(0deg);
+    transform-origin: left; */
+    backface-visibility: hidden;
+}
+
+wavy {
+    display: block;
+    height: .5em;
+    white-space: nowrap;
+    letter-spacing: 100vw;
+    padding-top: .5em;
+    overflow: hidden;
+}
+wavy::before {
+    content: "\2000\2000";
+    /* IE浏览器实线代替 */
+    text-decoration: overline;
+    /* 现代浏览器 */
+    text-decoration: overline wavy;
+}
+
+
+/* chiclets */
+.chiclets{
+    --chiclets-size:96px;
+    display: grid;
+    grid-template-rows: repeat(5,var(--chiclets-size));
+    grid-template-columns: repeat(7,var(--chiclets-size));
+    grid-gap: 22px;
+    justify-content: center;
+}
+
+.chiclets picture{
+    display: block;
+    width: 96px;
+    height: 96px;
+}
+
+.chiclets-item-01-1{
+    --row:1;
+    --col:1;
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-02-1{
+    --row:1;
+    --col:2;
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-02-2{
+    --row:2;
+    --col:2;
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-03-1{
+    --col:3;
+    --row:1;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-03-2{
+    --col:3;
+    --row:2;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-03-3{
+    --col:3;
+    --row:3;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-04-1{
+    --col:4;
+    --row:1;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-04-2{
+    --col:4;
+    --row:2;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-04-3{
+    --col:4;
+    --row:3;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}
+.chiclets-item-04-4{
+    --col:4;
+    --row:4;   
+    grid-row: var(--row);
+    grid-column: var(--col);
+}

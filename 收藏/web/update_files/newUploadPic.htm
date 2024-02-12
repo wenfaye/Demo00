@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=gbk">
+  <meta charset="GBK">
+  <meta name="keywords" content=""> 
+  <meta name="description" content=""> 
+  <title>实名认证</title>
+  
+
+<link rel="icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon">    <link href="https://a.alipayobjects.com/" rel="dns-prefetch">
+<link href="https://app.alipay.com/" rel="dns-prefetch">
+<link href="https://my.alipay.com/" rel="dns-prefetch">
+<link href="https://lab.alipay.com/" rel="dns-prefetch">
+<link href="https://cashier.alipay.com/" rel="dns-prefetch">
+<link href="https://financeprod.alipay.com/" rel="dns-prefetch">
+<link href="https://shenghuo.alipay.com/" rel="dns-prefetch">
+
+
+<!-- uitpl:/component/trackerTime.vm -->
+    <!-- CMS:全站公共 cms/tracker/iconfont.vm开始:tracker/iconfont.vm --><style>
+@font-face {
+    font-family: "rei";
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616"); /* IE9 */
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://i.alipayobjects.com/common/fonts/rei.woff?20150616") format("woff"), /* chrome 6+、firefox 3.6+、Safari5.1+、Opera 11+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.ttf?20150616")  format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.svg?20150616#rei") format("svg"); /* iOS 4.1- */
+}
+.iconfont {
+    font-family:"rei";
+    font-style: normal;
+    font-weight: normal;
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+}
+</style>
+<!-- CMS:全站公共 cms/tracker/iconfont.vm结束:tracker/iconfont.vm -->
+<script type="text/javascript">
+  window._to = { start: new Date() };
+</script>
+
+<!-- CMS:全站公共 cms/tracker/monitor.vm开始:tracker/monitor.vm --><!-- FD:106:alipay/tracker/sai_seer.vm:START --><script type="text/javascript">
+
+!function(n){function o(r){if(t[r])return t[r].exports;var i=t[r]={exports:{},id:r,loaded:!1};return n[r].call(i.exports,i,i.exports,o),i.loaded=!0,i.exports}var t={};return o.m=n,o.c=t,o.p="",o(0)}([function(n,o){"use strict";window.Sai={log:function(){},error:function(){},lost:function(){},off:function(){},on:function(){},_DATAS:[],_EVENTS:[]}}]);
+
+</script>
+<!-- FD:106:alipay/tracker/sai_seer.vm:END --><!-- CMS:全站公共 cms/tracker/monitor.vm结束:tracker/monitor.vm -->
+<!-- CMS:全站公共 cms/tracker/seajs.vm开始:tracker/seajs.vm -->	
+
+<!-- monitor 防错代码 -->
+<script>
+(function(win){
+  if(!win.monitor){win.monitor = {};}
+
+  var METHODS = ["lost", "log", "error", "on", "off"];
+
+  for(var i=0,method,l=METHODS.length; i<l; i++){
+    method = METHODS[i];
+    if("function" !== typeof win.monitor[method]){
+      win.monitor[method] = function(){};
+    }
+  }
+})(window);
+</script>
+
+<!-- seajs以及插件 -->
+<script charset="utf-8" crossorigin="anonymous" id="seajsnode" onerror="window.monitor &amp;&amp; monitor.lost &amp;&amp; monitor.lost(this.src)" src="a.js"></script>
+
+<!-- seajs config 配置 -->
+<script>
+seajs.config({
+  alias: {
+    '$': 'jquery/jquery/1.7.2/jquery',
+    '$-debug': 'jquery/jquery/1.7.2/jquery',
+    'jquery': 'jquery/jquery/1.7.2/jquery',
+    'jquery-debug': 'jquery/jquery/1.7.2/jquery-debug',
+    'seajs-debug': 'seajs/seajs-debug/1.1.1/seajs-debug'
+  },
+  crossorigin: function(uri){
+  
+    function typeOf(type){
+	  return function(object){
+	    return Object.prototype.toString.call(object) === '[object ' + type + ']';
+	  }
+	}
+	var isString = typeOf("String");
+	var isRegExp = typeOf("RegExp");
+    
+	var whitelist = [];
+	
+                  whitelist.push('https://a.alipayobjects.com/');
+          	
+	for (var i=0, rule, l=whitelist.length; i<l; i++){
+	  rule = whitelist[i];
+	  if (
+	    (isString(rule) && uri.indexOf(rule) === 0) ||
+	    (isRegExp(rule) && rule.test(uri))
+		) {
+		
+	    return "anonymous";
+	  }
+	}
+  },
+  vars: {
+    locale: 'zh-cn'
+  }
+});
+</script>
+
+<!-- 兼容原有的 plugin-i18n 写法 -->
+<!-- https://github.com/seajs/seajs/blob/1.3.1/src/plugins/plugin-i18n.js -->
+<script>
+seajs.pluginSDK = seajs.pluginSDK || {
+  Module: {
+    _resolve: function() {}
+  },
+  config: {
+    locale: ''
+  }
+};
+// 干掉载入 plugin-i18n.js，避免 404
+seajs.config({
+  map: [
+	[/^.*\/seajs\/plugin-i18n\.js$/, ''],
+	[/^.*\i18n!lang\.js$/, '']
+  ] 
+});
+</script>
+
+<!-- 路由旧 ID，解决 seajs.use('select/x.x.x/select') 的历史遗留问题 -->
+<script>
+(function(){
+
+var JQ = '/jquery/1.7.2/jquery.js';
+seajs.cache['https://a.alipayobjects.com/gallery' + JQ] = seajs.cache['https://a.alipayobjects.com/jquery' + JQ];
+
+var GALLERY_MODULES = [
+  'async','backbone','coffee','cookie','es5-safe','handlebars','iscroll',
+  'jasmine','jasmine-jquery','jquery','jquery-color','json','keymaster',
+  'labjs','less','marked','moment','mustache','querystring','raphael',
+  'socketio','store','swfobject','underscore','zepto','ztree'
+];
+
+var ARALE_MODULES = [
+  'autocomplete','base','calendar','class','cookie','dialog','easing',
+  'events','iframe-uploader','iframe-shim','messenger','overlay','popup',
+  'position','select','switchable','tip','validator','widget'
+];
+
+var util = {};
+util.indexOf = Array.prototype.indexOf ?
+  function(arr, item) {
+    return arr.indexOf(item);
+  } :
+  function(arr, item) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === item) {
+        return i;
+      }
+    }
+    return -1;
+  };
+util.map = Array.prototype.map ?
+  function(arr, fn) {
+    return arr.map(fn);
+  } :
+  function(arr, fn) {
+    var ret = [];
+	for (var i = 0; i < arr.length; i++) {
+        ret.push(fn(arr[i], i, arr));
+    }
+    return ret;
+  };
+
+function contains(arr, item) {
+  return util.indexOf(arr, item) > -1
+}
+
+function map(id) {
+  id = id.replace('#', '');
+
+  var parts = id.split('/');
+  var len = parts.length;
+  var root, name;
+
+  // id = root/name/x.y.z/name
+  if (len === 4) {
+    root = parts[0];
+    name = parts[1];
+
+    // gallery 或 alipay 开头的没有问题
+    if (root === 'alipay' || root === 'gallery') {
+      return id;
+    }
+
+    // arale 开头的
+    if (root === 'arale') {
+      // 处理 arale/handlebars 的情况
+      if (contains(GALLERY_MODULES, name)) {
+        return id.replace('arale/', 'gallery/');
+      } else {
+        return id;
+      }
+    }
+  }
+  // id = name/x.y.z/name
+  else if (len === 3) {
+    name = parts[0]
+
+    // 开头在 GALLERY_MODULES 或 ARALE_MODULES
+    if (contains(GALLERY_MODULES, name)) {
+      return 'gallery/' + id;
+    } else if (contains(ARALE_MODULES, name)) {
+      return 'arale/' + id;
+    }
+  }
+
+  return id;
+}
+
+var _use = seajs.use;
+
+seajs.use = function(ids, callback) {
+  if (typeof ids === 'string') {
+    ids = [ids];
+  }
+
+  ids = util.map(ids, function(id) {
+    return map(id);
+  });
+
+  return _use(ids, callback);
+}
+
+})();
+</script><!-- CMS:全站公共 cms/tracker/seajs.vm结束:tracker/seajs.vm -->
+<!-- FD:106:alipay/tracker/tracker_time.vm:START --><!-- FD:106:alipay/tracker/tracker_time.vm:784:tracker_time.schema:全站 tracker 开关:START --><script charset="utf-8" crossorigin="crossorigin" src="alipay.js"></script>
+
+
+<script type="text/javascript">
+if (!window._to) {
+  window._to = { start: new Date() };
+}
+</script>
+
+<script charset="utf-8" src="a_002.js"></script>
+
+
+
+<script>
+  window.Tracker && Tracker.start && Tracker.start();
+</script>
+
+
+
+
+
+
+
+<!-- FD:106:alipay/tracker/tracker_time.vm:784:tracker_time.schema:全站 tracker 开关:END -->
+<!-- FD:106:alipay/tracker/tracker_time.vm:END -->  <script>
+    var aDomain=document.domain.split(".");
+    var sDomain=aDomain[aDomain.length-2]+"."+aDomain[aDomain.length-1];
+    document.domain=sDomain; 
+  </script>
+      <link charset="utf-8" rel="stylesheet" href="newUploadPic_data_002/certify.css" media="all">
+<link charset="utf-8" rel="stylesheet" href="newUploadPic_data_002/certify_002.css" media="all">
+
+    
+      <style type="text/css">
+#uploadBox .itembox{
+	position:relative;
+}
+#uploadBox .itembox img{
+	position:absolute;
+	top:0;
+	left:122px;
+	width: 110px;
+	height: 80px;
+}
+#uploadBox p{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	line-height: 80px;
+	text-align: center;
+	background: #f5f5f5;
+	z-index: 500;
+}
+.fm-item{
+	padding: 0 5px 5px 268px;
+}
+.img-fanli{
+	font-weight: normal;
+	position: absolute;
+	top: -20px;
+	left: 340px;
+	width: 300px;
+	color: #333;
+}
+.xbox-close-link {
+	right: 10px;
+	top: 10px;
+}
+
+#trigger {
+	position: relative;
+	width: 110px;
+	height: 80px;
+	line-height: 108px;
+	text-align: center;
+	color: #666;
+	background: #f5f5f5 url("https://t.alipayobjects.com/tfscom/T1p4dfXglvXXXXXXXX.png") center 20px no-repeat;
+	cursor: pointer;
+}
+#trigger a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+#uploadBox #trigger img {
+	left: 0;
+}
+#uploadBox .ui-tiptext-container {
+	width: 595px;
+}
+#uploadBox .ui-tiptext-container p {
+	line-height: 1.5em;
+}
+
+.re-upload {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	color: rgba(255, 255, 255, .7);
+	background: rgba(0, 0, 0, .3);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000)\9;
+}
+</style>
+  </head>
+<body class="blank">
+  <div id="container">
+
+<div class="container-xbox" id="uploadBox">
+        <!-- 设置js全局变量 -->
+    <script type="text/javascript">
+        var form_tk = "9d4e340ec98e4ae688c515b2187280e2GZ00";//将token付值给form_tk变量
+    </script>
+    <div class="xbox-main">
+        <p class="ui-tiptext ui-tiptext-message fn-hide" id="loading-tip">
+            <i class="ui-tiptext-icon iconfont" title="提示">&#61510;</i>
+            正在上传...
+        </p>
+        <div class="itembox">
+            <div style="position:relative">
+                <div id="trigger">点此上传</div>
+                <div class="re-upload fn-hide" id="re-upload">重新上传</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    	</div>	
+	
+	<div id="ServerNum" class="ft-fff">certify-60-109</div>
+				<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/out.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/pa.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/unfamiliardata.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/citydata.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/bankdata.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/unfamiliarwords.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/cityhint.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/datasource.js"></script>
+<script type="text/javascript" charset="utf-8" src="newUploadPic_data_002/insSupport.js"></script>
+
+	
+			<script type="text/javascript">
+seajs.use(['jquery', 'certify/upload/1.0.2/upload'], function(jQuery, Upload) {
+
+	var iframeId = 'uploadPicture1';
+	var iframeEl = self.parent.document.getElementById(iframeId);
+	if(!iframeEl) return;
+
+	var UploaderCls = Upload.Uploader,
+		filekey = 'card_face',
+		picKey = '',
+		ifPersonal = 'true',
+		IMAGE_RE = /\.(jpg|jpeg|bmp)$/i,
+		triggerEl = jQuery('#trigger'),
+		loadingTipBox = jQuery('#loading-tip'),
+		reUploadEl = jQuery('#re-upload');
+
+	var uploader = new UploaderCls({
+		trigger: '#trigger',
+		width: '110px',
+		height: '80px',
+		uploadName: filekey,
+		form_token: form_tk,
+		jsonAction: ifPersonal ? '/newUploadFrontend.json' : '/org/newUploadPicture.json',
+		formAction: ifPersonal ? '/newUploadFrontend.htm' : '/org/newUploadPicture.htm',
+		data: {
+			filekey: filekey,
+			json_tk : form_tk
+		}
+	}).change(function(files){
+		clearInfo();
+		if(files && !IMAGE_RE.test(files[0].name)) {
+			showErrorText('图片格式不正确，仅支持jpg、bmp格式');
+			return false;
+		}
+		switchLoadTip(true);
+	}).success(function(data) {
+		successCb(data, triggerEl);
+	});
+
+	//显示初始图片
+	!function(){
+		if(picKey){
+			writeBackSelf(triggerEl, ifPersonal ? filekey : picKey);
+			writeBackParent(picKey);
+		}
+	}()
+
+	//初始化提示信息
+	function clearInfo(){
+		//清除父页面已有报错信息
+		var node,
+			nodeBox = jQuery('.upload-items', window.parent.document),
+			len = nodeBox.length;
+		if(len){
+			for(var i = 0; i < len; i++){
+				if(jQuery(nodeBox[i]).find('iframe#' + iframeId).length > 0) {
+					node = nodeBox[i];
+					if(ifPersonal) {
+						jQuery(node).parent().removeClass('fm-error');
+						// 上传正反面图片时，父页面错误回写位置可分别设置
+						// 报错信息清空
+						var explainEl = jQuery(node).find('.fm-explain.' + filekey);
+						if (!explainEl.length) {
+							explainEl = jQuery(node).find('.fm-explain');
+						}
+						explainEl.html('');
+					} else {
+						jQuery(node).removeClass('ui-form-item-error');
+						jQuery(node).find('.ui-form-explain').html('');
+					}
+					break;
+				}
+			}
+		}
+	}
+
+	//显示错误提示
+	function showErrorText(msg){
+		//清除父页面已有报错信息
+		var node,
+			nodeBox = jQuery('.upload-items', window.parent.document),
+			len = nodeBox.length;
+		if(len){
+			for(var i = 0; i < len; i++){
+				if(jQuery(nodeBox[i]).find('iframe#' + iframeId).length > 0) {
+					node = nodeBox[i];
+					if(ifPersonal) {
+						jQuery(node).parent().addClass('fm-error');
+						// 上传正反面图片时，父页面错误回写位置可分别设置
+						// 报错信息回写
+						var explainEl = jQuery(node).find('.fm-explain.' + filekey);
+						if (!explainEl.length) {
+							explainEl = jQuery(node).find('.fm-explain');
+						}
+						explainEl.removeClass('fn-hide').html(msg);
+					} else {
+						jQuery(node).addClass('ui-form-item-error');
+						jQuery(node).find('.ui-form-explain').html(msg);
+					}
+					break;
+				}
+			}
+		}
+	}
+
+	//后台返回错误后的回调
+	function errorCallBack(wbEl){
+		wbEl.html('点此上传');
+		uploader.input.parent().css({
+			'height': '110px',
+			'top': '0',
+			'bottom': 'auto'
+		});
+		reUploadEl.addClass('fn-hide');
+		jQuery('#' + uploader.settings.uploadName, window.parent.document).val('');
+	}
+
+	//显示图片“正在上传”或“默认提示”
+	function switchLoadTip(b){
+		if(b){
+			loadingTipBox.hasClass('fn-hide') && loadingTipBox.removeClass('fn-hide');
+		}else{
+			!loadingTipBox.hasClass('fn-hide') && loadingTipBox.addClass('fn-hide');
+		}
+	}
+
+	function successCb(data, wbEl){
+
+		switchLoadTip(false);
+
+		if(typeof data === 'undefined') return;
+
+		if(data.stat == 'ok'){
+			writeBackSelf(wbEl, ifPersonal ? filekey : data.picKey);
+			writeBackParent(data.picKey);
+                        updateValidity(data.validity);
+		}else if(data.stat == 'fail'){
+			errorCallBack(wbEl);
+			showErrorText(data.msg);
+		}else if(data.stat == 'error') {
+			errorCallBack(wbEl);
+			showErrorText("上传图片失败！图片过大！");
+		}else{
+			var jsonObj = null,
+				msgObj = null;
+			try{
+				jsonObj = JSON.parse(data);
+			}catch (e){
+				msgObj = jQuery(data);
+			}
+			if(jsonObj){
+				if(jsonObj.stat == 'ok'){
+					writeBackSelf(wbEl, ifPersonal ? filekey : jsonObj.picKey);
+					writeBackParent(jsonObj.picKey);
+                                        updateValidity(jsonObj.validity);
+				}else if(jsonObj.stat == 'fail'){
+					errorCallBack(wbEl);
+					showErrorText(jsonObj.msg);
+				}
+			}else{
+				var msg = msgObj.find('#upload-error').html();
+				if(msg){
+					errorCallBack(wbEl);
+					showErrorText(msg);
+				}
+			}
+		}
+	}
+
+	function writeBackSelf(wbEl, p){
+		var imgUrl = ifPersonal ? "https://certify.alipay.com:443/showPicture.pic?filekey="+ p +"&&"+ Math.random() : "https://certify.alipay.com:443/org/newShowPicture.pic?picKey="+ p +'&&'+ Math.random();
+		wbEl.html('<a target="_blank" href="'+ imgUrl +'"><img width="110" height="80" src="'+ imgUrl +'"></a>');
+		uploader.input.parent().css({
+			'height': '25px',
+			'top': 'auto',
+			'bottom': '0'
+		});
+		reUploadEl.removeClass('fn-hide');
+	}
+
+	
+	function writeBackParent(p){
+		
+		var uf = uploader._files;
+		//在iframe里的更新parent页面的dom
+		if(typeof uf !== 'undefined' && uf.length > 0){
+			jQuery('#' + uploader.settings.uploadName, window.parent.document).val(ifPersonal ? 'true' : p);
+		}
+
+		if(!ifPersonal){
+			window.parent.handlerUpload && window.parent.handlerUpload(uploader.settings.uploadName, p);
+		}
+	}
+
+    function updateValidity(validity) {
+        var YMD, y, m, d;
+
+        if (!!validity) {
+            y = jQuery('#validaty_y', window.parent.document);
+            m = jQuery('#validaty_m', window.parent.document);
+            d = jQuery('#validaty_d', window.parent.document);
+            lt = jQuery('#long_term', window.parent.document);
+            
+            if (validity === '2999-12-31') {
+                lt.prop('checked', true);
+                y.prop('disabled', true).removeClass('year-tips').val('');
+                m.prop('disabled', true).removeClass('month-tips').val('');
+                d.prop('disabled', true).removeClass('month-tips').val('');
+                d.focus().blur(); // 触发日期校验
+                return;
+            }
+
+            lt.prop('checked', false);
+            YMD = validity.split('-');
+            y.prop('disabled', false).removeClass('year-tips').val(YMD[0]);
+            m.prop('disabled', false).removeClass('month-tips').val(YMD[1]);
+            d.prop('disabled', false).removeClass('month-tips').val(YMD[2]);
+            d.focus().blur(); // 触发日期校验
+        }
+    }
+
+})
+</script>
+
+	
+
+
+<form method="post" enctype="multipart/form-data" target="iframe-uploader-0" action="/newUploadFrontend.htm" style="position: absolute; top: 0px; left: 0px; overflow: hidden; width: 110px; height: 80px; z-index: 10;"><input name="filekey" value="card_face" type="hidden"><input name="json_tk" value="9d4e340ec98e4ae688c515b2187280e2GZ00" type="hidden"><input name="_uploader_" value="formdata" type="hidden"><input name="_form_token" value="9d4e340ec98e4ae688c515b2187280e2GZ00" type="hidden"><input name="file" accept="image/*" hidefocus="true" style="position: absolute; top: 0px; right: 0px; opacity: 0; outline: 0px none; cursor: pointer; height: 80px; font-size: 400px;" type="file"></form></body></html>

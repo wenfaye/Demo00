@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+        }
+        .demo0{
+            width: 450px;
+            height: 450px;
+            background-color: #ffffff20;
+            box-shadow: inset 0 140px 72px 0 #ffffff20,inset 0 0 0 1px #ffffff20;
+            /* box-shadow: inset 0 140px 72px 0 #ffffff20,inset 0 0 0 1px #ffffff20; */
+            transition: .2s ease;
+            transition-property: background-color,box-shadow,border-radius,-webkit-box-shadow;;
+        }
+        .demo0:hover{
+            background-color: #ffffff20;
+            box-shadow: inset 0 140px 72px 0 #ffffff44,inset 0 0 0 2px #ffffff44
+        }
+        .demo1{
+            width: 700px;
+            height: 350px;
+            background-color: #ffffff20;
+            box-shadow: inset 0 140px 72px 0 #ffffff20;
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 38% 1fr 30%;
+            grid-template-rows: 15% 5% 50% 1fr;
+            gap: 0;
+            grid-template-areas:
+                "user-info . ticket-number"
+                "user-info . ."
+                "viteconf-logo viteconf-info viteconf-info"
+                "viteconf-logo conference-details conference-details";
+        }
+        .bit1{
+            /* width: 100px;
+            height: 100px; */
+            border: 1px solid #369;
+            grid-area: ticket-number;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="demo0"></div>
+<div class="demo1">
+    <div class="bit1"></div>
+</div>
+
+</body>
+</html>

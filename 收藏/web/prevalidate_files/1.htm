@@ -1,0 +1,1300 @@
+<!doctype html>
+<html>
+
+                 
+  
+            
+      
+        
+    
+
+
+
+
+    
+  <head>
+  <meta charset="GBK" />
+  <title>微医</title>
+  <meta name="keywords" content="中国最大的第三方电子支付服务提供商" />
+  <meta name="description" content="网上购物-网上支付-安全支付-安全购物-购物，安全-支付-支付宝，在线-付款，收款-网上，贸易-网上贸易" />
+  
+
+<link rel="icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://i.alipayobjects.com/common/favicon/favicon.ico" type="image/x-icon" />  
+    <link href="https://a.alipayobjects.com" rel="dns-prefetch" />
+<link href="https://app.alipay.com" rel="dns-prefetch" />
+<link href="https://my.alipay.com" rel="dns-prefetch" />
+<link href="https://lab.alipay.com" rel="dns-prefetch" />
+<link href="https://cashier.alipay.com" rel="dns-prefetch" />
+<link href="https://financeprod.alipay.com" rel="dns-prefetch" />
+<link href="https://shenghuo.alipay.com" rel="dns-prefetch" />
+
+
+<!-- uitpl:/component/trackerTime.vm -->
+    <!-- CMS:全站公共 cms/tracker/iconfont.vm开始:tracker/iconfont.vm --><style>
+@font-face {
+    font-family: "rei";
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616"); /* IE9 */
+    src: url("https://i.alipayobjects.com/common/fonts/rei.eot?20150616#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("https://i.alipayobjects.com/common/fonts/rei.woff?20150616") format("woff"), /* chrome 6+、firefox 3.6+、Safari5.1+、Opera 11+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.ttf?20150616")  format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("https://i.alipayobjects.com/common/fonts/rei.svg?20150616#rei") format("svg"); /* iOS 4.1- */
+}
+.iconfont {
+    font-family:"rei";
+    font-style: normal;
+    font-weight: normal;
+    cursor: default;
+    -webkit-font-smoothing: antialiased;
+}
+</style>
+<!-- CMS:全站公共 cms/tracker/iconfont.vm结束:tracker/iconfont.vm -->
+<script type="text/javascript">
+  window._to = { start: new Date() };
+</script>
+
+<!-- CMS:全站公共 cms/tracker/monitor.vm开始:tracker/monitor.vm --><!-- FD:106:alipay/tracker/sai_seer.vm:START --><script type="text/javascript">
+
+!function(n){function o(r){if(t[r])return t[r].exports;var i=t[r]={exports:{},id:r,loaded:!1};return n[r].call(i.exports,i,i.exports,o),i.loaded=!0,i.exports}var t={};return o.m=n,o.c=t,o.p="",o(0)}([function(n,o){"use strict";window.Sai={log:function(){},error:function(){},lost:function(){},off:function(){},on:function(){},_DATAS:[],_EVENTS:[]}}]);
+
+</script>
+<!-- FD:106:alipay/tracker/sai_seer.vm:END --><!-- CMS:全站公共 cms/tracker/monitor.vm结束:tracker/monitor.vm -->
+<!-- CMS:全站公共 cms/tracker/seajs.vm开始:tracker/seajs.vm -->	
+
+<!-- monitor 防错代码 -->
+<script>
+(function(win){
+  if(!win.monitor){win.monitor = {};}
+
+  var METHODS = ["lost", "log", "error", "on", "off"];
+
+  for(var i=0,method,l=METHODS.length; i<l; i++){
+    method = METHODS[i];
+    if("function" !== typeof win.monitor[method]){
+      win.monitor[method] = function(){};
+    }
+  }
+})(window);
+</script>
+
+<!-- seajs以及插件 -->
+<script charset="utf-8" crossorigin="anonymous" id="seajsnode" onerror="window.monitor && monitor.lost && monitor.lost(this.src)" src="https://a.alipayobjects.com:443/??seajs/seajs/2.2.3/sea.js,seajs/seajs-combo/1.0.0/seajs-combo.js,seajs/seajs-style/1.0.2/seajs-style.js,seajs/seajs-log/1.0.0/seajs-log.js,jquery/jquery/1.7.2/jquery.js,gallery/json/1.0.3/json.js,alipay-request/3.0.3/index.js"></script>
+
+<!-- seajs config 配置 -->
+<script>
+seajs.config({
+  alias: {
+    '$': 'jquery/jquery/1.7.2/jquery',
+    '$-debug': 'jquery/jquery/1.7.2/jquery',
+    'jquery': 'jquery/jquery/1.7.2/jquery',
+    'jquery-debug': 'jquery/jquery/1.7.2/jquery-debug',
+    'seajs-debug': 'seajs/seajs-debug/1.1.1/seajs-debug'
+  },
+  crossorigin: function(uri){
+  
+    function typeOf(type){
+	  return function(object){
+	    return Object.prototype.toString.call(object) === '[object ' + type + ']';
+	  }
+	}
+	var isString = typeOf("String");
+	var isRegExp = typeOf("RegExp");
+    
+	var whitelist = [];
+	
+                  whitelist.push('https://a.alipayobjects.com/');
+          	
+	for (var i=0, rule, l=whitelist.length; i<l; i++){
+	  rule = whitelist[i];
+	  if (
+	    (isString(rule) && uri.indexOf(rule) === 0) ||
+	    (isRegExp(rule) && rule.test(uri))
+		) {
+		
+	    return "anonymous";
+	  }
+	}
+  },
+  vars: {
+    locale: 'zh-cn'
+  }
+});
+</script>
+
+<!-- 兼容原有的 plugin-i18n 写法 -->
+<!-- https://github.com/seajs/seajs/blob/1.3.1/src/plugins/plugin-i18n.js -->
+<script>
+seajs.pluginSDK = seajs.pluginSDK || {
+  Module: {
+    _resolve: function() {}
+  },
+  config: {
+    locale: ''
+  }
+};
+// 干掉载入 plugin-i18n.js，避免 404
+seajs.config({
+  map: [
+	[/^.*\/seajs\/plugin-i18n\.js$/, ''],
+	[/^.*\i18n!lang\.js$/, '']
+  ] 
+});
+</script>
+
+<!-- 路由旧 ID，解决 seajs.use('select/x.x.x/select') 的历史遗留问题 -->
+<script>
+(function(){
+
+var JQ = '/jquery/1.7.2/jquery.js';
+seajs.cache['https://a.alipayobjects.com:443/gallery' + JQ] = seajs.cache['https://a.alipayobjects.com:443/jquery' + JQ];
+
+var GALLERY_MODULES = [
+  'async','backbone','coffee','cookie','es5-safe','handlebars','iscroll',
+  'jasmine','jasmine-jquery','jquery','jquery-color','json','keymaster',
+  'labjs','less','marked','moment','mustache','querystring','raphael',
+  'socketio','store','swfobject','underscore','zepto','ztree'
+];
+
+var ARALE_MODULES = [
+  'autocomplete','base','calendar','class','cookie','dialog','easing',
+  'events','iframe-uploader','iframe-shim','messenger','overlay','popup',
+  'position','select','switchable','tip','validator','widget'
+];
+
+var util = {};
+util.indexOf = Array.prototype.indexOf ?
+  function(arr, item) {
+    return arr.indexOf(item);
+  } :
+  function(arr, item) {
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] === item) {
+        return i;
+      }
+    }
+    return -1;
+  };
+util.map = Array.prototype.map ?
+  function(arr, fn) {
+    return arr.map(fn);
+  } :
+  function(arr, fn) {
+    var ret = [];
+	for (var i = 0; i < arr.length; i++) {
+        ret.push(fn(arr[i], i, arr));
+    }
+    return ret;
+  };
+
+function contains(arr, item) {
+  return util.indexOf(arr, item) > -1
+}
+
+function map(id) {
+  id = id.replace('#', '');
+
+  var parts = id.split('/');
+  var len = parts.length;
+  var root, name;
+
+  // id = root/name/x.y.z/name
+  if (len === 4) {
+    root = parts[0];
+    name = parts[1];
+
+    // gallery 或 alipay 开头的没有问题
+    if (root === 'alipay' || root === 'gallery') {
+      return id;
+    }
+
+    // arale 开头的
+    if (root === 'arale') {
+      // 处理 arale/handlebars 的情况
+      if (contains(GALLERY_MODULES, name)) {
+        return id.replace('arale/', 'gallery/');
+      } else {
+        return id;
+      }
+    }
+  }
+  // id = name/x.y.z/name
+  else if (len === 3) {
+    name = parts[0]
+
+    // 开头在 GALLERY_MODULES 或 ARALE_MODULES
+    if (contains(GALLERY_MODULES, name)) {
+      return 'gallery/' + id;
+    } else if (contains(ARALE_MODULES, name)) {
+      return 'arale/' + id;
+    }
+  }
+
+  return id;
+}
+
+var _use = seajs.use;
+
+seajs.use = function(ids, callback) {
+  if (typeof ids === 'string') {
+    ids = [ids];
+  }
+
+  ids = util.map(ids, function(id) {
+    return map(id);
+  });
+
+  return _use(ids, callback);
+}
+
+})();
+</script><!-- CMS:全站公共 cms/tracker/seajs.vm结束:tracker/seajs.vm -->
+<!-- FD:106:alipay/tracker/tracker_time.vm:START --><!-- FD:106:alipay/tracker/tracker_time.vm:784:tracker_time.schema:全站 tracker 开关:START --><script charset="utf-8" crossorigin="crossorigin" src="https://a.alipayobjects.com/static/ar/alipay.light.base-1.8.js"></script>
+
+
+<script type="text/javascript">
+if (!window._to) {
+  window._to = { start: new Date() };
+}
+</script>
+
+<script charset="utf-8" src="https://as.alipayobjects.com/??g/component/tracker/2.3.2/index.js,component/smartracker/2.0.1/index.js"></script>
+
+
+
+<script>
+  window.Tracker && Tracker.start && Tracker.start();
+</script>
+
+
+
+
+
+
+
+<!-- FD:106:alipay/tracker/tracker_time.vm:784:tracker_time.schema:全站 tracker 开关:END -->
+<!-- FD:106:alipay/tracker/tracker_time.vm:END -->
+              <link type="text/css" media="screen" charset="utf-8" rel="stylesheet" href="https://a.alipayobjects.com:443/al/alice.style.apps-1.1.css" />
+        
+      <link charset="utf-8" rel="stylesheet" href="https://a.alipayobjects.com:443/ebppprod/ebppprod.guahao-1.0-src.css" media="all" />
+
+  
+      <style type="text/css">
+	.prod-detail-img {
+    background: url("https://zos.alipayobjects.com/rmsportal/QmABfeYELBqheDl.png") no-repeat scroll left top transparent;
+    background-size: 100%;
+    border-radius: 18px;
+    float: left;
+    height: 100px;
+    margin: 0 15px 0 0;
+    text-indent: -9999px;
+    width: 100px;
+}
+
+	.charge-type li .icon {
+    	background-image:url("https://i.alipayobjects.com/e/201209/1DoYBivusf.png ");
+    }
+    
+    .charge-type li .ico-do {
+    	background-image:url("https://i.alipayobjects.com/e/201209/1DoYIWmcBx.png ");
+    }
+    .app-nav .last2{
+        border-right: 0;
+    }
+    .app-nav .last2 span{
+        width: 24px;
+        height: 24px;
+        float: left;
+        margin-right: 5px;
+        background: url("https://t.alipayobjects.com/images/rmsweb/T1sf0hXi8kXXXXXXXX.png") no-repeat scroll 0 0;
+    }
+    .tips {
+    	margin-bottom: 20px;
+    	color: #999999;
+    }
+    .prod-detail-title h2 span{
+        font-size: 14px;
+        color: #999;
+    }
+    
+</style>
+    
+          <script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com:443/build/js/lf/lf.js?t=20110308"></script>  
+    <script type="text/javascript">
+    (function() {
+	// 解决 https://a.alipayobjects.com/personalprod/personalprod.oldLife-1.0-src.js 和侧边栏代码的冲突
+	// 上面文件中对 arale 变量进行判断，如果有则调用 arale.deps.addDependency 方法
+	// 而侧边栏的代码定义了一个 arale = {} ，这样会造成调用 arale.deps.addDependency 方法报错
+	// 下面是对这个问题的修复
+	window.arale = window.arale || {};
+	var arale = window.arale;
+	arale.deps = arale.deps || {};
+	arale.deps.addDependency = arale.deps.addDependency || function() {};
+	// 兼容 alipay.appaside 里面判断新老arale的代码
+	arale.deps.getModule = arale.deps.getModule || function() {};
+	})();
+    </script>
+      
+  <script type="text/javascript">
+  //解决跨域
+  document.domain = document.domain.split(".").slice(-2).join(".");
+  
+  AralePreload = [];
+  var AP = AP || {};
+  AP.PageVar = {
+    app_domain: "https://www.alipay.com:443",
+    appstore_domain: "https://app.alipay.com",
+    personal_domain:"https://lab.alipay.com",
+    personalprod_domain:"https://shenghuo.alipay.com",
+    pay_domain:"https://www.alipay.com:443",
+    mipgw_domain: "https://mipgw.alipay.com:443",
+    ccrprod_domain: "https://ccrprod.alipay.com:443",
+    authcenter_domain:"https://auth.alipay.com",
+    tfs_domain:"",
+    apimg_domain:"https://i.alipayobjects.com:443"
+  }
+  </script>
+  <style>
+  #container {padding-top: 1px;}
+  </style>
+  </head>
+<!--[if lt IE 7]><body class="ie6 page"><![endif]-->
+<!--[if IE 7]><body class="ie7 page"><![endif]-->
+<!--[if IE 8]><body class="ie8 page"><![endif]-->
+<!--[if IE 9]><body class="ie9 page"><![endif]-->
+<!--[if !IE]><!--><body class="page"><!--<![endif]-->
+
+<!-- uninav -->
+
+
+
+
+
+
+
+
+<!-- CMS:全站公共 cms/nav/navSwitch.vm开始:alipay/nav/navSwitch.vm -->
+<script>
+MSGSWITCH = true;
+</script>
+
+<script>
+MERCHANT_SWITCH = 'true';
+</script>
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换开始:alipay/nav/versionSwitch.vm -->
+
+
+
+
+
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换结束:alipay/nav/versionSwitch.vm --><!-- CMS:全站公共 cms/nav/navSwitch.vm结束:alipay/nav/navSwitch.vm --><!-- abtestEnabled: false -->
+
+<!-- CMS:全站公共 cms/nav/uribroker.vm开始:alipay/nav/uribroker.vm -->    <script type="text/javascript">
+  window.GLOBAL || (GLOBAL = {});
+  GLOBAL.system = {};
+   GLOBAL.system["assetsServer"] = "https://a.alipayobjects.com"; GLOBAL.system["apimgServer"] = "https://i.alipayobjects.com"; GLOBAL.system["personalportalServer"] = "https://my.alipay.com"; GLOBAL.system["personalServer"] = "https://lab.alipay.com"; GLOBAL.system["personalprodServer"] = "https://shenghuo.alipay.com"; GLOBAL.system["memberprodServer"] = "https://memberprod.alipay.com"; GLOBAL.system["tfsImageServer"] = "https://tfsimg.alipay.com"; GLOBAL.system["merchantwebServer"] = "https://shanghu.alipay.com"; GLOBAL.system["authCenterServer"] = "https://auth.alipay.com"; GLOBAL.system["securityServer"] = "https://securitycenter.alipay.com"; GLOBAL.system["tradecmtServer"] = "https://pingjia.alipay.com"; GLOBAL.system["appstoreServer"] = "https://app.alipay.com"; GLOBAL.system["zhangdanServer"] = "https://zd.alipay.com"; GLOBAL.system["uninavServer"] = "https://uninav.alipay.com"; GLOBAL.system["pucprodServer"] = "https://jiaofei.alipay.com"; GLOBAL.system["benefitprodServer"] = "https://zht.alipay.com"; GLOBAL.system["enterpriseportalServer"] = "https://enterpriseportal.alipay.com"; GLOBAL.system["couriercoreServer"] = "https://couriercore.alipay.com"; GLOBAL.system["uemprodServer"] = "https://uemprod.alipay.com"; GLOBAL.system["bizfundprodServer"] = "https://bizfundprod.alipay.com"; GLOBAL.system["morderprodServer"] = "https://b.alipay.com"; GLOBAL.system["consumeprodServer"] = "https://consumeprod.alipay.com"; GLOBAL.system["emembercenterServer"] = "https://emembercenter.alipay.com"; GLOBAL.system["crmhomeServer"] = "https://e.alipay.com"; GLOBAL.system["cshallServer"] = "https://cshall.alipay.com"; GLOBAL.system["openhomeServer"] = "https://openhome.alipay.com"; GLOBAL.system["yebprodServer"] = "https://yebprod.alipay.com"; GLOBAL.system["financeprodServer"] = "https://financeprod.alipay.com"; GLOBAL.system["goldetfprodServer"] = "https://goldetfprod.alipay.com"; GLOBAL.system["certifyServer"] = "https://certify.alipay.com"; GLOBAL.system["securitycenterServer"] = "https://securitycenter.alipay.com"; GLOBAL.system["couponwebServer"] = "https://hongbao.alipay.com"; GLOBAL.system["pointprodServer"] = "https://jf.alipay.com"; GLOBAL.system["pcreditprodServer"] = "https://huabei.alipay.com"; GLOBAL.system["cardServer"] = "https://card.alipay.com"; GLOBAL.system["membercenterServer"] = "https://accounts.alipay.com"; GLOBAL.system["custwebServer"] = "https://custweb.alipay.com"; GLOBAL.system["zcbprodServer"] = "https://zcbprod.alipay.com";  </script>
+    <!-- CMS:全站公共 cms/nav/uribroker.vm结束:alipay/nav/uribroker.vm -->
+
+
+
+
+
+<div id="J-global-notice-container" class="global-notice-container" style="position: relative; z-index: 999; background: #ff6600;">
+
+<!-- CMS:全站公共 cms/nav/global_ad.vm开始:alipay/nav/global_ad.vm --><!-- CMS:全站公共 cms/nav/global_ad.vm结束:alipay/nav/global_ad.vm -->
+<!-- CMS:全站公共 cms/notice/headNotice.vm开始:alipay/notice/headNotice.vm --><!--[if lte IE 7]>
+<style>.kie-bar { display: none; height: 24px; line-height: 1.8; font-weight:normal; text-align: center; border:1px solid #fce4b5; background-color:#FFFF9B; color:#e27839; position: relative; font-size: 12px; margin: 5px 0 0 0; padding: 5px 0 2px 0; } .kie-bar a { text-decoration: none; color:#08c; background-repeat: none; } .kie-bar a#kie-setup-IE8,.kie-bar a#kie-setup-taoBrowser { padding: 0 0 2px 20px; *+padding-top: 2px; *_padding-top: 2px; background-repeat: no-repeat; background-position: 0 0; } .kie-bar a:hover { text-decoration: underline; } .kie-bar a#kie-setup-taoBrowser { background-position: 0 -20px; }</style>
+<div id="kie-bar" class="kie-bar">您现在使用的浏览器版本过低，可能会导致部分图片和信息的缺失。请立即 <a href="http://www.microsoft.com/china/windows/IE/upgrade/index.aspx" id="kie-setup-IE8" seed="kie-setup-IE8" target="_blank" title="免费升级至IE8浏览器">免费升级</a> 或下载使用 <a href="http://download.browser.taobao.com/client/browser/down.php?pid=0080_2062" id="kie-setup-taoBrowser" seed="kie-setup-taoBrowser" target="_blank" title="淘宝浏览器">淘宝浏览器</a> ，安全更放心！ <a title="查看帮助" target="_blank" seed="kie-setup-help" href="http://help.alipay.com/lab/help_detail.htm?help_id=260579">查看帮助</a></div>
+<script type="text/javascript">
+(function () {
+    function IEMode() {
+        var ua = navigator.userAgent.toLowerCase();
+        var re_trident = /\btrident\/([0-9.]+)/;
+        var re_msie = /\b(?:msie |ie |trident\/[0-9].*rv[ :])([0-9.]+)/;
+        var version;
+        if (!re_msie.test(ua)) {
+            return false;
+        }
+        var m = re_trident.exec(ua);
+        if (m) {
+            version = m[1].split(".");
+            version[0] = parseInt(version[0], 10) + 4;
+            version = version.join(".");
+        } else {
+            m = re_msie.exec(ua);
+            version = m[1];
+        }
+        return parseFloat(version);
+    }
+    var ie = IEMode();
+    if (ie && ie < 8 && (self.location.href.indexOf("_xbox=true") < 0)) {
+        document.getElementById('kie-bar').style.display = 'block';
+        document.getElementById('kie-setup-IE8').style.backgroundImage = 'url(https://i.alipayobjects.com/e/201307/jYwARebNl.png)';
+        document.getElementById('kie-setup-taoBrowser').style.backgroundImage = 'url(https://i.alipayobjects.com/e/201307/jYwARebNl.png)';
+    }
+})();
+</script>
+<![endif]-->
+
+<!-- CMS:全站公共 cms/notice/headNotice.vm结束:alipay/notice/headNotice.vm --></div>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" href="https://a.alipayobjects.com:443/alipay/nav/1.3.4/nav-global.css">
+<div id="globalContainer" class="global-reset global-container global-type-global"></div>
+<script src="https://a.alipayobjects.com:443/alipay/nav/1.3.4/nav-global.js" charset="utf-8"></script>
+<script type="text/javascript">
+document.domain=document.domain.split(".").slice(-2).join("."),seajs.use(["alipay/nav/1.3.4/nav-global","$"],function(a,b){a.init(b.extend({menu:"deduct_confirm",appKey:"10108",catKey:"",title:"微医",userName:"乐雯斐",email:"amarsims2@gmail.com",mobile:"137****3280",logonIdType:"EMAIL",userId:"2088302109757015",portraitPath:"",container:"#globalContainer",timestamp:(new Date).getTime(),pageAbsUrl:"http://ebppprod.alipay.com/guahao.htm",isLogin:true,msgSwitch:window.MSGSWITCH,msgHide:1,needLoadMsg:"Y",showTaobaoLogin:false,showAlibabaLogin:false,showMerchant:false,showPersonal:false,abtestEnabled:false,abtest:"",abtestType:"GLOBAL_P",merchantSwitch:window.MERCHANT_SWITCH},GLOBAL.system))});
+
+
+</script>
+
+<div id="container" class="ui-container">  
+  <div class="ui-content fn-clear">
+        <div class="ui-grid-5" coor="side">
+    
+
+
+ 
+																																																																						
+
+
+	
+
+
+
+															
+
+
+
+
+
+<link media="all" href="https://a.alipayobjects.com/alipay/appaside/1.2.1/appaside.css" rel="stylesheet" charset="utf-8">
+
+<!-- 修复问题如图 https://i.alipayobjects.com/e/201306/XdKhvDQm5.png -->
+<style>
+#J_app_sider {
+    *position: relative;
+    *z-index: 11;
+}
+#J_myapp {
+    *overflow: visible;
+}
+/* 修复问题如图 https://i.alipayobjects.com/e/201306/bHQRzYFHb.png */
+#J_myapp.ui-box-nocontainer {
+    *overflow: hidden;
+}
+</style>
+
+<script charset="utf-8" type="text/javascript">
+(function(){
+	var oldDomain=document.domain;
+	var num=oldDomain.indexOf('alipay');
+	var newDomain=oldDomain.substring(num,oldDomain.length);
+	document.domain=newDomain;
+})();
+</script>
+<!--是否登录：true -->
+<script type="text/javascript">
+var _app_data_ = {
+	myAppList : [{
+										appId : '1000000017',
+					appName : '转账到支付宝',
+					appKey : '10017',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000015',
+					appName : '信用卡还款',
+					appKey : '10015',
+					isNewApp : false,
+					isHotApp : true,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000053',
+					appName : '转账到银行卡',
+					appKey : '10053',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000024',
+					appName : '爱心捐赠',
+					appKey : '10024',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000056',
+					appName : '固话宽带',
+					appKey : '10056',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000108',
+					appName : '有线电视缴费',
+					appKey : '10075',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000016',
+					appName : '水电煤缴费',
+					appKey : '10016',
+					isNewApp : false,
+					isHotApp : true,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000401',
+					appName : '网购还款',
+					appKey : '10120',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+						}],
+	otherAppList : [{
+								appId : '1000000020',
+					appName : '手机充值',
+					appKey : '10020',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000117',
+					appName : '话费卡充值',
+					appKey : '10110',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000120',
+					appName : '校园一卡通',
+					appKey : '10113',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000249',
+					appName : '买汽车票',
+					appKey : '10118',
+					isNewApp : true,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000118',
+					appName : '教育缴费',
+					appKey : '10109',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000048',
+					appName : '加油卡充值',
+					appKey : '10048',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000030',
+					appName : '买彩票',
+					appKey : '10030',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000113',
+					appName : '医院挂号',
+					appKey : '10108',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000018',
+					appName : '我要收款',
+					appKey : '10018',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000029',
+					appName : '游戏充值',
+					appKey : '10029',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000028',
+					appName : '订酒店',
+					appKey : '10028',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000049',
+					appName : '淘宝电影',
+					appKey : '10049',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000107',
+					appName : '淘宝网',
+					appKey : '10076',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000000115',
+					appName : '淘宝贷款',
+					appKey : '10111',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : false
+				},
+				{
+								appId : '1000001171',
+					appName : '网商贷',
+					appKey : '201601191629',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000563',
+					appName : '上银汇款',
+					appKey : '2014092600001010',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000106',
+					appName : '助学贷款还款',
+					appKey : '10080',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000001044',
+					appName : '红包',
+					appKey : '11001',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+								appId : '1000000119',
+					appName : '阿里贷款',
+					appKey : '10112',
+					isNewApp : false,
+					isHotApp : false,
+					isAlipayApp : true
+				},
+				{
+					}]
+	};
+_app_data_.myAppList.length--;
+_app_data_.otherAppList.length--;
+</script>
+<div id="J_app_sider">
+												<div class="ui-box module-myapp ui-box-nocontainer appcenter-list" id="J_myapp">
+				<div class="ui-box-title" title="亲~点击可以收放应用列表">
+					<div class="ui-box-title-border sl-linear">
+						<h3>我的应用（<span id="J_module_myapp_count">8</span>）</h3>
+						<a id="myappSetting" title="管理我的应用" href="#" class="ui-box-title-setting" seed="myapp-setting">设定</a>
+					</div>
+				</div>
+				<div class="ui-box-container">
+					<div id="J_myapp_sliders" class="fn-clear">
+						 																						<ul class="myapp-slider current">
+																													<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000017"  seed="myapp-item-1000000017">
+												<span class="myapp-icon" data-id="10017">转账到支付宝</span>
+												<span class="myapp-item-name">转账到支付宝</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000015"  seed="myapp-item-1000000015">
+												<span class="myapp-icon" data-id="10015">信用卡还款</span>
+												<span class="myapp-item-name">信用卡还款</span>
+																								<span title="热门应用" class="my-app-item-hot">热门应用</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000053"  seed="myapp-item-1000000053">
+												<span class="myapp-icon" data-id="10053">转账到银行卡</span>
+												<span class="myapp-item-name">转账到银行卡</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000024" target="_blank" seed="myapp-item-1000000024">
+												<span class="myapp-icon" data-id="10024">爱心捐赠</span>
+												<span class="myapp-item-name">爱心捐赠</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000056"  seed="myapp-item-1000000056">
+												<span class="myapp-icon" data-id="10056">固话宽带</span>
+												<span class="myapp-item-name">固话宽带</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000108"  seed="myapp-item-1000000108">
+												<span class="myapp-icon" data-id="10075">有线电视缴费</span>
+												<span class="myapp-item-name">有线电视缴费</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000016"  seed="myapp-item-1000000016">
+												<span class="myapp-icon" data-id="10016">水电煤缴费</span>
+												<span class="myapp-item-name">水电煤缴费</span>
+																								<span title="热门应用" class="my-app-item-hot">热门应用</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																																							<li class="myapp-item  fn-clear ">
+											<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000401"  seed="myapp-item-1000000401">
+												<span class="myapp-icon" data-id="10120">网购还款</span>
+												<span class="myapp-item-name">网购还款</span>
+																								                                                <i class="app-arrow iconfont ui-arrow-right" style="display:none;">&#x00E5;</i>
+											</a>
+										</li>
+																											</ul>
+													 					</div>
+				</div>
+			</div><!-- .module-app -->
+																										<div class="ui-box ui-box-follow  appcenter-list">
+					<div class="ui-box-title fn-clear" title="亲~点击可以收放应用列表">
+						<div class="ui-box-title-border fn-clear sl-linear">
+							<h3>生活便民（7）</h3>
+						</div>
+					</div>
+					<div class="ui-box-container">
+						<ul>
+																												<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000020" class="normal"  seed="myapp-item-1000000020">
+									<span class="myapp-icon" data-id="10020">手机充值</span>
+									<span class="myapp-item-name">手机充值</span>
+																										</a>
+								 																		<a href="#" class="add" appId="1000000020" appName="手机充值" appKey="10020" isNewApp="false" isHotApp="false" pageOpenType="1" seed="myapp-add-1000000020">+添加</a>
+																								</li>
+														<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000015" class="normal"  seed="myapp-item-1000000015">
+									<span class="myapp-icon" data-id="10015">信用卡还款</span>
+									<span class="myapp-item-name">信用卡还款</span>
+																		<span title="热门应用" class="my-app-item-hot">热门应用</span>
+																										</a>
+								 																		<span class="add">已添加</span>
+																								</li>
+														<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000108" class="normal"  seed="myapp-item-1000000108">
+									<span class="myapp-icon" data-id="10075">有线电视缴费</span>
+									<span class="myapp-item-name">有线电视缴费</span>
+																										</a>
+								 																		<span class="add">已添加</span>
+																								</li>
+														<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000056" class="normal"  seed="myapp-item-1000000056">
+									<span class="myapp-icon" data-id="10056">固话宽带</span>
+									<span class="myapp-item-name">固话宽带</span>
+																										</a>
+								 																		<span class="add">已添加</span>
+																								</li>
+														<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000048" class="normal"  seed="myapp-item-1000000048">
+									<span class="myapp-icon" data-id="10048">加油卡充值</span>
+									<span class="myapp-item-name">加油卡充值</span>
+																										</a>
+								 																		<a href="#" class="add" appId="1000000048" appName="加油卡充值" appKey="10048" isNewApp="false" isHotApp="false" pageOpenType="1" seed="myapp-add-1000000048">+添加</a>
+																								</li>
+														<li class="myapp-item myapp-item-selected fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000113" class="normal"  seed="myapp-item-1000000113">
+									<span class="myapp-icon" data-id="10108">医院挂号</span>
+									<span class="myapp-item-name">医院挂号</span>
+																										</a>
+								 																		<a href="#" class="add" appId="1000000113" appName="医院挂号" appKey="10108" isNewApp="false" isHotApp="false" pageOpenType="1" seed="myapp-add-1000000113">+添加</a>
+																								</li>
+														<li class="myapp-item  fn-clear">
+								<a href="http://app.alipay.com:80/appGateway.htm?appId=1000000016" class="normal"  seed="myapp-item-1000000016">
+									<span class="myapp-icon" data-id="10016">水电煤缴费</span>
+									<span class="myapp-item-name">水电煤缴费</span>
+																		<span title="热门应用" class="my-app-item-hot">热门应用</span>
+																										</a>
+								 																		<span class="add">已添加</span>
+																								</li>
+													</ul>
+					</div>
+				</div>
+									 					<div class="ui-box ui-box-follow ui-box-nocontainer appcenter-list more-app">
+			<a href="http://app.alipay.com:80/container/web/index.htm" seed="myapp-more" />
+				<span class="ui-box-title fn-clear">
+					<span class="ui-box-title-border fn-clear sl-linear">
+						<h3>更多应用 <i class="iconfont" title="单箭头右">&#x00E5;</i></h3>
+					</span>
+				</span>
+			</a>
+		</div>
+	</div><!-- #J_app_sider -->
+<script>
+if (window.seajs) {
+    seajs.use('alipay/appaside/1.2.1/appaside');
+}
+</script>
+
+
+    </div>      
+          
+    <div class=" ui-grid-20  ui-grid-right" coor="default-content">
+      <div class="content deduct">
+        
+
+<div class="oldcontent">
+	<div class="main">
+		<!-- ui-prod-detail -->
+		<div class="prod-detail">
+			<div class="prod-detail-img" seed="lf-jiaofei-icon">
+				微医
+			</div>
+			<div class="prod-detail-title">
+				<h2>挂号预约<span>（此服务由微医提供）</span></h2>
+			</div>
+			<div class="prod-detail-info">
+				<p>三甲医院，免费预约挂号</p>
+			</div>
+			<div class="app-nav">
+				<ul>
+					<li><a seed='guahao-guanli' class="J-iframeLogin J-iframeBlank " href="http://app.alipay.com/aop/appIndex.htm?pageKey=10108_001&appKey=10108" >预约管理</a></li>
+					<li><a seed='guahao-help' target="_blank" href="https://cshall.alipay.com/lab/help_detail.htm?help_id=253080">帮助中心</a></li>
+					<li class="last2"><a target="_blank" href="https://www.sobot.com/chat/pc/index.html?sysNum=95f145b6c90c48a19783af9d0f6a0f44"><span></span>业务咨询</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /ui-prod-detail -->
+		<div id="onCityDiv">
+				<ul class="charge-type">
+					<li id="tocheck" class="tocheck">
+						<div class="icon">
+							<a href="#" class="a-city"></a>
+						</div>
+						<div class="charge-type-container">
+							<div class="charge-type-title">
+								<h3 class="label">快速预约</h3>
+									<a href="http://app.alipay.com/aop/appIndex.htm?pageKey=10108_002&appKey=10108" seed='guahao-guanli' target="_blank" class="ui-button ui-button-sorange " id=""><span class="ui-button-text">立即预约</span></a>
+							</div>
+
+							<div class="s-city">
+								快速预约是指根据您指定的医院科室、就诊时间范围、门诊类型和专家职称自动匹配可预约的专家，帮你快速挂到号；适用于未确定具体病症，希望尽快就医确诊的初诊患者
+							</div>
+						</div>
+					</li>
+					<li  id="tohandle"  class="tohandle" >
+						<div class="icon ico-do">
+							<a href="#"   class="a-city"></a>
+						</div>
+						<div class="charge-type-container">
+							<div class="charge-type-title">
+								<h3 class="label">预约专家</h3>
+									<a href="http://app.alipay.com/aop/appIndex.htm?pageKey=10108_003&appKey=10108" target="_blank" seed='guahao-chaxun'  class="ui-button ui-button-sorange " id=""><span class="ui-button-text">预约专家</span></a>
+							</div>
+							<div class="s-city">
+								根据您想找到医生姓名或疾病名称，让您找到可预约的专家号源，帮你免费预约；适用于希望解决疑难病症的患者
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="tips">
+				<span class="label">支持地区：</span> 
+								<span class="city-content">
+									<span class="city-bar">上海市 &nbsp;|&nbsp;</span>
+									<span class="city-bar">北京市 &nbsp;|&nbsp;</span>
+									<span class="city-bar">江苏省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">广东省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">山西省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">天津市 &nbsp;|&nbsp;</span>
+									<span class="city-bar">湖北省 &nbsp;|&nbsp;</span>
+																		<span class="city-bar">四川省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">湖南省 &nbsp;|&nbsp;</span>
+																		<span class="city-bar">陕西省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">江西省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">安徽省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">青海省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">山东省 &nbsp;|&nbsp;</span>
+									<span class="city-bar">黑龙江省 &nbsp;|&nbsp; 辽宁省</span>
+								</span>
+
+			</div>
+	<!-- ui-prod-newbie -->
+				<!-- FD:127:ebppprod/guahao/faq.vm:START --><!-- FD:127:ebppprod/guahao/faq.vm:1194:guahao/faq.schema:挂号FAQ:START -->
+	<div id="faq" class="tip-faq">
+<a class="fn-right J-scroll-to-top" href="#main" seed="faq-scroll-to-top">回到顶部</a>
+<h3>使用遇到问题？</h3>
+<dl>
+<dt>预约成功后，到医院还需要交挂号费吗？</dt>
+<dd>
+答：有的医院提供网上支付的服务，这类的医院到医院后不需要再重复交挂号费；如果是不提供网上支付服务的医院，成功预约后需到指定医院，由医院收取相应的挂号费。
+</dd>
+<dt>预约成功后，怎么取号？</dt>
+<dd>
+答：成功预约挂号后，系统将自动保存用户预约记录。就诊当天，您需要在医院规定的取号时间之内，前往医院指定的地点取号，并缴纳医院规定的挂号费，逾期预约自动作废。具体的取号时间和取号地点请查看系统下发到您手机上的预约成功通知短信，或是登录支付宝预约挂号应用预约管理 中找到相应的订单查看详情。
+</dd>
+<dt>能否帮别人预约挂号？</dt>
+<dd>
+答：可以的；注册并成功登录后，您可以把您家人或朋友的信息添加到常用就诊人，预约的时候选择对应患者的信息就可以了。添加常用就诊人路径：点击【个人中心】【常用就诊人】【新增就诊人】。
+</dd>
+</dl>
+<p class="tip-faq-link"><a href="http://help.alipay.com/lab/234582-235417/0-235417.htm" target="_blank" seed="faq-morehelp">更多相关帮助</a></p>
+<form method="get" action="http://help.alipay.com/lab/search_new_result.htm" name="faqsearch" target="_blank" id="faqsearch">
+<div class="com-search">
+  <span><input name="word" id="word" data-explain="请输入您遇到的问题" value="" class="i-text i-text-s" type="text" /></span>
+  <input name="uisrc" id="uisrc" value="pagefaq" type="hidden" />
+  <input class="btn-fixed" value="搜索" type="submit" seed="faq-search"/>
+</div>
+</form>
+</div>
+<!-- FD:127:ebppprod/guahao/faq.vm:1194:guahao/faq.schema:挂号FAQ:END -->
+<!-- FD:127:ebppprod/guahao/faq.vm:END -->		<!-- /ui-prod-newbie -->
+			</div>
+
+	<div class="sidebar">
+				<!-- CMS:生活助手通用产品系统cms/guahao/index_sid_weg.vm开始:ebppprod/guahao/index_sid_weg.vm -->
+<script>
+  E.onDOMReady(function(){
+    var link = D.query('.app-nav a')[1];
+    if (link) {
+      link.href = 'https://help.alipay.com/lab/help_detail.htm?help_id=253080';
+    }
+  });  
+</script><!-- CMS:生活助手通用产品系统cms/guahao/index_sid_weg.vm结束:ebppprod/guahao/index_sid_weg.vm -->		<div class="ui-share-item">
+			<h4>在新浪微博关注我们</h4>
+			<div class="ui-share-item-img">
+				<a href="http://weibo.com/shenghuoalipay" target="_blank" seed="share-item-img"><img src="https://img.alipay.com/sys/personalprod/style/home/img/img-weibo.png" width="50" height="50" alt="＋加关注" /></a>
+			</div>
+
+			<div class="ui-share-item-name">
+				<span class="ui-share-item-name-vip"><a href="http://weibo.com/shenghuoalipay" target="_blank" seed="share-item-link">支付宝生活助手</a></span>
+				<a class="ui-share-item-name-follow" href="http://weibo.com/shenghuoalipay" target="_blank" seed="share-item-add">加关注</a>
+			</div>
+
+			<div id="shareit" class="ui-share-item-icon">
+			<!--  成功分享开始　-->
+						分享到：
+			<a class="ui-icon-sns ui-icon-sns-sina" href="#" title="分享到新浪微博" seed="share-item-sina">分享到新浪微博</a>
+			<a class="ui-icon-sns ui-icon-sns-renren" href="#" title="分享到人人网" seed="share-item-renren">分享到人人网</a>
+			<a class="ui-icon-sns ui-icon-sns-kaixin" href="#" title="分享到开心网" seed="share-item-kaixin">分享到开心网</a>
+			<a class="ui-icon-sns ui-icon-sns-douban" href="#" title="分享到豆瓣" seed="share-item-douban">分享到豆瓣</a>
+			<!--  成功分享结束　-->
+			</div>
+			<script type="text/javascript">
+				shareConfig = {
+					container: 'shareit',
+					triggerClass:'ui-icon-sns',
+					service:['sina','renren','kaixin','douban'],
+					param :{
+						title:'支付宝可以网上挂号了，提供全国超过400家重点三级医院的预约挂号服务，帮助你更方便，快速地找对医生挂到号，还在为挂号排队发愁吗，赶快来试试。',
+						url:'https://ebppprod.alipay.com:443/guahao.htm'
+					}
+				};
+			</script>
+		</div>
+	</div>
+</div>
+  			 					
+
+				</div><!-- .content -->
+			</div><!-- .ui-grid -->
+		</div><!-- .ui-content -->
+		
+				
+
+<!-- /component/footCommon.vm -->
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换开始:alipay/nav/versionSwitch.vm -->
+
+
+
+
+
+
+<!-- CMS:全站公共 cms/全站导航/网站改版新旧版切换结束:alipay/nav/versionSwitch.vm -->
+
+
+
+<style>
+.ui-footer {margin-top: 30px; border-top: 1px solid #cccccc; height: 100px; color:#808080;}
+.ui-footer .ui-separator{font-weight: normal;}
+.ui-footer-ctn {border-top: 1px solid #ffffff;padding-top: 15px;text-align: center;}
+.ui-footer-link a {padding: 0 3px 0 2px;}
+.ui-footer-copyright,.ui-footer-phone {padding-top: 10px;}
+.ui-footer-copyright a,.ui-footer-copyright a:hover {color:#808080;}
+.server{color:#fff;}
+</style>
+
+
+<div class="ui-footer fn-clear" coor="footer">
+    
+    <div class="ui-footer-ctn">
+        <!-- CMS:全站公共 cms/foot/links.vm开始:alipay/foot/links.vm --><div class="ui-footer-link">
+      <a href="https://job.alibaba.com/zhaopin/index.htm" target="_blank" seed="foot-1">诚征英才</a>  
+           <em class="ui-separator">|</em>
+       <a seed="foot-2" href="https://ab.alipay.com/i/lianxi.htm" title="联系我们" target="_blank">联系我们</a>
+           <em class="ui-separator">|</em>
+       <a seed="foot-3" href="https://global.alipay.com/" title="International Business" target="_blank">International Business</a>
+      </div><!-- CMS:全站公共 cms/foot/links.vm结束:alipay/foot/links.vm -->
+        <div class="ui-footer-copyright">
+            <!-- CMS:全站公共 cms/foot/copyright.vm开始:foot/copyright.vm --><style>
+.copyright,.copyright a,.copyright a:hover{color:#808080;}
+</style>
+<div class="copyright">
+      支付宝版权所有 2004-2016 <a href="http://fun.alipay.com/certificate/jyxkz.htm" target="_blank">ICP证：沪B2-20150087</a>
+  </div>
+<div class="server" id="ServerNum">
+  ebppprod-60-37 &nbsp; 0ad676ba1478921762642393212068_0
+</div><!-- CMS:全站公共 cms/foot/copyright.vm结束:foot/copyright.vm -->        </div>
+    </div>
+</div>
+<!-- /component/footCommon.vm -->
+	</div><!-- .ui-container -->
+	
+
+			<script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com:443/ar/alipay.share-1.0-src.js"></script>
+
+	
+			<script type="text/javascript">
+	
+	seajs.use(['jquery','alipay/xbox/0.9.6/xbox'],function($,Xbox){
+	
+			})
+
+</script>
+		
+	 			
+
+		
+		
+
+
+
+
+
+
+
+
+                                                                                                                                                                                                                                        
+    <!-- FD:174:alipay/foot/cliveService.vm:START --><!-- FD:174:alipay/foot/cliveService.vm:1261:cliveService.schema:在线客服配置:START -->
+    <div style="display:none">onlineServer</div>
+    <script type="text/javascript">
+    try {
+        (function () {
+            var loadOnlineServer = function() {
+                seajs.config({
+                    comboExcludes: /\/u\/(js|css|cschannel|ecmng)\//,
+                    alias: {
+						'$': 'jquery/jquery/1.7.2/jquery',
+                        'onlineServerConfig': 'https://os.alipayobjects.com/rmsportal/iwBOQWtuJpTikoO.js',
+                        'portalServerConfig': 'https://os.alipayobjects.com/cschannel/qcaiwhdQMAOtwfm.js',
+                        'merchantServerConfig': 'https://os.alipayobjects.com/cschannel/qAyQTBKrQkvYvZD.js',
+			'koubeiServerConfig': 'https://os.alipayobjects.com/rmsportal/cCSTKmskcLlEOBL.js',
+			'defaultDataConfig': 'https://a.alipayobjects.com/u/js/201311/1acIoVU1Xx.js',
+                        'onlineServerJS': 'https://os.alipayobjects.com/rmsportal/LtDohISwSYoXifk.js',//云客服匹配
+                        'onlineServerCSS': 'https://a.alipayobjects.com/u/css/201402/2ACTshL8Vh.css'//云客服通用样式
+                    }
+                });
+                seajs.use(['onlineServerConfig', 'portalServerConfig','merchantServerConfig','koubeiServerConfig'], function(){
+                    jQuery(function(){
+                        window.OS = OS = {},
+                        OS.server = {
+                            cliveServer: 'https://clive.alipay.com',
+                            cschannelServer: 'https://cschannel.alipay.com',
+                            initiativeServer: 'https://webpushgw.alipay.com',
+			    cshallServer: 'https://cshall.alipay.com'
+                        },
+                        OS.params = {
+                            'uid': '2088302109757015'
+                        };
+			var tradeNos4Clive = '' || '';
+			OS.params.featureStr = "{'tradeNos':'" + tradeNos4Clive + "'}";
+                        OS.config = {
+                            onlineServerURL: OS.server.cliveServer + '/csrouter.htm',
+                            portalServerURL: OS.server.cschannelServer + '/csrouter.htm',
+			    newPortalServerURL: OS.server.cschannelServer + '/newPortal.htm',
+                            webpushFlashURL: 'https://t.alipayobjects.com/tfscom/T1JsNfXoxiXXXXXXXX.swf',
+                            onlineServerIconDefault: 'https://a.alipayobjects.com/u/css/201401/1v9cu1dxaf.css' //在线客服默认图片
+                        };
+                        seajs.use('onlineServerCSS');
+                        seajs.use('onlineServerJS');
+                    });
+                });
+            }
+            var bindOnlineServer = function(func){
+                var w = window;
+                if (w.attachEvent) {
+                    w.attachEvent('onload', func);
+                } else {
+                    w.addEventListener('load', func, false);
+                }
+            };
+            window.initOnlineServer = function() {
+                var w = window, o = 'seajs', d = document;
+                if(w[o]) { return loadOnlineServer() }
+                var s = d.createElement("script")
+                s.id = o + "node"
+                s.charset = "utf-8";
+                s.type = "text/javascript";
+                s.src = "https://a.alipayobjects.com/??seajs/seajs/2.1.1/sea.js,jquery/jquery/1.7.2/jquery.js";
+                var head = d.head || d.getElementsByTagName( "head" )[0] || d.documentElement;
+                head.appendChild(s);
+                s.onload = s.onreadystatechange = function(){ if (!s.readyState || /loaded|complete/.test(s.readyState)) { loadOnlineServer() } };
+            };
+            if (!window.isLazyLoadOnlineService) {
+                bindOnlineServer(initOnlineServer);
+            };
+        })();
+    } catch (e) {
+        window.console && console.log && console.log(e);
+        window.Tracker && Tracker.click('onlineServer-error-init-' + e);
+    }
+    </script>
+<!-- FD:174:alipay/foot/cliveService.vm:1261:cliveService.schema:在线客服配置:END -->
+
+<!-- FD:174:alipay/foot/cliveService.vm:END -->
+<!-- CMS:支付宝全站/全站底部/在线客服流量控制开始:alipay/foot/onlineServiceCtr.vm -->
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <!-- CMS:支付宝全站/全站底部/在线客服流量控制结束:alipay/foot/onlineServiceCtr.vm -->	
+		
+ 
+<!-- uitpl:/component/tracker.vm -->
+<!-- FD:106:alipay/tracker/tracker.vm:START --><!-- FD:106:alipay/tracker/tracker.vm:785:tracker.schema:全站自动化/性能/敏感信息打点开关:START -->
+
+
+
+<script type="text/javascript">
+window.Smartracker && Smartracker.sow && Smartracker.sow();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+
+window.agp_custom_config = {
+  BASE_URL: '//kcart.alipay.com/p.gif',
+  TIMING_ACTION_URL: '//kcart.alipay.com/x.gif'
+}
+
+</script>
+<script charset="utf-8" src="https://as.alipayobjects.com/g/component/timing/1.0.0/index.js"></script>
+
+
+
+
+
+<!-- FD:106:alipay/tracker/sai.vm:START --><script>
+    sensScanConfig={
+        ratio: 0.01,
+        modules: '*',
+        types: '*'
+      };
+</script>
+
+<script src='https://as.alipayobjects.com/g/alipay_security/monitor-sens/1.0.1/monitor-sens.min.js'></script>
+<!-- FD:106:alipay/tracker/sai.vm:END -->
+
+
+
+<!-- FD:106:alipay/tracker/cmsbuffer.vm:START --><!-- FD:106:alipay/tracker/cmsbuffer.vm:997:cmsbuffer.schema:main-CMS全站修复:START -->
+	
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+
+<script>
+try {
+  (function() {
+  var logServer = 'https://magentmng.alipay.com/m.gif';
+  var sample = 0.0001;
+  var url = "https://a.alipayobjects.com/http-watch/1.0.7/index.js";
+
+  // 判断比例
+  if (!!window.addEventListener && Array.prototype.map && Math.random() < sample) {
+    var HEAD = document.head || document.getElementsByTagName('head')[0];
+
+    var spt = document.createElement('script');
+    spt.src = url;
+    HEAD.appendChild(spt);
+
+	setTimeout(function() {
+	  window.httpWatch && window.httpWatch({ sample: 1, appname: 'ebppprod-60-37', logServer: logServer });
+	}, 1000);
+  }
+  })();
+} catch(e) {}
+</script>
+
+
+
+<script src="https://as.alipayobjects.com/component/console-security-message/1.0.1/index.js"></script>
+<!-- FD:106:alipay/tracker/cmsbuffer.vm:997:cmsbuffer.schema:main-CMS全站修复:END -->
+<!-- FD:106:alipay/tracker/cmsbuffer.vm:END --><!-- FD:106:alipay/tracker/tracker.vm:785:tracker.schema:全站自动化/性能/敏感信息打点开关:END -->
+<!-- FD:106:alipay/tracker/tracker.vm:END -->
+        
+ 
+<!-- $limitedUnits -->
+	
+		</body>
+	</html>

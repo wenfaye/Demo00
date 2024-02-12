@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+// function Demo1() {
+//     return 1;
+// }
+
+// async function Demo1() {
+//     return 1;
+// }
+
+// console.log(Demo1());
+
+
+
+// async function Demo1() {
+//     return Promise.resolve(1);
+// }
+
+// async function Demo2() {
+//     var d = await Demo1();
+//     console.log(d);
+// }
+
+
+async function Demo1() {
+    return Promise.resolve(1);
+}
+
+async function Demo2() {
+    var d = await Demo1();
+    console.log(d);
+}
+Demo2();
+
+var a =1;
+var b =2;
+var c = a+b;
+</script>
+</html>

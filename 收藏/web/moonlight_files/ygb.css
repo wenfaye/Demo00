@@ -1,0 +1,1445 @@
+.ui-ygb-title{
+  position: relative;
+  padding-bottom: 8px;
+  font-size: 24px;
+  color: #333;
+  border-bottom: 1px #979797 solid;
+  font-family: "Microsoft YaHei";
+}
+.ui-ygb-title .app-name{
+  margin-left: 10px;
+  font-size: 20px;
+  color: #666;
+}
+.ui-ygb-title .remark{
+  position: absolute;
+  right: 0;
+  top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+.ui-ygb-title .icon-arrow{
+  margin-left: 20px;
+  font-size: 12px;
+  color: #666;
+  vertical-align: middle;
+}
+.ui-ygb-title .more{
+  position: absolute;
+  right: 2px;
+  top: 15px;
+  font-size: 14px;
+  color: #0088CC;
+}
+
+.ui-ygb-button{
+  display: inline-block;
+  border-radius: 3px;
+  height: 32px;
+  line-height: 32px;
+  width: 95px;
+  background: #ff6800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+}
+input.ui-ygb-button{
+  display: inline-block;
+  border-radius: 3px;
+  height: 32px;
+  line-height: 32px;
+  width: 95px;
+  background: #ff6800;
+  border: 1px solid #ff6800;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.ui-ygb-button-gray,
+a.ui-ygb-button-gray,
+input.ui-ygb-button-gray{
+  height: 30px;
+  line-height: 30px;
+  background: #fcfcfc;
+  border: 1px #c2c2c2 solid;
+  color: #818181;
+}
+
+.ui-ygb-button-gray:hover,
+a.ui-ygb-button-gray:hover,
+input.ui-ygb-button-gray:hover{
+  background: #fcfcfc;
+  border: 1px #c2c2c2 solid;
+  color: #818181;
+}
+
+input.ui-ygb-button-blue,
+input.ui-ygb-button-blue:hover{
+  background: #00aaee;
+  color: #fff;
+  border: 1px #00aaee solid;
+}
+
+a.ui-ygb-button-disable,
+input.ui-ygb-button-disable,
+a.ui-ygb-button-disable:hover,
+input.ui-ygb-button-disable:hover{
+  background: #cacaca;
+  border: 1px solid #cacaca;
+}
+.ui-ygb-button:hover{
+  text-decoration: none;
+  background: #ed6d1f;
+  color: #fff;
+}
+.ui-ygb-button-large{
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  border-radius: 6px;
+}
+.ui-ygb-button-ldisable:hover{
+  background: #cacaca;
+}
+.ui-ygb-button-ldisable{
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  border-radius: 6px;
+  background: #cacaca;
+}
+.ui-ygb-title-l2{
+  font-size: 20px;
+  padding: 15px 0;
+}
+
+.ui-ygb-title-l2 .view-bill,
+.ui-ygb-title-l2 a{
+  margin-left: 12px;
+  font-size: 14px;
+  color: #0086cf;
+}
+
+.ui-ygb-icon{
+  background: url("https://i.alipayobjects.com/i/ecmng/png/201403/2HGcKJX4gp.png") no-repeat -999px -999px;
+  display: inline-block;
+}
+.ui-ygb-icon-question {
+  background-position: -300px -20px;
+  width: 17px;
+  height: 19px;
+  vertical-align: middle;
+}
+.ui-ygb-icon-info{
+  background-position: -330px -20px;
+  width: 15px;
+  height: 15px;
+}
+.ui-ygb-icon-overdue {
+  background-position: 0 0;
+  width: 116px;
+  height: 72px;
+}
+.ui-ygb-icon-overdue-small {
+  background-position: -200px 0;
+  width: 78px;
+  height: 50px;
+}
+.ui-ygb-operator{
+  font-size: 18px;
+  font-weight: bold;
+  color: #999999;
+}
+
+.ui-ygb-text-warning{
+  color: #ff6800;
+}
+.ui-ygb-text-success{
+  color: #53a000;
+}
+
+.repay-confirm-dialog .ui-dialog-container{
+  padding: 25px 20px 40px;
+}
+.repay-confirm-dialog .ui-dialog-operation{
+  text-align: center;
+}
+
+.repay-confirm-dialog .ui-dialog-cancel{
+  margin-left: 40px;
+}
+
+/* calendar */
+.ui-calendar {
+  position: absolute;
+  font:14px/16px arial,'Hiragino Sans GB', sans-serif;
+  font-weight: bold;
+  background: #f9f9f9;
+  border-spacing: 0;
+  border: 1px solid #dadada;
+  box-shadow: 1px 1px 9px #ccc;
+  text-align: center;
+  width: 238px;
+  z-index: 10;
+  color: #666;
+}
+.ui-calendar .ui-calendar-date,
+.ui-calendar .ui-calendar-month,
+.ui-calendar .ui-calendar-year
+{
+  border: none;
+  box-shadow: none;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-spacing: 0;
+  padding: 5px;
+}
+.ui-calendar .ui-calendar-pannel {
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  margin: 0;
+  background: #f9f9f9;
+}
+.ui-calendar .ui-calendar-pannel:after,
+.ui-calendar .ui-calendar-pannel:before {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+.ui-calendar .ui-calendar-pannel:after {
+  clear: both;
+}
+.ui-calendar .ui-calendar-control {
+  display: inline-block;
+  float: left;
+  width: 13%;
+  *display: inline;
+  *width: 20px;
+  *zoom: 1;
+  cursor: pointer;
+  font-weight: normal;
+}
+.ui-calendar .ui-calendar-control:hover {
+  background-color: #efefee;
+}
+.ui-calendar .ui-calendar-pannel .month,
+.ui-calendar .ui-calendar-pannel .year {
+  width: 24%;
+  font-weight: bold;
+}
+.ui-calendar-container{
+  border-bottom: 1px solid #dadada;
+  background-color: #fff;
+}
+
+.ui-calendar td.disabled-element {
+  cursor: not-allowed!important;
+}
+
+
+.ui-calendar-year {
+  border: none;
+  box-shadow: none;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-spacing: 0;
+}
+table.ui-calendar-year tr {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #fff;
+}
+.ui-calendar-year .ui-calendar-year-column td {
+  width: 79px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.ui-calendar-year .ui-calendar-year-column td:hover {
+  cursor: pointer;
+  background-color: #FFDEB8;
+}
+.ui-calendar-year .ui-calendar-year-column td.focused-element {
+  color: #fff;
+  background: #f57403;
+}
+.ui-calendar-year .ui-calendar-year-column td.disabled-element {
+  background: #e2e2e2;
+  color: #c3c3c3;
+}
+.ui-calendar-year .ui-calendar-year-column td.disabled-element:hover {
+  border-color: #fff;
+}
+
+.ui-calendar-month {
+  border: none;
+  box-shadow: none;
+  border-collapse: separate;
+  *border-collapse: collapse;
+  border-spacing: 0;
+}
+table.ui-calendar-month tr {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: #fff;
+}
+.ui-calendar-month .ui-calendar-month-column td {
+  width: 79px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.ui-calendar-month .ui-calendar-month-column td:hover {
+  cursor: pointer;
+  background-color: #FFDEB8;
+}
+.ui-calendar-month .ui-calendar-month-column td.focused-element {
+  color: #fff;
+  background: #f57403;
+}
+.ui-calendar-month .ui-calendar-month-column td.disabled-element {
+  background: #e2e2e2;
+  color: #c3c3c3;
+}
+.ui-calendar-month .ui-calendar-month-column td.disabled-element:hover {
+  border-color: #fff;
+}
+/* calendar end*/
+
+.ui-tips {
+  border: 2px solid #f3f3f3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  position: absolute;
+  z-index: 1000;
+}
+.ui-tips-content {
+  padding: 10px;
+  border: 1px solid #b8c8d3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #f7fcff;
+}
+.ui-tips-content .ui-icon-arrow {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+}
+
+.hide{
+  display: none;
+}
+.ui-repayment {
+  padding: 40px 0 20px 20px;
+}
+#container{
+  width: 100%;
+}
+.ui-content{
+  width: 100%;
+  background: #f5f6f4;
+}
+.ui-ygb-head-bg{
+  background: #fff;
+}
+.ui-ygb-head-box{
+  width: 990px;
+  margin: 0 auto;
+}
+.ui-ygb-main{
+  width: 990px;
+  margin: 0 auto;
+}
+.ui-dialog-close:hover{
+  text-decoration: none;
+}
+/*tab*/
+.ui-ygb-tab{
+  padding: 15px 0;
+}
+.ui-ygb-tab .ui-ygb-tab-row{
+  float: left;
+  padding:0 35px;
+  font-size: 18px;
+  line-height: 18px;
+  color: #888;
+  border-left: 1px #999999 solid;
+  cursor: pointer;
+}
+.ui-ygb-tab .ui-ygb-tab-cur{
+  color: #333;
+  cursor: default;
+}
+.ui-ygb-tab .ui-ygb-tab-first{
+  padding-left: 0;
+  border-left: 0;
+}
+.ui-ygb-tab .ui-ygb-tab-cur{
+  font-weight: bold;
+}
+
+/**index start**/
+
+.ygb-index-head{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  position: relative;
+  height: 120px;
+  font-family: "Microsoft YaHei";
+}
+.ygb-index-head .operate,
+.ygb-index-head .detail{
+  position: absolute;
+}
+.ygb-index-head .operate{
+  width: 600px;
+}
+.ygb-index-head .operate-bd{
+  padding-top: 8px;
+}
+.ygb-index-head .detail{
+  right: 0;
+  padding-left: 60px;
+  width: 328px;
+  border-left: 1px #d5d5d5 solid;
+  font-size: 14px;
+  color: #333;
+}
+
+.ygb-index-head .ui-ygb-icon-overdue-small{
+  position: absolute;
+  left: 80px;
+  top: 25px;
+}
+.ygb-index-head h3{
+  font-size: 20px;
+}
+.ygb-index-head .tocal-amount{
+  font-size: 30px;
+  color: #ff6800;
+}
+.ygb-index-head .amount-units{
+  margin-left: 5px;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #666666;
+}
+.ygb-index-head .operate-bd a{
+  font-size: 14px;
+  color: #0086cf;
+}
+.ygb-index-head .operate-bd .ui-ygb-button{
+  position: absolute;
+  left: 325px;
+  color: #fff;
+  font-size: 30px;
+}
+.ygb-index-head .operate-bd .overdue-tip{
+  font-size: 14px;
+  color: #999;
+}
+.ygb-index-head .detail li{
+  padding: 14px 0;
+  border-bottom: 1px #d7d7d7 dashed;
+}
+.ygb-index-head .detail .item-first{
+  padding-top: 0;
+}
+.ygb-index-head .detail .item-last{
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ui-footer{
+  width: 990px;
+  margin: 0 auto;
+}
+.ygb-index-main{
+  padding-bottom: 36px;
+  font-family: "Microsoft YaHei";
+}
+.ygb-index-main .ygb-icon-phased{
+  margin-left: 9px;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201503/4a6SuL2Qg9.png);
+}
+.ygb-index-item-child{
+  font-size: 12px;
+  width: 300px;
+}
+.ygb-index-item-child thead td{
+  background: #f7f7f7;
+}
+.ygb-index-item-child thead .time{
+  width: 100px;
+}
+.ygb-index-item-child thead .operate{
+  width: 100px;
+}
+.ygb-index-item-child thead .amount{
+  width: 100px;
+}
+.ygb-index-item-child td{
+  height: 22px;
+  padding: 0 12px;
+  border: 1px #ccc solid;
+  background: #fff;
+  text-align: center;
+  color: #666;
+}
+.ygb-index-item-child .table-cur{
+  background: #f7f7f7;
+}
+.ygb-phased-box .ui-poptip-shadow .ui-poptip-container{
+  padding: 10px;
+}
+
+.ygb-index-main .ui-paging{
+  text-align: right;
+}
+.ygb-index-main .ui-table thead th,
+.ygb-index-main .ui-table tbody td{
+  padding:0 0 0 32px;
+  font-size: 14px;
+}
+.ygb-index-main .ui-table{
+  border: none;
+}
+.ygb-index-main .ui-table thead th{
+  height: 50px;
+  background: none;
+  border: none;
+  color: #333;
+}
+.ygb-index-main .ui-table tbody{
+  border: 1px #f1f1f1 solid;
+  border-bottom: 3px #f1f1f1 solid;
+}
+.ygb-index-main .ui-table tbody td{
+  height: 65px;
+  background: #fff;
+  border-bottom: 1px #f1f1f1 solid;
+}
+.ygb-index-main .ui-table-empty .ui-table,
+.ygb-index-main .ui-table-empty .ui-table tbody,
+.ygb-index-main .ui-table-empty .ui-table td{
+  border: none;
+  background: none;
+  padding: 0;
+}
+.ygb-index-main .ui-table tbody .no-order{
+  position: relative;
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201412/44sDsh6w97.png) no-repeat;
+  width: 990px;
+  height: 298px;
+}
+.ygb-index-main .ui-table .no-order .buyLink{
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  position: absolute;
+  right: 52px;
+  top: 180px;
+  background: url('');
+}
+.ygb-index-main .ui-table .time{
+  width: 160px;
+}
+.ygb-index-main .ui-table .name{
+  width: 400px;
+  padding-right: 50px;
+}
+.ygb-index-main .ui-table .status{
+  width: 100px;
+  text-align: left;
+}
+.ygb-index-main .ui-table .name-short{
+  width: 350px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ygb-index-main .ui-table .amount{
+  width: 120px;
+}
+#J_CreditAmount{
+  margin-left: 5px;
+}
+#J_TotalAmount{
+  margin-left: 5px;
+}
+#j-btntask{
+  margin-left: 20px;
+}
+.status-clear{
+  color: #69ab00;
+}
+.ui-ygb-repay-task{
+  font-family: "Microsoft YaHei";
+}
+.ui-ygb-repay-task .ui-ygb-repay-task-hd{
+  font-size: 14px;
+  color: #4c4c4c;
+}
+.ui-ygb-repay-task .ui-ygb-repay-task-hd .J_RepayAll{
+  border-radius: 2px;
+  display: inline-block;
+  padding: 2px 6px;
+  margin-left: 6px;
+}
+.ui-ygb-repay-task .ui-ygb-repay-task-hd .J_RepayAll:hover{
+  text-decoration: none;
+}
+.ui-ygb-repay-task .ui-table th,
+.ui-ygb-repay-task .ui-table td{
+  padding-left: 50px;
+  font-size: 14px;
+}
+.ui-ygb-repay-task .ui-table th{
+  font-weight: bold;
+}
+.ui-ygb-repay-task .ui-table{
+  margin-top: 15px;
+}
+.ui-ygb-repay-task .ui-table .unpay{
+  width: 250px;
+  text-align: left;
+}
+.ui-ygb-repay-task .ui-table .unpay .tip{
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+}
+.servicetip-box .title{
+  border-bottom: 1px #ffdbb2 solid;
+  padding-bottom: 3px;
+  margin-bottom: 3px;
+}
+/**index end**/
+
+/**detail start**/
+.ygb-detail-main{
+  margin-top: 10px;
+  font-family: "Microsoft YaHei";
+}
+.ygb-detail-content .more{
+  font-size: 14px;
+}
+.ygb-detail-content .tip{
+  margin:0 12px;
+  font-size: 18px;
+}
+.ygb-detail-content .ui-ygb-head{
+  padding-top: 5px;
+  padding-bottom: 30px;
+}
+.ui-ygb-detail-repay{
+  border: 1px #e8e8e8 solid;
+  border-bottom: 3px #f1f1f1 solid;
+  font-size: 18px;
+  text-align: center;
+}
+.ui-ygb-detail-repay thead th{
+  background: #f5f6f4;
+  font-family: bold;
+  font-size: 16px;
+  border-bottom: 1px #e8e8e8 solid;
+  text-align: center;
+  padding: 4px 0;
+}
+.ui-ygb-detail-repay tbody td{
+  border-bottom: 1px #e8e8e8 solid;
+  color: #333;
+  padding: 18px 0;
+}
+.ui-ygb-detail-repay thead .operate{
+  color: #999999;
+}
+.ui-ygb-detail-repay tbody .ui-ygb-button{
+  margin-left: 8px;
+}
+.ui-ygb-detail-repay .operate{
+  width: 200px;
+  text-align: left;
+  font-size: 14px;
+}
+.ui-ygb-detail-repay .operate .J_BtnBillInstallment{
+  font-size: 14px;
+  font-family: "Microsoft YaHei";
+}
+.ygb-detail-main{
+  padding-bottom: 36px;
+}
+.ygb-detail-main .ui-table thead th,
+.ygb-detail-main .ui-table tbody td{
+  padding:0 0 0 32px;
+  font-size: 14px;
+}
+.ygb-detail-main .ui-table{
+  border: none;
+}
+.ygb-detail-main .ui-table thead th{
+  height: 50px;
+  background: none;
+  border: none;
+  color: #333;
+}
+.ygb-detail-main .ui-table tbody{
+  border: 1px #f1f1f1 solid;
+  border-bottom: 3px #f1f1f1 solid;
+}
+.ygb-detail-main .ui-table tbody td{
+  height: 80px;
+  background: #fff;
+  border-bottom: 1px #f1f1f1 solid;
+}
+.ygb-detail-main .ui-table .time{
+  width: 140px;
+}
+#J_RepayList .J_RepayList{
+  width: 200px;
+}
+.ygb-detail-main .ui-table .name{
+  width: 400px;
+  padding-right: 30px;
+}
+.ygb-detail-main .ui-table .amount{
+  width: 100px;
+}
+.ygb-detail-main .ui-table .status{
+  width: 60px;
+}
+.ygb-detail-main .ui-table .fee{
+  width: 100px;
+}
+.ui-ygb-detail-nobill{
+  margin-bottom: 200px;
+}
+.ui-ygb-detail-nobill .bd{
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201412/44sDshAetZ.png) no-repeat;
+  width: 990px;
+  height: 223px;
+}
+.ui-ygb-detail-nobill .more{
+  margin-top: 8px;
+  text-align: right;
+}
+.ygb-detail-content .ui-ygb-icon-question{
+  margin-left: 3px;
+}
+/**detail end**/
+
+/*sign start*/
+.ygb-sign-page{
+  background: #fff;
+  font-family: "Microsoft YaHei";
+}
+.ygb-sign-content{
+  width: 990px;
+  margin: 0 auto;
+}
+.ygb-sign-content .ui-ygb-title{
+  padding-bottom: 4px;
+  border-bottom: 10px #c7d2e8 solid;
+}
+.ygb-sign-content .ui-ygb-title .more{
+  color: #cfcfcf;
+  font-size: 12px;
+}
+.ygb-sign-content .ygb-sign-head{
+  position: relative;
+  padding-bottom: 24px;
+  background: url(https://t.alipayobjects.com/images/rmsweb/T1P8pgXb0fXXXXXXXX.png) #eff7fc right bottom no-repeat;
+  font-size: 14px;
+  line-height: 28px;
+  color: #333333;
+}
+.ygb-sign-content .ygb-sign-head .sign-bd{
+  width: 430px;
+  padding: 20px 0 0 75px;
+  text-align: center;
+}
+.ygb-sign-content .ygb-sign-head .sign-bd .credit{
+  display: inline-block;
+  width: 208px;
+  height: 86px;
+  padding: 20px 0;
+  background: #fff;
+  border: 1px #dae4e7 solid;
+  border-radius: 5px;
+  text-align: center;
+}
+.ygb-sign-head .sign-bd .credit h2{
+  font-size: 22px;
+  line-height: 1.5;
+  color: #333;
+}
+.ygb-sign-head .sign-bd .credit .amount{
+  font-size: 42px;
+  line-height: 1.5;
+  color: #f84747;
+}
+.ygb-sign-head .sign-bd .credit .unit{
+  font-size: 16px;
+}
+.ygb-sign-head .sign-bd .desc{
+  padding: 15px 0;
+  font-size: 18px;
+  line-height: 32px;
+  color: #666;
+  text-align: center;
+}
+.ygb-sign-head .sign-bd .ft-stress{
+  color: #ff3f3f;
+}
+
+.ygb-sign-head .sign-bd .ui-ygb-button-blue{
+  width: auto;
+  height: auto;
+  padding: 10px 30px;
+  letter-spacing: 1px;
+  font-size: 30px;
+}
+.ygb-sign-head .ygb-sign-protol{
+  padding-top: 12px;
+  padding-left: 148px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #afafb5;
+}
+.ygb-sign-content .ui-form{
+  margin-top: 24px;
+  font-weight: normal;
+}
+.ygb-sign-content .ui-form-item{
+  padding: 0 5px 24px 326px;
+  font-family: sans-serif;
+}
+.ygb-sign-content .ui-form-text{
+  font-size: 14px;
+  color: #666;
+  font-weight: normal;
+}
+.ygb-sign-content .ygb-sign-ft{
+  padding-bottom: 10px;
+}
+.ygb-sign-content .ygb-sign-ft .xieyi-read{
+  vertical-align: middle;
+  margin-top: -3px;
+}
+.ygb-sign-content .ygb-sign-ft .xieyi-tip{
+  line-height: 26px;
+  font-size: 12px;
+  color: #999;
+}
+.ygb-sign-content .ygb-sign-ft .remark{
+  line-height: 18px;
+  font-size: 12px;
+  color: #999;
+}
+.ygb-sign-content .ygb-sign-ft .ui-form-item{
+  padding-bottom: 14px;
+}
+.ygb-sign-content .ygb-sign-ft .ui-ygb-button{
+  font-weight: normal;
+  font-size: 18px;
+  width: 126px;
+  height: 41px;
+  line-height: 41px;
+}
+/*sign end*/
+#J_BillInstallment{
+  padding-top: 20px;
+  padding-right: 50px;
+}
+#J_BillInstallment .control-label{
+  font-size: 16px;
+}
+#J_BillInstallment ul{
+  border-top: 1px #ccc solid;
+}
+#J_BillInstallment  .period-row{
+  border: 1px #ccc solid;
+  border-top: none;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 35px;
+  background: #fff;
+  font-size: 14px;
+}
+
+#J_BillInstallment .period-row .ft-light{
+  color: #666666;
+  font-size: 12px;
+}
+#J_BillInstallment  .period-row-selected{
+  background: #f8f8f8;
+}
+#J_BillInstallment  .period-row label{
+  display: inline-block;
+  width: 100%;
+}
+#J_BillInstallment  .period-row input{
+  vertical-align: middle;
+  margin-top: -3px;
+  margin-right: 27px;
+}
+#J_BillInstallment .ui-control-group .period-desc{
+  font-size: 14px;
+  line-height: 28px;
+}
+#J_BillInstallment .bill-installment-amount .unit{
+  font-size: 16px;
+}
+#J_BillInstallment .bill-installment-amount .maxAmount{
+  font-size: 12px;
+  color: #878787;
+  margin-left: 5px;
+}
+#J_BillInstallment .bill-installment-amount .maxAmount .ft-red{
+  margin: 0 3px;
+  color: #ff0000;
+}
+#J_BillInstallment .bill-installment-amount .ft-red{
+  margin: 0 3px;
+  color: #ff0000;
+}
+#J_BillInstallment .bill-installment-amount{
+  margin-bottom: 10px;
+}
+#J_BillInstallment .ui-ygb-button{
+  margin-top: 10px;
+  margin-left: 140px;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  font-size: 28px;
+}
+
+#J_BillInstallment .bill-installment-operate{
+  margin-bottom: 0;
+}
+
+#J_BillInstallment .installment-sub{
+  margin-left: 0;
+}
+#J_BillInstallment .installment-explan{
+  margin-top: 10px;
+  color: #7d7d7d;
+}
+#J_BillInstallment  .editInstallment{
+  margin-left: 10px;
+  font-size: 14px;
+}
+.installment-confirm-box .ui-control-group{
+  margin: 0;
+}
+.installment-confirm-box .ui-control-group .control-label{
+  padding: 10px 0;
+}
+.installment-confirm-box .ui-control-group .controls{
+  margin-left: 110px;
+  padding: 10px 0;
+  padding-left: 10px;
+  line-height: 28px;
+  font-size: 16px;
+  background: #e6f0f7;
+}
+.installment-confirm-box .bill-installment-operate .controls{
+  background: #fff;
+  font-size: 12px;
+}
+.installment-confirm-box .period-tip{
+  font-size: 12px;
+  color: #7d7d7d;
+}
+.installment-confirm-box .J_PeriodAmount{
+  margin: 0 5px;
+  color: #fe6603;
+}
+.installment-confirm-box .separated{
+  margin: 0 3px;
+  color: #7d7d7d;
+}
+
+.ygb-index-head .bill-installment-box{
+  width: 150px;
+  position: absolute;
+  left: 325px;
+  top: 128px;
+  text-align: center;
+}
+.ygb-index-head .bill-installment-box .J_BtnBillInstallment{
+  margin-right: 3px;
+}
+
+/*status start*/
+.ygb-status-content{
+  background: #fff;
+  font-family: 'microsoft yahei';
+}
+.ygb-status-content .ygb-status-bd{
+  margin: 0 auto;
+  width: 990px;
+}
+
+.ygb-status-content .ui-ygb-title{
+  border: none;
+}
+.ygb-status-box{
+  height: 220px;
+  border: 1px #e8e8e8 solid;
+  border-bottom: 2px #f1f1f1 solid;
+}
+.ygb-status-box .bd{
+  height: 160px;
+  padding-left: 240px;
+  padding-top: 60px;
+  border-bottom: 1px #e8e8e8 solid;
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201501/4ADSeBqL81.png) #f5f6f4 left no-repeat;
+  color: #999;
+  font-size: 14px;
+}
+.ygb-status-box .ygb-status-msg-title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+.ygb-status-box .ygb-status-msg-desc{
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #333;
+}
+.ygb-status-success-box .bd{
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201501/4FFSkRM16T.png) #f5f6f4 20px 0 no-repeat;
+}
+.ygb-status-msg-opreat{
+  padding-top: 20px;
+}
+.ygb-status-msg-opreat .ui-ygb-button{
+  margin-right: 20px;
+}
+/*status end*/
+
+/* cancel start*/
+.ygb-cancel-content{
+  font-family: 'microsoft yahei';
+}
+.ygb-cancel-content .ui-ygb-title{
+  border: none;
+}
+.ygb-cancel-index-box{
+  height: 220px;
+  border: 1px #e8e8e8 solid;
+  border-bottom: 2px #f1f1f1 solid;
+}
+.ygb-cancel-index-box .bd{
+  height: 160px;
+  padding-left: 240px;
+  padding-top: 60px;
+  border-bottom: 1px #e8e8e8 solid;
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201501/4ADSeBqL81.png) #f5f6f4 left no-repeat;
+  color: #999;
+}
+.ygb-cancel-index-box .ygb-cancel-msg-title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+.ygb-cancel-msg-opreat{
+  padding: 25px 0 6px 0;
+}
+.ui-ygb-cancel-button{
+  border: 1px #c2c2c2 solid;
+  display: inline-block;
+  border-radius: 6px;
+  height: 32px;
+  line-height: 32px;
+  width: 125px;
+  background: #fcfcfc;
+  color: #818181;
+  text-align: center;
+}
+.ui-ygb-cancel-button-orange{
+  border: 1px #f25804 solid;
+  background: #f25804;
+  color: #fff;
+}
+a.ui-ygb-cancel-button:hover{
+  color: #818181;
+  text-decoration: none;
+  background: #e1e1e1;
+}
+a.ui-ygb-cancel-button-orange:hover{
+  color: #fff;
+  border: 1px #ed6d1f solid;
+  background: #ed6d1f;
+}
+.ygb-cancel-msg-opreat .ui-ygb-cancel-button{
+  font-size: 16px;
+}
+.ui-ygb-cancel-do{
+  margin-left: 25px;
+  text-align: center;
+}
+.ygb-cancel-success-box .icon-box,
+.ygb-cancel-success-box .main-box{
+  display: inline-block;
+}
+.ygb-cancel-success-box .icon-box{
+  vertical-align: top;
+  margin-top: 5px;
+  margin-right: 20px;
+}
+.ygb-cancel-success-box .main-box{
+  text-align: left;
+}
+.ygb-cancel-success-box .bd{
+  background-image: none;
+  font-size: 14px;
+  text-align: center;
+  padding-left: 0;
+  height: 160px;
+  padding-top: 60px;
+}
+.ygb-cancel-success-box .ygb-cancel-msg-title{
+  font-size: 30px;
+  margin-bottom: 3px;
+}
+.icon-cancel-success{
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url(https://i.alipayobjects.com/i/ecmng/png/201501/4AEDqVt7Iz.png) no-repeat;
+}
+
+.ygb-cancel-error-box .bd{
+  background-image: url(https://i.alipayobjects.com/i/ecmng/png/201501/4AERGJqs4r.png);
+  background-position: 20px 0;
+  font-size: 14px;
+  height: 160px;
+  padding: 35px 0 25px 260px;
+}
+.ygb-cancel-error-box .ygb-cancel-msg-title{
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+
+.ygb-offline-box img {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+}
+.ygb-cancel-protocol-box{
+  height: 400px;
+}
+.ygb-cancel-protocol-box .hd{
+  padding: 20px 0 12px 0;
+  border-bottom: 1px #e8e8e8 solid;
+  font-size: 14px;
+  color: #4d4d4d;
+}
+.ygb-cancel-protocol-box .hd .ui-ygb-icon-info{
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.ygb-cancel-protocol-box .bd{
+  background-image: none;
+  font-size: 14px;
+  padding: 0 30px 30px 30px;
+  height: 370px;
+  font-size: 12px;
+  color: #333;
+}
+.ygb-cancel-protocol-box  .main-box{
+  padding-top: 20px;
+  overflow: auto;
+  height: 300px;
+}
+
+.ygb-cancel-protocol-oprate{
+  padding-top: 35px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+.ygb-cancel-protocol-oprate .ui-ygb-cancel-button{
+  font-size: 20px;
+  width: 190px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.ygb-index-head .detail .temp-credit {
+    height: 90px;
+    background-color: #f2f2f2;
+    padding: 0!important;
+    margin-left: -18px;
+    border: none;
+}
+
+.ygb-index-head .temp-credit .inner {
+  float: left;
+  padding: 0  0 0 18px;
+  width: 140px;
+  margin-top: 11px;
+}
+
+.ygb-index-head .temp-credit .temp-detail {
+  border-left: 1px solid #979797;
+  height: 72px;
+  width: 175px;
+  padding-left: 11px;
+}
+
+.ygb-index-head .temp-credit p{
+  margin-bottom: 10px;
+  line-height: 16px;
+  height: 16px;
+  white-space: nowrap;
+}
+.ygb-index-head .temp-credit .temp-where {
+  line-height: 72px;
+  border-left: 1px solid #979797;
+  width: 168px;
+}
+
+.ygb-index-head .temp-credit .head {
+  padding-top: 18px;
+  margin-bottom: 12px;
+}
+.ygb-index-head .temp-credit .icon-11 {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 36px;
+  height: 16px;
+  background: url(https://t.alipayobjects.com/images/rmsweb/T1VHBiXe8jXXXXXXXX.png) 0 0 no-repeat;
+  vertical-align: top;
+}
+.ygb-index-head .temp-credit .highlight {
+  color: #ff6800;
+}
+
+.ui-content .ygb-announcement-box{
+  margin-top: -15px;
+}
+
+.ygb-announcement-box{
+  background-color: #fff391;
+}
+.ygb-announcement-content{
+  width: 990px;
+  margin: 0 auto;
+  color: #f85800;
+}
+
+.ygb-sign-content .ui-securitycore .ui-form-item  {
+	width: 290px;
+	padding: 0 0 15px 148px;
+	text-align: left;
+}
+
+.ygb-sign-content .ui-securitycore .ui-form-item-loading  {
+	padding: 0 0 0 148px;
+}
+
+.ygb-sign-content .ui-securitycore .ui-form-item .ui-form-explain {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.ygb-sign-content .ui-securitycore .ui-form-item-loading .ui-form-explain {
+	width: 170px;
+	margin-top: 10px;
+}
+/* cancel end*/
+
+
+.ui-dialog {
+background-color: rgba(0, 0, 0, 0.5);
+border: none;
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorstr=#880000, endColorstr=#880000);
+padding: 6px;
+outline: none;
+}
+.ui-dialog-content {
+background: #fff;
+}
+:root .ui-dialog {
+filter: none\9;
+}
+.ui-dialog-close {
+color: #999;
+cursor: pointer;
+display: block;
+font-family: tahoma;
+font-size: 24px;
+font-weight: bold;
+height: 18px;
+line-height: 14px;
+position: absolute;
+right: 16px;
+text-decoration: none;
+top: 23px;
+z-index: 10;
+}
+.ui-dialog-close:hover {
+color: #666;
+text-shadow: 0 0 2px #aaa;
+text-decoration: none;
+}
+.ui-dialog-title {
+height: 45px;
+font-size: 16px;
+font-family: tahoma, arial, "Hiragino Sans GB", "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;
+line-height: 46px;
+border-bottom: 1px solid #E1E1E1;
+color: #4d4d4d;
+text-indent: 20px;
+background-color: #f9f9f9;
+background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9));
+background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
+background: -o-linear-gradient(top, #fcfcfc, #f9f9f9);
+background: -ms-linear-gradient(top, #fcfcfc, #f9f9f9);
+background: linear-gradient(top, #fcfcfc, #f9f9f9);
+}
+.ui-dialog-container {
+padding: 15px 20px 20px;
+font-size: 12px;
+}
+.ui-dialog-message {
+margin-bottom: 15px;
+}
+.ui-dialog-operation {
+zoom: 1;
+}
+.ui-dialog-confirm,
+.ui-dialog-cancel {
+display: inline;
+}
+.ui-dialog-operation .ui-dialog-confirm {
+margin-right: 4px;
+}
+.ui-dialog-button-orange,
+.ui-dialog-button-white {
+display: inline-block;
+*display: inline;
+*zoom: 1;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
+cursor: pointer;
+font-size: 12px;
+font-weight: bold;
+border-radius: 2px;
+padding: 0 12px;
+line-height: 23px;
+height: 23px;
+*overflow: visible;
+
+background-image: none;
+}
+a.ui-dialog-button-orange:hover,
+a.ui-dialog-button-white:hover {
+text-decoration: none;
+}
+.ui-dialog-button-orange {
+color: #fff;
+border: 1px solid #d66500;
+background-color: #f57403;
+}
+.ui-dialog-button-orange:hover {
+background-color: #fb8318;
+}
+.ui-dialog-button-white {
+border: 1px solid #afafaf;
+background-color: #f3f3f3;
+color: #777;
+}
+.ui-dialog-button-white:hover {
+border: 1px solid #8e8e8e;
+background-color: #fcfbfb;
+color: #676d70;
+}
+.hb-dialog-title {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  border-bottom: 1px solid #E7E7EB;
+  font-size: 18px;
+}
+.hb-dialog-body {
+  padding-top: 32px;
+  text-align: center;
+}
+.hb-dialog-body .title {
+  font-size: 24px;
+  line-height: 26px;
+  margin-bottom: 8px;
+}
+.hb-dialog-body .info {
+  color: #808080;
+  margin-bottom: 30px;
+}
+.hb-dialog-body .qrcode {
+  display: inline-block;
+  width: 176px;
+  height: 176px;
+  background: #F6F6F6;
+  padding: 12px;
+  margin-right: 20px;
+}
+
+.hb-dialog-body .qrcode img {
+  width: 175px;
+  height: 175px;
+  vertical-align: middle;
+}
+
+.hb-dialog-body .app {
+  display: inline-block;
+  width: 223px;
+  height: 234px;
+  vertical-align: middle;
+}
+
+.hb-dialog-footer {
+  margin-top: 20px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
+
+.hb-dialog-footer .text {
+  color: #1A1A1A;
+}
+.hb-dialog-footer img {
+  display: inline-block;
+  margin-right: 11px;
+  vertical-align: top;
+}

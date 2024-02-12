@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isolate</title>
+    <style>
+        .demo1{
+            height: 100vh;
+            background-color: #369;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .demo2{
+            isolation: isolate;
+            height: 100%;
+            background-color: #396
+        }
+    </style>
+</head>
+<body>
+
+    <div class="demo1"></div>
+    <div class="demo2">
+        <span>hello world</span>
+    </div>
+
+</body>
+</html>

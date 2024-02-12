@@ -1,0 +1,553 @@
+.aliyun-support-1006 .module-wrap .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+}
+.aliyun-support-1006 .module-wrap .clearfix {
+  zoom: 1;
+}
+.aliyun-support-1006 .module-wrap body,
+.aliyun-support-1006 .module-wrap h1,
+.aliyun-support-1006 .module-wrap h2,
+.aliyun-support-1006 .module-wrap h3,
+.aliyun-support-1006 .module-wrap h4,
+.aliyun-support-1006 .module-wrap h5,
+.aliyun-support-1006 .module-wrap h6,
+.aliyun-support-1006 .module-wrap dl,
+.aliyun-support-1006 .module-wrap dd,
+.aliyun-support-1006 .module-wrap ul,
+.aliyun-support-1006 .module-wrap ol,
+.aliyun-support-1006 .module-wrap form,
+.aliyun-support-1006 .module-wrap input,
+.aliyun-support-1006 .module-wrap p,
+.aliyun-support-1006 .module-wrap table,
+.aliyun-support-1006 .module-wrap tr,
+.aliyun-support-1006 .module-wrap td {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+.aliyun-support-1006 .module-wrap li {
+  list-style: none;
+}
+.aliyun-support-1006 .module-wrap img {
+  border: none;
+}
+.aliyun-support-1006 .module-wrap .gold-banner {
+  height: 404px;
+  margin-bottom: 45px;
+  background: #e2edef;
+}
+.aliyun-support-1006 .module-wrap .gold-banner-inner {
+  width: 1200px;
+  margin: 0 auto;
+  background: url(//img.alicdn.com/tps/TB1sOhDNXXXXXaBXXXXXXXXXXXX-1200-572.jpg) no-repeat center;
+}
+.aliyun-support-1006 .module-wrap .gold-top-nav h3 {
+  font-size: 16px;
+  color: #00A2CA;
+  height: 18px;
+  line-height: 18px;
+  font-weight: bold;
+  padding-left: 5px;
+  border-left: 3px solid #00A1CA;
+  float: left;
+}
+.aliyun-support-1006 .module-wrap .gold-top-nav p {
+  float: right;
+}
+.aliyun-support-1006 .module-wrap .gold-top-nav p a {
+  display: inline-block;
+  height: 33px;
+  margin-left: 35px;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+.aliyun-support-1006 .module-wrap .gold-top-nav p a.on {
+  border-bottom: 2px solid #00a2ca;
+  color: #00a2ca;
+}
+.aliyun-support-1006 .module-wrap .gold-top-nav p a:hover {
+  color: #00a2ca;
+}
+.aliyun-support-1006 .module-wrap .gold-banner-info {
+  height: 406px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav {
+  height: 60px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav-fix {
+  position: fixed;
+  top: 0;
+  -webkit-transform: translateZ(0);
+  z-index: 10;
+  width: 1200px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li {
+  width: 19.55%;
+  float: left;
+  margin-left: -1px;
+  border: 1px solid #E2E2E2;
+  background: #F9F8F7;
+  height: 60px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li a {
+  text-decoration: none;
+  display: block;
+  padding-top: 15px;
+  height: 45px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li dl {
+  margin-left: 40px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li dt {
+  font-size: 34px;
+  color: #666;
+  float: left;
+  margin-right: 8px;
+  margin-top: -10px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li dd {
+  font-size: 12px;
+  color: #666;
+  line-height: 16px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li p {
+  font-size: 18px;
+  color: #666;
+  margin-top: 5px;
+  margin-left: 40px;
+}
+.aliyun-support-1006 .module-wrap .gold-middle-nav li.active {
+  background: #FFF;
+  border-top: 2px solid #00A2CA;
+  height: 59px;
+}
+.aliyun-support-1006 .module-wrap .gold-module {
+  height: 580px;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+}
+.aliyun-support-1006 .module-wrap .gold-module-01,
+.aliyun-support-1006 .module-wrap .gold-module-03,
+.aliyun-support-1006 .module-wrap .gold-module-05 {
+  background: #F9F9F9;
+}
+.aliyun-support-1006 .module-wrap .gold-module-02,
+.aliyun-support-1006 .module-wrap .gold-module-04,
+.aliyun-support-1006 .module-wrap .gold-module-06 {
+  background: #FFF;
+}
+.aliyun-support-1006 .module-wrap .icon-gold {
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: -5px;
+  background: url(//gtms02.alicdn.com/tps/i2/TB1ujmLGVXXXXbAXXXX_FQ5SXXX-45-288.png) no-repeat;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-01 {
+  background-position: 0 0;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-02 {
+  background-position: 0 -50px;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-03 {
+  background-position: 0 -100px;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-04 {
+  width: 45px;
+  background-position: 0 -150px;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-05 {
+  width: 45px;
+  background-position: 0 -200px;
+}
+.aliyun-support-1006 .module-wrap .icon-gold-06 {
+  width: 45px;
+  background-position: 0 -250px;
+}
+.aliyun-support-1006 .module-wrap .module-txt h3 {
+  font-size: 36px;
+  line-height: 36px;
+  margin-bottom: 20px;
+}
+.aliyun-support-1006 .module-wrap .module-txt p {
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+.aliyun-support-1006 .module-wrap .font-orange {
+  color: #F90;
+}
+.aliyun-support-1006 .module-wrap a.btn-free {
+  padding: 0 55px;
+  height: 45px;
+  display: inline-block;
+  line-height: 45px;
+  font-size: 18px;
+  color: #FFF;
+  text-decoration: none;
+  border-radius: 5px;
+  background: #00A2CA;
+}
+.aliyun-support-1006 .module-wrap .module-01-img {
+  width: 633px;
+  height: 260px;
+  background: url(//gtms04.alicdn.com/tps/i4/TB19C.gHpXXXXXHXXXXKCp.YpXX-633-260.jpg) no-repeat;
+  margin: 70px auto 0;
+}
+.aliyun-support-1006 .module-wrap .module-02-img {
+  width: 680px;
+  height: 285px;
+  background: url(//gtms04.alicdn.com/tps/i4/TB1MOSBGVXXXXatXVXXFPp8KFXX-680-285.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .module-03-img {
+  width: 680px;
+  height: 285px;
+  background: url(//gtms02.alicdn.com/tps/i2/TB1Z6Z3GpXXXXc6XVXXFPp8KFXX-680-285.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .module-04-img {
+  width: 680px;
+  height: 285px;
+  background: url(//gtms04.alicdn.com/tps/i4/TB1qFCLGVXXXXaiXXXXFPp8KFXX-680-285.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .module-05-img {
+  width: 680px;
+  height: 285px;
+  background: url(//gtms02.alicdn.com/tps/i2/TB1H34GGVXXXXcZXFXXFPp8KFXX-680-285.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .module-06-img {
+  width: 480px;
+  height: 285px;
+  background: url(//gtms04.alicdn.com/tps/i4/TB1ZJKzGVXXXXcJXVXXufTePFXX-480-285.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap a.link-check {
+  font-size: 14px;
+  color: #00A2CA;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+}
+.aliyun-support-1006 .module-wrap .module-02-step {
+  width: 470px;
+  height: 75px;
+  background: url(//gtms01.alicdn.com/tps/i1/TB1rzquGVXXXXbBaXXXBFHoTFXX-470-75.png) no-repeat;
+  margin: 30px auto 0;
+}
+.aliyun-support-1006 .module-wrap .module-03-step {
+  width: 740px;
+  height: 90px;
+  background: url(//gtms04.alicdn.com/tps/i4/TB1n99gHXXXXXbUXFXXeiYt5VXX-745-90.png) no-repeat;
+  margin: 30px auto 0;
+}
+.aliyun-support-1006 .module-wrap .module-04-step {
+  width: 460px;
+  height: 75px;
+  background: url(//gtms01.alicdn.com/tps/i1/TB1DUGtGVXXXXcaaXXXj0JMTXXX-460-75.png) no-repeat;
+  margin: 30px auto 0;
+}
+.aliyun-support-1006 .module-wrap .module-05-step {
+  width: 470px;
+  height: 75px;
+  background: url(//gtms03.alicdn.com/tps/i3/TB10muKGVXXXXcBXXXXBFHoTFXX-470-75.png) no-repeat;
+  margin: 30px auto 0;
+}
+.aliyun-support-1006 .module-wrap .module-06-step {
+  width: 480px;
+  height: 80px;
+  background: url(//gtms01.alicdn.com/tps/i1/TB183qHGVXXXXcdXpXXa0U3UXXX-480-80.png) no-repeat;
+  margin: 30px auto 0;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .gold-module-07 {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.aliyun-support-1006 .module-wrap .appr-tit {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #E5E5E5;
+  height: 20px;
+}
+.aliyun-support-1006 .module-wrap .appr-tit h1 {
+  font-size: 24px;
+  float: left;
+  padding-right: 10px;
+  background: #fff;
+}
+.aliyun-support-1006 .module-wrap .gold-module-07 .module-txt h3 {
+  font-size: 24px;
+  line-height: 24px;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case {
+  width: 100%;
+  margin-top: 35px;
+  margin-bottom: 80px;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case li {
+  float: left;
+  width: 30%;
+  padding-right: 3%;
+  text-align: left;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case li dt {
+  margin-right: 10px;
+  float: left;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case li dd {
+  float: left;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case li dd h3 {
+  font-size: 16px;
+  line-height: 25px;
+  margin-bottom: 5px;
+  color: #000;
+}
+.aliyun-support-1006 .module-wrap .module-appr-case li dd p {
+  font-size: 12px;
+  color: #666;
+  line-height: 20px;
+}
+.aliyun-support-1006 .module-wrap .icon-case-01 {
+  width: 100px;
+  height: 30px;
+  display: inline-block;
+  background: url(//gtms01.alicdn.com/tps/i1/TB1Db2iGVXXXXahXVXXgk_wJVXX-95-30.png) no-repeat;
+}
+.aliyun-support-1006 .module-wrap .icon-case-02 {
+  width: 120px;
+  height: 30px;
+  display: inline-block;
+  background: url(//gtms02.alicdn.com/tps/i2/TB1iDveGVXXXXXWaXXXlZCm_VXX-115-30.png) no-repeat;
+}
+.aliyun-support-1006 .module-wrap .icon-case-03 {
+  width: 80px;
+  height: 30px;
+  display: inline-block;
+  background: url(//gtms03.alicdn.com/tps/i3/TB1FdbeGVXXXXXdaXXXIJchIFXX-75-30.png) no-repeat;
+}
+.aliyun-support-1006 .module-wrap .appr-case {
+  color: #999;
+  line-height: 22px;
+  margin-top: 25px;
+}
+.aliyun-support-1006 .module-wrap .module-02-left {
+  position: absolute;
+  left: 60px;
+  top: 110px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFF;
+}
+.aliyun-support-1006 .module-wrap .module-02-right {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 270px;
+  line-height: 24px;
+  text-align: center;
+}
+.aliyun-support-1006 .module-wrap .space-line {
+  width: 210px;
+  height: 10px;
+  margin: 0 auto;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 2px dotted #999;
+  margin-bottom: 10px;
+}
+.aliyun-support-1006 .module-wrap a.btn-submit {
+  padding: 0 25px;
+  height: 22px;
+  display: inline-block;
+  line-height: 22px;
+  font-size: 12px;
+  color: #00A2CA;
+  text-decoration: none;
+  border-radius: 0px;
+  border: 1px solid #00A2CA;
+  background: #FFF;
+  margin-top: 10px;
+}
+.aliyun-support-1006 .module-wrap .point {
+  width: 3px;
+  height: 3px;
+  display: inline-block;
+  vertical-align: 3px;
+  background: url(//gtms01.alicdn.com/tps/i1/T18ctDFpVBXXaaD1Dr-3-3.png) no-repeat 0 0;
+}
+.aliyun-support-1006 .module-wrap .module-03-left {
+  position: absolute;
+  left: 75px;
+  top: 135px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFF;
+}
+.aliyun-support-1006 .module-wrap .module-03-right {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 270px;
+  line-height: 24px;
+  text-align: center;
+}
+.aliyun-support-1006 .module-wrap .module-04-left {
+  position: absolute;
+  left: 25px;
+  top: 95px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFF;
+}
+.aliyun-support-1006 .module-wrap .module-04-right {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 270px;
+  line-height: 24px;
+  text-align: center;
+}
+.aliyun-support-1006 .module-wrap .module-05-left {
+  position: absolute;
+  left: 40px;
+  top: 126px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFF;
+}
+.aliyun-support-1006 .module-wrap .module-05-right {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 270px;
+  line-height: 24px;
+  text-align: center;
+}
+.aliyun-support-1006 .module-wrap .font-36 {
+  font-size: 36px;
+  line-height: 42px;
+}
+.aliyun-support-1006 .module-wrap .module-06-left {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FFF;
+}
+.aliyun-support-1006 .module-wrap .link-refund {
+  width: 80px;
+  height: 20px;
+  background: #FFF;
+  position: absolute;
+  left: 3px;
+  top: 60px;
+  text-decoration: none;
+  color: #00A2CA;
+}
+.aliyun-support-1006 .module-wrap .box-pop {
+  width: 850px;
+  height: 450px;
+  border: 2px solid #8D8B8B;
+  background: #FFF;
+  padding: 25px;
+  position: fixed;
+  _position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -450px;
+  margin-top: -250px;
+  z-index: 101;
+  display: none;
+}
+.aliyun-support-1006 .module-wrap .box-hd {
+  border-bottom: 2px solid #F4F4F4;
+  padding-bottom: 10px;
+  position: relative;
+}
+.aliyun-support-1006 .module-wrap .box-hd h3 {
+  font-size: 18px;
+  line-height: 22px;
+  color: #333;
+}
+.aliyun-support-1006 .module-wrap .box-bd {
+  padding: 20px 0;
+  line-height: 24px;
+  color: #333;
+  height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.aliyun-support-1006 .module-wrap .box-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.aliyun-support-1006 .module-wrap .box-bd p {
+  font-size: 12px;
+  line-height: 22px;
+  width: 810px;
+}
+.aliyun-support-1006 .module-wrap .close {
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  background: url(//gtms03.alicdn.com/tps/i3/TB1xjA_FVXXXXbkaXXXZBWn.VXX-12-12.png) no-repeat 4px 4px;
+}
+.aliyun-support-1006 .module-wrap .bg-alpha {
+  width: 100%;
+  background: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.50;
+  -khtml-opacity: 0.5;
+  opacity: 0.2;
+  position: absolute;
+  z-index: 100;
+  display: none;
+}
+.aliyun-support-1006 .module-wrap .box-pop-ba-rule,
+.aliyun-support-1006 .module-wrap .box-pop-ba-faq {
+  width: 850px;
+  height: 450px;
+  margin-top: -150px;
+  margin-left: -350px;
+}
+.aliyun-support-1006 .module-wrap .box-pop-ba-rule p,
+.aliyun-support-1006 .module-wrap .box-pop-ba-faq p {
+  width: 590px;
+}
+.aliyun-support-1006 .module-wrap .faq-more {
+  width: 100px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  text-decoration: none;
+}
+.aliyun-support-1006 .module-wrap .icon-gold:before {
+  content: "";
+}

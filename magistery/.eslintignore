@@ -1,0 +1,5 @@
+dist/*.js
+src/assets
+.eslintrc.js
+vue.config.js
+babel.config.js

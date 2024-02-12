@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo1 {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ba5140;
+            background-color: #ef92b5;
+            /* transition: background 1s linear; */
+            animation: zoomInUp infinite 3s linear alternate;
+        }
+
+        @keyframes slideInRight {
+            from {
+                -webkit-transform: translate3d(100%, 0, 0);
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
+                visibility: visible;
+            }
+
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+
+        @keyframes bounceIn {
+
+            from,
+            20%,
+            40%,
+            60%,
+            80%,
+            to {
+                -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+                /* animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); */
+                animation-timing-function: linear
+            }
+
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+            }
+
+            20% {
+                -webkit-transform: scale3d(1.1, 1.1, 1.1);
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+
+            40% {
+                -webkit-transform: scale3d(.9, .9, .9);
+                transform: scale3d(.9, .9, .9);
+            }
+
+            60% {
+                opacity: 1;
+                -webkit-transform: scale3d(1.03, 1.03, 1.03);
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+
+            80% {
+                -webkit-transform: scale3d(.97, .97, .97);
+                transform: scale3d(.97, .97, .97);
+            }
+
+            to {
+                opacity: 1;
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes aw-pulse {
+
+            0%,
+            100% {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+            }
+
+            50% {
+                -webkit-transform: translate3d(0, 10px, 0);
+                transform: translate3d(0, 10px, 0);
+            }
+        }
+
+        @keyframes zoomInUp {
+            from {
+                opacity: 0;
+                /* -webkit-transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0); */
+                transform: scale3d(.1, .1, .1) translate3d(0, 1000px, 0);
+                /* -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); */
+                animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+            }
+
+            60% {
+                opacity: 1;
+                /* -webkit-transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0); */
+                transform: scale3d(.475, .475, .475) translate3d(0, -60px, 0);
+                /* -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1); */
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo1"></div>
+</body>
+
+</html>

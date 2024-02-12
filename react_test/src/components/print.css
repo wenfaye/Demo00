@@ -1,0 +1,30 @@
+@page {
+    size: A4 portrait;
+
+    @right-middle {
+      content: 'right-middle';
+    }
+
+  }
+  /* @page toc {
+    size: a4 portrait;
+    @top-middle {
+      content: "Table of contents";
+    }
+  } */
+  section {
+      page-break-after: always;
+      break-after: page;
+      
+    }
+  .bg-01{
+    background-color: #6d5c3d
+  }
+  .bg-02{
+    background-color: #eaeef1
+  }
+  @media print {
+    section{
+      height: 100vh;
+    }
+  }

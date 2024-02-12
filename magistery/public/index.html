@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=0.7">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>.</title>
+    <% if (process.env.NODE_ENV === 'production') { %>
+    <script type="text/javascript" >
+      var isIntegrated = true;
+      var urlPrefix = '{{.urlPrefix}}';
+      var apiPrefix = '{{urljoin .urlPrefix "api"}}';
+      var dsPrefix = '{{urljoin .urlPrefix "ds"}}';
+      var smpPrefix = '{{urljoin .urlPrefix "s"}}';
+      var restPrefix = '{{urljoin .urlPrefix "rest"}}';
+      var appPrefix = '{{.appPrefix}}';
+      var appTitle = '{{.headerTitleText}}';
+      var footTitle = '{{.footerTitleText}}';
+
+      var params = new URLSearchParams(window.location.search);
+      var defaultAppID = params.get("app");
+      if (!defaultAppID || defaultAppID == '') {
+        if (!!window.location.hash && window.location.hash != '') {
+          var idx = window.location.hash.indexOf('?');
+          if (idx > 0) {
+            params = new URLSearchParams(window.location.hash.substring(idx+1));
+            defaultAppID = params.get('app');
+          }
+        }
+
+        if (!defaultAppID || defaultAppID == '') {
+          defaultAppID = 'default';
+        }
+      }
+
+    </script>
+    <% } else { %>
+    <script type="text/javascript" >
+      var isIntegrated = false;
+      <% if (process.env.VUE_APP_INTEGRATED) { %>
+        isIntegrated = <%= process.env.VUE_APP_INTEGRATED %>;
+      <% } %>
+      var urlPrefix = '<%= process.env.VUE_APP_BASE_URL %>';
+      var apiPrefix = '<%= process.env.VUE_APP_API_URL %>'; // '/hengwei/api'; // {{urljoin .urlPrefix "api"}};
+      var dsPrefix = '<%= process.env.VUE_APP_DS_URL %>'; // '/hengwei/ds'; // {{urljoin .urlPrefix "api"}};
+      var restPrefix = '<%= process.env.VUE_APP_REST_URL %>'; // '/hengwei/rest'; // {{urljoin .urlPrefix "rest"}};
+      var appPrefix = '<%= process.env.VUE_APP_BASE_PREFIX %>'; // '/hengwei/magistery/#'; // {{.appPrefix}};
+      var appTitle = '<%= process.env.VUE_APP_TITLE %>';
+      var footTitle = '<%= process.env.VUE_FOOT_TITLE %>';
+
+      var params = new URLSearchParams(window.location.search);
+      var defaultAppID = params.get("app");
+      if (!defaultAppID || defaultAppID == '') {
+        if (!!window.location.hash && window.location.hash != '') {
+          var idx = window.location.hash.indexOf('?');
+          if (idx > 0) {
+            params = new URLSearchParams(window.location.hash.substring(idx+1));
+            defaultAppID = params.get('app');
+          }
+        }
+
+        if (!defaultAppID || defaultAppID == '') {
+          defaultAppID = 'default';
+        }
+      }
+    </script>
+    <% } %>
+    <script type="text/javascript" src="./config.js" ></script>
+  </head>
+  <body class="fixed-sidebar full-height-layout pace-done">
+    <noscript>
+      <strong>We're sorry but magistery doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+
+    <div id="ajax_loader">
+    </div>
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <link id="themeCss" rel="stylesheet" media="screen" href='{{urljoin .urlPrefix "/web/assets/vendor/stylesheets/chosen.css"}}' />
+      <link id="themeCss" rel="stylesheet" media="screen" href='{{urljoin .urlPrefix "/web/tpt_assets/stylesheets/main_outer.css"}}' />
+      <link id="themeCss" rel="stylesheet" media="screen" href='{{urljoin .urlPrefix "/web/tpt_assets/stylesheets/theme.css"}}' />
+    <% } else { %>
+      <link id="themeCss" rel="stylesheet" media="screen" href="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/stylesheets/chosen.css" />
+      <link id="themeCss" rel="stylesheet" media="screen" href="<%= process.env.VUE_APP_BASE_URL %>/web/tpt_assets/stylesheets/main_outer.css" />
+      <link id="themeCss" rel="stylesheet" media="screen" href="<%= process.env.VUE_APP_BASE_URL %>/web/tpt_assets/stylesheets/theme.css" />
+    <% } %>
+    <!-- built files will be auto injected -->
+    <style type="text/css">
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1040;
+        background-color: #000000;
+      }
+
+      .modal-backdrop.fade {
+        opacity: 0;
+      }
+
+      .modal-backdrop,
+      .modal-backdrop.fade.in {
+        opacity: 0.8;
+        filter: alpha(opacity=80);
+      }
+
+      .modal {
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        z-index: 1050;
+        width: 610px;
+        margin-left: -280px;
+        background-color: #ffffff;
+        border: 1px solid #999;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        *border: 1px solid #999;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+        outline: none;
+        -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+        -webkit-background-clip: padding-box;
+        -moz-background-clip: padding-box;
+        background-clip: padding-box;
+      }
+
+      .modal.fade {
+        top: -25%;
+        -webkit-transition: opacity 0.3s linear, top 0.3s ease-out;
+        -moz-transition: opacity 0.3s linear, top 0.3s ease-out;
+        -o-transition: opacity 0.3s linear, top 0.3s ease-out;
+        transition: opacity 0.3s linear, top 0.3s ease-out;
+      }
+
+      .modal.fade.in {
+        top: 10%;
+      }
+
+      .modal-header {
+        padding: 9px 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .modal-header .close {
+        margin-top: 2px;
+      }
+
+      .modal-header h3 {
+        margin: 0;
+        line-height: 30px;
+      }
+
+      .modal-body {
+        position: relative;
+        max-height: 400px;
+        padding: 15px;
+        overflow-y: auto;
+      }
+
+      .modal-form {
+        margin-bottom: 0;
+      }
+
+      .modal-footer {
+        padding: 14px 15px 15px;
+        margin-bottom: 0;
+        text-align: right;
+        background-color: #f5f5f5;
+        border-top: 1px solid #ddd;
+        -webkit-border-radius: 0 0 6px 6px;
+        -moz-border-radius: 0 0 6px 6px;
+        border-radius: 0 0 6px 6px;
+        *zoom: 1;
+        -webkit-box-shadow: inset 0 1px 0 #ffffff;
+        -moz-box-shadow: inset 0 1px 0 #ffffff;
+        box-shadow: inset 0 1px 0 #ffffff;
+      }
+
+      .modal-footer:before,
+      .modal-footer:after {
+        display: table;
+        line-height: 0;
+        content: "";
+      }
+
+      .modal-footer:after {
+        clear: both;
+      }
+
+      .modal-footer .btn + .btn {
+        margin-bottom: 0;
+        margin-left: 5px;
+      }
+
+      .modal-footer .btn-group .btn + .btn {
+        margin-left: -1px;
+      }
+
+      .modal-footer .btn-block + .btn-block {
+        margin-left: 0;
+      }
+
+      .modal select,
+      .modal textarea,
+      .modal input[type="text"],
+      .modal input[type="password"],
+      .modal input[type="datetime"],
+      .modal input[type="datetime-local"],
+      .modal input[type="date"],
+      .modal input[type="month"],
+      .modal input[type="time"],
+      .modal input[type="week"],
+      .modal input[type="number"],
+      .modal input[type="email"],
+      .modal input[type="url"],
+      .modal input[type="search"],
+      .modal input[type="tel"],
+      .modal input[type="color"],
+      .modal .uneditable-input {
+        display: inline-block;
+        height: 20px;
+        padding: 4px 6px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #555555;
+        vertical-align: middle;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+      }
+
+      .modal textarea,
+      .modal input[type="text"],
+      .modal input[type="password"],
+      .modal input[type="datetime"],
+      .modal input[type="datetime-local"],
+      .modal input[type="date"],
+      .modal input[type="month"],
+      .modal input[type="time"],
+      .modal input[type="week"],
+      .modal input[type="number"],
+      .modal input[type="email"],
+      .modal input[type="url"],
+      .modal input[type="search"],
+      .modal input[type="tel"],
+      .modal input[type="color"],
+      .modal .uneditable-input {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+        -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+        -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+        transition: border linear 0.2s, box-shadow linear 0.2s;
+      }
+
+      .modal textarea {
+        height: auto;
+      }
+
+      .modal .btn {
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+      }
+      .modal .btn:focus,
+      .modal .btn:active:focus,
+      .modal .btn.active:focus,
+      .modal .btn.focus,
+      .modal .btn:active.focus,
+      .modal .btn.active.focus {
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+      }
+      .modal .btn:hover,
+      .modal .btn:focus,
+      .modal .btn.focus {
+        color: #333;
+        text-decoration: none;
+      }
+      .modal .btn:active,
+      .modal .btn.active {
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      }
+      .modal .btn.disabled,
+      .modal .btn[disabled],
+      .modal fieldset[disabled] .btn {
+        cursor: not-allowed;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+      }
+      .modal a.btn.disabled,
+      .modal fieldset[disabled] a.btn {
+        pointer-events: none;
+      }
+      .modal .btn-default {
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+      }
+      .modal .btn-default:focus,
+      .modal .btn-default.focus {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #8c8c8c;
+      }
+      .modal .btn-default:hover {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+      .modal .btn-default:active,
+      .modal .btn-default.active,
+      .modal .open > .dropdown-toggle.btn-default {
+        color: #333;
+        background-color: #e6e6e6;
+        border-color: #adadad;
+      }
+      .modal .btn-default:active:hover,
+      .modal .btn-default.active:hover,
+      .modal .open > .dropdown-toggle.btn-default:hover,
+      .modal .btn-default:active:focus,
+      .modal .btn-default.active:focus,
+      .modal .open > .dropdown-toggle.btn-default:focus,
+      .modal .btn-default:active.focus,
+      .modal .btn-default.active.focus,
+      .modal .open > .dropdown-toggle.btn-default.focus {
+        color: #333;
+        background-color: #d4d4d4;
+        border-color: #8c8c8c;
+      }
+      .modal .btn-default:active,
+      .modal .btn-default.active,
+      .modal .open > .dropdown-toggle.btn-default {
+        background-image: none;
+      }
+      .modal .btn-default.disabled:hover,
+      .modal .btn-default[disabled]:hover,
+      .modal fieldset[disabled] .btn-default:hover,
+      .modal .btn-default.disabled:focus,
+      .modal .btn-default[disabled]:focus,
+      .modal fieldset[disabled] .btn-default:focus,
+      .modal .btn-default.disabled.focus,
+      .modal .btn-default[disabled].focus,
+      .modal fieldset[disabled] .btn-default.focus {
+        background-color: #fff;
+        border-color: #ccc;
+      }
+      .modal .btn-default .badge {
+        color: #fff;
+        background-color: #333;
+      }
+      .modal .btn-primary {
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+      }
+      .modal .btn-primary:focus,
+      .modal .btn-primary.focus {
+        color: #fff;
+        background-color: #286090;
+        border-color: #122b40;
+      }
+      .modal .btn-primary:hover {
+        color: #fff;
+        background-color: #286090;
+        border-color: #204d74;
+      }
+      .modal .btn-primary:active,
+      .modal .btn-primary.active,
+      .modal .open > .dropdown-toggle.btn-primary {
+        color: #fff;
+        background-color: #286090;
+        border-color: #204d74;
+      }
+      .modal .btn-primary:active:hover,
+      .modal .btn-primary.active:hover,
+      .modal .open > .dropdown-toggle.btn-primary:hover,
+      .modal .btn-primary:active:focus,
+      .modal .btn-primary.active:focus,
+      .modal .open > .dropdown-toggle.btn-primary:focus,
+      .modal .btn-primary:active.focus,
+      .modal .btn-primary.active.focus,
+      .modal .open > .dropdown-toggle.btn-primary.focus {
+        color: #fff;
+        background-color: #204d74;
+        border-color: #122b40;
+      }
+      .modal .btn-primary:active,
+      .modal .btn-primary.active,
+      .modal .open > .dropdown-toggle.btn-primary {
+        background-image: none;
+      }
+      .modal .btn-primary.disabled:hover,
+      .modal .btn-primary[disabled]:hover,
+      .modal fieldset[disabled] .btn-primary:hover,
+      .modal .btn-primary.disabled:focus,
+      .modal .btn-primary[disabled]:focus,
+      .modal fieldset[disabled] .btn-primary:focus,
+      .modal .btn-primary.disabled.focus,
+      .modal .btn-primary[disabled].focus,
+      .modal fieldset[disabled] .btn-primary.focus {
+        background-color: #337ab7;
+        border-color: #2e6da4;
+      }
+      .modal .btn-primary .badge {
+        color: #337ab7;
+        background-color: #fff;
+      }
+      .modal .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+      }
+      .modal .btn-success:focus,
+      .modal .btn-success.focus {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #255625;
+      }
+      .modal .btn-success:hover {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #398439;
+      }
+      .modal .btn-success:active,
+      .modal .btn-success.active,
+      .modal .open > .dropdown-toggle.btn-success {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #398439;
+      }
+      .modal .btn-success:active:hover,
+      .modal .btn-success.active:hover,
+      .modal .open > .dropdown-toggle.btn-success:hover,
+      .modal .btn-success:active:focus,
+      .modal .btn-success.active:focus,
+      .modal .open > .dropdown-toggle.btn-success:focus,
+      .modal .btn-success:active.focus,
+      .modal .btn-success.active.focus,
+      .modal .open > .dropdown-toggle.btn-success.focus {
+        color: #fff;
+        background-color: #398439;
+        border-color: #255625;
+      }
+      .modal .btn-success:active,
+      .modal .btn-success.active,
+      .modal .open > .dropdown-toggle.btn-success {
+        background-image: none;
+      }
+      .modal .btn-success.disabled:hover,
+      .modal .btn-success[disabled]:hover,
+      .modal fieldset[disabled] .btn-success:hover,
+      .modal .btn-success.disabled:focus,
+      .modal .btn-success[disabled]:focus,
+      .modal fieldset[disabled] .btn-success:focus,
+      .modal .btn-success.disabled.focus,
+      .modal .btn-success[disabled].focus,
+      .modal fieldset[disabled] .btn-success.focus {
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+      }
+      .modal .btn-success .badge {
+        color: #5cb85c;
+        background-color: #fff;
+      }
+      .modal .btn-info {
+        color: #fff;
+        background-color: #5bc0de;
+        border-color: #46b8da;
+      }
+      .modal .btn-info:focus,
+      .modal .btn-info.focus {
+        color: #fff;
+        background-color: #31b0d5;
+        border-color: #1b6d85;
+      }
+      .modal .btn-info:hover {
+        color: #fff;
+        background-color: #31b0d5;
+        border-color: #269abc;
+      }
+      .modal .btn-info:active,
+      .modal .btn-info.active,
+      .modal .open > .dropdown-toggle.btn-info {
+        color: #fff;
+        background-color: #31b0d5;
+        border-color: #269abc;
+      }
+      .modal .btn-info:active:hover,
+      .modal .btn-info.active:hover,
+      .modal .open > .dropdown-toggle.btn-info:hover,
+      .modal .btn-info:active:focus,
+      .modal .btn-info.active:focus,
+      .modal .open > .dropdown-toggle.btn-info:focus,
+      .modal .btn-info:active.focus,
+      .modal .btn-info.active.focus,
+      .modal .open > .dropdown-toggle.btn-info.focus {
+        color: #fff;
+        background-color: #269abc;
+        border-color: #1b6d85;
+      }
+      .modal .btn-info:active,
+      .modal .btn-info.active,
+      .modal .open > .dropdown-toggle.btn-info {
+        background-image: none;
+      }
+      .modal .btn-info.disabled:hover,
+      .modal .btn-info[disabled]:hover,
+      .modal fieldset[disabled] .btn-info:hover,
+      .modal .btn-info.disabled:focus,
+      .modal .btn-info[disabled]:focus,
+      .modal fieldset[disabled] .btn-info:focus,
+      .modal .btn-info.disabled.focus,
+      .modal .btn-info[disabled].focus,
+      .modal fieldset[disabled] .btn-info.focus {
+        background-color: #5bc0de;
+        border-color: #46b8da;
+      }
+      .modal .btn-info .badge {
+        color: #5bc0de;
+        background-color: #fff;
+      }
+      .modal .btn-warning {
+        color: #fff;
+        background-color: #f0ad4e;
+        border-color: #eea236;
+      }
+      .modal .btn-warning:focus,
+      .modal .btn-warning.focus {
+        color: #fff;
+        background-color: #ec971f;
+        border-color: #985f0d;
+      }
+      .modal .btn-warning:hover {
+        color: #fff;
+        background-color: #ec971f;
+        border-color: #d58512;
+      }
+      .modal .btn-warning:active,
+      .modal .btn-warning.active,
+      .modal .open > .dropdown-toggle.btn-warning {
+        color: #fff;
+        background-color: #ec971f;
+        border-color: #d58512;
+      }
+      .modal .btn-warning:active:hover,
+      .modal .btn-warning.active:hover,
+      .modal .open > .dropdown-toggle.btn-warning:hover,
+      .modal .btn-warning:active:focus,
+      .modal .btn-warning.active:focus,
+      .modal .open > .dropdown-toggle.btn-warning:focus,
+      .modal .btn-warning:active.focus,
+      .modal .btn-warning.active.focus,
+      .modal .open > .dropdown-toggle.btn-warning.focus {
+        color: #fff;
+        background-color: #d58512;
+        border-color: #985f0d;
+      }
+      .modal .btn-warning:active,
+      .modal .btn-warning.active,
+      .modal .open > .dropdown-toggle.btn-warning {
+        background-image: none;
+      }
+      .modal .btn-warning.disabled:hover,
+      .modal .btn-warning[disabled]:hover,
+      .modal fieldset[disabled] .btn-warning:hover,
+      .modal .btn-warning.disabled:focus,
+      .modal .btn-warning[disabled]:focus,
+      .modal fieldset[disabled] .btn-warning:focus,
+      .modal .btn-warning.disabled.focus,
+      .modal .btn-warning[disabled].focus,
+      .modal fieldset[disabled] .btn-warning.focus {
+        background-color: #f0ad4e;
+        border-color: #eea236;
+      }
+      .modal .btn-warning .badge {
+        color: #f0ad4e;
+        background-color: #fff;
+      }
+      .modal .btn-danger {
+        color: #fff;
+        background-color: #d9534f;
+        border-color: #d43f3a;
+      }
+      .modal .btn-danger:focus,
+      .modal .btn-danger.focus {
+        color: #fff;
+        background-color: #c9302c;
+        border-color: #761c19;
+      }
+      .modal .btn-danger:hover {
+        color: #fff;
+        background-color: #c9302c;
+        border-color: #ac2925;
+      }
+      .modal .btn-danger:active,
+      .modal .btn-danger.active,
+      .modal .open > .dropdown-toggle.btn-danger {
+        color: #fff;
+        background-color: #c9302c;
+        border-color: #ac2925;
+      }
+      .modal .btn-danger:active:hover,
+      .modal .btn-danger.active:hover,
+      .modal .open > .dropdown-toggle.btn-danger:hover,
+      .modal .btn-danger:active:focus,
+      .modal .btn-danger.active:focus,
+      .modal .open > .dropdown-toggle.btn-danger:focus,
+      .modal .btn-danger:active.focus,
+      .modal .btn-danger.active.focus,
+      .modal .open > .dropdown-toggle.btn-danger.focus {
+        color: #fff;
+        background-color: #ac2925;
+        border-color: #761c19;
+      }
+      .modal .btn-danger:active,
+      .modal .btn-danger.active,
+      .modal .open > .dropdown-toggle.btn-danger {
+        background-image: none;
+      }
+      .modal .btn-danger.disabled:hover,
+      .modal .btn-danger[disabled]:hover,
+      .modal fieldset[disabled] .btn-danger:hover,
+      .modal .btn-danger.disabled:focus,
+      .modal .btn-danger[disabled]:focus,
+      .modal fieldset[disabled] .btn-danger:focus,
+      .modal .btn-danger.disabled.focus,
+      .modal .btn-danger[disabled].focus,
+      .modal fieldset[disabled] .btn-danger.focus {
+        background-color: #d9534f;
+        border-color: #d43f3a;
+      }
+      .modal .btn-danger .badge {
+        color: #d9534f;
+        background-color: #fff;
+      }
+      .modal .btn-link {
+        font-weight: normal;
+        color: #337ab7;
+        border-radius: 0;
+      }
+      .modal .btn-link,
+      .modal .btn-link:active,
+      .modal .btn-link.active,
+      .modal .btn-link[disabled],
+      .modal fieldset[disabled] .btn-link {
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+      .modal .btn-link,
+      .modal .btn-link:hover,
+      .modal .btn-link:focus,
+      .modal .btn-link:active {
+        border-color: transparent;
+      }
+      .modal .btn-link:hover,
+      .modal .btn-link:focus {
+        color: #23527c;
+        text-decoration: underline;
+        background-color: transparent;
+      }
+      .modal .btn-link[disabled]:hover,
+      .modal fieldset[disabled] .btn-link:hover,
+      .modal .btn-link[disabled]:focus,
+      .modal fieldset[disabled] .btn-link:focus {
+        color: #777;
+        text-decoration: none;
+      }
+      .modal .btn-lg,
+      .modal .btn-group-lg > .btn {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+      }
+      .modal .btn-sm,
+      .modal .btn-group-sm > .btn {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+      }
+      .modal .btn-xs,
+      .modal .btn-group-xs > .btn {
+        padding: 1px 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+      }
+      .modal .btn-block {
+        display: block;
+        width: 100%;
+      }
+      .modal .btn-block + .btn-block {
+        margin-top: 5px;
+      }
+      .modal input[type="submit"].btn-block,
+      .modal input[type="reset"].btn-block,
+      .modal input[type="button"].btn-block {
+        width: 100%;
+      }
+
+      .modal .close {
+        float: right;
+        font-size: 21px;
+        font-weight: bold;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        filter: alpha(opacity=20);
+        opacity: .2;
+      }
+      .modal .close:hover,
+      .modal .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        filter: alpha(opacity=50);
+        opacity: .5;
+      }
+
+      .modal button.close {
+        -webkit-appearance: none;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+      }
+
+      .modal {
+        top: 2%;
+        margin-top: 30px;
+      }
+
+      .modal.down-once {
+        top: 10%;
+      }
+
+      .modal.down-double {
+        top: 20%;
+      }
+
+      .modal.big {
+        width: 700px;
+        margin-left: -430px;
+      }
+
+      .modal.large {
+        width: 860px;
+        margin-left: -430px;
+      }
+
+      .modal.xlarge {
+        width: 1010px;
+        margin-left: -510px;
+      }
+
+      .modal.xlarge-width {
+        width: 990px;
+        margin-left: -495px;
+      }
+
+      .modal.xlarge .modal-body {
+        min-height: 380px;
+      }
+
+      .modal.xxxlHeight .modal-body {
+        min-height: 500px;
+      }
+
+      .modal.xxlHeight .modal-body {
+        min-height: 450px;
+      }
+
+      .modal.xlHeight .modal-body {
+        min-height: 400px;
+      }
+
+      .modal.lHeight .modal-body {
+        min-height: 350px;
+      }
+
+      .modal.mHeight .modal-body {
+        min-height: 300px;
+      }
+
+      .modal.mmHeight .modal-body {
+        min-height: 250px;
+      }
+
+      .modal.mmmHeight .modal-body {
+        min-height: 200px;
+      }
+
+      .modal.xxlarge {
+        width: 1180px;
+        margin-left: -590px;
+      }
+
+      .modal-header h3 {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .modal-header h1,
+      .modal-header h2,
+      .modal-header h3,
+      .modal-header h4,
+      .modal-header h5,
+      .modal-header h6 {
+        margin-bottom: 0;
+      }
+
+    </style>
+    <script type="text/javascript">
+      document.getElementById("themeCss").href = document.getElementById("themeCss").href + "?timestamp=" + new Date();
+
+      if (window.screen.width <= 1280) {
+        document.body.style.zoom = '0.7';
+        // if (navigator.userAgent.includes('Firefox/')) {
+        //     document.body.style['transform-origin'] = 'left top';
+        //     document.body.style['-moz-transform'] = 'scale(1.3)';
+        // }
+      }
+    </script>
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/jquery.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/jquery-ui.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/bootstrap.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/stupid_table.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/plugins/jquery.chosen.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/vendor/javascripts/plugins/jquery.blockUI.js"}}' ></script>
+      <script type="text/javascript" src='{{urljoin .urlPrefix "/web/assets/javascripts/app.js"}}' ></script>
+    <% } else { %>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/jquery.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/jquery-ui.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/bootstrap.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/stupid_table.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/plugins/jquery.chosen.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/vendor/javascripts/plugins/jquery.blockUI.js" ></script>
+      <script type="text/javascript" src="<%= process.env.VUE_APP_BASE_URL %>/web/assets/javascripts/app.js" ></script>
+    <% } %>
+  
+    <script type="text/javascript">
+      $(document.body).delegate("#side-menu li.el-menu-item > a", "click", function(event){
+        if($(this).find("> i.show-remote").length > 0) {
+          var url = $(this).attr("href");
+          DialogUtils.show(url);
+          event.preventDefault();
+          return false;
+        }
+
+        if($(this).find("> i.open-window").length > 0) {
+          var url = $(this).attr("href");
+          event.preventDefault();
+          App.openWindow(url);
+          return false;
+        }
+      });
+    </script>
+  </body>
+</html>

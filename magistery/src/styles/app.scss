@@ -1,0 +1,79 @@
+.wrapper-content {
+    padding: 0 0 0 0;
+    position:absolute;
+    left:0;
+    top:62px;
+    right:0;
+    bottom:39px;
+}
+
+.view-wrap {
+    background-color:#f1f1f1;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:0;
+    padding: 15px 10px;
+    overflow: auto;
+}
+
+.panel-shadow{
+    border-radius: 4px !important;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.01), 0px 2px 3px 0px rgba(0, 0, 0, 0.01), 0px 1px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.panel-shadow2{
+    border-radius: 4px !important;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.2), 0px 2px 3px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.panel-shadow3{
+    border-radius: 4px !important;
+    box-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.18), 0px 2px 3px 0px rgba(0, 0, 0, 0.32), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color:inherit;
+}
+
+.view-header {
+    border-bottom: solid 1px #e3e3e3;
+    padding: 5px 20px;
+    height:50px;
+}
+
+.view-header > .title {
+    display:inline-block;
+    font-size:20px;
+    font-weight: normal;
+    height:35px;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-left: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.view-header > .tools {
+    padding-top: 3px;
+    float:right;
+    position:relative;
+    width: calc(100% - 200px);
+    text-align: right;
+}
+
+.view-content {
+    position:absolute;
+    top:50px;
+    bottom:0;
+    left:0;
+    right:0;
+    padding: 10px 10px 10px 10px;
+}
+
+.el-card-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
