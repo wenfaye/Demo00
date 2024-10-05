@@ -8,8 +8,8 @@ export function getRoutes() {
   const routes = [
   {
     "path": "/",
-    "component": require('@/pages/index').default,
-    "exact": true
+    "exact": true,
+    "component": require('@/pages/index.tsx').default
   }
 ];
 
