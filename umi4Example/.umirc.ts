@@ -1,11 +1,37 @@
-import { defineConfig } from "umi";
+import { defineConfig } from '@umijs/max';
 import routes from './config/router'
 
 export default defineConfig({
-  // routes: [
-  //   { path: "/", component: "index" },
-  //   { path: "/docs", component: "docs" },
-  // ],
-  routes,
+  antd: {},
+  access: {},
+  model: {},
+  initialState: {},
+  request: {},
+  layout: {
+    title: '@umijs/max',
+  },
+  routes: [
+    {
+      path: '/',
+      redirect: '/home',
+    },
+    {
+      name: '首页',
+      path: '/home',
+      component: './Home',
+    },
+    {
+      name: '权限演示',
+      path: '/access',
+      component: './Access',
+    },
+    {
+      name: ' CRUD 示例',
+      path: '/table',
+      component: './Table',
+    },
+    ...routes
+  ],
   npmClient: 'yarn',
 });
+
