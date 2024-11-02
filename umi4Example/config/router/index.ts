@@ -4,10 +4,10 @@
 import CSSworld from './CSSworld/index.route'
 
 const routes = [
-    {
-		path: '/',
-		redirect: '/home',
-	},
+    // {
+	// 	path: '/',
+	// 	redirect: '/home',
+	// },
     // {
     //     path: '/home',
 	// 	title: 'menu.home',

@@ -21,6 +21,7 @@ export default function ColorLevel4() {
     setVal(val+1)
   }
   
+  console.log(FOO, 'bar')
 
   return (
     <>
