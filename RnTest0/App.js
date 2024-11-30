@@ -9,7 +9,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import Example from './components/Temp0'
+// import Example from './components/Temp0'
 // import Example from './components/KeyboardDemo'
 // import MyWeb from './components/MyWeb'
 // import {withLoading} from './components/hoc/hoc'
@@ -26,7 +26,7 @@ import Example from './components/Temp0'
 // import StatusBarDemo from './components/StatusBarDemo'
 // import Demo0 from './components/ComponentDemo0'
 // import Demo0 from './components/ApiDemo'
-// import Example from './componentDemo0/ActivityIndicatorDemo'
+import Example from './componentDemo0/ActivityIndicatorDemo'
 // import UseMemoDemo from './componentDemo0/UseMemoDemo'
 // import SafeAreaViewDemo from './componentDemo0/SafeAreaViewDemo'
 // import RefreshControlDemo from './componentDemo0/RefreshControlDemo'

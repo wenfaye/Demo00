@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { scale } from '../utils'
 
 const Temp0 = () => {
   return (
@@ -14,7 +15,9 @@ export default Temp0
 
 const styles = StyleSheet.create({
   container: {
-    height: 100
+    height: 375 * scale,
+    flexDirection: 'row',
+    
   },
   view1: {
     flex: 1,
@@ -23,5 +26,6 @@ const styles = StyleSheet.create({
   view2: {
     flex: 2,
     backgroundColor: '#888',
+    
   }
 })
