@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "ahooks": "^3.8.4",
     "react": "18.2.0",
     "react-native": "0.71.8"
   },
