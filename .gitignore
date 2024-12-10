@@ -1,3 +1,4 @@
+*/node_modules
 收藏
 antd-demo-ts
 magistery
@@ -11,7 +12,7 @@ STM部署程序V6.8
 ui
 sinochem-web
 umi3Example
-umi4Example/node_modules
+#umi4Example/node_modules
 vite_test
 vue2_test
 vue3_test
