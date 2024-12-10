@@ -11,7 +11,7 @@ STM部署程序V6.8
 ui
 sinochem-web
 umi3Example
-umi4Example
+# umi4Example
 vite_test
 vue2_test
 vue3_test

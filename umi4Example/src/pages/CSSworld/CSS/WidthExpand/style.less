@@ -1,0 +1,19 @@
+.scroller {
+    height: 200px;
+    border: 1px solid;
+    overflow: auto;
+    scroll-timeline: --indicator;
+}
+.scroller ins {
+    display: block;
+    border-top: solid green;
+    animation-name: widthExpand;
+    animation-duration: 1ms; /* Firefox需要设置这个*/
+    animation-timeline: --indicator;
+    position: sticky;
+    top: 0;
+}
+@keyframes widthExpand {
+    from { width: 0%; }    
+    to { width: 100%; }
+}
