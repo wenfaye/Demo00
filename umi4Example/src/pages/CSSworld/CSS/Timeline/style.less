@@ -1,0 +1,29 @@
+.temp{
+    height: 400px;
+}
+// .scroller {
+//     height: 200px;
+//     max-width: 380px;
+//     border: 1px solid;
+//     overflow: auto;
+//     img {
+//         max-width: 100%;
+//         animation: 1ms scaleUp both, 1ms fadeIn both;
+//         animation-timeline: --scaleFade;
+//         view-timeline: --scaleFade;
+//     }
+// }
+img {
+    max-width: 100%;
+    animation: 1ms scaleUp both, 1ms fadeIn both;
+    animation-timeline: --scaleFade;
+    view-timeline: --scaleFade;
+}
+@keyframes scaleUp {
+    from { transform: scale(0); }    
+    to { transform: scale(1); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }    
+    to { opacity: 1; }
+}
