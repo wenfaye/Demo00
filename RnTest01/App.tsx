@@ -25,8 +25,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 // import Example from './APIs/AnimatedExample'
-// import Example from './src/components/StyleExample'
-import Example from './src/components/ahooks/Example01'
+import Example from './src/components/StyleExample'
+// import Example from './src/components/ahooks/Example01'
 
 
 type SectionProps = PropsWithChildren<{

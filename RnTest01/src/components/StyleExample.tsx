@@ -19,15 +19,17 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#1a1e25',
-        // alignItems: 'center',
-        // justifyContent: 'center',
         // flexDirection: 'column',
         flexDirection: 'row',
+        
+        // alignItems: 'center',
+        // justifyContent: 'center',
+
     },
     aContainer: {
         backgroundColor: '#fff',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center',        
         // width: 100,
         // height: 100,
         // padding: 10,
@@ -35,12 +37,14 @@ const styles = StyleSheet.create({
     bContainer: {
         backgroundColor: '#eeb7ff1a',
         flex: 1,
+
         // width: '100%',
         // height: '50%',
     },
     cContainer: {
         backgroundColor: 'rgba(59,130,246,.5)',
         flex: 2,
+
         // width: '100%',
         // height: '50%',
     },
