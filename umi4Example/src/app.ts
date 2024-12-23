@@ -15,6 +15,10 @@ export const layout: RunTimeLayoutConfig = (initialState) => {
     title:'macbook',
     headerRender:()=>CustomHeader(),
     footerRender:()=>GlobalFooter(),
+        // 自定义 403 页面
+        // unAccessible: <div>'unAccessible'</div>,
+    // 支持顶栏
+    headerHeight: 148,
     menu: {
       locale: false,
     },

@@ -19,8 +19,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#1a1e25',
-        // flexDirection: 'column',
-        flexDirection: 'row',
+        flexDirection: 'column',
+        // flexDirection: 'row',
         
         // alignItems: 'center',
         // justifyContent: 'center',
