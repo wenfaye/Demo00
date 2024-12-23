@@ -11,7 +11,6 @@ import {
   Text,
   View
 } from 'react-native';
-import RootNavigator from './src/navigation/RootNavigator'
 
 export default class RnTest02 extends Component {
   render() {
